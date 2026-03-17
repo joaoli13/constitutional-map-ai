@@ -1,0 +1,8 @@
+{
+  "include": ["src", "scripts", "tests"],
+  "exclude": ["**/__pycache__"],
+  "pythonVersion": "3.11",
+  "typeCheckingMode": "standard",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false
+}
