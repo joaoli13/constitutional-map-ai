@@ -1,0 +1,178 @@
+[
+  {
+    "id": "NAM_2014_1_All_persons_shall_be_equal_before_the_law",
+    "article_id": "1. All persons shall be equal before the law.",
+    "text_snippet": "2. No persons may be discriminated against on the grounds of sex, race, colour, ethnic origin, religion, creed or social or economic status. Article 11. Arrest and Detention",
+    "x": 11.650677680969238,
+    "y": 3.2422616481781006,
+    "z": 12.498071670532227,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 0.061388127505779266
+  },
+  {
+    "id": "NAM_2014_1_All_persons_shall_have_the_right_to_education",
+    "article_id": "1. All persons shall have the right to education.",
+    "text_snippet": "2. Primary education shall be compulsory and the State shall provide reasonable facilities to render effective this right for every resident within Namibia, by establishing and maintaining State schoo",
+    "x": 11.953975677490234,
+    "y": 3.1145312786102295,
+    "z": 12.268555641174316,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 0.7517345547676086
+  },
+  {
+    "id": "NAM_2014_1_No_persons_shall_be_subject_to_arbitrary_arrest_or_detention",
+    "article_id": "1. No persons shall be subject to arbitrary arrest or detention.",
+    "text_snippet": "2. No persons who are arrested shall be detained in custody without being informed promptly in a language they understand of the grounds for such arrest. 3. All persons who are arrested and detained i",
+    "x": 11.92762279510498,
+    "y": 3.1412107944488525,
+    "z": 12.305602073669434,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 0.4809967875480652
+  },
+  {
+    "id": "NAM_2014_1_The_dignity_of_all_persons_shall_be_inviolable",
+    "article_id": "1. The dignity of all persons shall be inviolable.",
+    "text_snippet": "2 a. In any judicial proceedings or in other proceedings before any organ of the State, and during the enforcement of a penalty, respect for human dignity shall be guaranteed. b. No persons shall be s",
+    "x": 11.583514213562012,
+    "y": 3.342040777206421,
+    "z": 12.582141876220703,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 0.0470520481467247
+  },
+  {
+    "id": "NAM_2014_1_The_official_language_of_Namibia_shall_be_English",
+    "article_id": "1. The official language of Namibia shall be English.",
+    "text_snippet": "2. Nothing contained in this Constitution shall prohibit the use of any other language as a medium of instruction in private schools or in schools financed or subsidised by the State, subject to compl",
+    "x": 11.952043533325195,
+    "y": 3.1092636585235596,
+    "z": 12.262389183044434,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_2_No_persons_shall_be_required_to_perform_forced_labour",
+    "article_id": "2. No persons shall be required to perform forced labour.",
+    "text_snippet": "3. For the purposes of this Article, the expression \"forced labour\" shall not include: any labour required in consequence of a sentence or order of a Court; any labour required of persons while lawful",
+    "x": 10.617267608642578,
+    "y": 4.22627592086792,
+    "z": 11.805802345275879,
+    "global_cluster": 159,
+    "country_cluster": -1,
+    "cluster_probability": 0.15049110352993011
+  },
+  {
+    "id": "NAM_2014_2_Regional_Governors_shall_serve_at_the_pleasure_of_the_President",
+    "article_id": "2. Regional Governors shall serve at the pleasure of the President.",
+    "text_snippet": "3. Subject to this Constitution or any other law, a Regional Governor shall oversee the exercise of any executive function of Government in the region for which he or she is the Regional Governor, and",
+    "x": 11.965559959411621,
+    "y": 3.102248430252075,
+    "z": 12.253357887268066,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_2_The_National_Council_shall_then_elect_another_member_as_Vice_Chairperson",
+    "article_id": "2. The National Council shall then elect another member as Vice-Chairperson.",
+    "text_snippet": "3. Subject to Sub-Article (4), the Chairperson, or in his or her absence the Vice-Chairperson, shall preside over sessions of the National Council. 4. If neither the Chairperson nor the Vice-Chairpers",
+    "x": 11.984143257141113,
+    "y": 3.1121835708618164,
+    "z": 12.251623153686523,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_2_The_Public_Service_Commission_shall_be_independent_and_act_impartially",
+    "article_id": "2. The Public Service Commission shall be independent and act impartially.",
+    "text_snippet": "3. The Public Service Commission shall consist of a Chairperson and no fewer than three (3) and no more than six (6) other persons nominated by the President and appointed by the National Assembly by",
+    "x": 11.967060089111328,
+    "y": 3.1019287109375,
+    "z": 12.247488021850586,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_3_A_person_shall_hold_office_as_President_for_not_more_than_two_terms_p1",
+    "article_id": "3. A person shall hold office as President for not more than two terms..p1",
+    "text_snippet": "4. If a President dies, resigns or is removed from office in terms of this Constitution, the vacant office of President shall be filled for the unexpired period thereof as follows: if the vacancy occu",
+    "x": 11.963384628295898,
+    "y": 3.0982041358947754,
+    "z": 12.24495792388916,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_3_A_person_shall_hold_office_as_President_for_not_more_than_two_terms_p2",
+    "article_id": "3. A person shall hold office as President for not more than two terms..p2",
+    "text_snippet": "2. The National Assembly shall further have the power and function, subject to this Constitution: to approve budgets for the effective government and administration of the country; to provide for reve",
+    "x": 11.962447166442871,
+    "y": 3.102001667022705,
+    "z": 12.248575210571289,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 0.789414644241333
+  },
+  {
+    "id": "NAM_2014_3_The_Anti_Corruption_Commission_shall_be_an_independent_and_impartial_body",
+    "article_id": "3. The Anti-Corruption Commission shall be an independent and impartial body.",
+    "text_snippet": "4. The Anti-Corruption Commission shall consist of a Director-General, a Deputy Director-General and other staff members of the Commission. 5. The National Assembly shall appoint the Director-General",
+    "x": 11.968748092651367,
+    "y": 3.1053075790405273,
+    "z": 12.24909782409668,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_3_The_Auditor_General_shall_not_be_a_member_of_the_public_service",
+    "article_id": "3. The Auditor-General shall not be a member of the public service.",
+    "text_snippet": "4. The Auditor-General shall not be removed from office unless a two-thirds majority of all the members of the National Assembly vote for such removal on the ground of mental incapacity or gross misco",
+    "x": 11.96718978881836,
+    "y": 3.102015495300293,
+    "z": 12.248966217041016,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_5_A_quorum_at_a_meeting_of_the_Judicial_Service_Commission_shall_be_three_members",
+    "article_id": "5. A quorum at a meeting of the Judicial Service Commission shall be three members.",
+    "text_snippet": "Article 86. The Attorney-General There shall be an Attorney-General appointed by the President in accordance with the provisions of Article 32(3)(i)(cc) hereof. Article 87. Powers and Functions of the",
+    "x": 11.959835052490234,
+    "y": 3.0912156105041504,
+    "z": 12.243210792541504,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_5_Windhoek_shall_be_the_seat_of_central_Government",
+    "article_id": "5. Windhoek shall be the seat of central Government.",
+    "text_snippet": "Preamble Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is indispensable for freedom, justice and peace; Whereas the said rights",
+    "x": 11.955439567565918,
+    "y": 3.106748104095459,
+    "z": 12.25931167602539,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "NAM_2014_6_This_Constitution_shall_be_the_Supreme_Law_of_Namibia",
+    "article_id": "6. This Constitution shall be the Supreme Law of Namibia.",
+    "text_snippet": "Article 2. National Symbols 1. Namibia shall have a National Flag, the description of which is set out in Schedule 6 hereof. 2. Namibia shall have a National Coat of Arms, a National Anthem and a Nati",
+    "x": 11.950684547424316,
+    "y": 3.1056437492370605,
+    "z": 12.264307975769043,
+    "global_cluster": 56,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  }
+]

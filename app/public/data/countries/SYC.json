@@ -1,0 +1,233 @@
+[
+  {
+    "id": "SYC_2017_1_Every_person_has_a_right_not_to_be_held_in_slavery_or_bondage",
+    "article_id": "1. Every person has a right not to be held in slavery or bondage.",
+    "text_snippet": "2. Every person has a right not to be compelled to perform forced or compulsory labour. 3. Labour forced or compelled to be performed pursuant to a law necessary in a democratic society does not infri",
+    "x": 10.710470199584961,
+    "y": 4.2936530113220215,
+    "z": 12.192399978637695,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "SYC_2017_1_Every_person_has_a_right_to_liberty_and_security_of_the_person_p1",
+    "article_id": "1. Every person has a right to liberty and security of the person..p1",
+    "text_snippet": "2. The restriction, in accordance with fair procedures established by law, of the right under clause (1) in the following cases shall not be treated as an infringement of clause (1)- the arrest or det",
+    "x": 11.036890983581543,
+    "y": 4.3874030113220215,
+    "z": 12.852656364440918,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "SYC_2017_1_Every_person_has_a_right_to_liberty_and_security_of_the_person_p2",
+    "article_id": "1. Every person has a right to liberty and security of the person..p2",
+    "text_snippet": "35. The State recognises the right of every citizen to work and to just and favourable conditions of work and with a view to ensuring the effective exercise of these rights the State undertakes- to ta",
+    "x": 10.955765724182129,
+    "y": 4.8123955726623535,
+    "z": 13.163846969604492,
+    "global_cluster": 140,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_1_Seychelles_is_a_sovereign_democratic_Republic",
+    "article_id": "1. Seychelles is a sovereign democratic Republic.",
+    "text_snippet": "Preamble We, the People of Seychelles, GRATEFUL to Almighty God that we inhabit one of the most beautiful countries in the world; EVER MINDFUL of the uniqueness and fragility of Seychelles; CONSCIOUS",
+    "x": 10.889772415161133,
+    "y": 4.93583869934082,
+    "z": 13.235345840454102,
+    "global_cluster": 140,
+    "country_cluster": -1,
+    "cluster_probability": 0.5240180492401123
+  },
+  {
+    "id": "SYC_2017_1_The_National_languages_of_Seychelles_shall_be_Creole_English_and_French",
+    "article_id": "1. The National languages of Seychelles shall be Creole, English and French",
+    "text_snippet": "2. Notwithstanding clause (1), a person may use any of the national languages for any purpose but a law may provide for the use of any one or more of the national languages for any specific purpose. 5",
+    "x": 10.95762825012207,
+    "y": 4.8527727127075195,
+    "z": 13.227988243103027,
+    "global_cluster": 140,
+    "country_cluster": 1,
+    "cluster_probability": 0.7700573205947876
+  },
+  {
+    "id": "SYC_2017_1_The_President_may_dissolve_the_National_Assembly_in_accordance_with_this_article",
+    "article_id": "1. The President may dissolve the National Assembly in accordance with this article.",
+    "text_snippet": "2. Subject to clause (5), the President may, not more than once during a term of office of the President, for any reason which the President considers it to be in the national interest so to do, after",
+    "x": 10.914791107177734,
+    "y": 4.894100666046143,
+    "z": 13.29054069519043,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_1_The_President_may_at_any_time_attend_and_address_the_National_Assembly",
+    "article_id": "1. The President may, at any time, attend and address the National Assembly.",
+    "text_snippet": "2. The President may send a message to the National Assembly and the message shall be read, at the first convenient sitting of the Assembly after it is received by the Speaker, by the Vice-President.",
+    "x": 10.921727180480957,
+    "y": 4.908844470977783,
+    "z": 13.296507835388184,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_1_There_shall_be_a_Cabinet_consisting_of_the_Vice_President_and_Ministers",
+    "article_id": "1. There shall be a Cabinet consisting of the Vice-President and Ministers.",
+    "text_snippet": "2. The President or, in the absence of the President for any reason, the Vice-President shall preside at meetings of the Cabinet. 3. Subject to clause (2), the Cabinet shall determine its own procedur",
+    "x": 10.922891616821289,
+    "y": 4.923331260681152,
+    "z": 13.322121620178223,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_1_There_shall_be_a_Police_Force_of_Seychelles",
+    "article_id": "1. There shall be a Police Force of Seychelles.",
+    "text_snippet": "2. Subject to this Constitution and any other law, the Police Force shall be organized and administered in such manner as may be provided for by or under an Act. 160 1. The Police Force shall be comma",
+    "x": 10.916962623596191,
+    "y": 4.893333435058594,
+    "z": 13.245055198669434,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_1_This_article_shall_apply_during_any_period_of_public_emergency",
+    "article_id": "1. This article shall apply during any period of public emergency.",
+    "text_snippet": "2. Notwithstanding this Chapter but subject to clause (3), a law may provide for the taking during a period of public emergency of such measures as are strictly required to meet the exigencies of the",
+    "x": 11.10628604888916,
+    "y": 4.439744472503662,
+    "z": 12.994606971740723,
+    "global_cluster": 223,
+    "country_cluster": 0,
+    "cluster_probability": 0.5719119906425476
+  },
+  {
+    "id": "SYC_2017_11_Repealed",
+    "article_id": "11. Repealed.",
+    "text_snippet": "12. Where there is a vacancy in the office of the President under article 55 (1) the Vice-President shall discharge the functions of the office of the President until a person is elected under article",
+    "x": 10.878178596496582,
+    "y": 4.91018533706665,
+    "z": 13.388126373291016,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 0.9811364412307739
+  },
+  {
+    "id": "SYC_2017_2_A_law_shall_not_provide_for_a_sentence_of_death_to_be_imposed_by_any_court",
+    "article_id": "2. A law shall not provide for a sentence of death to be imposed by any court.",
+    "text_snippet": "3. Clause (1) is not infringed if there is a loss of life- by any act or omission which is made not punishable by any law reasonably justifiable in a democratic society; or as a result of a lawful act",
+    "x": 10.979082107543945,
+    "y": 4.610698223114014,
+    "z": 12.868897438049316,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "SYC_2017_2_The_Chief_Justice_may_make_Rules_of_Court_of_the_Supreme_Court",
+    "article_id": "2. The Chief Justice may make Rules of Court of the Supreme Court.",
+    "text_snippet": "137. Acts may- provide for the establishment of courts or tribunals which are subordinate to the Court of Appeal and Supreme Court, in this article referred to as \"subordinate courts and tribunals\", p",
+    "x": 10.94325065612793,
+    "y": 4.908032417297363,
+    "z": 13.256438255310059,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_2_The_President_may_receive_envoys_accredited_to_Seychelles",
+    "article_id": "2. The President may receive envoys accredited to Seychelles.",
+    "text_snippet": "3. The President may receive or cause to be executed treaties, agreements or conventions in the name of the Republic. 4. A treaty, agreement or convention in respect of international relations which i",
+    "x": 10.929388046264648,
+    "y": 4.899995803833008,
+    "z": 13.276310920715332,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_2_The_President_shall_be_the_Commander_in_Chief_of_the_Defence_Forces_p1",
+    "article_id": "2. The President shall be the Commander-in-Chief of the Defence Forces..p1",
+    "text_snippet": "3. Subject to this Constitution, the Defence Forces shall be organized and administered in such manner as may be provided for by or under an Act and the Act may, in particular, provide for charges of",
+    "x": 10.939079284667969,
+    "y": 4.911313533782959,
+    "z": 13.260603904724121,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_2_The_President_shall_be_the_Commander_in_Chief_of_the_Defence_Forces_p2",
+    "article_id": "2. The President shall be the Commander-in-Chief of the Defence Forces..p2",
+    "text_snippet": "1. Subject to this Schedule, the Ombudsman may investigate an action taken by a public authority or the President, Vice-President, Minister, officer or member of the public authority, being action tak",
+    "x": 11.073907852172852,
+    "y": 5.859125137329102,
+    "z": 14.522049903869629,
+    "global_cluster": 330,
+    "country_cluster": -1,
+    "cluster_probability": 0.5258922576904297
+  },
+  {
+    "id": "SYC_2017_2_The_President_shall_be_the_Commander_in_Chief_of_the_Defence_Forces_p3",
+    "article_id": "2. The President shall be the Commander-in-Chief of the Defence Forces..p3",
+    "text_snippet": "2. For the purpose of subparagraph (1), the value of the land acquired shall be the market value of the land at the time of coming into force of this Constitution or such other value as may be agreed",
+    "x": 10.939001083374023,
+    "y": 4.906900882720947,
+    "z": 13.25218391418457,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SYC_2017_5_A_tribunal_appointed_under_clause_4_c_shall_have_a_Judge_as_chairman",
+    "article_id": "5. A tribunal appointed under clause (4) (c) shall have a Judge as chairman.",
+    "text_snippet": "44 1. A law made in relation to a disciplinary force of Seychelles may, in so far as it is necessary in a democratic society, provide for the derogation against the provisions of the Charter, other th",
+    "x": 10.973437309265137,
+    "y": 4.8194966316223145,
+    "z": 13.175118446350098,
+    "global_cluster": 140,
+    "country_cluster": 1,
+    "cluster_probability": 0.9536392092704773
+  },
+  {
+    "id": "SYC_2017_5_Schedule_5_shall_have_effect_with_regard_to_the_Ombudsman",
+    "article_id": "5. Schedule 5 shall have effect with regard to the Ombudsman.",
+    "text_snippet": "6. An Act may provide for any matter, not otherwise provided for under this article, necessary or expedient for the purpose of ensuring the independence, impartiality and effectiveness of the office o",
+    "x": 10.925535202026367,
+    "y": 4.963261604309082,
+    "z": 13.3051118850708,
+    "global_cluster": 140,
+    "country_cluster": -1,
+    "cluster_probability": 0.6984728574752808
+  },
+  {
+    "id": "SYC_2017_7_A_person_shall_not_hold_office_as_Vice_President_for_more_than_2_terms",
+    "article_id": "7. A person shall not hold office as Vice-President for more than 2 terms.",
+    "text_snippet": "8. The Vice-President shall, before starting to perform the functions of Vice-President, take and subscribe the oath of allegiance and the Vice-Presidential oath set out in Schedule 6. 9. The Vice-Pre",
+    "x": 10.900026321411133,
+    "y": 4.900112628936768,
+    "z": 13.421394348144531,
+    "global_cluster": 140,
+    "country_cluster": -1,
+    "cluster_probability": 0.7652119994163513
+  },
+  {
+    "id": "SYC_2017_77_There_shall_be_a_National_Assembly_of_Seychelles",
+    "article_id": "77. There shall be a National Assembly of Seychelles.",
+    "text_snippet": "78. The National Assembly shall consist of- such number of members directly elected in accordance with- this Constitution; and subject to this Constitution, an Act, as is equal to the number of electo",
+    "x": 10.931994438171387,
+    "y": 4.9163970947265625,
+    "z": 13.300840377807617,
+    "global_cluster": 140,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  }
+]

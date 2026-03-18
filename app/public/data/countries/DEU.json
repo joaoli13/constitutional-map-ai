@@ -1,0 +1,90 @@
+[
+  {
+    "id": "DEU_2014_Article_142a",
+    "article_id": "Article 142a",
+    "text_snippet": "(repealed) Article 143. [Duration of deviations from the Basic Law] 1. The law in the territory specified in Article 3 of the Unification Treaty may deviate from provisions of this Basic Law for a per",
+    "x": 13.579578399658203,
+    "y": 1.621484398841858,
+    "z": 2.4743547439575195,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  },
+  {
+    "id": "DEU_2014_Article_49_p1",
+    "article_id": "Article 49.p1",
+    "text_snippet": "Preamble Conscious of their responsibility before God and man, Inspired by the determination to promote world peace as an equal partner in a united Europe, the German people, in the exercise of their",
+    "x": 13.585208892822266,
+    "y": 1.617537021636963,
+    "z": 2.4737420082092285,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  },
+  {
+    "id": "DEU_2014_Article_49_p2",
+    "article_id": "Article 49.p2",
+    "text_snippet": "2. The members of the Bundesrat and of the Federal Government as well as their representatives may attend all sittings of the Bundestag and meetings of its committees. They shall have the right to be",
+    "x": 13.598215103149414,
+    "y": 1.6247884035110474,
+    "z": 2.4764387607574463,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  },
+  {
+    "id": "DEU_2014_Article_59a",
+    "article_id": "Article 59a",
+    "text_snippet": "(repealed) Article 60. [Appointment of civil servants - Pardon - Immunity] 1. The Federal President shall appoint and dismiss federal judges, federal civil servants, and commissioned and noncommission",
+    "x": 13.584168434143066,
+    "y": 1.6215063333511353,
+    "z": 2.4703054428100586,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  },
+  {
+    "id": "DEU_2014_Article_74a",
+    "article_id": "Article 74a",
+    "text_snippet": "(repealed)",
+    "x": 12.290040969848633,
+    "y": 2.3612983226776123,
+    "z": 3.026728868484497,
+    "global_cluster": 6,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "DEU_2014_Article_75_p1",
+    "article_id": "Article 75.p1",
+    "text_snippet": "(repealed) Article 76. [Bills] 1. Bills may be introduced in the Bundestag by the Federal Government, by the Bundesrat, or from the floor of the Bundestag. 2. Federal Government bills shall first be s",
+    "x": 13.584933280944824,
+    "y": 1.6208065748214722,
+    "z": 2.468733072280884,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.557801365852356
+  },
+  {
+    "id": "DEU_2014_Article_75_p2",
+    "article_id": "Article 75.p2",
+    "text_snippet": "2. An act may be punished only if it was defined by a law as a criminal offence before the act was committed. 3. No person may be punished for the same act more than once under the general criminal la",
+    "x": 13.591371536254883,
+    "y": 1.6178169250488281,
+    "z": 2.461505174636841,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  },
+  {
+    "id": "DEU_2014_Article_75_p3",
+    "article_id": "Article 75.p3",
+    "text_snippet": "XI. Transitional and Concluding Provisions Article 116. [Definition of \"German\" - Restoration of citizenship] 1. Unless otherwise provided by a law, a German within the meaning of this Basic Law is a",
+    "x": 13.592771530151367,
+    "y": 1.6190781593322754,
+    "z": 2.461916923522949,
+    "global_cluster": 10,
+    "country_cluster": -1,
+    "cluster_probability": 0.573033332824707
+  }
+]

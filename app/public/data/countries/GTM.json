@@ -1,0 +1,101 @@
+[
+  {
+    "id": "GTM_1993_Article_23_p1",
+    "article_id": "Article 23.p1",
+    "text_snippet": "Preamble INVOKING THE NAME OF GOD We, the representatives of the people of Guatemala, elected freely and democratically, gathered in [the] National Constituent Assembly, with the goal of legally and p",
+    "x": 8.100622177124023,
+    "y": 2.0860049724578857,
+    "z": 1.649086594581604,
+    "global_cluster": -1,
+    "country_cluster": 1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GTM_1993_Article_23_p2",
+    "article_id": "Article 23.p2",
+    "text_snippet": "The University of San Carlos de Guatemala, is the only one entitled [facultada] to resolve the incorporations of the professionals graduated from foreign universities and to set the prior requirements",
+    "x": 8.10035514831543,
+    "y": 2.084904432296753,
+    "z": 1.6542705297470093,
+    "global_cluster": 23,
+    "country_cluster": 1,
+    "cluster_probability": 0.26018112897872925
+  },
+  {
+    "id": "GTM_1993_Article_23_p3",
+    "article_id": "Article 23.p3",
+    "text_snippet": "d. To remit to the same organs, the reports [memorias] relating to their work and the specific reports [informes] that will be requested, with the confidential nature of the operations of the particul",
+    "x": 8.100608825683594,
+    "y": 2.1008524894714355,
+    "z": 1.614871621131897,
+    "global_cluster": 23,
+    "country_cluster": 1,
+    "cluster_probability": 0.26018112897872925
+  },
+  {
+    "id": "GTM_1993_Article_23_p4",
+    "article_id": "Article 23.p4",
+    "text_snippet": "s. To appoint and remove the Ministers of State, [the] Vice-Ministers, [the] Secretaries and [the] Sub-secretaries of the Presidency, [the] ambassadors and [the] other officials which correspond to hi",
+    "x": 8.073909759521484,
+    "y": 2.1059203147888184,
+    "z": 1.6285715103149414,
+    "global_cluster": 23,
+    "country_cluster": 1,
+    "cluster_probability": 0.26018112897872925
+  },
+  {
+    "id": "GTM_1993_Article_23_p5",
+    "article_id": "Article 23.p5",
+    "text_snippet": "With the purpose of financing the economic and social development programs conducted by the nonprofit organizations of the private sector, legally recognized in the country, the State will constitute",
+    "x": 8.077938079833984,
+    "y": 2.0992629528045654,
+    "z": 1.6218737363815308,
+    "global_cluster": 23,
+    "country_cluster": 1,
+    "cluster_probability": 0.26018112897872925
+  },
+  {
+    "id": "GTM_1993_Article_24",
+    "article_id": "Article 24",
+    "text_snippet": "For the adequate implementation by the Supreme Court of Justice and the other tribunals which are referred to in Article 217 of this Constitution, by the Office of the Comptroller General of Accounts",
+    "x": 8.076518058776855,
+    "y": 1.9901931285858154,
+    "z": 1.616079568862915,
+    "global_cluster": 23,
+    "country_cluster": 0,
+    "cluster_probability": 0.24254044890403748
+  },
+  {
+    "id": "GTM_1993_Article_25",
+    "article_id": "Article 25",
+    "text_snippet": "The provisions contained in Articles 23 and 24 of the Sole Chapter of Title VIII of this Constitution are of special character and [they will] prevail over any others of general character.",
+    "x": 8.116656303405762,
+    "y": 2.068549156188965,
+    "z": 1.6403470039367676,
+    "global_cluster": 23,
+    "country_cluster": 1,
+    "cluster_probability": 0.23733124136924744
+  },
+  {
+    "id": "GTM_1993_Article_26",
+    "article_id": "Article 26",
+    "text_snippet": "At the latest, within a period of eighteen months from the date of the effectiveness of these reforms, the Executive Organ, in order to modernize and make the public administration more efficient, in",
+    "x": 8.041078567504883,
+    "y": 2.0531556606292725,
+    "z": 1.6279239654541016,
+    "global_cluster": 23,
+    "country_cluster": 0,
+    "cluster_probability": 0.26018112897872925
+  },
+  {
+    "id": "GTM_1993_Article_27",
+    "article_id": "Article 27",
+    "text_snippet": "With the objective that the elections of the municipal governments be realized on one same date, conjointly with the presidential elections and [the elections] of deputies, in those municipalities whe",
+    "x": 8.027266502380371,
+    "y": 2.0480706691741943,
+    "z": 1.6510435342788696,
+    "global_cluster": 23,
+    "country_cluster": 0,
+    "cluster_probability": 0.2516626715660095
+  }
+]

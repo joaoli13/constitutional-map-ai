@@ -1,0 +1,211 @@
+[
+  {
+    "id": "PLW_1992_Section_1",
+    "article_id": "Section 1",
+    "text_snippet": "Preamble In exercising our inherent sovereignty, We, the people of Palau proclaim and reaffirm our immemorial right to be supreme in these islands of Palau, our homeland. We renew our dedication to pr",
+    "x": 10.104649543762207,
+    "y": 5.0747833251953125,
+    "z": 12.811498641967773,
+    "global_cluster": -1,
+    "country_cluster": 1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_10",
+    "article_id": "Section 10",
+    "text_snippet": "Torture, cruel, inhumane or degrading treatment or punishment, and excessive fines are prohibited.",
+    "x": 10.377298355102539,
+    "y": 4.405180931091309,
+    "z": 12.309896469116211,
+    "global_cluster": 161,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_11",
+    "article_id": "Section 11",
+    "text_snippet": "Slavery or involuntary servitude is prohibited except to punish crime. The government shall protect children from exploitation.",
+    "x": 10.402422904968262,
+    "y": 4.374577045440674,
+    "z": 12.280969619750977,
+    "global_cluster": 161,
+    "country_cluster": 0,
+    "cluster_probability": 0.9665348529815674
+  },
+  {
+    "id": "PLW_1992_Section_12",
+    "article_id": "Section 12",
+    "text_snippet": "A citizen has the right to examine any government document and to observe the official deliberations of any agency of government.",
+    "x": 10.306647300720215,
+    "y": 4.768630504608154,
+    "z": 12.909643173217773,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_13",
+    "article_id": "Section 13",
+    "text_snippet": "The government shall provide for marital and related parental rights, privileges and responsibilities on the basis of equality between men and women, mutual consent and cooperation. Parents or individ",
+    "x": 10.128470420837402,
+    "y": 1.1622761487960815,
+    "z": 5.6172332763671875,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_14",
+    "article_id": "Section 14",
+    "text_snippet": "Whenever war, external aggression, civil rebellion or natural catastrophe threatens the lives or property of a significant number of people in Palau, the President may declare a state of emergency and",
+    "x": 9.951860427856445,
+    "y": 5.227105617523193,
+    "z": 13.049328804016113,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_14A",
+    "article_id": "Section 14A",
+    "text_snippet": "To avoid inconsistencies found prior to this amendment by the Supreme Court of Palau to exist between Section 324 of the Compact of Free Association and its subsidiary agreements with the United State",
+    "x": 9.931577682495117,
+    "y": 5.1905131340026855,
+    "z": 12.902274131774902,
+    "global_cluster": 173,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_14B",
+    "article_id": "Section 14B",
+    "text_snippet": "This amendment shall enter into force and effect immediately upon its adoption. ARTICLE XIV. AMENDMENTS",
+    "x": 9.973883628845215,
+    "y": 5.13991117477417,
+    "z": 12.873826026916504,
+    "global_cluster": 173,
+    "country_cluster": 2,
+    "cluster_probability": 0.5074627995491028
+  },
+  {
+    "id": "PLW_1992_Section_15",
+    "article_id": "Section 15",
+    "text_snippet": "A bill adopted by each house of the Olbiil Era Kelulau shall be presented to the President and shall become law when signed by the President. If the President vetoes a bill, it shall be returned to ea",
+    "x": 9.973990440368652,
+    "y": 4.102554798126221,
+    "z": 12.934982299804688,
+    "global_cluster": -1,
+    "country_cluster": 2,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_16",
+    "article_id": "Section 16",
+    "text_snippet": "The Olbiil Era Kelulau, with the approval of not less than two-thirds (2/3) of the members of each house, may release funds appropriated by the Olbiil Era Kelulau but impounded by the President.",
+    "x": 9.811406135559082,
+    "y": 5.174343109130859,
+    "z": 13.128655433654785,
+    "global_cluster": -1,
+    "country_cluster": 2,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_17",
+    "article_id": "Section 17",
+    "text_snippet": "The people may recall a member of the Olbiil Era Kelulau from office. A recall is initiated by a petition which shall name the member sought to be recalled, state the grounds for recall, and be signed",
+    "x": 9.870887756347656,
+    "y": 5.262027263641357,
+    "z": 13.045903205871582,
+    "global_cluster": 173,
+    "country_cluster": 2,
+    "cluster_probability": 0.4355437755584717
+  },
+  {
+    "id": "PLW_1992_Section_2",
+    "article_id": "Section 2",
+    "text_snippet": "Each state shall have exclusive ownership of all living and non-living resources, except highly migratory fish, from the land to twelve (12) nautical miles seaward from the traditional baselines; prov",
+    "x": 10.0830717086792,
+    "y": 5.0138139724731445,
+    "z": 12.74023723602295,
+    "global_cluster": 172,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_3",
+    "article_id": "Section 3",
+    "text_snippet": "The national government shall have the power to add territory and to extend jurisdiction.",
+    "x": 10.098469734191895,
+    "y": 4.9581475257873535,
+    "z": 12.70042896270752,
+    "global_cluster": 172,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_4",
+    "article_id": "Section 4",
+    "text_snippet": "Nothing in this Article shall be interpreted to violate the right of innocent passage and the internationally recognized freedom of the high seas. ARTICLE II. SOVEREIGNTY AND SUPREMACY",
+    "x": 10.093377113342285,
+    "y": 4.980848789215088,
+    "z": 12.743586540222168,
+    "global_cluster": 172,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_5",
+    "article_id": "Section 5",
+    "text_snippet": "The Olbiil Era Kelulau shall adopt uniform laws for admission and exclusion of noncitizens of Palau. ARTICLE IV. FUNDAMENTAL RIGHTS",
+    "x": 10.091469764709473,
+    "y": 4.974327564239502,
+    "z": 12.730513572692871,
+    "global_cluster": 172,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_6",
+    "article_id": "Section 6",
+    "text_snippet": "The government shall take no action to deprive any person of life, liberty, or property without due process of law nor shall private property be taken except for a recognized public use and for just c",
+    "x": 10.519749641418457,
+    "y": 4.354742050170898,
+    "z": 12.409116744995117,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_7",
+    "article_id": "Section 7",
+    "text_snippet": "A person accused of a criminal offense shall be presumed innocent until proven guilty beyond a reasonable doubt and shall enjoy the right to be informed of the nature of the accusation and to a speedy",
+    "x": 10.5421724319458,
+    "y": 4.292139053344727,
+    "z": 12.374077796936035,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "PLW_1992_Section_8",
+    "article_id": "Section 8",
+    "text_snippet": "A victim of a criminal offense may be compensated by the government as prescribed by law or at the discretion of the court.",
+    "x": 10.334492683410645,
+    "y": 4.444851398468018,
+    "z": 12.338430404663086,
+    "global_cluster": 161,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "PLW_1992_Section_9",
+    "article_id": "Section 9",
+    "text_snippet": "A citizen of Palau may enter and leave Palau and may migrate within Palau.",
+    "x": 10.154857635498047,
+    "y": 4.878136157989502,
+    "z": 12.645243644714355,
+    "global_cluster": 172,
+    "country_cluster": 1,
+    "cluster_probability": 0.9649998545646667
+  }
+]

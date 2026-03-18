@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ERI_1997_1_All_persons_are_equal_under_the_law",
+    "article_id": "1. All persons are equal under the law.",
+    "text_snippet": "2. No person may be discriminated against on account of race, ethnic origin, language, color, gender, religion, disability, age, political view, or social or economic status or any other improper fact",
+    "x": 11.699350357055664,
+    "y": 2.949723482131958,
+    "z": 12.246410369873047,
+    "global_cluster": 57,
+    "country_cluster": 0,
+    "cluster_probability": 0.8279969096183777
+  },
+  {
+    "id": "ERI_1997_1_Any_person_born_of_an_Eritrean_father_or_mother_is_an_Eritrean_by_birth",
+    "article_id": "1. Any person born of an Eritrean father or mother is an Eritrean by birth.",
+    "text_snippet": "Preamble We, the people of Eritrea, united in a common struggle for our rights and common destiny: With Eternal Gratitude to the scores of thousands of our martyrs who sacrificed their lives for the c",
+    "x": 11.782413482666016,
+    "y": 2.919267177581787,
+    "z": 12.15181827545166,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_1_Every_person_shall_have_the_right_to_freedom_of_thought_conscience_and_belief",
+    "article_id": "1. Every person shall have the right to freedom of thought, conscience and belief.",
+    "text_snippet": "2. Every person shall have the freedom of speech and expression, including freedom of the press and other media.",
+    "x": 11.699518203735352,
+    "y": 2.9877431392669678,
+    "z": 12.24678897857666,
+    "global_cluster": 57,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_1_Every_person_shall_have_the_right_to_privacy",
+    "article_id": "1. Every person shall have the right to privacy.",
+    "text_snippet": "2 a. No person shall be subject to body search, nor shall his premises be entered into or searched or his communications, correspondence, or other property be interfered with, without reasonable cause",
+    "x": 11.736023902893066,
+    "y": 2.946481704711914,
+    "z": 12.212423324584961,
+    "global_cluster": 57,
+    "country_cluster": 0,
+    "cluster_probability": 0.9746766090393066
+  },
+  {
+    "id": "ERI_1997_1_No_person_may_be_arrested_or_detained_save_pursuant_to_due_process_of_law",
+    "article_id": "1. No person may be arrested or detained save pursuant to due process of law.",
+    "text_snippet": "2. No person shall be tried or convicted for any act or omission which did not constitute a criminal offense at the time when it was committed. 3. Every person arrested or detained shall be informed o",
+    "x": 11.674764633178711,
+    "y": 2.949151039123535,
+    "z": 12.24301528930664,
+    "global_cluster": 57,
+    "country_cluster": 0,
+    "cluster_probability": 0.8411357998847961
+  },
+  {
+    "id": "ERI_1997_1_The_dignity_of_all_persons_shall_be_inviolable",
+    "article_id": "1. The dignity of all persons shall be inviolable.",
+    "text_snippet": "2. No person shall be subjected to torture or to cruel, inhuman or degrading treatment or punishment. 3. No person shall be held in slavery or servitude nor shall any person be required to perform for",
+    "x": 11.653802871704102,
+    "y": 3.0270066261291504,
+    "z": 12.319656372070312,
+    "global_cluster": 57,
+    "country_cluster": -1,
+    "cluster_probability": 0.5950281620025635
+  },
+  {
+    "id": "ERI_1997_1_There_shall_be_a_ministerial_Cabinet_presided_over_by_the_President",
+    "article_id": "1. There shall be a ministerial Cabinet presided over by the President.",
+    "text_snippet": "2. The President may select ministers from among members of the National Assembly or from among persons who are not members of the National Assembly. 3. The Cabinet shall assist the President in: dire",
+    "x": 11.825140953063965,
+    "y": 2.9347586631774902,
+    "z": 12.167242050170898,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_2_No_person_shall_be_deprived_of_liberty_without_due_process_of_law",
+    "article_id": "2. No person shall be deprived of liberty without due process of law.",
+    "text_snippet": "Article 16. Right to Human Dignity",
+    "x": 11.624674797058105,
+    "y": 2.957218647003174,
+    "z": 12.311036109924316,
+    "global_cluster": 57,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_2_The_National_Assembly_shall_be_composed_of_representatives_elected_by_the_people",
+    "article_id": "2. The National Assembly shall be composed of representatives elected by the people.",
+    "text_snippet": "3. Members of the National Assembly shall be elected by secret ballot of all citizens who are qualified to vote. 4. Members of the National Assembly are representatives of the Eritrean people as a who",
+    "x": 11.79312515258789,
+    "y": 2.9170713424682617,
+    "z": 12.150861740112305,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_3_Every_citizen_shall_have_the_right_of_access_to_information",
+    "article_id": "3. Every citizen shall have the right of access to information.",
+    "text_snippet": "4. Every person shall have the freedom to practice any religion and to manifest such practice. 5. All persons shall have the right to assembly and to demonstrate peaceably together with others. 6. Eve",
+    "x": 11.77790641784668,
+    "y": 2.9188525676727295,
+    "z": 12.157726287841797,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_3_The_Supreme_Court_shall_determine_its_internal_organization_and_operation",
+    "article_id": "3. The Supreme Court shall determine its internal organization and operation.",
+    "text_snippet": "4. The tenure and number of justices of the Supreme Court shall be determined by law. Article 50. Lower Courts The jurisdiction, organization and function of lower courts and the tenure of their judge",
+    "x": 11.805890083312988,
+    "y": 2.92269229888916,
+    "z": 12.15419864654541,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_3_The_details_concerning_citizenship_shall_be_regulated_by_law",
+    "article_id": "3. The details concerning citizenship shall be regulated by law.",
+    "text_snippet": "Article 4. National Symbols and Languages 1. The Eritrean Flag shall have green, red and blue colors with golden olive leaves. The detailed description of the Flag shall be determined by law. 2. Eritr",
+    "x": 11.785018920898438,
+    "y": 2.9057343006134033,
+    "z": 12.138720512390137,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_3_The_equality_of_all_Eritrean_languages_is_guaranteed",
+    "article_id": "3. The equality of all Eritrean languages is guaranteed.",
+    "text_snippet": "Article 5. Gender Reference Without consideration to the wording of any provision in this Constitution with reference to gender, all of its articles shall apply equally to both genders. CHAPTER II. NA",
+    "x": 11.837067604064941,
+    "y": 2.846903085708618,
+    "z": 12.109440803527832,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_3_The_quorum_of_the_National_Assembly_shall_be_fifty_percent_of_all_its_members",
+    "article_id": "3. The quorum of the National Assembly shall be fifty percent of all its members.",
+    "text_snippet": "4. Except as otherwise prescribed by this Constitution, any question proposed for decision of the National Assembly shall be determined by a majority vote of those present and voting, and in case of a",
+    "x": 11.80655574798584,
+    "y": 2.933347702026367,
+    "z": 12.149820327758789,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ERI_1997_7_The_National_Assembly_shall_have_the_power_to_oversee_the_execution_of_laws",
+    "article_id": "7. The National Assembly shall have the power to oversee the execution of laws.",
+    "text_snippet": "8. The National Assembly shall have the power to elect, from among its members, by an absolute majority vote of all its members, the President who shall serve for five years. 9. Pursuant to the provis",
+    "x": 11.792410850524902,
+    "y": 2.9240992069244385,
+    "z": 12.151867866516113,
+    "global_cluster": 57,
+    "country_cluster": 1,
+    "cluster_probability": 0.8004742860794067
+  }
+]

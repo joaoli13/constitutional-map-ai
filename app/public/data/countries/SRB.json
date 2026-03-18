@@ -1,0 +1,189 @@
+[
+  {
+    "id": "SRB_2006_1_Economic_system",
+    "article_id": "1. Economic system",
+    "text_snippet": "Article 82. Basic principles Economic system in the Republic of Serbia shall be based on market economy, open and free market, freedom of entrepreneurship, independence of business entities and equali",
+    "x": 11.624814987182617,
+    "y": 2.481396436691284,
+    "z": 4.396637439727783,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.24968025088310242
+  },
+  {
+    "id": "SRB_2006_1_Fundamental_Principles",
+    "article_id": "1. Fundamental Principles",
+    "text_snippet": "Preamble Considering the state tradition of the Serbian people and equality of all citizens and ethnic communities in Serbia, Considering also that the Province of Kosovo and Metohija is an integral p",
+    "x": 11.649434089660645,
+    "y": 2.5134365558624268,
+    "z": 4.343879222869873,
+    "global_cluster": 60,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_1_National_Assembly",
+    "article_id": "1. National Assembly",
+    "text_snippet": "Article 98. Status of the National Assembly The National Assembly shall be the supreme representative body and holder of constitutional and legislative power in the Republic of Serbia. Article 99. Com",
+    "x": 11.663153648376465,
+    "y": 2.53104829788208,
+    "z": 4.327057361602783,
+    "global_cluster": 60,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_1_Provincial_autonomy_and_local_self_government",
+    "article_id": "1. Provincial autonomy and local self-government",
+    "text_snippet": "Article 176. Concept Citizens shall have the right to the provincial autonomy and local self-government, which they shall exercise directly or through their freely elected representatives. Autonomous",
+    "x": 11.6586332321167,
+    "y": 2.52876615524292,
+    "z": 4.315006256103516,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_2_Autonomous_provinces",
+    "article_id": "2. Autonomous provinces",
+    "text_snippet": "Article 182. Concept, establishment and territory of autonomous province Autonomous provinces shall be autonomous territorial communities established by the Constitution, in which citizens exercise th",
+    "x": 11.655579566955566,
+    "y": 2.5261740684509277,
+    "z": 4.3130717277526855,
+    "global_cluster": 60,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_2_Human_Rights_and_Freedoms",
+    "article_id": "2. Human Rights and Freedoms",
+    "text_snippet": "Article 23. Dignity and free development of individuals Human dignity is inviolable and everyone shall be obliged to respect and protect it. Everyone shall have the right to free development of his pe",
+    "x": 11.648869514465332,
+    "y": 2.5078444480895996,
+    "z": 4.34573221206665,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_2_Public_finances",
+    "article_id": "2. Public finances",
+    "text_snippet": "Article 91. Taxes and other revenues Resources which are used for the purpose of funding competences of the Republic of Serbia, autonomous provinces and local self-government units shall be provided f",
+    "x": 11.651302337646484,
+    "y": 2.5237181186676025,
+    "z": 4.326827526092529,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_2_The_President_of_the_Republic",
+    "article_id": "2. The President of the Republic",
+    "text_snippet": "Article 111. Status of the President of the Republic The President of the Republic shall express state unity of the Republic of Serbia. Article 112. Competences The President of the Republic shall: 1.",
+    "x": 11.65318489074707,
+    "y": 2.534956216812134,
+    "z": 4.31282377243042,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_3_Government",
+    "article_id": "3. Government",
+    "text_snippet": "Article 122. Status of the Government The Government shall be the holder of executive power in the Republic of Serbia. Article 123. Competences The Government shall: 1. establish and pursue policy, 2.",
+    "x": 11.672035217285156,
+    "y": 2.5347633361816406,
+    "z": 4.338489055633545,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_3_Local_self_government",
+    "article_id": "3. Local self-government",
+    "text_snippet": "Article 188. General provisions Local self-government units shall be municipalities, towns and the City of Belgrade. The territory and seat of a local self-government unit shall be specified by the La",
+    "x": 11.661849021911621,
+    "y": 2.525355339050293,
+    "z": 4.319684982299805,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.660883367061615
+  },
+  {
+    "id": "SRB_2006_3_Rights_of_Persons_Belonging_to_National_Minorities",
+    "article_id": "3. Rights of Persons Belonging to National Minorities",
+    "text_snippet": "Article 75. Basic Provision Persons belonging to national minorities shall be guaranteed special individual or collective rights in addition to the rights guaranteed to all citizens by the Constitutio",
+    "x": 11.633092880249023,
+    "y": 2.4934823513031006,
+    "z": 4.400069236755371,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.40793880820274353
+  },
+  {
+    "id": "SRB_2006_4_Public_Administration",
+    "article_id": "4. Public Administration",
+    "text_snippet": "Article 136. Status of the Public Administration The Public Administration shall be independent, bound by the Constitution and Law and it shall account for its work to the Government. Public Administr",
+    "x": 11.664305686950684,
+    "y": 2.5270233154296875,
+    "z": 4.331543445587158,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_5_Civic_Defender",
+    "article_id": "5. Civic Defender",
+    "text_snippet": "Article 138 The Civic Defender shall be independent state body who shall protect citizens' rights and monitor the work of public administration bodies, body in charge of legal protection of proprietar",
+    "x": 11.67045783996582,
+    "y": 2.5316386222839355,
+    "z": 4.324485778808594,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.5713130831718445
+  },
+  {
+    "id": "SRB_2006_6_The_Army_of_Serbia",
+    "article_id": "6. The Army of Serbia",
+    "text_snippet": "Article 139. Competences The Army of Serbia shall defend the country from external armed threat and perform other missions and tasks, in accordance with the Constitution, Law and principles of interna",
+    "x": 11.659807205200195,
+    "y": 2.533787965774536,
+    "z": 4.315666675567627,
+    "global_cluster": 60,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "SRB_2006_7_Courts",
+    "article_id": "7. Courts",
+    "text_snippet": "Article 142. Judiciary principles Judicial power shall be unique on the territory of the Republic of Serbia. Courts shall be separated and independent in their work and they shall perform their duties",
+    "x": 11.692727088928223,
+    "y": 2.5456132888793945,
+    "z": 4.3482465744018555,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.5789425373077393
+  },
+  {
+    "id": "SRB_2006_8_The_High_Judicial_Council",
+    "article_id": "8. The High Judicial Council",
+    "text_snippet": "Article 153. Status, constitution and election The High Judicial Council is an independent and autonomous body which shall provide for and guarantee independence and autonomy of courts and judges. The",
+    "x": 11.748339653015137,
+    "y": 2.567561388015747,
+    "z": 4.448093891143799,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.2885478138923645
+  },
+  {
+    "id": "SRB_2006_9_Public_Prosecutor_s_Office",
+    "article_id": "9. Public Prosecutor's Office",
+    "text_snippet": "Article 156. Status and jurisdiction Public Prosecutor's Office shall be an independent state body which shall prosecute the perpetrators of criminal offenses and other punishable actions, and take me",
+    "x": 11.666304588317871,
+    "y": 2.534156084060669,
+    "z": 4.33991813659668,
+    "global_cluster": 60,
+    "country_cluster": -1,
+    "cluster_probability": 0.7414420247077942
+  }
+]
