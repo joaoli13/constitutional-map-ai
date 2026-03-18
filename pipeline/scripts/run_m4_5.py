@@ -62,6 +62,7 @@ def load_environment() -> None:
 def main() -> int:
     args = parse_args()
     load_environment()
+    show_progress = sys.stderr.isatty()
 
     if str(PIPELINE_ROOT) not in sys.path:
         sys.path.insert(0, str(PIPELINE_ROOT))
@@ -82,20 +83,34 @@ def main() -> int:
         format="%(asctime)s %(levelname)s %(name)s - %(message)s",
     )
 
+    print("M4.5: loading clustered parquet...")
     clustered_frame = load_clustered_frame(args.clustered_path)
+    print("M4.5: writing static JSON exports...")
     artifacts = write_static_jsons(
         clustered_frame,
         metadata_path=args.metadata_path,
         output_dir=args.output_dir,
+        show_progress=show_progress,
     )
 
     neon_row_count: int | None = None
     if not args.skip_neon:
+        print("M4.5: migrating Neon schema...")
         connection = connect_neon()
         try:
             migrate_schema(connection)
-            ingest_rows = build_neon_rows(clustered_frame, metadata_path=args.metadata_path)
-            ingest_result = upsert_articles(connection, ingest_rows)
+            print("M4.5: building Neon rows...")
+            ingest_rows = build_neon_rows(
+                clustered_frame,
+                metadata_path=args.metadata_path,
+                show_progress=show_progress,
+            )
+            print("M4.5: upserting Neon batches...")
+            ingest_result = upsert_articles(
+                connection,
+                ingest_rows,
+                show_progress=show_progress,
+            )
             neon_row_count = fetch_article_count(connection)
         finally:
             connection.close()
@@ -103,6 +118,7 @@ def main() -> int:
             f"Neon ingest complete: {ingest_result.row_count} rows across {ingest_result.batch_count} batches."
         )
 
+    print("M4.5: validating exports...")
     summary = validate_exports(
         clustered_frame=clustered_frame,
         index_path=artifacts.index_path,

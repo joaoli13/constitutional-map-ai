@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
+from tqdm import tqdm
 
 from src.m1_scraper.url_builder import extract_document_year_from_file_path
 from src.shared.constants import APP_PUBLIC_DATA_DIR, CLUSTERS_DIR, PIPELINE_ROOT, TEXT_SNIPPET_LENGTH
@@ -76,6 +77,7 @@ def write_static_jsons(
     *,
     metadata_path: Path | str,
     output_dir: Path | str = APP_PUBLIC_DATA_DIR,
+    show_progress: bool = False,
 ) -> ExportedJsonArtifacts:
     """Generate index, clusters, and per-country JSON files."""
 
@@ -97,7 +99,11 @@ def write_static_jsons(
         generated_at=generated_at,
     )
     clusters_payload = build_clusters_payload(clustered_frame)
-    country_payloads = build_country_payloads(clustered_frame, metadata_map=metadata_map)
+    country_payloads = build_country_payloads(
+        clustered_frame,
+        metadata_map=metadata_map,
+        show_progress=show_progress,
+    )
 
     index_path = output_dir / INDEX_FILENAME
     clusters_path = output_dir / CLUSTERS_FILENAME
@@ -107,7 +113,14 @@ def write_static_jsons(
         encoding="utf-8",
     )
 
-    for country_code, payload in country_payloads.items():
+    country_items = country_payloads.items()
+    for country_code, payload in tqdm(
+        country_items,
+        total=len(country_payloads),
+        desc="Write country JSON",
+        unit="country",
+        disable=not show_progress,
+    ):
         (countries_dir / f"{country_code}.json").write_text(
             json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
@@ -212,11 +225,19 @@ def build_country_payloads(
     clustered_frame: pd.DataFrame,
     *,
     metadata_map: dict[str, CountryMetadata],
+    show_progress: bool = False,
 ) -> dict[str, list[dict[str, object]]]:
     """Build per-country point payloads."""
 
     payloads: dict[str, list[dict[str, object]]] = {}
-    for country_code, subset in sorted(clustered_frame.groupby("country_code")):
+    country_groups = sorted(clustered_frame.groupby("country_code"))
+    for country_code, subset in tqdm(
+        country_groups,
+        total=len(country_groups),
+        desc="Build country payloads",
+        unit="country",
+        disable=not show_progress,
+    ):
         metadata = metadata_map[country_code]
         document_year = extract_document_year_from_file_path(metadata.file_path)
         year = document_year or metadata.last_amendment_year or metadata.constitution_year

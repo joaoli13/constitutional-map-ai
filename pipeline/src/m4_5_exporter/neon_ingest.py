@@ -9,6 +9,7 @@ from pathlib import Path
 import pandas as pd
 import psycopg2
 from psycopg2.extensions import connection as PsycopgConnection
+from tqdm import tqdm
 
 from src.m1_scraper.url_builder import extract_document_year_from_file_path
 from src.m4_5_exporter.json_writer import build_record_id, build_text_snippet, load_metadata_map
@@ -108,13 +109,20 @@ def build_neon_rows(
     clustered_frame: pd.DataFrame,
     *,
     metadata_path: Path | str = RAW_DIR / "metadata.json",
+    show_progress: bool = False,
 ) -> list[dict[str, object]]:
     """Map clustered parquet rows to Neon article records."""
 
     metadata_map = load_metadata_map(metadata_path)
     rows: list[dict[str, object]] = []
 
-    for row in clustered_frame.itertuples(index=False):
+    for row in tqdm(
+        clustered_frame.itertuples(index=False),
+        total=len(clustered_frame),
+        desc="Build Neon rows",
+        unit="article",
+        disable=not show_progress,
+    ):
         metadata = metadata_map[str(row.country_code)]
         document_year = extract_document_year_from_file_path(metadata.file_path)
         year = document_year or metadata.last_amendment_year or metadata.constitution_year
@@ -143,6 +151,7 @@ def upsert_articles(
     rows: list[dict[str, object]],
     *,
     batch_size: int = NEON_BATCH_SIZE,
+    show_progress: bool = False,
 ) -> NeonIngestResult:
     """Upsert article rows into Neon in batches."""
 
@@ -150,7 +159,15 @@ def upsert_articles(
         return NeonIngestResult(row_count=0, batch_count=0)
 
     batch_count = 0
-    for offset in range(0, len(rows), batch_size):
+    batch_offsets = range(0, len(rows), batch_size)
+    total_batches = (len(rows) + batch_size - 1) // batch_size
+    for offset in tqdm(
+        batch_offsets,
+        total=total_batches,
+        desc="Upsert Neon batches",
+        unit="batch",
+        disable=not show_progress,
+    ):
         batch = rows[offset : offset + batch_size]
         with connection.cursor() as cursor:
             cursor.executemany(UPSERT_SQL, batch)
