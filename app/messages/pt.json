@@ -23,7 +23,10 @@
     "projectLinkLabel": "constituteproject.org",
     "sourceLabel": "Fonte:",
     "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare.",
-    "madeBy": "Feito por"
+    "sourceCodeText": "Código aberto — contribuições são bem-vindas.",
+    "licenseNote": "Código: MIT · Dados: CC BY-NC 3.0.",
+    "madeBy": "Feito por",
+    "supportText": "Este projeto roda com embeddings de IA e servidores em nuvem. Se ele for útil para você, considere custear um mês de infraestrutura:"
   },
   "Atlas": {
     "countryLoadError": "Não foi possível carregar os dados do país {country}.",

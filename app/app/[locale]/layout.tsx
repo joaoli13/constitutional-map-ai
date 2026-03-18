@@ -95,6 +95,17 @@ export default async function LocaleLayout({
             </span>
           </p>
           <p className="mt-3 border-t border-slate-200/70 pt-3">
+            {chromeT("sourceCodeText")}{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="https://github.com/joaoli13/the-constitutional-atlas"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github.com/joaoli13/the-constitutional-atlas
+            </a>
+          </p>
+          <p className="mt-2">
             {chromeT("madeBy")}{" "}
             <a
               className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
@@ -122,7 +133,18 @@ export default async function LocaleLayout({
             >
               OpenAI Codex
             </a>
-            .
+            . {chromeT("licenseNote")}
+          </p>
+          <p className="mt-2">
+            {chromeT("supportText")}{" "}
+            <a
+              className="font-medium text-amber-700 underline decoration-amber-300 underline-offset-4 transition hover:text-amber-900"
+              href="https://buymeacoffee.com/Joaoli13"
+              target="_blank"
+              rel="noreferrer"
+            >
+              buymeacoffee.com/Joaoli13
+            </a>
           </p>
         </footer>
       </div>

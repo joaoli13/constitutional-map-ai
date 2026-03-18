@@ -1,8 +1,12 @@
 "use client";
 
+import {useState} from "react";
 import {useTranslations} from "next-intl";
 
 import type {CountryIndexRecord} from "@/lib/types";
+
+type SortKey = "name" | "sub_region" | "article_count" | "cluster_count" | "semantic_coverage" | "semantic_entropy";
+type SortDir = "asc" | "desc";
 
 type StatsPanelProps = {
   countries: CountryIndexRecord[];
@@ -10,6 +14,30 @@ type StatsPanelProps = {
 
 export default function StatsPanel({countries}: StatsPanelProps) {
   const t = useTranslations("Atlas.Stats");
+  const [sortKey, setSortKey] = useState<SortKey>("name");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
+
+  function handleSort(key: SortKey) {
+    if (key === sortKey) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir(key === "name" || key === "sub_region" ? "asc" : "desc");
+    }
+  }
+
+  const sorted = [...countries].sort((a, b) => {
+    let cmp = 0;
+    if (sortKey === "name") cmp = a.name.localeCompare(b.name);
+    else if (sortKey === "sub_region") cmp = (a.sub_region ?? "").localeCompare(b.sub_region ?? "");
+    else cmp = (a[sortKey] as number) - (b[sortKey] as number);
+    return sortDir === "asc" ? cmp : -cmp;
+  });
+
+  function arrow(key: SortKey) {
+    if (key !== sortKey) return <span className="ml-1 opacity-25">↕</span>;
+    return <span className="ml-1">{sortDir === "asc" ? "↑" : "↓"}</span>;
+  }
 
   return (
     <section className="rounded-[2rem] border border-slate-200 bg-white/92 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
@@ -37,28 +65,28 @@ export default function StatsPanel({countries}: StatsPanelProps) {
             <table className="w-full text-sm">
               <thead>
                 <tr className="sticky top-0 border-b border-slate-200 bg-slate-50 text-left">
-                  <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("colCountry")}
-                  </th>
-                  <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("colRegion")}
-                  </th>
-                  <th className="px-4 py-2.5 text-right text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("articleCount")}
-                  </th>
-                  <th className="px-4 py-2.5 text-right text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("clusterCount")}
-                  </th>
-                  <th className="px-4 py-2.5 text-right text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("coverage")}
-                  </th>
-                  <th className="px-4 py-2.5 text-right text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    {t("entropy")}
-                  </th>
+                  <SortTh active={sortKey === "name"} onClick={() => handleSort("name")}>
+                    {t("colCountry")}{arrow("name")}
+                  </SortTh>
+                  <SortTh active={sortKey === "sub_region"} onClick={() => handleSort("sub_region")}>
+                    {t("colRegion")}{arrow("sub_region")}
+                  </SortTh>
+                  <SortTh right active={sortKey === "article_count"} onClick={() => handleSort("article_count")}>
+                    {t("articleCount")}{arrow("article_count")}
+                  </SortTh>
+                  <SortTh right active={sortKey === "cluster_count"} onClick={() => handleSort("cluster_count")}>
+                    {t("clusterCount")}{arrow("cluster_count")}
+                  </SortTh>
+                  <SortTh right active={sortKey === "semantic_coverage"} onClick={() => handleSort("semantic_coverage")}>
+                    {t("coverage")}{arrow("semantic_coverage")}
+                  </SortTh>
+                  <SortTh right active={sortKey === "semantic_entropy"} onClick={() => handleSort("semantic_entropy")}>
+                    {t("entropy")}{arrow("semantic_entropy")}
+                  </SortTh>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {countries.map((country) => (
+                {sorted.map((country) => (
                   <tr key={country.code} className="bg-white transition hover:bg-slate-50">
                     <td className="px-4 py-3">
                       <p className="font-semibold text-slate-900">{country.name}</p>
@@ -85,5 +113,28 @@ export default function StatsPanel({countries}: StatsPanelProps) {
         </div>
       )}
     </section>
+  );
+}
+
+function SortTh({
+  children,
+  active,
+  right,
+  onClick,
+}: {
+  children: React.ReactNode;
+  active: boolean;
+  right?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <th
+      className={`cursor-pointer select-none px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] transition hover:text-slate-800 ${
+        right ? "text-right" : "text-left"
+      } ${active ? "text-slate-800" : "text-slate-500"}`}
+      onClick={onClick}
+    >
+      {children}
+    </th>
   );
 }
