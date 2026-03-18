@@ -1,6 +1,6 @@
 # The Constitutional Atlas
 
-A global semantic atlas of constitutional law — 193 countries, over 27 000 constitutional articles, embedded with Google Gemini and projected into a navigable 3D space.
+A global semantic atlas of constitutional law — 193 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
 
 **Live app → [tca-mu.vercel.app](https://tca-mu.vercel.app)**
 
