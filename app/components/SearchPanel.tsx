@@ -134,6 +134,10 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         </button>
       </form>
 
+      {t("languageHint") && (
+        <p className="mt-2 text-[11px] text-slate-400">{t("languageHint")}</p>
+      )}
+
       <label
         className={`mt-3 flex items-center gap-2 rounded-xl border px-3 py-2 text-sm transition ${
           hasSelectedCountries
