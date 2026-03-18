@@ -21,8 +21,9 @@
     "primerP5": "Use a busca quando você já tiver um conceito em mente, e use a comparação quando quiser ver como países diferentes ocupam o mesmo terreno semântico. A leitura mais útil acontece indo e voltando entre mapa, forma dos clusters e detalhe do artigo.",
     "dataNotice": "Os textos constitucionais desta aplicação são provenientes do Constitute Project e são utilizados sob a licença Creative Commons Attribution-Non Commercial 3.0 Unported, exceto quando houver indicação de direitos de terceiros.",
     "projectLinkLabel": "constituteproject.org",
-    "citationLabel": "Citação sugerida:",
-    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare."
+    "sourceLabel": "Fonte:",
+    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare.",
+    "madeBy": "Feito por"
   },
   "Atlas": {
     "countryLoadError": "Não foi possível carregar os dados do país {country}.",
@@ -89,7 +90,11 @@
       "resetView": "Ver todos",
       "empty": "Selecione um ou mais países para renderizar seus segmentos constitucionais em 3D.",
       "hoverHint": "Passe o cursor sobre um ponto para inspecionar seu artigo e trecho de texto.",
-      "doubleClickHint": "Dê um duplo clique em um ponto para focar a câmera na sua posição semântica."
+      "doubleClickHint": "Dê um duplo clique em um ponto para focar a câmera na sua posição semântica.",
+      "detailEmpty": "Clique em um ponto para inspecionar o artigo constitucional completo.",
+      "detailCluster": "Cluster global",
+      "detailProbability": "Probabilidade",
+      "detailLoading": "Carregando artigo..."
     },
     "Stats": {
       "eyebrow": "Estatísticas por País",

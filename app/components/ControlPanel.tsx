@@ -73,7 +73,7 @@ export default function ControlPanel({
       <h2 className="mt-2 text-2xl font-semibold text-slate-950">{t("title")}</h2>
       <p className="mt-2 text-sm leading-6 text-slate-600">{t("body")}</p>
 
-      <div className="mt-4 grid gap-2 grid-cols-3">
+      <div className="mt-4 grid grid-cols-3 gap-2">
         <div className="rounded-xl bg-slate-950 px-4 py-3 text-white">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
             {t("selectedLabel")}
@@ -98,9 +98,9 @@ export default function ControlPanel({
         </div>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4.5">
         <p className="text-sm font-medium text-slate-700">{t("presetsLabel")}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-2.5 flex flex-wrap gap-2">
           {presetEntries.map((preset) => (
             <button
               key={preset.id}
@@ -127,7 +127,7 @@ export default function ControlPanel({
         </div>
       </div>
 
-      <div className="mt-5 flex gap-2">
+      <div className="mt-4 flex gap-2">
         <input
           className="min-w-0 flex-1 rounded-2xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-500"
           placeholder={t("filterPlaceholder")}
@@ -147,7 +147,8 @@ export default function ControlPanel({
       </div>
 
       <div className="mt-4 space-y-3">
-        <div className="flex flex-wrap gap-1.5">
+        <div className="max-h-[84px] overflow-y-auto pr-1">
+          <div className="flex flex-wrap gap-1.5">
           {selectedCountries.length === 0 ? (
             <span className="rounded-full border border-dashed border-slate-300 px-3 py-1.5 text-xs text-slate-400">
               {t("noneSelected")}
@@ -176,9 +177,10 @@ export default function ControlPanel({
               );
             })
           )}
+          </div>
         </div>
 
-        <div className="max-h-[340px] space-y-1.5 overflow-y-auto pr-0.5">
+        <div className="max-h-[300px] space-y-1.5 overflow-y-auto pr-0.5">
           {filteredCountries.map((country) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);

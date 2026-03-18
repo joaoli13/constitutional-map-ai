@@ -21,8 +21,9 @@
     "primerP5": "Use search when you already have a concept in mind, and use comparison when you want to see how different countries occupy the same semantic terrain. The most useful reading strategy is to move back and forth between map, cluster shape, and article detail.",
     "dataNotice": "Constitution texts in this application are sourced from the Constitute Project and used under the Creative Commons Attribution-Non Commercial 3.0 Unported License, except where third-party rights are identified.",
     "projectLinkLabel": "constituteproject.org",
-    "citationLabel": "Suggested citation:",
-    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare."
+    "sourceLabel": "Source:",
+    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare.",
+    "madeBy": "Made by"
   },
   "Atlas": {
     "countryLoadError": "Country data could not be loaded for {country}.",
@@ -89,12 +90,18 @@
       "resetView": "Fit all",
       "empty": "Select one or more countries to render their constitutional segments in 3D.",
       "hoverHint": "Hover a point to inspect its article and text snippet.",
-      "doubleClickHint": "Double-click a point to focus the camera on its cluster location."
+      "doubleClickHint": "Double-click a point to focus the camera on its cluster location.",
+      "detailEmpty": "Click a point in the 3D view to inspect the full constitutional article here.",
+      "detailCluster": "Global cluster",
+      "detailProbability": "Probability",
+      "detailLoading": "Loading article..."
     },
     "Stats": {
       "eyebrow": "Country Stats",
       "title": "Semantic coverage by selected country.",
       "empty": "Select countries on the map or from the control panel to inspect their metrics.",
+      "colCountry": "Country",
+      "colRegion": "Sub-region",
       "articleCount": "Article count",
       "clusterCount": "Cluster count",
       "coverage": "Coverage",

@@ -5,7 +5,7 @@ import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 
 import {colorForCluster} from "@/lib/colors";
-import type {AtlasSelectionPoint, ColorMode} from "@/lib/types";
+import type {ArticleDetail, AtlasSelectionPoint, ColorMode} from "@/lib/types";
 
 // Use the factory pattern so we control which Plotly bundle is loaded.
 // react-plotly.js's default import requires "plotly.js/dist/plotly" (not installed);
@@ -29,6 +29,8 @@ type Canvas3DProps = {
   focusTarget: [number, number, number] | null;
   countryColors: Record<string, string>;
   colorMode: ColorMode;
+  articleDetail: ArticleDetail | null;
+  isArticleLoading: boolean;
   onSelectPoint: (point: AtlasSelectionPoint) => void;
   onSetColorMode: (mode: ColorMode) => void;
   onRequestFocus: (point: AtlasSelectionPoint) => void;
@@ -56,6 +58,8 @@ export default function Canvas3D({
   focusTarget,
   countryColors,
   colorMode,
+  articleDetail,
+  isArticleLoading,
   onSelectPoint,
   onSetColorMode,
   onRequestFocus,
@@ -64,6 +68,7 @@ export default function Canvas3D({
   const graphDivRef = useRef<HTMLElement | null>(null);
   const plotlyRef = useRef<typeof import("plotly.js-dist-min") | null>(null);
   const [hoveredPoint, setHoveredPoint] = useState<AtlasSelectionPoint | null>(null);
+  const [highlightPulse, setHighlightPulse] = useState(1);
   // uirevision: stable string preserves camera on data updates;
   // changes on "Fit all" to trigger camera reset.
   const [uirevision, setUirevision] = useState<string>("stable");
@@ -74,6 +79,27 @@ export default function Canvas3D({
       plotlyRef.current = mod;
     });
   }, []);
+
+  useEffect(() => {
+    if (!selectedPoint) {
+      setHighlightPulse(1);
+      return;
+    }
+
+    let animationFrame = 0;
+    const startedAt = performance.now();
+
+    const animate = (timestamp: number) => {
+      const elapsed = (timestamp - startedAt) / 1000;
+      setHighlightPulse(1 + (Math.sin(elapsed * Math.PI * 2.4) + 1) * 0.18);
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+
+    animationFrame = window.requestAnimationFrame(animate);
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+    };
+  }, [selectedPoint]);
 
   const visibleCount = points.filter((p) => selectedCountries.includes(p.country_code)).length;
 
@@ -117,9 +143,39 @@ export default function Canvas3D({
       } as Partial<Plotly.ScatterData>;
     }
 
-    return [makeTrace(ghostPoints, 0.12), makeTrace(activePoints, 0.88)];
+    const highlightTrace = selectedPoint
+      ? ({
+          type: "scatter3d",
+          mode: "markers",
+          x: [selectedPoint.x],
+          y: [selectedPoint.y],
+          z: [selectedPoint.z],
+          customdata: [selectedPoint] as unknown as Plotly.Datum[],
+          text: [`<b>${selectedPoint.country_name}</b> · ${selectedPoint.article_id}`],
+          hovertemplate: "%{text}<extra></extra>",
+          marker: {
+            size:
+              (2.5 + (selectedPoint.cluster_probability ?? 0) * 4) *
+              2.8 *
+              highlightPulse,
+            color: resolveColor(selectedPoint),
+            opacity: 1,
+            line: {
+              width: 4 + (highlightPulse - 1) * 8,
+              color: "#fff8d6",
+            },
+          },
+          showlegend: false,
+        } as Partial<Plotly.ScatterData>)
+      : null;
+
+    return [
+      makeTrace(ghostPoints, 0.12),
+      makeTrace(activePoints, 0.88),
+      ...(highlightTrace ? [highlightTrace] : []),
+    ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [points, selectedCountries, colorMode, countryColors]);
+  }, [points, selectedCountries, colorMode, countryColors, selectedPoint, highlightPulse]);
 
   const layout = useMemo(
     () =>
@@ -241,37 +297,86 @@ export default function Canvas3D({
         </div>
       </div>
 
-      <div className="relative h-[540px] overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-[radial-gradient(circle_at_top,_rgba(248,252,247,1),_rgba(233,241,237,1)_42%,_rgba(220,231,228,1))]">
-        {points.length === 0 ? (
-          <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-slate-500">
-            {t("empty")}
-          </div>
-        ) : (
-          <Plot
-            data={traces as Plotly.Data[]}
-            layout={layout}
-            config={config}
-            style={{width: "100%", height: "100%"}}
-            onInitialized={(_, gd) => {
-              graphDivRef.current = gd;
-            }}
-            onUpdate={(_, gd) => {
-              graphDivRef.current = gd;
-            }}
-            onClick={handleClick}
-            onHover={handleHover}
-            onUnhover={handleUnhover}
-          />
-        )}
+      <div className="grid gap-4 xl:grid-cols-[1fr_360px]">
+        {/* 3D plot */}
+        <div className="relative h-[540px] overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-[radial-gradient(circle_at_top,_rgba(248,252,247,1),_rgba(233,241,237,1)_42%,_rgba(220,231,228,1))]">
+          {points.length === 0 ? (
+            <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-slate-500">
+              {t("empty")}
+            </div>
+          ) : (
+            <Plot
+              data={traces as Plotly.Data[]}
+              layout={layout}
+              config={config}
+              style={{width: "100%", height: "100%"}}
+              onInitialized={(_, gd) => {
+                graphDivRef.current = gd;
+              }}
+              onUpdate={(_, gd) => {
+                graphDivRef.current = gd;
+              }}
+              onClick={handleClick}
+              onHover={handleHover}
+              onUnhover={handleUnhover}
+            />
+          )}
 
-        {hoveredPoint && (
-          <div className="pointer-events-none absolute bottom-4 left-4 max-w-md rounded-[1.25rem] border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur">
-            <p className="font-semibold">
-              {hoveredPoint.country_name} · {hoveredPoint.article_id}
-            </p>
-            <p className="mt-1 text-slate-600">{hoveredPoint.text_snippet}</p>
-          </div>
-        )}
+          {hoveredPoint && (
+            <div className="pointer-events-none absolute bottom-4 left-4 max-w-sm rounded-[1.25rem] border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur">
+              <p className="font-semibold">
+                {hoveredPoint.country_name} · {hoveredPoint.article_id}
+              </p>
+              <p className="mt-1 text-slate-600">{hoveredPoint.text_snippet}</p>
+            </div>
+          )}
+        </div>
+
+        {/* Article detail sidebar */}
+        <div className="flex h-[540px] flex-col overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-white/80">
+          {!selectedPoint ? (
+            <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-slate-500">
+              {t("detailEmpty")}
+            </div>
+          ) : (
+            <>
+              <div className="border-b border-slate-100 px-5 py-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded-full bg-slate-950 px-2.5 py-1 text-xs font-semibold text-white">
+                    {selectedPoint.country_code}
+                  </span>
+                  <span className="text-sm font-semibold text-slate-800">
+                    {selectedPoint.country_name}
+                  </span>
+                </div>
+                <p className="mt-2 text-xs font-mono text-slate-500">{selectedPoint.article_id}</p>
+                <div className="mt-3 grid grid-cols-2 gap-2">
+                  <div className="rounded-xl bg-slate-50 px-3 py-2">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">{t("detailCluster")}</p>
+                    <p className="mt-0.5 text-sm font-semibold text-slate-900">{selectedPoint.global_cluster}</p>
+                  </div>
+                  <div className="rounded-xl bg-slate-50 px-3 py-2">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">{t("detailProbability")}</p>
+                    <p className="mt-0.5 text-sm font-semibold text-slate-900">
+                      {selectedPoint.cluster_probability === null
+                        ? "n/a"
+                        : `${(selectedPoint.cluster_probability * 100).toFixed(1)}%`}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex-1 overflow-y-auto px-5 py-4">
+                {isArticleLoading ? (
+                  <p className="text-sm text-slate-400">{t("detailLoading")}</p>
+                ) : (
+                  <p className="whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                    {articleDetail?.text ?? selectedPoint.text_snippet}
+                  </p>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </section>
   );

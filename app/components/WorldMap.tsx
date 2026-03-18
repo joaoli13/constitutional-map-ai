@@ -43,7 +43,7 @@ export default function WorldMap({
   }
 
   return (
-    <section className="rounded-[2rem] border border-white/70 bg-white/88 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur">
+    <section className="flex h-full flex-col rounded-[2rem] border border-white/70 bg-white/88 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-700">
@@ -74,8 +74,8 @@ export default function WorldMap({
         </div>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(226,232,240,0.92))]">
-        <ComposableMap projection="geoEqualEarth" className="h-[420px] w-full">
+      <div className="mt-4 min-h-0 flex-1 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(226,232,240,0.92))]">
+        <ComposableMap projection="geoEqualEarth" className="h-full w-full">
           <ZoomableGroup
             center={mapPosition.coordinates}
             zoom={mapPosition.zoom}

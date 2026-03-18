@@ -5,7 +5,6 @@ import {useTranslations} from "next-intl";
 
 import Canvas3D from "@/components/Canvas3D";
 import ControlPanel from "@/components/ControlPanel";
-import DetailPanel from "@/components/DetailPanel";
 import SearchPanel from "@/components/SearchPanel";
 import StatsPanel from "@/components/StatsPanel";
 import WorldMap from "@/components/WorldMap";
@@ -128,16 +127,21 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-[1500px] flex-col gap-6 px-6 pb-16 pt-6">
-      <section className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-        <WorldMap
-          countries={atlasIndex.countries}
-          selectedCountries={selectedCountries}
-          loadingCountries={loadingCountries}
-          countryColors={countryColors}
-          onToggleCountry={toggleCountrySelection}
-        />
-        <div className="grid gap-6">
+    <main className="mx-auto flex w-full max-w-[1500px] flex-col gap-6 px-6 pb-16 pt-7">
+      <section className="grid gap-6 xl:grid-cols-[1.18fr_0.82fr]">
+        <div className="flex flex-col gap-5">
+          <div className="min-h-0 flex-1">
+            <WorldMap
+              countries={atlasIndex.countries}
+              selectedCountries={selectedCountries}
+              loadingCountries={loadingCountries}
+              countryColors={countryColors}
+              onToggleCountry={toggleCountrySelection}
+            />
+          </div>
+          <SearchPanel onSelectResult={handleSelectSearchResult} />
+        </div>
+        <div className="grid gap-5 xl:content-start">
           <ControlPanel
             countries={atlasIndex.countries}
             selectedCountries={selectedCountries}
@@ -148,7 +152,6 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
             onAddCountries={addCountries}
             onClearCountries={clearCountrySelection}
           />
-          <SearchPanel onSelectResult={handleSelectSearchResult} />
         </div>
       </section>
 
@@ -165,18 +168,14 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
         focusTarget={focusTarget}
         countryColors={countryColors}
         colorMode={colorMode}
+        articleDetail={articleDetail}
+        isArticleLoading={isArticleLoading}
         onSelectPoint={handleSelectPoint}
         onSetColorMode={setColorMode}
         onRequestFocus={(point) => setFocusTarget([point.x, point.y, point.z])}
       />
 
       <StatsPanel countries={selectedCountryRecords} />
-
-      <DetailPanel
-        selectedPoint={selectedPoint}
-        articleDetail={articleDetail}
-        isLoading={isArticleLoading}
-      />
     </main>
   );
 }

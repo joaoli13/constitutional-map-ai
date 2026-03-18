@@ -21,8 +21,9 @@
     "primerP5": "Usa la búsqueda cuando ya tengas un concepto en mente, y la comparación cuando quieras ver cómo distintos países ocupan un mismo terreno semántico. La estrategia más útil es ir y venir entre mapa, forma del clúster y detalle del artículo.",
     "dataNotice": "Los textos constitucionales de esta aplicación provienen del Constitute Project y se utilizan bajo la licencia Creative Commons Attribution-Non Commercial 3.0 Unported, salvo cuando se identifiquen derechos de terceros.",
     "projectLinkLabel": "constituteproject.org",
-    "citationLabel": "Cita sugerida:",
-    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare."
+    "sourceLabel": "Fuente:",
+    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare.",
+    "madeBy": "Hecho por"
   },
   "Atlas": {
     "countryLoadError": "No fue posible cargar los datos del país {country}.",
@@ -89,12 +90,18 @@
       "resetView": "Ver todo",
       "empty": "Selecciona uno o más países para renderizar sus segmentos constitucionales en 3D.",
       "hoverHint": "Pasa el cursor sobre un punto para inspeccionar su artículo y fragmento de texto.",
-      "doubleClickHint": "Haz doble clic en un punto para enfocar la cámara en su ubicación semántica."
+      "doubleClickHint": "Haz doble clic en un punto para enfocar la cámara en su ubicación semántica.",
+      "detailEmpty": "Haz clic en un punto para inspeccionar el artículo constitucional completo.",
+      "detailCluster": "Clúster global",
+      "detailProbability": "Probabilidad",
+      "detailLoading": "Cargando artículo..."
     },
     "Stats": {
       "eyebrow": "Estadísticas por País",
       "title": "Cobertura semántica por país seleccionado.",
       "empty": "Selecciona países en el mapa o en el panel de control para inspeccionar sus métricas.",
+      "colCountry": "País",
+      "colRegion": "Sub-región",
       "articleCount": "Cantidad de artículos",
       "clusterCount": "Cantidad de clústeres",
       "coverage": "Cobertura",

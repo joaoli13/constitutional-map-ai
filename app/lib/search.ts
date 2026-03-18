@@ -11,6 +11,7 @@ export async function searchArticles(params: {
   limit: number;
 }): Promise<SearchResponse> {
   const sql = getNeonSql();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rows = (await sql.query(
     `SELECT id, country_code, country_name, article_id, text_snippet,
             global_cluster, x, y, z,
@@ -22,8 +23,9 @@ export async function searchArticles(params: {
      ORDER BY rank DESC
       LIMIT $4`,
     [params.query, params.country, params.cluster, params.limit],
-  )) as SearchResult[];
+  )) as any as SearchResult[];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const countRows = (await sql.query(
     `SELECT COUNT(*)::text AS count
      FROM articles, plainto_tsquery('english', $1) query
@@ -31,7 +33,7 @@ export async function searchArticles(params: {
        AND ($2::text IS NULL OR country_code = $2)
        AND ($3::int IS NULL OR global_cluster = $3)`,
     [params.query, params.country, params.cluster],
-  )) as {count: string}[];
+  )) as any as {count: string}[];
 
   return {
     query: params.query,

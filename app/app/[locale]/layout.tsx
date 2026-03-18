@@ -47,12 +47,14 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
-        <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-4">
+        <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-5">
           <div>
-            <h1 className="text-[13px] font-bold uppercase tracking-[0.3em] text-slate-900">
+            <h1 className="text-[18px] font-bold uppercase tracking-[0.24em] text-slate-950 sm:text-[22px]">
               {chromeT("eyebrow")}
             </h1>
-            <p className="mt-0.5 text-[13px] text-slate-500">{chromeT("subtitle")}</p>
+            <p className="mt-1 text-[15px] text-slate-600 sm:text-[17px]">
+              {chromeT("subtitle")}
+            </p>
           </div>
           <LanguageSelector />
         </header>
@@ -85,8 +87,42 @@ export default async function LocaleLayout({
             >
               {chromeT("projectLinkLabel")}
             </a>
-            . {chromeT("citationLabel")}{" "}
-            <span className="text-slate-700">{chromeT("citationText")}</span>
+            .
+          </p>
+          <p className="mt-1">
+            <span className="text-slate-700">
+              ({chromeT("sourceLabel")} {chromeT("citationText")})
+            </span>
+          </p>
+          <p className="mt-3 border-t border-slate-200/70 pt-3">
+            {chromeT("madeBy")}{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="https://x.com/joaoli13"
+              target="_blank"
+              rel="noreferrer"
+            >
+              João Lima
+            </a>
+            {" "}+{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="https://claude.ai/code"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Claude Code
+            </a>
+            {" "}+{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="https://openai.com/index/openai-codex/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              OpenAI Codex
+            </a>
+            .
           </p>
         </footer>
       </div>
