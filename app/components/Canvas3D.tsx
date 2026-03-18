@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 
+import {useFullscreen} from "@/hooks/useFullscreen";
 import {colorForCluster} from "@/lib/colors";
 import type {ArticleDetail, AtlasSelectionPoint, ColorMode} from "@/lib/types";
 
@@ -24,16 +25,15 @@ const Plot = dynamic(
 
 type Canvas3DProps = {
   points: AtlasSelectionPoint[];
+  searchHighlightedPoints: AtlasSelectionPoint[];
   selectedCountries: string[];
   selectedPoint: AtlasSelectionPoint | null;
-  focusTarget: [number, number, number] | null;
   countryColors: Record<string, string>;
   colorMode: ColorMode;
   articleDetail: ArticleDetail | null;
   isArticleLoading: boolean;
   onSelectPoint: (point: AtlasSelectionPoint) => void;
   onSetColorMode: (mode: ColorMode) => void;
-  onRequestFocus: (point: AtlasSelectionPoint) => void;
 };
 
 const INITIAL_CAMERA = {
@@ -53,22 +53,21 @@ const AXIS_STYLE = {
 
 export default function Canvas3D({
   points,
+  searchHighlightedPoints,
   selectedCountries,
   selectedPoint,
-  focusTarget,
   countryColors,
   colorMode,
   articleDetail,
   isArticleLoading,
   onSelectPoint,
   onSetColorMode,
-  onRequestFocus,
 }: Canvas3DProps) {
   const t = useTranslations("Atlas.Canvas");
+  const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const graphDivRef = useRef<HTMLElement | null>(null);
   const plotlyRef = useRef<typeof import("plotly.js-dist-min") | null>(null);
   const [hoveredPoint, setHoveredPoint] = useState<AtlasSelectionPoint | null>(null);
-  const [highlightPulse, setHighlightPulse] = useState(1);
   // uirevision: stable string preserves camera on data updates;
   // changes on "Fit all" to trigger camera reset.
   const [uirevision, setUirevision] = useState<string>("stable");
@@ -81,27 +80,35 @@ export default function Canvas3D({
   }, []);
 
   useEffect(() => {
-    if (!selectedPoint) {
-      setHighlightPulse(1);
+    if (!graphDivRef.current || !plotlyRef.current) {
       return;
     }
 
-    let animationFrame = 0;
-    const startedAt = performance.now();
+    const timer = window.setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      void (plotlyRef.current?.Plots.resize as any)?.(graphDivRef.current);
+    }, 80);
 
-    const animate = (timestamp: number) => {
-      const elapsed = (timestamp - startedAt) / 1000;
-      setHighlightPulse(1 + (Math.sin(elapsed * Math.PI * 2.4) + 1) * 0.18);
-      animationFrame = window.requestAnimationFrame(animate);
-    };
-
-    animationFrame = window.requestAnimationFrame(animate);
     return () => {
-      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(timer);
     };
-  }, [selectedPoint]);
+  }, [isFullscreen]);
 
-  const visibleCount = points.filter((p) => selectedCountries.includes(p.country_code)).length;
+  const visibleCount = useMemo(() => {
+    const selectedSet = new Set(selectedCountries);
+    const renderedIds = new Set(
+      (selectedCountries.length > 0
+        ? points.filter((point) => selectedSet.has(point.country_code))
+        : points
+      ).map((point) => point.id),
+    );
+
+    for (const point of searchHighlightedPoints) {
+      renderedIds.add(point.id);
+    }
+
+    return renderedIds.size;
+  }, [points, searchHighlightedPoints, selectedCountries]);
 
   function resolveColor(point: AtlasSelectionPoint): string {
     if (colorMode === "cluster") return colorForCluster(point.global_cluster);
@@ -112,6 +119,7 @@ export default function Canvas3D({
   const traces = useMemo(() => {
     const selectedSet = new Set(selectedCountries);
     const hasSelection = selectedCountries.length > 0;
+    const searchHighlightIds = new Set(searchHighlightedPoints.map((point) => point.id));
 
     const ghostPoints = hasSelection
       ? points.filter((p) => !selectedSet.has(p.country_code))
@@ -119,6 +127,10 @@ export default function Canvas3D({
     const activePoints = hasSelection
       ? points.filter((p) => selectedSet.has(p.country_code))
       : points;
+    const activeBackgroundPoints =
+      searchHighlightIds.size > 0
+        ? activePoints.filter((point) => !searchHighlightIds.has(point.id))
+        : activePoints;
 
     function makeTrace(
       pts: AtlasSelectionPoint[],
@@ -143,6 +155,35 @@ export default function Canvas3D({
       } as Partial<Plotly.ScatterData>;
     }
 
+    const searchHighlightTrace =
+      searchHighlightedPoints.length > 0
+        ? ({
+            type: "scatter3d",
+            mode: "markers",
+            x: searchHighlightedPoints.map((point) => point.x),
+            y: searchHighlightedPoints.map((point) => point.y),
+            z: searchHighlightedPoints.map((point) => point.z),
+            customdata: searchHighlightedPoints as unknown as Plotly.Datum[],
+            text: searchHighlightedPoints.map(
+              (point) => `<b>${point.country_name}</b> · ${point.article_id}`,
+            ),
+            hovertemplate: "%{text}<extra></extra>",
+            marker: {
+              size: searchHighlightedPoints.map((point) => {
+                const baseSize = 2.5 + (point.cluster_probability ?? 0) * 4;
+                return Math.max(baseSize * 2.2, 9);
+              }),
+              color: "#facc15",
+              opacity: 1,
+              line: {
+                width: 3.5,
+                color: "#111827",
+              },
+            },
+            showlegend: false,
+          } as Partial<Plotly.ScatterData>)
+        : null;
+
     const highlightTrace = selectedPoint
       ? ({
           type: "scatter3d",
@@ -150,19 +191,14 @@ export default function Canvas3D({
           x: [selectedPoint.x],
           y: [selectedPoint.y],
           z: [selectedPoint.z],
-          customdata: [selectedPoint] as unknown as Plotly.Datum[],
-          text: [`<b>${selectedPoint.country_name}</b> · ${selectedPoint.article_id}`],
-          hovertemplate: "%{text}<extra></extra>",
+          hoverinfo: "skip",
           marker: {
-            size:
-              (2.5 + (selectedPoint.cluster_probability ?? 0) * 4) *
-              2.8 *
-              highlightPulse,
+            size: (2.5 + (selectedPoint.cluster_probability ?? 0) * 4) * 2.25,
             color: resolveColor(selectedPoint),
-            opacity: 1,
+            opacity: 0.12,
             line: {
-              width: 4 + (highlightPulse - 1) * 8,
-              color: "#fff8d6",
+              width: 1.4,
+              color: "rgba(255, 248, 214, 0.45)",
             },
           },
           showlegend: false,
@@ -171,11 +207,12 @@ export default function Canvas3D({
 
     return [
       makeTrace(ghostPoints, 0.12),
-      makeTrace(activePoints, 0.88),
+      makeTrace(activeBackgroundPoints, searchHighlightIds.size > 0 ? 0.4 : 0.88),
+      ...(searchHighlightTrace ? [searchHighlightTrace] : []),
       ...(highlightTrace ? [highlightTrace] : []),
     ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [points, selectedCountries, colorMode, countryColors, selectedPoint, highlightPulse]);
+  }, [points, searchHighlightedPoints, selectedCountries, colorMode, countryColors, selectedPoint]);
 
   const layout = useMemo(
     () =>
@@ -244,7 +281,12 @@ export default function Canvas3D({
   }
 
   return (
-    <section className="rounded-[2rem] border border-[#d8ddd7] bg-[linear-gradient(180deg,_#fbf7ef,_#eef4f1)] p-4 shadow-[0_28px_90px_rgba(15,23,42,0.14)]">
+    <section
+      ref={ref}
+      className={`rounded-[2rem] border border-[#d8ddd7] bg-[linear-gradient(180deg,_#fbf7ef,_#eef4f1)] p-4 shadow-[0_28px_90px_rgba(15,23,42,0.14)] ${
+        isFullscreen ? "flex h-full flex-col rounded-none border-0 p-5 shadow-none" : ""
+      }`}
+    >
       <div className="flex flex-wrap items-start justify-between gap-4 px-2 pb-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-teal-700">
@@ -294,12 +336,23 @@ export default function Canvas3D({
           >
             {t("focusSelection")}
           </button>
+          <button
+            className="rounded-full border border-slate-300 bg-white/80 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500"
+            type="button"
+            onClick={() => void toggleFullscreen()}
+          >
+            {isFullscreen ? t("exitFullscreen") : t("enterFullscreen")}
+          </button>
         </div>
       </div>
 
-      <div className="grid gap-4 xl:grid-cols-[1fr_360px]">
+      <div className={`grid gap-4 xl:grid-cols-[1fr_360px] ${isFullscreen ? "min-h-0 flex-1" : ""}`}>
         {/* 3D plot */}
-        <div className="relative h-[540px] overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-[radial-gradient(circle_at_top,_rgba(248,252,247,1),_rgba(233,241,237,1)_42%,_rgba(220,231,228,1))]">
+        <div
+          className={`relative overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-[radial-gradient(circle_at_top,_rgba(248,252,247,1),_rgba(233,241,237,1)_42%,_rgba(220,231,228,1))] ${
+            isFullscreen ? "h-[56vh] xl:h-full" : "h-[540px]"
+          }`}
+        >
           {points.length === 0 ? (
             <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-slate-500">
               {t("empty")}
@@ -333,7 +386,11 @@ export default function Canvas3D({
         </div>
 
         {/* Article detail sidebar */}
-        <div className="flex h-[540px] flex-col overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-white/80">
+        <div
+          className={`flex flex-col overflow-hidden rounded-[1.5rem] border border-[#d9e0d8] bg-white/80 ${
+            isFullscreen ? "h-[34vh] xl:h-full" : "h-[540px]"
+          }`}
+        >
           {!selectedPoint ? (
             <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-slate-500">
               {t("detailEmpty")}

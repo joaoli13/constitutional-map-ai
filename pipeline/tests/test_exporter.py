@@ -172,6 +172,7 @@ def test_json_writer_outputs_expected_files_and_schema(tmp_path) -> None:
     assert clusters_payload[1]["top_countries"] == ["AAA", "BBB"]
     assert len(alpha_payload) == 2
     assert all(len(point["text_snippet"]) <= 200 for point in alpha_payload)
+    assert not (output_dir / "countries-full").exists()
 
 
 def test_neon_migration_and_upsert_use_expected_sql(tmp_path) -> None:

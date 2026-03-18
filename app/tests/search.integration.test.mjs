@@ -48,6 +48,20 @@ test(
     assert.ok(payload.total >= payload.results.length);
     assert.equal(payload.results[0].country_code, "BRA");
     assert.equal(typeof payload.results[0].rank, "number");
+
+    const multiCountryResponse = await fetch(
+      `${BASE_URL}/api/search?q=rights&countries=BRA,COL&limit=5`,
+    );
+    assert.equal(multiCountryResponse.status, 200);
+
+    const multiCountryPayload = await multiCountryResponse.json();
+    assert.ok(Array.isArray(multiCountryPayload.results));
+    assert.ok(multiCountryPayload.results.length > 0);
+    assert.ok(
+      multiCountryPayload.results.every((result) =>
+        ["BRA", "COL"].includes(result.country_code),
+      ),
+    );
   },
 );
 

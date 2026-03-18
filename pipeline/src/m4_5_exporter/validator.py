@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 COUNTRY_FILE_MAX_BYTES = 500 * 1024
-TOTAL_DATA_MAX_BYTES = 60 * 1024 * 1024
+TOTAL_DATA_MAX_BYTES = 30 * 1024 * 1024
 
 
 class ExportValidationError(RuntimeError):

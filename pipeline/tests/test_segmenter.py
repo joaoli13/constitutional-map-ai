@@ -171,6 +171,46 @@ def test_segmenter_emits_preamble_as_its_own_segment() -> None:
     assert articles[1].text == "Body of segment 1."
 
 
+def test_segmenter_detects_mixed_numeric_article_headers_like_saint_lucia() -> None:
+    text = "\n\n".join(
+        [
+            "Preamble",
+            "Foundational text before the numbered provisions.",
+            "CHAPTER I. RIGHTS",
+            "1. Whereas every person is entitled to the protection of the law.",
+            "a. life and liberty;",
+            "b. freedom of conscience.",
+            "2",
+            "1. A person shall not be deprived of life intentionally.",
+            "2. This protection applies in accordance with law.",
+            "3",
+            "1. A person shall not be deprived of personal liberty save as authorized by law.",
+            "2. Judicial safeguards shall apply.",
+            "4",
+            "1. No person shall be held in slavery or servitude.",
+            "2. Forced labour is prohibited.",
+            "5. No person shall be subjected to torture.",
+            "2. No person shall be subjected to inhuman treatment.",
+            "6",
+            "1. No person shall be deprived of property except by law.",
+            "2. Compensation shall be provided when required.",
+        ]
+    )
+    segmenter = ConstitutionalSegmenter(token_counter=lambda value: len(value.split()))
+    articles, report = segmenter.segment_country(_metadata(), text)
+
+    assert report.pattern == "numeric_heading"
+    assert report.fallback_used is False
+    assert len(articles) == 7
+    assert articles[0].article_id == "Preamble"
+    assert articles[1].article_id == "1"
+    assert articles[1].text.startswith("CHAPTER I. RIGHTS")
+    assert articles[2].article_id == "2"
+    assert articles[2].text.startswith("1. A person shall not be deprived of life intentionally.")
+    assert articles[5].article_id == "5"
+    assert articles[5].text.startswith("No person shall be subjected to torture.")
+
+
 def test_segmenter_splits_oversized_segments_and_suffixes_ids() -> None:
     text = "\n\n".join(
         [

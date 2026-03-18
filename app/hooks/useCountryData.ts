@@ -61,7 +61,6 @@ export function useCountryData(selectedCountries: string[]) {
     return () => {
       cancelled = true;
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCountries, setCountryData]);
 
   return {loadingCountries, errorCountry};

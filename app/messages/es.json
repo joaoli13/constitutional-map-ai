@@ -1,6 +1,6 @@
 {
   "Meta": {
-    "title": "The Constitutional Atlas",
+    "title": "Constitutional Map",
     "description": "Explora la geografía semántica del derecho constitucional en todo el mundo."
   },
   "LanguageSelector": {
@@ -10,17 +10,21 @@
     "pt": "Português"
   },
   "Chrome": {
-    "eyebrow": "The Constitutional Atlas",
-    "subtitle": "Un atlas semántico global del derecho constitucional",
+    "eyebrow": "Constitutional Map",
+    "subtitle": "Un mapa semántico global del derecho constitucional",
     "primerEyebrow": "Guía de Lectura",
     "primerTitle": "Cómo leer la visualización",
+    "primerSection1Title": "Qué Estás Viendo",
+    "primerSection2Title": "Espacio Semántico",
+    "primerSection3Title": "Cómo Leer las Métricas",
     "primerP1": "Cada punto en la vista 3D representa un **segmento constitucional**, normalmente un artículo u otra unidad jurídica relevante. Los puntos cercanos no están juntos porque pertenezcan al mismo país, sino porque el lenguaje de esos pasajes es **semánticamente parecido**.",
     "primerP2": "El **mapa** y la **lista de países** son herramientas de selección. Deciden qué constituciones se cargan en la escena. Seleccionar más países no cambia la geometría del embedding; cambia qué partes de ese espacio semántico global puedes inspeccionar.",
     "primerP3": "El **embedding** convierte texto jurídico en vectores, y la etapa de **clustering** agrupa vectores que tienden a tratar temas constitucionales relacionados. En **modo país**, el color muestra origen político. En **modo clúster**, el color muestra vecindad temática.",
     "primerP4": "**Las nubes grandes y densas** suelen indicar ideas constitucionales recurrentes, como derechos, instituciones, poderes de emergencia, elecciones o reglas de reforma. **Los puntos aislados** suelen marcar disposiciones poco comunes, lenguaje raro o decisiones de diseño constitucional específicas de un país.",
-    "primerP5": "Usa la **búsqueda** cuando ya tengas un concepto en mente, y la **comparación** cuando quieras ver cómo distintos países ocupan un mismo terreno semántico. La estrategia más útil es ir y venir entre mapa, forma del clúster y detalle del artículo.",
+    "primerP5": "Usa la **búsqueda** cuando ya tengas un concepto en mente, y la **selección de países** cuando quieras comparar cómo distintos países ocupan un mismo terreno semántico. La estrategia más útil es ir y venir entre mapa, forma del clúster y detalle del artículo.",
     "primerP6": "En las estadísticas por país, **Cobertura** mide cuánto del paisaje global de clústeres alcanza una constitución. **Entropía** mide cuán uniformemente se distribuyen sus segmentos en ese paisaje: una entropía alta sugiere mayor diversidad semántica, mientras que una entropía baja sugiere concentración en menos temas.",
-    "dataNotice": "Los textos constitucionales de esta aplicación provienen del Constitute Project y se utilizan bajo la licencia Creative Commons Attribution-Non Commercial 3.0 Unported, salvo cuando se identifiquen derechos de terceros.",
+    "primerP7": "En el panel de detalle del artículo, **Global Cluster** es el identificador del grupo temático al que ese segmento fue asignado en el clustering mundial. Cuando el valor es **-1**, significa que el segmento quedó **fuera de los agrupamientos temáticos definidos** en esa etapa global. **Probability** indica con qué confianza el modelo colocó ese segmento en ese grupo: valores altos sugieren un encaje más claro, mientras que valores bajos suelen marcar casos ambiguos o de frontera.",
+    "dataNotice": "Los textos constitucionales de esta aplicación provienen del Constitute Project y se utilizan bajo la licencia Creative Commons Attribution-Non Commercial 3.0 Unported.",
     "projectLinkLabel": "constituteproject.org",
     "sourceLabel": "Fuente:",
     "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare.",
@@ -76,8 +80,14 @@
     "Search": {
       "eyebrow": "Búsqueda",
       "title": "Busca en todo el corpus constitucional.",
+      "enterFullscreen": "Pantalla completa",
+      "exitFullscreen": "Salir de pantalla completa",
       "placeholder": "Prueba libertad de expresión, poderes de emergencia, derechos laborales...",
+      "clear": "Limpiar",
       "submit": "Buscar",
+      "restrictToSelectedAndHighlight": "Restringir la búsqueda a los {count, plural, one {# país seleccionado} other {# países seleccionados}} y destacar los resultados en el mapa 3D",
+      "restrictToSelectedDisabled": "Selecciona uno o más países para restringir la búsqueda.",
+      "resultsCount": "{count, plural, =0 {0 segmentos encontrados} one {# segmento encontrado} other {# segmentos encontrados}}",
       "loading": "Buscando...",
       "empty": "Ejecuta una búsqueda para ver coincidencias de artículos ordenadas.",
       "error": "La búsqueda no está disponible temporalmente."
@@ -85,6 +95,8 @@
     "Canvas": {
       "eyebrow": "Espacio Semántico 3D",
       "title": "Navega por el campo de clústeres semánticos.",
+      "enterFullscreen": "Pantalla completa",
+      "exitFullscreen": "Salir de pantalla completa",
       "body": "{visible} puntos visibles de {loaded} segmentos cargados.",
       "colorByCountry": "Por país",
       "colorByCluster": "Por clúster",
@@ -103,6 +115,8 @@
     "Stats": {
       "eyebrow": "Estadísticas por País",
       "title": "Cobertura semántica por país seleccionado.",
+      "enterFullscreen": "Pantalla completa",
+      "exitFullscreen": "Salir de pantalla completa",
       "empty": "Selecciona países en el mapa o en el panel de control para inspeccionar sus métricas.",
       "colCountry": "País",
       "colRegion": "Sub-región",

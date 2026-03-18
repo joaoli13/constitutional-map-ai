@@ -26,3 +26,28 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+.visible-scrollbar {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(71, 85, 105, 0.55) rgba(226, 232, 240, 0.85);
+}
+
+.visible-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.visible-scrollbar::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  background: rgba(226, 232, 240, 0.85);
+}
+
+.visible-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(226, 232, 240, 0.85);
+  border-radius: 9999px;
+  background: rgba(71, 85, 105, 0.55);
+}
+
+.visible-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(51, 65, 85, 0.75);
+}

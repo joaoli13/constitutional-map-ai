@@ -1,7 +1,7 @@
 [project]
 name = "tca-pipeline"
 version = "0.1.0"
-description = "The Constitutional Atlas — data pipeline (M1–M4.5)"
+description = "Constitutional Map — data pipeline (M1–M4.5)"
 requires-python = ">=3.11"
 dependencies = [
     # M1 — Scraper

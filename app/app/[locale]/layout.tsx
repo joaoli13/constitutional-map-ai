@@ -56,6 +56,20 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const chromeT = await getTranslations({locale, namespace: "Chrome"});
+  const primerSections = [
+    {
+      title: chromeT("primerSection1Title"),
+      paragraphs: [chromeT("primerP1"), chromeT("primerP2")],
+    },
+    {
+      title: chromeT("primerSection2Title"),
+      paragraphs: [chromeT("primerP3"), chromeT("primerP4"), chromeT("primerP5")],
+    },
+    {
+      title: chromeT("primerSection3Title"),
+      paragraphs: [chromeT("primerP6"), chromeT("primerP7")],
+    },
+  ];
 
   return (
     <NextIntlClientProvider messages={messages}>
@@ -80,13 +94,22 @@ export default async function LocaleLayout({
             <h2 className="mt-2 text-2xl font-semibold text-slate-950">
               {chromeT("primerTitle")}
             </h2>
-            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-              <p>{rich(chromeT("primerP1"))}</p>
-              <p>{rich(chromeT("primerP2"))}</p>
-              <p>{rich(chromeT("primerP3"))}</p>
-              <p>{rich(chromeT("primerP4"))}</p>
-              <p>{rich(chromeT("primerP5"))}</p>
-              <p>{rich(chromeT("primerP6"))}</p>
+            <div className="mt-5 grid gap-4 lg:grid-cols-3">
+              {primerSections.map((section) => (
+                <div
+                  key={section.title}
+                  className="rounded-[1.5rem] border border-slate-200/80 bg-white/78 px-5 py-5 shadow-[0_10px_28px_rgba(15,23,42,0.04)]"
+                >
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
+                    {section.title}
+                  </h3>
+                  <div className="mt-3 space-y-4 text-sm leading-7 text-slate-600">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{rich(paragraph)}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -116,7 +139,7 @@ export default async function LocaleLayout({
               target="_blank"
               rel="noreferrer"
             >
-              github.com/joaoli13/the-constitutional-atlas
+              GitHub repository
             </a>
           </p>
           <p className="mt-2">

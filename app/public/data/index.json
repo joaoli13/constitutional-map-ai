@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-18T11:05:44.761550+00:00",
+  "generated_at": "2026-03-18T14:50:07.558820+00:00",
   "pipeline_version": "0.1.0",
-  "total_articles": 33638,
+  "total_articles": 30953,
   "countries": [
     {
       "code": "AFG",
@@ -12,9 +12,9 @@
       "constitution_year": 2004,
       "last_amendment_year": null,
       "article_count": 163,
-      "cluster_count": 57,
-      "semantic_coverage": 0.0967741935483871,
-      "semantic_entropy": 0.6965110661434896,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10227272727272728,
+      "semantic_entropy": 0.6895998776014373,
       "has_data": true
     },
     {
@@ -25,10 +25,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2010,
       "last_amendment_year": null,
-      "article_count": 284,
-      "cluster_count": 91,
-      "semantic_coverage": 0.15449915110356535,
-      "semantic_entropy": 0.7757519385569207,
+      "article_count": 245,
+      "cluster_count": 89,
+      "semantic_coverage": 0.16856060606060605,
+      "semantic_entropy": 0.8661859100593535,
       "has_data": true
     },
     {
@@ -40,9 +40,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 203,
-      "cluster_count": 81,
-      "semantic_coverage": 0.13752122241086587,
-      "semantic_entropy": 0.8509159686348898,
+      "cluster_count": 82,
+      "semantic_coverage": 0.1553030303030303,
+      "semantic_entropy": 0.8649509656103019,
       "has_data": true
     },
     {
@@ -54,9 +54,9 @@
       "constitution_year": 1993,
       "last_amendment_year": null,
       "article_count": 108,
-      "cluster_count": 43,
-      "semantic_coverage": 0.0730050933786078,
-      "semantic_entropy": 0.7930886252957889,
+      "cluster_count": 40,
+      "semantic_coverage": 0.07575757575757576,
+      "semantic_entropy": 0.7893202084720667,
       "has_data": true
     },
     {
@@ -68,9 +68,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 153,
-      "cluster_count": 40,
-      "semantic_coverage": 0.06791171477079797,
-      "semantic_entropy": 0.47667285432761464,
+      "cluster_count": 35,
+      "semantic_coverage": 0.06628787878787878,
+      "semantic_entropy": 0.46315523860266566,
       "has_data": true
     },
     {
@@ -82,9 +82,9 @@
       "constitution_year": 1994,
       "last_amendment_year": null,
       "article_count": 130,
-      "cluster_count": 41,
-      "semantic_coverage": 0.06960950764006792,
-      "semantic_entropy": 0.951949271844596,
+      "cluster_count": 40,
+      "semantic_coverage": 0.07575757575757576,
+      "semantic_entropy": 0.8756886763597483,
       "has_data": true
     },
     {
@@ -95,10 +95,10 @@
       "sub_region": "Western Asia",
       "constitution_year": 2015,
       "last_amendment_year": 2015,
-      "article_count": 291,
-      "cluster_count": 87,
-      "semantic_coverage": 0.14770797962648557,
-      "semantic_entropy": 0.7686479704139048,
+      "article_count": 221,
+      "cluster_count": 79,
+      "semantic_coverage": 0.14962121212121213,
+      "semantic_entropy": 0.8689692404117538,
       "has_data": true
     },
     {
@@ -109,10 +109,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 1981,
       "last_amendment_year": null,
-      "article_count": 133,
-      "cluster_count": 76,
-      "semantic_coverage": 0.12903225806451613,
-      "semantic_entropy": 0.9641308947788222,
+      "article_count": 22,
+      "cluster_count": 10,
+      "semantic_coverage": 0.01893939393939394,
+      "semantic_entropy": 0.8829207685594832,
       "has_data": true
     },
     {
@@ -124,9 +124,9 @@
       "constitution_year": 1985,
       "last_amendment_year": 1985,
       "article_count": 164,
-      "cluster_count": 26,
-      "semantic_coverage": 0.044142614601018676,
-      "semantic_entropy": 0.5116929286612907,
+      "cluster_count": 20,
+      "semantic_coverage": 0.03787878787878788,
+      "semantic_entropy": 0.4522260208129846,
       "has_data": true
     },
     {
@@ -138,9 +138,9 @@
       "constitution_year": 2013,
       "last_amendment_year": null,
       "article_count": 225,
-      "cluster_count": 24,
-      "semantic_coverage": 0.04074702886247878,
-      "semantic_entropy": 0.24634310295958348,
+      "cluster_count": 26,
+      "semantic_coverage": 0.04924242424242424,
+      "semantic_entropy": 0.7045765362995983,
       "has_data": true
     },
     {
@@ -151,10 +151,10 @@
       "sub_region": "Western Asia",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 173,
-      "cluster_count": 35,
-      "semantic_coverage": 0.059422750424448216,
-      "semantic_entropy": 0.41223694953940937,
+      "article_count": 165,
+      "cluster_count": 33,
+      "semantic_coverage": 0.0625,
+      "semantic_entropy": 0.4185293461386168,
       "has_data": true
     },
     {
@@ -166,9 +166,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 293,
-      "cluster_count": 99,
-      "semantic_coverage": 0.16808149405772496,
-      "semantic_entropy": 0.8740327194298158,
+      "cluster_count": 102,
+      "semantic_coverage": 0.19318181818181818,
+      "semantic_entropy": 0.8854135803776134,
       "has_data": true
     },
     {
@@ -180,9 +180,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 195,
-      "cluster_count": 52,
-      "semantic_coverage": 0.08828522920203735,
-      "semantic_entropy": 0.7987907284939652,
+      "cluster_count": 51,
+      "semantic_coverage": 0.09659090909090909,
+      "semantic_entropy": 0.6962768609166802,
       "has_data": true
     },
     {
@@ -194,9 +194,9 @@
       "constitution_year": 1990,
       "last_amendment_year": null,
       "article_count": 161,
-      "cluster_count": 80,
-      "semantic_coverage": 0.13582342954159593,
-      "semantic_entropy": 0.9517092025815669,
+      "cluster_count": 82,
+      "semantic_coverage": 0.1553030303030303,
+      "semantic_entropy": 0.9343749295104578,
       "has_data": true
     },
     {
@@ -208,9 +208,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 178,
-      "cluster_count": 88,
-      "semantic_coverage": 0.1494057724957555,
-      "semantic_entropy": 0.9619422969250352,
+      "cluster_count": 85,
+      "semantic_coverage": 0.16098484848484848,
+      "semantic_entropy": 0.9448692710733045,
       "has_data": true
     },
     {
@@ -222,9 +222,9 @@
       "constitution_year": 2014,
       "last_amendment_year": null,
       "article_count": 186,
-      "cluster_count": 72,
-      "semantic_coverage": 0.12224108658743633,
-      "semantic_entropy": 0.8061189492381746,
+      "cluster_count": 60,
+      "semantic_coverage": 0.11363636363636363,
+      "semantic_entropy": 0.7866194975137445,
       "has_data": true
     },
     {
@@ -236,9 +236,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 175,
-      "cluster_count": 82,
-      "semantic_coverage": 0.13921901528013583,
-      "semantic_entropy": 0.8739412120295154,
+      "cluster_count": 77,
+      "semantic_coverage": 0.14583333333333334,
+      "semantic_entropy": 0.8789031094504085,
       "has_data": true
     },
     {
@@ -250,9 +250,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 126,
-      "cluster_count": 57,
-      "semantic_coverage": 0.0967741935483871,
-      "semantic_entropy": 0.9530490101854198,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10227272727272728,
+      "semantic_entropy": 0.9494592098380462,
       "has_data": true
     },
     {
@@ -264,9 +264,9 @@
       "constitution_year": 1973,
       "last_amendment_year": null,
       "article_count": 139,
-      "cluster_count": 65,
-      "semantic_coverage": 0.11035653650254669,
-      "semantic_entropy": 0.9458226207019645,
+      "cluster_count": 53,
+      "semantic_coverage": 0.10037878787878787,
+      "semantic_entropy": 0.9174884722539245,
       "has_data": true
     },
     {
@@ -279,7 +279,7 @@
       "last_amendment_year": 2009,
       "article_count": 41,
       "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
+      "semantic_coverage": 0.003787878787878788,
       "semantic_entropy": 0.17203694935311378,
       "has_data": true
     },
@@ -292,9 +292,9 @@
       "constitution_year": 2004,
       "last_amendment_year": 2004,
       "article_count": 147,
-      "cluster_count": 47,
-      "semantic_coverage": 0.07979626485568761,
-      "semantic_entropy": 0.5991818684383244,
+      "cluster_count": 44,
+      "semantic_coverage": 0.08333333333333333,
+      "semantic_entropy": 0.6095939129918418,
       "has_data": true
     },
     {
@@ -305,10 +305,10 @@
       "sub_region": "Central America",
       "constitution_year": 2011,
       "last_amendment_year": 2011,
-      "article_count": 148,
-      "cluster_count": 82,
-      "semantic_coverage": 0.13921901528013583,
-      "semantic_entropy": 0.9604012543540609,
+      "article_count": 18,
+      "cluster_count": 6,
+      "semantic_coverage": 0.011363636363636364,
+      "semantic_entropy": 0.8193399999898041,
       "has_data": true
     },
     {
@@ -320,9 +320,9 @@
       "constitution_year": 2009,
       "last_amendment_year": null,
       "article_count": 412,
-      "cluster_count": 75,
-      "semantic_coverage": 0.1273344651952462,
-      "semantic_entropy": 0.8483956799392299,
+      "cluster_count": 73,
+      "semantic_coverage": 0.13825757575757575,
+      "semantic_entropy": 0.877756979947701,
       "has_data": true
     },
     {
@@ -334,9 +334,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 264,
-      "cluster_count": 54,
-      "semantic_coverage": 0.09168081494057725,
-      "semantic_entropy": 0.8502048889620559,
+      "cluster_count": 56,
+      "semantic_coverage": 0.10606060606060606,
+      "semantic_entropy": 0.8601114865558406,
       "has_data": true
     },
     {
@@ -347,10 +347,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 2007,
       "last_amendment_year": 2007,
-      "article_count": 14,
-      "cluster_count": 6,
-      "semantic_coverage": 0.010186757215619695,
-      "semantic_entropy": 0.9306282244165778,
+      "article_count": 118,
+      "cluster_count": 55,
+      "semantic_coverage": 0.10416666666666667,
+      "semantic_entropy": 0.9436616944392378,
       "has_data": true
     },
     {
@@ -362,9 +362,9 @@
       "constitution_year": 2006,
       "last_amendment_year": 2006,
       "article_count": 93,
-      "cluster_count": 13,
-      "semantic_coverage": 0.022071307300509338,
-      "semantic_entropy": 0.40114358599741634,
+      "cluster_count": 14,
+      "semantic_coverage": 0.026515151515151516,
+      "semantic_entropy": 0.411215659290498,
       "has_data": true
     },
     {
@@ -375,10 +375,10 @@
       "sub_region": "Southern Asia",
       "constitution_year": 2008,
       "last_amendment_year": null,
-      "article_count": 57,
-      "cluster_count": 3,
-      "semantic_coverage": 0.0050933786078098476,
-      "semantic_entropy": 0.17006642047275533,
+      "article_count": 36,
+      "cluster_count": 2,
+      "semantic_coverage": 0.003787878787878788,
+      "semantic_entropy": 0.19590927087360493,
       "has_data": true
     },
     {
@@ -390,9 +390,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 128,
-      "cluster_count": 71,
-      "semantic_coverage": 0.12054329371816638,
-      "semantic_entropy": 0.9206184983127517,
+      "cluster_count": 64,
+      "semantic_coverage": 0.12121212121212122,
+      "semantic_entropy": 0.9109665875953358,
       "has_data": true
     },
     {
@@ -404,9 +404,9 @@
       "constitution_year": 2016,
       "last_amendment_year": null,
       "article_count": 160,
-      "cluster_count": 78,
-      "semantic_coverage": 0.13242784380305603,
-      "semantic_entropy": 0.9563260796899646,
+      "cluster_count": 77,
+      "semantic_coverage": 0.14583333333333334,
+      "semantic_entropy": 0.9535005542166475,
       "has_data": true
     },
     {
@@ -418,9 +418,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 270,
-      "cluster_count": 19,
-      "semantic_coverage": 0.03225806451612903,
-      "semantic_entropy": 0.24471449959281755,
+      "cluster_count": 14,
+      "semantic_coverage": 0.026515151515151516,
+      "semantic_entropy": 0.22186887312753056,
       "has_data": true
     },
     {
@@ -431,10 +431,10 @@
       "sub_region": "Western Europe",
       "constitution_year": 2014,
       "last_amendment_year": 2014,
-      "article_count": 241,
-      "cluster_count": 35,
-      "semantic_coverage": 0.059422750424448216,
-      "semantic_entropy": 0.30176327910010053,
+      "article_count": 222,
+      "cluster_count": 31,
+      "semantic_coverage": 0.058712121212121215,
+      "semantic_entropy": 0.46606359973774314,
       "has_data": true
     },
     {
@@ -445,10 +445,10 @@
       "sub_region": "South America",
       "constitution_year": 2023,
       "last_amendment_year": null,
-      "article_count": 220,
-      "cluster_count": 56,
-      "semantic_coverage": 0.09507640067911714,
-      "semantic_entropy": 0.9351529438733742,
+      "article_count": 218,
+      "cluster_count": 51,
+      "semantic_coverage": 0.09659090909090909,
+      "semantic_entropy": 0.9014998733904678,
       "has_data": true
     },
     {
@@ -460,9 +460,9 @@
       "constitution_year": 2016,
       "last_amendment_year": null,
       "article_count": 185,
-      "cluster_count": 90,
-      "semantic_coverage": 0.15280135823429541,
-      "semantic_entropy": 0.968522694116536,
+      "cluster_count": 91,
+      "semantic_coverage": 0.17234848484848486,
+      "semantic_entropy": 0.9628059758095338,
       "has_data": true
     },
     {
@@ -474,9 +474,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 70,
-      "cluster_count": 37,
-      "semantic_coverage": 0.06281833616298811,
-      "semantic_entropy": 0.9698246094224934,
+      "cluster_count": 42,
+      "semantic_coverage": 0.07954545454545454,
+      "semantic_entropy": 0.9782603382360979,
       "has_data": true
     },
     {
@@ -488,9 +488,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 230,
-      "cluster_count": 101,
-      "semantic_coverage": 0.17147707979626486,
-      "semantic_entropy": 0.949997988050742,
+      "cluster_count": 99,
+      "semantic_coverage": 0.1875,
+      "semantic_entropy": 0.9132038567909581,
       "has_data": true
     },
     {
@@ -502,9 +502,9 @@
       "constitution_year": 2015,
       "last_amendment_year": null,
       "article_count": 247,
-      "cluster_count": 102,
-      "semantic_coverage": 0.1731748726655348,
-      "semantic_entropy": 0.9289524205280307,
+      "cluster_count": 101,
+      "semantic_coverage": 0.19128787878787878,
+      "semantic_entropy": 0.9198131653854431,
       "has_data": true
     },
     {
@@ -516,9 +516,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 383,
-      "cluster_count": 117,
-      "semantic_coverage": 0.19864176570458403,
-      "semantic_entropy": 0.94037728836668,
+      "cluster_count": 105,
+      "semantic_coverage": 0.19886363636363635,
+      "semantic_entropy": 0.9233480084994853,
       "has_data": true
     },
     {
@@ -530,9 +530,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 123,
-      "cluster_count": 57,
-      "semantic_coverage": 0.0967741935483871,
-      "semantic_entropy": 0.9296117253163011,
+      "cluster_count": 56,
+      "semantic_coverage": 0.10606060606060606,
+      "semantic_entropy": 0.9091065018342672,
       "has_data": true
     },
     {
@@ -543,10 +543,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 1992,
       "last_amendment_year": 1992,
-      "article_count": 403,
-      "cluster_count": 111,
-      "semantic_coverage": 0.18845500848896435,
-      "semantic_entropy": 0.8668685606039183,
+      "article_count": 323,
+      "cluster_count": 112,
+      "semantic_coverage": 0.21212121212121213,
+      "semantic_entropy": 0.9132002601179012,
       "has_data": true
     },
     {
@@ -558,9 +558,9 @@
       "constitution_year": 2020,
       "last_amendment_year": 2020,
       "article_count": 198,
-      "cluster_count": 70,
-      "semantic_coverage": 0.11884550084889643,
-      "semantic_entropy": 0.9294393454448973,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14204545454545456,
+      "semantic_entropy": 0.9228901134770914,
       "has_data": true
     },
     {
@@ -573,8 +573,8 @@
       "last_amendment_year": null,
       "article_count": 230,
       "cluster_count": 68,
-      "semantic_coverage": 0.11544991511035653,
-      "semantic_entropy": 0.8223591814659089,
+      "semantic_coverage": 0.12878787878787878,
+      "semantic_entropy": 0.8436832998965033,
       "has_data": true
     },
     {
@@ -586,9 +586,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 201,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.6943228352197549,
+      "cluster_count": 53,
+      "semantic_coverage": 0.10037878787878787,
+      "semantic_entropy": 0.6722552813302795,
       "has_data": true
     },
     {
@@ -600,9 +600,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 116,
-      "cluster_count": 43,
-      "semantic_coverage": 0.0730050933786078,
-      "semantic_entropy": 0.8501709939897014,
+      "cluster_count": 45,
+      "semantic_coverage": 0.08522727272727272,
+      "semantic_entropy": 0.8488879540240475,
       "has_data": true
     },
     {
@@ -613,10 +613,10 @@
       "sub_region": "Western Europe",
       "constitution_year": 2014,
       "last_amendment_year": 2014,
-      "article_count": 202,
-      "cluster_count": 32,
-      "semantic_coverage": 0.05432937181663837,
-      "semantic_entropy": 0.30998266866894514,
+      "article_count": 195,
+      "cluster_count": 29,
+      "semantic_coverage": 0.054924242424242424,
+      "semantic_entropy": 0.5736294727069846,
       "has_data": true
     },
     {
@@ -628,9 +628,9 @@
       "constitution_year": 2010,
       "last_amendment_year": 2010,
       "article_count": 98,
-      "cluster_count": 62,
-      "semantic_coverage": 0.10526315789473684,
-      "semantic_entropy": 0.9730832309489836,
+      "cluster_count": 63,
+      "semantic_coverage": 0.11931818181818182,
+      "semantic_entropy": 0.9629599197947738,
       "has_data": true
     },
     {
@@ -642,9 +642,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 126,
-      "cluster_count": 75,
-      "semantic_coverage": 0.1273344651952462,
-      "semantic_entropy": 0.9610232692966244,
+      "cluster_count": 62,
+      "semantic_coverage": 0.11742424242424243,
+      "semantic_entropy": 0.9428508420833456,
       "has_data": true
     },
     {
@@ -655,10 +655,10 @@
       "sub_region": "Northern Europe",
       "constitution_year": 1953,
       "last_amendment_year": null,
-      "article_count": 17,
-      "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
-      "semantic_entropy": 0.3227569588973983,
+      "article_count": 75,
+      "cluster_count": 19,
+      "semantic_coverage": 0.03598484848484849,
+      "semantic_entropy": 0.5019549869707784,
       "has_data": true
     },
     {
@@ -669,10 +669,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 2015,
       "last_amendment_year": null,
-      "article_count": 318,
-      "cluster_count": 85,
-      "semantic_coverage": 0.14431239388794567,
-      "semantic_entropy": 0.8457381330785201,
+      "article_count": 278,
+      "cluster_count": 88,
+      "semantic_coverage": 0.16666666666666666,
+      "semantic_entropy": 0.9116382900199791,
       "has_data": true
     },
     {
@@ -684,9 +684,9 @@
       "constitution_year": 2020,
       "last_amendment_year": null,
       "article_count": 240,
-      "cluster_count": 107,
-      "semantic_coverage": 0.18166383701188454,
-      "semantic_entropy": 0.9555228855704843,
+      "cluster_count": 110,
+      "semantic_coverage": 0.20833333333333334,
+      "semantic_entropy": 0.9695040236451101,
       "has_data": true
     },
     {
@@ -698,9 +698,9 @@
       "constitution_year": 2021,
       "last_amendment_year": 2021,
       "article_count": 469,
-      "cluster_count": 102,
-      "semantic_coverage": 0.1731748726655348,
-      "semantic_entropy": 0.9164383751020517,
+      "cluster_count": 89,
+      "semantic_coverage": 0.16856060606060605,
+      "semantic_entropy": 0.9050096114932942,
       "has_data": true
     },
     {
@@ -711,10 +711,10 @@
       "sub_region": "Northern Africa",
       "constitution_year": 2019,
       "last_amendment_year": 2019,
-      "article_count": 259,
-      "cluster_count": 111,
-      "semantic_coverage": 0.18845500848896435,
-      "semantic_entropy": 0.953202639925317,
+      "article_count": 255,
+      "cluster_count": 110,
+      "semantic_coverage": 0.20833333333333334,
+      "semantic_entropy": 0.9570729171726333,
       "has_data": true
     },
     {
@@ -725,10 +725,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 1997,
       "last_amendment_year": null,
-      "article_count": 75,
+      "article_count": 60,
       "cluster_count": 26,
-      "semantic_coverage": 0.044142614601018676,
-      "semantic_entropy": 0.6602392571564153,
+      "semantic_coverage": 0.04924242424242424,
+      "semantic_entropy": 0.7239906037502384,
       "has_data": true
     },
     {
@@ -740,9 +740,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 170,
-      "cluster_count": 69,
-      "semantic_coverage": 0.11714770797962648,
-      "semantic_entropy": 0.9356971214711397,
+      "cluster_count": 66,
+      "semantic_coverage": 0.125,
+      "semantic_entropy": 0.9362518608881968,
       "has_data": true
     },
     {
@@ -754,9 +754,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 169,
-      "cluster_count": 45,
-      "semantic_coverage": 0.07640067911714771,
-      "semantic_entropy": 0.650095944878104,
+      "cluster_count": 42,
+      "semantic_coverage": 0.07954545454545454,
+      "semantic_entropy": 0.6336286179900127,
       "has_data": true
     },
     {
@@ -767,10 +767,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 1994,
       "last_amendment_year": null,
-      "article_count": 160,
-      "cluster_count": 30,
-      "semantic_coverage": 0.050933786078098474,
-      "semantic_entropy": 0.6050247515186618,
+      "article_count": 7,
+      "cluster_count": 1,
+      "semantic_coverage": 0.001893939393939394,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -783,8 +783,8 @@
       "last_amendment_year": 2011,
       "article_count": 132,
       "cluster_count": 43,
-      "semantic_coverage": 0.0730050933786078,
-      "semantic_entropy": 0.8158207998780379,
+      "semantic_coverage": 0.08143939393939394,
+      "semantic_entropy": 0.8283716749543707,
       "has_data": true
     },
     {
@@ -796,9 +796,9 @@
       "constitution_year": 2013,
       "last_amendment_year": null,
       "article_count": 183,
-      "cluster_count": 75,
-      "semantic_coverage": 0.1273344651952462,
-      "semantic_entropy": 0.9689605432884489,
+      "cluster_count": 70,
+      "semantic_coverage": 0.13257575757575757,
+      "semantic_entropy": 0.9532469106617791,
       "has_data": true
     },
     {
@@ -810,9 +810,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 126,
-      "cluster_count": 64,
-      "semantic_coverage": 0.10865874363327674,
-      "semantic_entropy": 0.9563451452329583,
+      "cluster_count": 65,
+      "semantic_coverage": 0.12310606060606061,
+      "semantic_entropy": 0.9545927041753034,
       "has_data": true
     },
     {
@@ -825,8 +825,8 @@
       "last_amendment_year": 1990,
       "article_count": 23,
       "cluster_count": 8,
-      "semantic_coverage": 0.013582342954159592,
-      "semantic_entropy": 0.8724974870615851,
+      "semantic_coverage": 0.015151515151515152,
+      "semantic_entropy": 0.9172097224626077,
       "has_data": true
     },
     {
@@ -839,8 +839,8 @@
       "last_amendment_year": 2011,
       "article_count": 137,
       "cluster_count": 69,
-      "semantic_coverage": 0.11714770797962648,
-      "semantic_entropy": 0.9491887536316485,
+      "semantic_coverage": 0.13068181818181818,
+      "semantic_entropy": 0.9509119493536085,
       "has_data": true
     },
     {
@@ -851,10 +851,10 @@
       "sub_region": "Northern Europe",
       "constitution_year": 2013,
       "last_amendment_year": 2013,
-      "article_count": 127,
-      "cluster_count": 17,
-      "semantic_coverage": 0.028862478777589132,
-      "semantic_entropy": 0.5884700467181184,
+      "article_count": 58,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.6852203833332884,
       "has_data": true
     },
     {
@@ -865,10 +865,10 @@
       "sub_region": "Western Asia",
       "constitution_year": 2018,
       "last_amendment_year": 2018,
-      "article_count": 116,
-      "cluster_count": 30,
-      "semantic_coverage": 0.050933786078098474,
-      "semantic_entropy": 0.48202772261794935,
+      "article_count": 79,
+      "cluster_count": 24,
+      "semantic_coverage": 0.045454545454545456,
+      "semantic_entropy": 0.6863125613981531,
       "has_data": true
     },
     {
@@ -880,9 +880,9 @@
       "constitution_year": 1996,
       "last_amendment_year": 1996,
       "article_count": 357,
-      "cluster_count": 89,
-      "semantic_coverage": 0.15110356536502548,
-      "semantic_entropy": 0.9051918071438328,
+      "cluster_count": 78,
+      "semantic_coverage": 0.14772727272727273,
+      "semantic_entropy": 0.8821013422665259,
       "has_data": true
     },
     {
@@ -894,9 +894,9 @@
       "constitution_year": 2010,
       "last_amendment_year": null,
       "article_count": 163,
-      "cluster_count": 87,
-      "semantic_coverage": 0.14770797962648557,
-      "semantic_entropy": 0.9609871314661469,
+      "cluster_count": 84,
+      "semantic_coverage": 0.1590909090909091,
+      "semantic_entropy": 0.9556866656546195,
       "has_data": true
     },
     {
@@ -907,10 +907,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2020,
       "last_amendment_year": null,
-      "article_count": 351,
+      "article_count": 350,
       "cluster_count": 101,
-      "semantic_coverage": 0.17147707979626486,
-      "semantic_entropy": 0.9236476016690918,
+      "semantic_coverage": 0.19128787878787878,
+      "semantic_entropy": 0.9133462526988197,
       "has_data": true
     },
     {
@@ -922,9 +922,9 @@
       "constitution_year": 1996,
       "last_amendment_year": 1996,
       "article_count": 133,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.8910122728653893,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10227272727272728,
+      "semantic_entropy": 0.8974565471095514,
       "has_data": true
     },
     {
@@ -936,9 +936,9 @@
       "constitution_year": 2012,
       "last_amendment_year": 2012,
       "article_count": 135,
-      "cluster_count": 56,
-      "semantic_coverage": 0.09507640067911714,
-      "semantic_entropy": 0.9177243430978446,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10227272727272728,
+      "semantic_entropy": 0.9171609524635844,
       "has_data": true
     },
     {
@@ -950,9 +950,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 125,
-      "cluster_count": 50,
-      "semantic_coverage": 0.08488964346349745,
-      "semantic_entropy": 0.9089270514408762,
+      "cluster_count": 56,
+      "semantic_coverage": 0.10606060606060606,
+      "semantic_entropy": 0.9259681051946015,
       "has_data": true
     },
     {
@@ -963,10 +963,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 1992,
       "last_amendment_year": null,
-      "article_count": 113,
-      "cluster_count": 71,
-      "semantic_coverage": 0.12054329371816638,
-      "semantic_entropy": 0.9575848129981048,
+      "article_count": 18,
+      "cluster_count": 7,
+      "semantic_coverage": 0.013257575757575758,
+      "semantic_entropy": 0.859812753150758,
       "has_data": true
     },
     {
@@ -977,10 +977,10 @@
       "sub_region": "Central America",
       "constitution_year": 1993,
       "last_amendment_year": 1993,
-      "article_count": 314,
-      "cluster_count": 88,
-      "semantic_coverage": 0.1494057724957555,
-      "semantic_entropy": 0.9077523268772263,
+      "article_count": 309,
+      "cluster_count": 79,
+      "semantic_coverage": 0.14962121212121213,
+      "semantic_entropy": 0.8972303765002277,
       "has_data": true
     },
     {
@@ -991,10 +991,10 @@
       "sub_region": "South America",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 221,
-      "cluster_count": 104,
-      "semantic_coverage": 0.1765704584040747,
-      "semantic_entropy": 0.963574624979854,
+      "article_count": 14,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.9602297178607612,
       "has_data": true
     },
     {
@@ -1006,9 +1006,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 378,
-      "cluster_count": 105,
-      "semantic_coverage": 0.17826825127334464,
-      "semantic_entropy": 0.9235953864452987,
+      "cluster_count": 103,
+      "semantic_coverage": 0.19507575757575757,
+      "semantic_entropy": 0.9105374651594548,
       "has_data": true
     },
     {
@@ -1020,9 +1020,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 152,
-      "cluster_count": 39,
-      "semantic_coverage": 0.06621392190152801,
-      "semantic_entropy": 0.5531092156324143,
+      "cluster_count": 37,
+      "semantic_coverage": 0.07007575757575757,
+      "semantic_entropy": 0.7250934621344016,
       "has_data": true
     },
     {
@@ -1035,7 +1035,7 @@
       "last_amendment_year": 2012,
       "article_count": 20,
       "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
+      "semantic_coverage": 0.003787878787878788,
       "semantic_entropy": 0.3227569588973983,
       "has_data": true
     },
@@ -1047,10 +1047,10 @@
       "sub_region": "Eastern Europe",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 58,
-      "cluster_count": 19,
-      "semantic_coverage": 0.03225806451612903,
-      "semantic_entropy": 0.6962205816875898,
+      "article_count": 29,
+      "cluster_count": 6,
+      "semantic_coverage": 0.011363636363636364,
+      "semantic_entropy": 0.6506473757562798,
       "has_data": true
     },
     {
@@ -1062,9 +1062,9 @@
       "constitution_year": 2002,
       "last_amendment_year": null,
       "article_count": 74,
-      "cluster_count": 20,
-      "semantic_coverage": 0.03395585738539898,
-      "semantic_entropy": 0.6066355964867337,
+      "cluster_count": 21,
+      "semantic_coverage": 0.03977272727272727,
+      "semantic_entropy": 0.6290933986266279,
       "has_data": true
     },
     {
@@ -1075,10 +1075,10 @@
       "sub_region": "Southern Asia",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 480,
-      "cluster_count": 35,
-      "semantic_coverage": 0.059422750424448216,
-      "semantic_entropy": 0.7437354961788681,
+      "article_count": 31,
+      "cluster_count": 1,
+      "semantic_coverage": 0.001893939393939394,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -1089,10 +1089,10 @@
       "sub_region": "Northern Europe",
       "constitution_year": 2019,
       "last_amendment_year": 2019,
-      "article_count": 53,
-      "cluster_count": 9,
-      "semantic_coverage": 0.015280135823429542,
-      "semantic_entropy": 0.40033453030454313,
+      "article_count": 18,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.7559699029892673,
       "has_data": true
     },
     {
@@ -1104,9 +1104,9 @@
       "constitution_year": 1989,
       "last_amendment_year": 1989,
       "article_count": 178,
-      "cluster_count": 43,
-      "semantic_coverage": 0.0730050933786078,
-      "semantic_entropy": 0.6766752265742698,
+      "cluster_count": 45,
+      "semantic_coverage": 0.08522727272727272,
+      "semantic_entropy": 0.6881986714789949,
       "has_data": true
     },
     {
@@ -1118,9 +1118,9 @@
       "constitution_year": 2005,
       "last_amendment_year": null,
       "article_count": 145,
-      "cluster_count": 45,
-      "semantic_coverage": 0.07640067911714771,
-      "semantic_entropy": 0.7649732608428705,
+      "cluster_count": 46,
+      "semantic_coverage": 0.08712121212121213,
+      "semantic_entropy": 0.7603765894525542,
       "has_data": true
     },
     {
@@ -1132,9 +1132,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 82,
-      "cluster_count": 21,
-      "semantic_coverage": 0.035653650254668934,
-      "semantic_entropy": 0.5341755642640457,
+      "cluster_count": 19,
+      "semantic_coverage": 0.03598484848484849,
+      "semantic_entropy": 0.5563385958792423,
       "has_data": true
     },
     {
@@ -1146,9 +1146,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 204,
-      "cluster_count": 28,
-      "semantic_coverage": 0.04753820033955857,
-      "semantic_entropy": 0.5394605083482256,
+      "cluster_count": 25,
+      "semantic_coverage": 0.04734848484848485,
+      "semantic_entropy": 0.4176290421554825,
       "has_data": true
     },
     {
@@ -1160,9 +1160,9 @@
       "constitution_year": 2020,
       "last_amendment_year": 2020,
       "article_count": 136,
-      "cluster_count": 65,
-      "semantic_coverage": 0.11035653650254669,
-      "semantic_entropy": 0.9795180614825648,
+      "cluster_count": 70,
+      "semantic_coverage": 0.13257575757575757,
+      "semantic_entropy": 0.9589800713132717,
       "has_data": true
     },
     {
@@ -1174,9 +1174,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 129,
-      "cluster_count": 66,
-      "semantic_coverage": 0.11205432937181664,
-      "semantic_entropy": 0.9514321817553143,
+      "cluster_count": 52,
+      "semantic_coverage": 0.09848484848484848,
+      "semantic_entropy": 0.9411484052589746,
       "has_data": true
     },
     {
@@ -1188,9 +1188,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 132,
-      "cluster_count": 42,
-      "semantic_coverage": 0.07130730050933787,
-      "semantic_entropy": 0.8935765822155038,
+      "cluster_count": 46,
+      "semantic_coverage": 0.08712121212121213,
+      "semantic_entropy": 0.9174374314317773,
       "has_data": true
     },
     {
@@ -1202,9 +1202,9 @@
       "constitution_year": 1946,
       "last_amendment_year": null,
       "article_count": 104,
-      "cluster_count": 37,
-      "semantic_coverage": 0.06281833616298811,
-      "semantic_entropy": 0.9131861610530876,
+      "cluster_count": 33,
+      "semantic_coverage": 0.0625,
+      "semantic_entropy": 0.9730567813639053,
       "has_data": true
     },
     {
@@ -1216,9 +1216,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 100,
-      "cluster_count": 18,
-      "semantic_coverage": 0.030560271646859084,
-      "semantic_entropy": 0.5421593437914415,
+      "cluster_count": 21,
+      "semantic_coverage": 0.03977272727272727,
+      "semantic_entropy": 0.5692838925631043,
       "has_data": true
     },
     {
@@ -1230,9 +1230,9 @@
       "constitution_year": 2010,
       "last_amendment_year": null,
       "article_count": 335,
-      "cluster_count": 96,
-      "semantic_coverage": 0.16298811544991512,
-      "semantic_entropy": 0.8987049975091765,
+      "cluster_count": 94,
+      "semantic_coverage": 0.17803030303030304,
+      "semantic_entropy": 0.8962414995081693,
       "has_data": true
     },
     {
@@ -1244,9 +1244,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 115,
-      "cluster_count": 33,
-      "semantic_coverage": 0.05602716468590832,
-      "semantic_entropy": 0.6489675856072256,
+      "cluster_count": 34,
+      "semantic_coverage": 0.06439393939393939,
+      "semantic_entropy": 0.5844742868930257,
       "has_data": true
     },
     {
@@ -1258,9 +1258,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 159,
-      "cluster_count": 44,
-      "semantic_coverage": 0.07470288624787776,
-      "semantic_entropy": 0.7225921060243997,
+      "cluster_count": 43,
+      "semantic_coverage": 0.08143939393939394,
+      "semantic_entropy": 0.7092518368115918,
       "has_data": true
     },
     {
@@ -1273,8 +1273,8 @@
       "last_amendment_year": 2013,
       "article_count": 142,
       "cluster_count": 48,
-      "semantic_coverage": 0.08149405772495756,
-      "semantic_entropy": 0.9075819642528135,
+      "semantic_coverage": 0.09090909090909091,
+      "semantic_entropy": 0.899429971593726,
       "has_data": true
     },
     {
@@ -1285,10 +1285,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 1983,
       "last_amendment_year": null,
-      "article_count": 149,
-      "cluster_count": 70,
-      "semantic_coverage": 0.11884550084889643,
-      "semantic_entropy": 0.9238215918756468,
+      "article_count": 22,
+      "cluster_count": 5,
+      "semantic_coverage": 0.00946969696969697,
+      "semantic_entropy": 0.8044888910870112,
       "has_data": true
     },
     {
@@ -1300,9 +1300,9 @@
       "constitution_year": 1987,
       "last_amendment_year": 1987,
       "article_count": 131,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.9820880610964912,
+      "cluster_count": 62,
+      "semantic_coverage": 0.11742424242424243,
+      "semantic_entropy": 0.9773641358595264,
       "has_data": true
     },
     {
@@ -1314,9 +1314,9 @@
       "constitution_year": 1992,
       "last_amendment_year": null,
       "article_count": 184,
-      "cluster_count": 70,
-      "semantic_coverage": 0.11884550084889643,
-      "semantic_entropy": 0.9542823391608214,
+      "cluster_count": 78,
+      "semantic_coverage": 0.14772727272727273,
+      "semantic_entropy": 0.9415096233569992,
       "has_data": true
     },
     {
@@ -1328,9 +1328,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 33,
-      "cluster_count": 4,
-      "semantic_coverage": 0.006791171477079796,
-      "semantic_entropy": 0.33052737630794277,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.3042211976516048,
       "has_data": true
     },
     {
@@ -1342,9 +1342,9 @@
       "constitution_year": 2004,
       "last_amendment_year": 2004,
       "article_count": 95,
-      "cluster_count": 35,
-      "semantic_coverage": 0.059422750424448216,
-      "semantic_entropy": 0.9141271789339384,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07386363636363637,
+      "semantic_entropy": 0.917157667899742,
       "has_data": true
     },
     {
@@ -1356,9 +1356,9 @@
       "constitution_year": 1986,
       "last_amendment_year": null,
       "article_count": 98,
-      "cluster_count": 29,
-      "semantic_coverage": 0.04923599320882852,
-      "semantic_entropy": 0.7129233790697486,
+      "cluster_count": 27,
+      "semantic_coverage": 0.05113636363636364,
+      "semantic_entropy": 0.6819791805232734,
       "has_data": true
     },
     {
@@ -1369,10 +1369,10 @@
       "sub_region": "Northern Africa",
       "constitution_year": 2016,
       "last_amendment_year": null,
-      "article_count": 255,
+      "article_count": 221,
       "cluster_count": 87,
-      "semantic_coverage": 0.14770797962648557,
-      "semantic_entropy": 0.8607342361188303,
+      "semantic_coverage": 0.16477272727272727,
+      "semantic_entropy": 0.9201086350968294,
       "has_data": true
     },
     {
@@ -1383,10 +1383,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 1978,
       "last_amendment_year": null,
-      "article_count": 17,
-      "cluster_count": 6,
-      "semantic_coverage": 0.010186757215619695,
-      "semantic_entropy": 1.0,
+      "article_count": 125,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.9312776540434468,
       "has_data": true
     },
     {
@@ -1399,8 +1399,8 @@
       "last_amendment_year": 2011,
       "article_count": 116,
       "cluster_count": 40,
-      "semantic_coverage": 0.06791171477079797,
-      "semantic_entropy": 0.9238761794637352,
+      "semantic_coverage": 0.07575757575757576,
+      "semantic_entropy": 0.9210165319205141,
       "has_data": true
     },
     {
@@ -1411,10 +1411,10 @@
       "sub_region": "Southern Asia",
       "constitution_year": 2015,
       "last_amendment_year": 2015,
-      "article_count": 192,
-      "cluster_count": 52,
-      "semantic_coverage": 0.08828522920203735,
-      "semantic_entropy": 0.8568634916004976,
+      "article_count": 32,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.3818962309523018,
       "has_data": true
     },
     {
@@ -1425,10 +1425,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2018,
       "last_amendment_year": 2018,
-      "article_count": 170,
-      "cluster_count": 70,
-      "semantic_coverage": 0.11884550084889643,
-      "semantic_entropy": 0.919521873822027,
+      "article_count": 24,
+      "cluster_count": 4,
+      "semantic_coverage": 0.007575757575757576,
+      "semantic_entropy": 0.5700338813359286,
       "has_data": true
     },
     {
@@ -1440,9 +1440,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 155,
-      "cluster_count": 37,
-      "semantic_coverage": 0.06281833616298811,
-      "semantic_entropy": 0.6552794466547998,
+      "cluster_count": 33,
+      "semantic_coverage": 0.0625,
+      "semantic_entropy": 0.5348693990087083,
       "has_data": true
     },
     {
@@ -1455,8 +1455,8 @@
       "last_amendment_year": 2009,
       "article_count": 120,
       "cluster_count": 43,
-      "semantic_coverage": 0.0730050933786078,
-      "semantic_entropy": 0.916338438795327,
+      "semantic_coverage": 0.08143939393939394,
+      "semantic_entropy": 0.9344228632167838,
       "has_data": true
     },
     {
@@ -1468,9 +1468,9 @@
       "constitution_year": 2016,
       "last_amendment_year": null,
       "article_count": 117,
-      "cluster_count": 29,
-      "semantic_coverage": 0.04923599320882852,
-      "semantic_entropy": 0.5504088007431825,
+      "cluster_count": 23,
+      "semantic_coverage": 0.043560606060606064,
+      "semantic_entropy": 0.5002268610540936,
       "has_data": true
     },
     {
@@ -1482,9 +1482,9 @@
       "constitution_year": 2011,
       "last_amendment_year": null,
       "article_count": 180,
-      "cluster_count": 67,
-      "semantic_coverage": 0.11375212224108659,
-      "semantic_entropy": 0.9507954312565633,
+      "cluster_count": 78,
+      "semantic_coverage": 0.14772727272727273,
+      "semantic_entropy": 0.9528238946876915,
       "has_data": true
     },
     {
@@ -1496,9 +1496,9 @@
       "constitution_year": 2002,
       "last_amendment_year": 2002,
       "article_count": 98,
-      "cluster_count": 39,
-      "semantic_coverage": 0.06621392190152801,
-      "semantic_entropy": 0.9297898589386461,
+      "cluster_count": 37,
+      "semantic_coverage": 0.07007575757575757,
+      "semantic_entropy": 0.9257496452705839,
       "has_data": true
     },
     {
@@ -1509,10 +1509,10 @@
       "sub_region": "Eastern Europe",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 189,
-      "cluster_count": 54,
-      "semantic_coverage": 0.09168081494057725,
-      "semantic_entropy": 0.6076693394014915,
+      "article_count": 145,
+      "cluster_count": 52,
+      "semantic_coverage": 0.09848484848484848,
+      "semantic_entropy": 0.7654343886621731,
       "has_data": true
     },
     {
@@ -1524,9 +1524,9 @@
       "constitution_year": 2010,
       "last_amendment_year": null,
       "article_count": 169,
-      "cluster_count": 80,
-      "semantic_coverage": 0.13582342954159593,
-      "semantic_entropy": 0.9389841793452653,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14204545454545456,
+      "semantic_entropy": 0.9325245223275036,
       "has_data": true
     },
     {
@@ -1538,9 +1538,9 @@
       "constitution_year": 2008,
       "last_amendment_year": null,
       "article_count": 310,
-      "cluster_count": 56,
-      "semantic_coverage": 0.09507640067911714,
-      "semantic_entropy": 0.4935302062402264,
+      "cluster_count": 53,
+      "semantic_coverage": 0.10037878787878787,
+      "semantic_entropy": 0.4614168182374375,
       "has_data": true
     },
     {
@@ -1552,9 +1552,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 139,
-      "cluster_count": 48,
-      "semantic_coverage": 0.08149405772495756,
-      "semantic_entropy": 0.9377144865053113,
+      "cluster_count": 43,
+      "semantic_coverage": 0.08143939393939394,
+      "semantic_entropy": 0.9310336043074879,
       "has_data": true
     },
     {
@@ -1566,9 +1566,9 @@
       "constitution_year": 1995,
       "last_amendment_year": 1995,
       "article_count": 124,
-      "cluster_count": 30,
-      "semantic_coverage": 0.050933786078098474,
-      "semantic_entropy": 0.6722176512783797,
+      "cluster_count": 29,
+      "semantic_coverage": 0.054924242424242424,
+      "semantic_entropy": 0.7114869770536852,
       "has_data": true
     },
     {
@@ -1580,9 +1580,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 135,
-      "cluster_count": 49,
-      "semantic_coverage": 0.0831918505942275,
-      "semantic_entropy": 0.7328861992024133,
+      "cluster_count": 50,
+      "semantic_coverage": 0.0946969696969697,
+      "semantic_entropy": 0.7255446229664568,
       "has_data": true
     },
     {
@@ -1595,8 +1595,8 @@
       "last_amendment_year": null,
       "article_count": 123,
       "cluster_count": 75,
-      "semantic_coverage": 0.1273344651952462,
-      "semantic_entropy": 0.9607533528106569,
+      "semantic_coverage": 0.14204545454545456,
+      "semantic_entropy": 0.9635168244747072,
       "has_data": true
     },
     {
@@ -1608,9 +1608,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 122,
-      "cluster_count": 63,
-      "semantic_coverage": 0.10696095076400679,
-      "semantic_entropy": 0.9758009142994879,
+      "cluster_count": 62,
+      "semantic_coverage": 0.11742424242424243,
+      "semantic_entropy": 0.9816160036812238,
       "has_data": true
     },
     {
@@ -1621,10 +1621,10 @@
       "sub_region": "South-Eastern Asia",
       "constitution_year": 2015,
       "last_amendment_year": 2015,
-      "article_count": 51,
-      "cluster_count": 4,
-      "semantic_coverage": 0.006791171477079796,
-      "semantic_entropy": 0.6490114287408763,
+      "article_count": 365,
+      "cluster_count": 36,
+      "semantic_coverage": 0.06818181818181818,
+      "semantic_entropy": 0.373151787929469,
       "has_data": true
     },
     {
@@ -1635,10 +1635,10 @@
       "sub_region": "Southern Europe",
       "constitution_year": 2013,
       "last_amendment_year": 2013,
-      "article_count": 177,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.730122120854825,
+      "article_count": 175,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.7215570574114182,
       "has_data": true
     },
     {
@@ -1650,9 +1650,9 @@
       "constitution_year": 2001,
       "last_amendment_year": 2001,
       "article_count": 71,
-      "cluster_count": 3,
-      "semantic_coverage": 0.0050933786078098476,
-      "semantic_entropy": 0.18798209696299253,
+      "cluster_count": 4,
+      "semantic_coverage": 0.007575757575757576,
+      "semantic_entropy": 0.2008557093463552,
       "has_data": true
     },
     {
@@ -1663,10 +1663,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2007,
       "last_amendment_year": 2007,
-      "article_count": 368,
-      "cluster_count": 103,
-      "semantic_coverage": 0.17487266553480477,
-      "semantic_entropy": 0.7554927715028458,
+      "article_count": 307,
+      "cluster_count": 99,
+      "semantic_coverage": 0.1875,
+      "semantic_entropy": 0.8626159723181295,
       "has_data": true
     },
     {
@@ -1678,9 +1678,9 @@
       "constitution_year": 2012,
       "last_amendment_year": 2012,
       "article_count": 103,
-      "cluster_count": 64,
-      "semantic_coverage": 0.10865874363327674,
-      "semantic_entropy": 0.9750754011125053,
+      "cluster_count": 65,
+      "semantic_coverage": 0.12310606060606061,
+      "semantic_entropy": 0.9814706609061115,
       "has_data": true
     },
     {
@@ -1691,10 +1691,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 134,
-      "cluster_count": 73,
-      "semantic_coverage": 0.12393887945670629,
-      "semantic_entropy": 0.9494870242591692,
+      "article_count": 15,
+      "cluster_count": 7,
+      "semantic_coverage": 0.013257575757575758,
+      "semantic_entropy": 1.0,
       "has_data": true
     },
     {
@@ -1706,9 +1706,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 213,
-      "cluster_count": 72,
-      "semantic_coverage": 0.12224108658743633,
-      "semantic_entropy": 0.9072225116938651,
+      "cluster_count": 62,
+      "semantic_coverage": 0.11742424242424243,
+      "semantic_entropy": 0.8924230442047925,
       "has_data": true
     },
     {
@@ -1719,10 +1719,10 @@
       "sub_region": "South-Eastern Asia",
       "constitution_year": 2007,
       "last_amendment_year": 2007,
-      "article_count": 219,
-      "cluster_count": 39,
-      "semantic_coverage": 0.06621392190152801,
-      "semantic_entropy": 0.7784391232803834,
+      "article_count": 33,
+      "cluster_count": 1,
+      "semantic_coverage": 0.001893939393939394,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -1733,10 +1733,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2014,
       "last_amendment_year": 2014,
-      "article_count": 172,
-      "cluster_count": 52,
-      "semantic_coverage": 0.08828522920203735,
-      "semantic_entropy": 0.7312940103230704,
+      "article_count": 156,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.8733730806293031,
       "has_data": true
     },
     {
@@ -1748,9 +1748,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 185,
-      "cluster_count": 97,
-      "semantic_coverage": 0.16468590831918506,
-      "semantic_entropy": 0.9693627856845359,
+      "cluster_count": 101,
+      "semantic_coverage": 0.19128787878787878,
+      "semantic_entropy": 0.965430877879577,
       "has_data": true
     },
     {
@@ -1761,10 +1761,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2011,
       "last_amendment_year": 2011,
-      "article_count": 50,
-      "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
-      "semantic_entropy": 0.17925606692832147,
+      "article_count": 318,
+      "cluster_count": 55,
+      "semantic_coverage": 0.10416666666666667,
+      "semantic_entropy": 0.7415493592610437,
       "has_data": true
     },
     {
@@ -1776,9 +1776,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 200,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.8311469218906825,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.8359372894063823,
       "has_data": true
     },
     {
@@ -1790,9 +1790,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 146,
-      "cluster_count": 47,
-      "semantic_coverage": 0.07979626485568761,
-      "semantic_entropy": 0.9208302948763883,
+      "cluster_count": 50,
+      "semantic_coverage": 0.0946969696969697,
+      "semantic_entropy": 0.9047929386336754,
       "has_data": true
     },
     {
@@ -1804,9 +1804,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 112,
-      "cluster_count": 24,
-      "semantic_coverage": 0.04074702886247878,
-      "semantic_entropy": 0.5544029296680751,
+      "cluster_count": 27,
+      "semantic_coverage": 0.05113636363636364,
+      "semantic_entropy": 0.6031163317725559,
       "has_data": true
     },
     {
@@ -1818,9 +1818,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 348,
-      "cluster_count": 56,
-      "semantic_coverage": 0.09507640067911714,
-      "semantic_entropy": 0.505351579974189,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.4852539656142036,
       "has_data": true
     },
     {
@@ -1832,9 +1832,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 105,
-      "cluster_count": 45,
-      "semantic_coverage": 0.07640067911714771,
-      "semantic_entropy": 0.960164260448372,
+      "cluster_count": 48,
+      "semantic_coverage": 0.09090909090909091,
+      "semantic_entropy": 0.9428667540497683,
       "has_data": true
     },
     {
@@ -1845,10 +1845,10 @@
       "sub_region": "Australia and New Zealand",
       "constitution_year": 2014,
       "last_amendment_year": 2014,
-      "article_count": 64,
+      "article_count": 63,
       "cluster_count": 5,
-      "semantic_coverage": 0.008488964346349746,
-      "semantic_entropy": 0.7043514186941893,
+      "semantic_coverage": 0.00946969696969697,
+      "semantic_entropy": 0.7167922422200066,
       "has_data": true
     },
     {
@@ -1860,9 +1860,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 82,
-      "cluster_count": 38,
-      "semantic_coverage": 0.06451612903225806,
-      "semantic_entropy": 0.965198158864825,
+      "cluster_count": 41,
+      "semantic_coverage": 0.07765151515151515,
+      "semantic_entropy": 0.9862444984612682,
       "has_data": true
     },
     {
@@ -1873,10 +1873,10 @@
       "sub_region": "Southern Asia",
       "constitution_year": 2018,
       "last_amendment_year": null,
-      "article_count": 21,
-      "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
-      "semantic_entropy": 0.2761954276479391,
+      "article_count": 19,
+      "cluster_count": 1,
+      "semantic_coverage": 0.001893939393939394,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -1888,9 +1888,9 @@
       "constitution_year": 2004,
       "last_amendment_year": 2004,
       "article_count": 329,
-      "cluster_count": 104,
-      "semantic_coverage": 0.1765704584040747,
-      "semantic_entropy": 0.9248246021186886,
+      "cluster_count": 95,
+      "semantic_coverage": 0.17992424242424243,
+      "semantic_entropy": 0.9080909779950593,
       "has_data": true
     },
     {
@@ -1902,9 +1902,9 @@
       "constitution_year": 2021,
       "last_amendment_year": 2021,
       "article_count": 211,
-      "cluster_count": 82,
-      "semantic_coverage": 0.13921901528013583,
-      "semantic_entropy": 0.9539242570391161,
+      "cluster_count": 73,
+      "semantic_coverage": 0.13825757575757575,
+      "semantic_entropy": 0.9480698775174813,
       "has_data": true
     },
     {
@@ -1917,8 +1917,8 @@
       "last_amendment_year": null,
       "article_count": 11,
       "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
-      "semantic_entropy": 0.43949698692151334,
+      "semantic_coverage": 0.003787878787878788,
+      "semantic_entropy": 1.0,
       "has_data": true
     },
     {
@@ -1931,8 +1931,8 @@
       "last_amendment_year": 1992,
       "article_count": 20,
       "cluster_count": 9,
-      "semantic_coverage": 0.015280135823429542,
-      "semantic_entropy": 0.9549655329584326,
+      "semantic_coverage": 0.017045454545454544,
+      "semantic_entropy": 0.920619835714305,
       "has_data": true
     },
     {
@@ -1944,9 +1944,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 364,
-      "cluster_count": 64,
-      "semantic_coverage": 0.10865874363327674,
-      "semantic_entropy": 0.7426122855099048,
+      "cluster_count": 59,
+      "semantic_coverage": 0.11174242424242424,
+      "semantic_entropy": 0.7416746279701062,
       "has_data": true
     },
     {
@@ -1958,9 +1958,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 244,
-      "cluster_count": 61,
-      "semantic_coverage": 0.1035653650254669,
-      "semantic_entropy": 0.6836552034118988,
+      "cluster_count": 62,
+      "semantic_coverage": 0.11742424242424243,
+      "semantic_entropy": 0.6647402762306155,
       "has_data": true
     },
     {
@@ -1972,9 +1972,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 173,
-      "cluster_count": 30,
-      "semantic_coverage": 0.050933786078098474,
-      "semantic_entropy": 0.709066451997819,
+      "cluster_count": 27,
+      "semantic_coverage": 0.05113636363636364,
+      "semantic_entropy": 0.6905680035044142,
       "has_data": true
     },
     {
@@ -1985,10 +1985,10 @@
       "sub_region": "Southern Europe",
       "constitution_year": 2005,
       "last_amendment_year": 2005,
-      "article_count": 359,
-      "cluster_count": 111,
-      "semantic_coverage": 0.18845500848896435,
-      "semantic_entropy": 0.8503172267298527,
+      "article_count": 297,
+      "cluster_count": 106,
+      "semantic_coverage": 0.20075757575757575,
+      "semantic_entropy": 0.8992970406657328,
       "has_data": true
     },
     {
@@ -1999,10 +1999,10 @@
       "sub_region": "South America",
       "constitution_year": 2011,
       "last_amendment_year": 2011,
-      "article_count": 317,
-      "cluster_count": 95,
-      "semantic_coverage": 0.16129032258064516,
-      "semantic_entropy": 0.9428795595418574,
+      "article_count": 312,
+      "cluster_count": 92,
+      "semantic_coverage": 0.17424242424242425,
+      "semantic_entropy": 0.940103190322578,
       "has_data": true
     },
     {
@@ -2014,9 +2014,9 @@
       "constitution_year": 2005,
       "last_amendment_year": 2005,
       "article_count": 122,
-      "cluster_count": 41,
-      "semantic_coverage": 0.06960950764006792,
-      "semantic_entropy": 0.7386638718046037,
+      "cluster_count": 42,
+      "semantic_coverage": 0.07954545454545454,
+      "semantic_entropy": 0.7521169288239115,
       "has_data": true
     },
     {
@@ -2028,9 +2028,9 @@
       "constitution_year": 2003,
       "last_amendment_year": null,
       "article_count": 151,
-      "cluster_count": 68,
-      "semantic_coverage": 0.11544991511035653,
-      "semantic_entropy": 0.9446381769565712,
+      "cluster_count": 69,
+      "semantic_coverage": 0.13068181818181818,
+      "semantic_entropy": 0.956266672315552,
       "has_data": true
     },
     {
@@ -2041,10 +2041,10 @@
       "sub_region": "Eastern Europe",
       "constitution_year": 2003,
       "last_amendment_year": 2003,
-      "article_count": 165,
-      "cluster_count": 52,
-      "semantic_coverage": 0.08828522920203735,
-      "semantic_entropy": 0.7372266231056633,
+      "article_count": 157,
+      "cluster_count": 51,
+      "semantic_coverage": 0.09659090909090909,
+      "semantic_entropy": 0.7533988419883997,
       "has_data": true
     },
     {
@@ -2056,9 +2056,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 138,
-      "cluster_count": 32,
-      "semantic_coverage": 0.05432937181663837,
-      "semantic_entropy": 0.43853760367933725,
+      "cluster_count": 29,
+      "semantic_coverage": 0.054924242424242424,
+      "semantic_entropy": 0.4324700734858192,
       "has_data": true
     },
     {
@@ -2069,10 +2069,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2015,
       "last_amendment_year": 2015,
-      "article_count": 189,
-      "cluster_count": 67,
-      "semantic_coverage": 0.11375212224108659,
-      "semantic_entropy": 0.7828718340706252,
+      "article_count": 177,
+      "cluster_count": 68,
+      "semantic_coverage": 0.12878787878787878,
+      "semantic_entropy": 0.853228603550486,
       "has_data": true
     },
     {
@@ -2084,9 +2084,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 84,
-      "cluster_count": 31,
-      "semantic_coverage": 0.05263157894736842,
-      "semantic_entropy": 0.8756127729764157,
+      "cluster_count": 33,
+      "semantic_coverage": 0.0625,
+      "semantic_entropy": 0.9321988767417837,
       "has_data": true
     },
     {
@@ -2098,9 +2098,9 @@
       "constitution_year": 2019,
       "last_amendment_year": null,
       "article_count": 70,
-      "cluster_count": 23,
-      "semantic_coverage": 0.03904923599320883,
-      "semantic_entropy": 0.6446838301320005,
+      "cluster_count": 25,
+      "semantic_coverage": 0.04734848484848485,
+      "semantic_entropy": 0.6530076957677011,
       "has_data": true
     },
     {
@@ -2113,8 +2113,8 @@
       "last_amendment_year": 2016,
       "article_count": 110,
       "cluster_count": 65,
-      "semantic_coverage": 0.11035653650254669,
-      "semantic_entropy": 0.9629655632707131,
+      "semantic_coverage": 0.12310606060606061,
+      "semantic_entropy": 0.9518387350701437,
       "has_data": true
     },
     {
@@ -2125,10 +2125,10 @@
       "sub_region": "South-Eastern Asia",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 199,
-      "cluster_count": 57,
-      "semantic_coverage": 0.0967741935483871,
-      "semantic_entropy": 0.8099670460416,
+      "article_count": 18,
+      "cluster_count": 2,
+      "semantic_coverage": 0.003787878787878788,
+      "semantic_entropy": 0.3533593350214213,
       "has_data": true
     },
     {
@@ -2139,10 +2139,10 @@
       "sub_region": "Melanesia",
       "constitution_year": 2018,
       "last_amendment_year": 2018,
-      "article_count": 164,
-      "cluster_count": 76,
-      "semantic_coverage": 0.12903225806451613,
-      "semantic_entropy": 0.9520889766523554,
+      "article_count": 19,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.946394630357186,
       "has_data": true
     },
     {
@@ -2154,9 +2154,9 @@
       "constitution_year": 2013,
       "last_amendment_year": null,
       "article_count": 194,
-      "cluster_count": 81,
-      "semantic_coverage": 0.13752122241086587,
-      "semantic_entropy": 0.9484791628028946,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14204545454545456,
+      "semantic_entropy": 0.9139673558393986,
       "has_data": true
     },
     {
@@ -2168,9 +2168,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 275,
-      "cluster_count": 78,
-      "semantic_coverage": 0.13242784380305603,
-      "semantic_entropy": 0.9461754984180716,
+      "cluster_count": 83,
+      "semantic_coverage": 0.1571969696969697,
+      "semantic_entropy": 0.9298856414720476,
       "has_data": true
     },
     {
@@ -2181,10 +2181,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2012,
       "last_amendment_year": null,
-      "article_count": 201,
-      "cluster_count": 49,
-      "semantic_coverage": 0.0831918505942275,
-      "semantic_entropy": 0.5932575199912762,
+      "article_count": 157,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07386363636363637,
+      "semantic_entropy": 0.6041162462539855,
       "has_data": true
     },
     {
@@ -2195,10 +2195,10 @@
       "sub_region": "Southern Europe",
       "constitution_year": 2006,
       "last_amendment_year": null,
-      "article_count": 224,
-      "cluster_count": 60,
-      "semantic_coverage": 0.10186757215619695,
-      "semantic_entropy": 0.6779566867425197,
+      "article_count": 207,
+      "cluster_count": 57,
+      "semantic_coverage": 0.10795454545454546,
+      "semantic_entropy": 0.735647732537811,
       "has_data": true
     },
     {
@@ -2209,10 +2209,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2013,
       "last_amendment_year": 2013,
-      "article_count": 222,
-      "cluster_count": 71,
-      "semantic_coverage": 0.12054329371816638,
-      "semantic_entropy": 0.7273956622505834,
+      "article_count": 42,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.3982250716377982,
       "has_data": true
     },
     {
@@ -2223,10 +2223,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2003,
       "last_amendment_year": 2003,
-      "article_count": 199,
-      "cluster_count": 86,
-      "semantic_coverage": 0.1460101867572156,
-      "semantic_entropy": 0.8304788806086101,
+      "article_count": 161,
+      "cluster_count": 85,
+      "semantic_coverage": 0.16098484848484848,
+      "semantic_entropy": 0.9261066832383122,
       "has_data": true
     },
     {
@@ -2238,9 +2238,9 @@
       "constitution_year": 1992,
       "last_amendment_year": 1992,
       "article_count": 187,
-      "cluster_count": 61,
-      "semantic_coverage": 0.1035653650254669,
-      "semantic_entropy": 0.81867778156582,
+      "cluster_count": 64,
+      "semantic_coverage": 0.12121212121212122,
+      "semantic_entropy": 0.8212889296687612,
       "has_data": true
     },
     {
@@ -2252,9 +2252,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 173,
-      "cluster_count": 40,
-      "semantic_coverage": 0.06791171477079797,
-      "semantic_entropy": 0.6679230718315994,
+      "cluster_count": 37,
+      "semantic_coverage": 0.07007575757575757,
+      "semantic_entropy": 0.7051930369875704,
       "has_data": true
     },
     {
@@ -2265,10 +2265,10 @@
       "sub_region": "Southern Europe",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 179,
-      "cluster_count": 79,
-      "semantic_coverage": 0.13412563667232597,
-      "semantic_entropy": 0.8973295441799404,
+      "article_count": 177,
+      "cluster_count": 78,
+      "semantic_coverage": 0.14772727272727273,
+      "semantic_entropy": 0.9149581884061678,
       "has_data": true
     },
     {
@@ -2279,10 +2279,10 @@
       "sub_region": "Northern Europe",
       "constitution_year": 2012,
       "last_amendment_year": 2012,
-      "article_count": 24,
+      "article_count": 21,
       "cluster_count": 2,
-      "semantic_coverage": 0.003395585738539898,
-      "semantic_entropy": 0.4537163391869449,
+      "semantic_coverage": 0.003787878787878788,
+      "semantic_entropy": 0.5032583347756457,
       "has_data": true
     },
     {
@@ -2293,10 +2293,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2005,
       "last_amendment_year": null,
-      "article_count": 296,
-      "cluster_count": 86,
-      "semantic_coverage": 0.1460101867572156,
-      "semantic_entropy": 0.853636208392014,
+      "article_count": 295,
+      "cluster_count": 76,
+      "semantic_coverage": 0.14393939393939395,
+      "semantic_entropy": 0.783013932504568,
       "has_data": true
     },
     {
@@ -2307,10 +2307,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2017,
       "last_amendment_year": 2017,
-      "article_count": 22,
-      "cluster_count": 3,
-      "semantic_coverage": 0.0050933786078098476,
-      "semantic_entropy": 0.5478948105177534,
+      "article_count": 168,
+      "cluster_count": 70,
+      "semantic_coverage": 0.13257575757575757,
+      "semantic_entropy": 0.9312135173295175,
       "has_data": true
     },
     {
@@ -2322,9 +2322,9 @@
       "constitution_year": 2017,
       "last_amendment_year": null,
       "article_count": 86,
-      "cluster_count": 35,
-      "semantic_coverage": 0.059422750424448216,
-      "semantic_entropy": 0.9013862511247064,
+      "cluster_count": 34,
+      "semantic_coverage": 0.06439393939393939,
+      "semantic_entropy": 0.8865935127771115,
       "has_data": true
     },
     {
@@ -2336,9 +2336,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 233,
-      "cluster_count": 105,
-      "semantic_coverage": 0.17826825127334464,
-      "semantic_entropy": 0.929901972985373,
+      "cluster_count": 96,
+      "semantic_coverage": 0.18181818181818182,
+      "semantic_entropy": 0.9066255004997221,
       "has_data": true
     },
     {
@@ -2350,9 +2350,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 160,
-      "cluster_count": 84,
-      "semantic_coverage": 0.14261460101867574,
-      "semantic_entropy": 0.9652634434177761,
+      "cluster_count": 86,
+      "semantic_coverage": 0.16287878787878787,
+      "semantic_entropy": 0.966129616468698,
       "has_data": true
     },
     {
@@ -2364,9 +2364,9 @@
       "constitution_year": 2017,
       "last_amendment_year": null,
       "article_count": 280,
-      "cluster_count": 71,
-      "semantic_coverage": 0.12054329371816638,
-      "semantic_entropy": 0.8299909119418394,
+      "cluster_count": 69,
+      "semantic_coverage": 0.13068181818181818,
+      "semantic_entropy": 0.84442512458191,
       "has_data": true
     },
     {
@@ -2378,9 +2378,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 101,
-      "cluster_count": 31,
-      "semantic_coverage": 0.05263157894736842,
-      "semantic_entropy": 0.6640836005602355,
+      "cluster_count": 30,
+      "semantic_coverage": 0.056818181818181816,
+      "semantic_entropy": 0.5847334486560818,
       "has_data": true
     },
     {
@@ -2392,9 +2392,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 143,
-      "cluster_count": 34,
-      "semantic_coverage": 0.057724957555178265,
-      "semantic_entropy": 0.5174692853855385,
+      "cluster_count": 33,
+      "semantic_coverage": 0.0625,
+      "semantic_entropy": 0.532150233391285,
       "has_data": true
     },
     {
@@ -2405,10 +2405,10 @@
       "sub_region": "South-Eastern Asia",
       "constitution_year": 2002,
       "last_amendment_year": null,
-      "article_count": 215,
-      "cluster_count": 86,
-      "semantic_coverage": 0.1460101867572156,
-      "semantic_entropy": 0.7986500079489334,
+      "article_count": 171,
+      "cluster_count": 80,
+      "semantic_coverage": 0.15151515151515152,
+      "semantic_entropy": 0.8915870457018886,
       "has_data": true
     },
     {
@@ -2420,9 +2420,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 113,
-      "cluster_count": 25,
-      "semantic_coverage": 0.042444821731748725,
-      "semantic_entropy": 0.8150533499067235,
+      "cluster_count": 28,
+      "semantic_coverage": 0.05303030303030303,
+      "semantic_entropy": 0.7906581559674283,
       "has_data": true
     },
     {
@@ -2433,10 +2433,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 2007,
       "last_amendment_year": 2007,
-      "article_count": 155,
-      "cluster_count": 68,
-      "semantic_coverage": 0.11544991511035653,
-      "semantic_entropy": 0.95260208991462,
+      "article_count": 154,
+      "cluster_count": 53,
+      "semantic_coverage": 0.10037878787878787,
+      "semantic_entropy": 0.9122520407399236,
       "has_data": true
     },
     {
@@ -2448,9 +2448,9 @@
       "constitution_year": 2014,
       "last_amendment_year": null,
       "article_count": 150,
-      "cluster_count": 66,
-      "semantic_coverage": 0.11205432937181664,
-      "semantic_entropy": 0.9644902425659427,
+      "cluster_count": 76,
+      "semantic_coverage": 0.14393939393939395,
+      "semantic_entropy": 0.9693899185120728,
       "has_data": true
     },
     {
@@ -2462,9 +2462,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 181,
-      "cluster_count": 38,
-      "semantic_coverage": 0.06451612903225806,
-      "semantic_entropy": 0.7456153662948071,
+      "cluster_count": 41,
+      "semantic_coverage": 0.07765151515151515,
+      "semantic_entropy": 0.6233476751002569,
       "has_data": true
     },
     {
@@ -2476,9 +2476,9 @@
       "constitution_year": 2010,
       "last_amendment_year": 2010,
       "article_count": 231,
-      "cluster_count": 70,
-      "semantic_coverage": 0.11884550084889643,
-      "semantic_entropy": 0.9463888959093774,
+      "cluster_count": 58,
+      "semantic_coverage": 0.10984848484848485,
+      "semantic_entropy": 0.9130710425865721,
       "has_data": true
     },
     {
@@ -2490,9 +2490,9 @@
       "constitution_year": 2005,
       "last_amendment_year": 2005,
       "article_count": 176,
-      "cluster_count": 40,
-      "semantic_coverage": 0.06791171477079797,
-      "semantic_entropy": 0.6447953951304497,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07386363636363637,
+      "semantic_entropy": 0.6553168614692115,
       "has_data": true
     },
     {
@@ -2504,9 +2504,9 @@
       "constitution_year": 2005,
       "last_amendment_year": 2005,
       "article_count": 22,
-      "cluster_count": 4,
-      "semantic_coverage": 0.006791171477079796,
-      "semantic_entropy": 0.4966963645051813,
+      "cluster_count": 3,
+      "semantic_coverage": 0.005681818181818182,
+      "semantic_entropy": 0.46343678232466695,
       "has_data": true
     },
     {
@@ -2518,9 +2518,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 314,
-      "cluster_count": 86,
-      "semantic_coverage": 0.1460101867572156,
-      "semantic_entropy": 0.8817858097914252,
+      "cluster_count": 81,
+      "semantic_coverage": 0.1534090909090909,
+      "semantic_entropy": 0.8558094378289031,
       "has_data": true
     },
     {
@@ -2532,9 +2532,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 169,
-      "cluster_count": 33,
-      "semantic_coverage": 0.05602716468590832,
-      "semantic_entropy": 0.4058433662870966,
+      "cluster_count": 35,
+      "semantic_coverage": 0.06628787878787878,
+      "semantic_entropy": 0.39538047854494063,
       "has_data": true
     },
     {
@@ -2546,9 +2546,9 @@
       "constitution_year": 2004,
       "last_amendment_year": null,
       "article_count": 333,
-      "cluster_count": 81,
-      "semantic_coverage": 0.13752122241086587,
-      "semantic_entropy": 0.8842361207430454,
+      "cluster_count": 87,
+      "semantic_coverage": 0.16477272727272727,
+      "semantic_entropy": 0.8919406664134013,
       "has_data": true
     },
     {
@@ -2561,7 +2561,7 @@
       "last_amendment_year": 1992,
       "article_count": 11,
       "cluster_count": 1,
-      "semantic_coverage": 0.001697792869269949,
+      "semantic_coverage": 0.001893939393939394,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -2574,9 +2574,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 129,
-      "cluster_count": 27,
-      "semantic_coverage": 0.04584040747028863,
-      "semantic_entropy": 0.6220119066281545,
+      "cluster_count": 23,
+      "semantic_coverage": 0.043560606060606064,
+      "semantic_entropy": 0.6320248025728283,
       "has_data": true
     },
     {
@@ -2587,10 +2587,10 @@
       "sub_region": "Caribbean",
       "constitution_year": 1979,
       "last_amendment_year": null,
-      "article_count": 107,
-      "cluster_count": 72,
-      "semantic_coverage": 0.12224108658743633,
-      "semantic_entropy": 0.975236537600531,
+      "article_count": 17,
+      "cluster_count": 6,
+      "semantic_coverage": 0.011363636363636364,
+      "semantic_entropy": 0.8757609339601583,
       "has_data": true
     },
     {
@@ -2602,9 +2602,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 351,
-      "cluster_count": 109,
-      "semantic_coverage": 0.18505942275042445,
-      "semantic_entropy": 0.9330739717782447,
+      "cluster_count": 100,
+      "semantic_coverage": 0.1893939393939394,
+      "semantic_entropy": 0.9317767653407415,
       "has_data": true
     },
     {
@@ -2617,8 +2617,8 @@
       "last_amendment_year": 2013,
       "article_count": 121,
       "cluster_count": 37,
-      "semantic_coverage": 0.06281833616298811,
-      "semantic_entropy": 0.7539406860136244,
+      "semantic_coverage": 0.07007575757575757,
+      "semantic_entropy": 0.7767012980171806,
       "has_data": true
     },
     {
@@ -2630,9 +2630,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 98,
-      "cluster_count": 31,
-      "semantic_coverage": 0.05263157894736842,
-      "semantic_entropy": 0.8076055862815681,
+      "cluster_count": 27,
+      "semantic_coverage": 0.05113636363636364,
+      "semantic_entropy": 0.8267980848900832,
       "has_data": true
     },
     {
@@ -2644,9 +2644,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 129,
-      "cluster_count": 52,
-      "semantic_coverage": 0.08828522920203735,
-      "semantic_entropy": 0.9343074951085799,
+      "cluster_count": 49,
+      "semantic_coverage": 0.0928030303030303,
+      "semantic_entropy": 0.8803029899965594,
       "has_data": true
     },
     {
@@ -2658,9 +2658,9 @@
       "constitution_year": 2015,
       "last_amendment_year": null,
       "article_count": 446,
-      "cluster_count": 121,
-      "semantic_coverage": 0.20543293718166383,
-      "semantic_entropy": 0.8806027301027385,
+      "cluster_count": 107,
+      "semantic_coverage": 0.20265151515151514,
+      "semantic_entropy": 0.8790499167279526,
       "has_data": true
     },
     {
@@ -2671,10 +2671,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2012,
       "last_amendment_year": 2012,
-      "article_count": 301,
-      "cluster_count": 65,
-      "semantic_coverage": 0.11035653650254669,
-      "semantic_entropy": 0.6886221014205155,
+      "article_count": 41,
+      "cluster_count": 6,
+      "semantic_coverage": 0.011363636363636364,
+      "semantic_entropy": 0.3496420206058527,
       "has_data": true
     },
     {
@@ -2685,10 +2685,10 @@
       "sub_region": "Sub-Saharan Africa",
       "constitution_year": 2016,
       "last_amendment_year": 2016,
-      "article_count": 342,
-      "cluster_count": 88,
-      "semantic_coverage": 0.1494057724957555,
-      "semantic_entropy": 0.8910644841039096,
+      "article_count": 276,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14204545454545456,
+      "semantic_entropy": 0.9229805535376604,
       "has_data": true
     },
     {
@@ -2700,9 +2700,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 387,
-      "cluster_count": 102,
-      "semantic_coverage": 0.1731748726655348,
-      "semantic_entropy": 0.9035815702830505,
+      "cluster_count": 94,
+      "semantic_coverage": 0.17803030303030304,
+      "semantic_entropy": 0.8609160907676093,
       "has_data": true
     }
   ]

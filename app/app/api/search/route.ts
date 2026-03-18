@@ -4,7 +4,7 @@ import {parseSearchParams, searchArticles} from "@/lib/search";
 
 export async function GET(request: Request) {
   try {
-    const {query, country, clusterParam, cluster, limit} = parseSearchParams(
+    const {query, countries, clusterParam, cluster, limit} = parseSearchParams(
       new URL(request.url),
     );
 
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       );
     }
 
-    const payload = await searchArticles({query, country, cluster, limit});
+    const payload = await searchArticles({query, countries, cluster, limit});
     return NextResponse.json(payload);
   } catch (error) {
     console.error("Search route failed", error);

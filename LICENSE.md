@@ -28,7 +28,8 @@ SOFTWARE.
 
 ## Data License
 
-Constitutional texts contained in `app/public/data/` are sourced from the
+Constitutional text snippets distributed in `app/public/data/`, and full
+constitutional texts served by the application, are sourced from the
 [Constitute Project](https://www.constituteproject.org/) and are licensed under
 the **Creative Commons Attribution-NonCommercial 3.0 Unported License**
 (CC BY-NC 3.0).
@@ -36,8 +37,8 @@ the **Creative Commons Attribution-NonCommercial 3.0 Unported License**
 > Elkins, Zachary, Tom Ginsburg, James Melton. *Constitute: The World's
 > Constitutions to Read, Search, and Compare.* constituteproject.org.
 
-You are free to share and adapt the constitutional texts for **non-commercial
+You are free to share and adapt these constitutional texts for **non-commercial
 purposes**, provided you give appropriate credit to the Constitute Project.
-Commercial use of the constitutional texts is not permitted under this license.
+Commercial use of these constitutional texts is not permitted under this license.
 
 For the full license text see: https://creativecommons.org/licenses/by-nc/3.0/

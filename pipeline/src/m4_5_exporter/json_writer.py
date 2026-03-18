@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import shutil
 import tomllib
 from collections import Counter
 from dataclasses import dataclass
@@ -14,11 +15,12 @@ from pathlib import Path
 import pandas as pd
 
 from src.m1_scraper.url_builder import extract_document_year_from_file_path
-from src.shared.constants import APP_COUNTRIES_DIR, APP_PUBLIC_DATA_DIR, CLUSTERS_DIR, PIPELINE_ROOT, TEXT_SNIPPET_LENGTH
+from src.shared.constants import APP_PUBLIC_DATA_DIR, CLUSTERS_DIR, PIPELINE_ROOT, TEXT_SNIPPET_LENGTH
 from src.shared.models import ArticlePoint, ClusterIndexEntry, CountryIndexEntry, CountryMetadata
 
 INDEX_FILENAME = "index.json"
 CLUSTERS_FILENAME = "clusters.json"
+LEGACY_COUNTRIES_FULL_DIRNAME = "countries-full"
 _ID_SANITIZE_RE = re.compile(r"[^A-Za-z0-9]+")
 
 
@@ -79,8 +81,11 @@ def write_static_jsons(
 
     output_dir = Path(output_dir)
     countries_dir = output_dir / "countries"
+    legacy_countries_full_dir = output_dir / LEGACY_COUNTRIES_FULL_DIRNAME
     output_dir.mkdir(parents=True, exist_ok=True)
     countries_dir.mkdir(parents=True, exist_ok=True)
+    if legacy_countries_full_dir.exists():
+        shutil.rmtree(legacy_countries_full_dir)
 
     metadata_map = load_metadata_map(metadata_path)
     generated_at = datetime.now(timezone.utc).isoformat()

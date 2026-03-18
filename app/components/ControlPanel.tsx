@@ -180,7 +180,7 @@ export default function ControlPanel({
           </div>
         </div>
 
-        <div className="min-h-[300px] flex-1 space-y-1.5 overflow-y-auto pr-0.5">
+        <div className="max-h-[320px] space-y-1.5 overflow-y-auto pr-0.5 sm:max-h-[380px] xl:min-h-[300px] xl:flex-1 xl:max-h-none">
           {filteredCountries.map((country) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);

@@ -25,6 +25,18 @@ from src.shared.models import Article, CountryMetadata
 LOGGER = logging.getLogger(__name__)
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?;:])\s+")
 _WHITESPACE_RE = re.compile(r"\s+")
+_STANDALONE_NUMBER_RE = re.compile(r"^(?P<identifier>\d+[A-Za-z]?)$", re.MULTILINE)
+_INLINE_NUMBER_RE = re.compile(r"^(?P<identifier>\d+[A-Za-z]?)\.\s*(?P<inline_text>.+)$", re.MULTILINE)
+_STRUCTURAL_HEADER_RE = re.compile(r"^(?P<header>(?:CHAPTER|PART)\b[^\n]*)$", re.IGNORECASE | re.MULTILINE)
+
+
+@dataclass(frozen=True)
+class NumericSequenceCandidate:
+    identifier: str
+    number: int
+    start: int
+    body_start: int
+    inline: bool
 
 
 @dataclass
@@ -127,6 +139,17 @@ class ConstitutionalSegmenter:
         self,
         text: str,
     ) -> tuple[SegmentPattern | None, list[tuple[str, str]], bool]:
+        standalone_numeric_segments = split_with_standalone_numeric_headers(text)
+        if SEGMENT_MIN_COUNT <= len(standalone_numeric_segments) <= SEGMENT_MAX_COUNT:
+            return (
+                SegmentPattern(
+                    name="numeric_heading",
+                    regex=_STANDALONE_NUMBER_RE,
+                ),
+                standalone_numeric_segments,
+                False,
+            )
+
         best_primary: tuple[SegmentPattern, list[tuple[str, str]]] | None = None
 
         for pattern in PRIMARY_PATTERNS:
@@ -197,6 +220,156 @@ def split_with_pattern(text: str, pattern: SegmentPattern) -> list[tuple[str, st
         segments.append((identifier, body))
 
     return segments
+
+
+def split_with_standalone_numeric_headers(text: str) -> list[tuple[str, str]]:
+    standalone_matches = list(_STANDALONE_NUMBER_RE.finditer(text))
+    if len(standalone_matches) < SEGMENT_MIN_COUNT - 1:
+        return []
+
+    candidates = build_numeric_sequence_candidates(text)
+    chain = select_longest_numeric_sequence(candidates)
+    if len(chain) < SEGMENT_MIN_COUNT:
+        return []
+
+    segments: list[tuple[str, str]] = []
+    boundary_specs = build_numeric_sequence_boundaries(text, chain)
+    orphan_prefix = text[: boundary_specs[0][0]].strip()
+
+    if orphan_prefix:
+        segments.append(("Preamble", orphan_prefix))
+
+    for index, (segment_start, body_start) in enumerate(boundary_specs):
+        candidate = chain[index]
+        next_start = (
+            boundary_specs[index + 1][0] if index + 1 < len(boundary_specs) else len(text)
+        )
+        body = text[body_start:next_start].strip()
+        if not body:
+            continue
+        segments.append((candidate.identifier, body))
+
+    return segments
+
+
+def build_numeric_sequence_candidates(text: str) -> list[NumericSequenceCandidate]:
+    candidates: list[NumericSequenceCandidate] = []
+
+    for match in _STANDALONE_NUMBER_RE.finditer(text):
+        number = parse_numeric_identifier(match.group("identifier"))
+        if number is None:
+            continue
+        candidates.append(
+            NumericSequenceCandidate(
+                identifier=str(number),
+                number=number,
+                start=match.start(),
+                body_start=match.end(),
+                inline=False,
+            )
+        )
+
+    for match in _INLINE_NUMBER_RE.finditer(text):
+        number = parse_numeric_identifier(match.group("identifier"))
+        if number is None:
+            continue
+        candidates.append(
+            NumericSequenceCandidate(
+                identifier=str(number),
+                number=number,
+                start=match.start(),
+                body_start=match.start("inline_text"),
+                inline=True,
+            )
+        )
+
+    return sorted(candidates, key=lambda candidate: (candidate.start, candidate.body_start))
+
+
+def select_longest_numeric_sequence(
+    candidates: list[NumericSequenceCandidate],
+) -> list[NumericSequenceCandidate]:
+    if not candidates:
+        return []
+
+    best_lengths = [1] * len(candidates)
+    next_indexes = [-1] * len(candidates)
+
+    for index in range(len(candidates) - 1, -1, -1):
+        current = candidates[index]
+        for next_index in range(index + 1, len(candidates)):
+            candidate = candidates[next_index]
+            if candidate.number != current.number + 1:
+                continue
+            proposed_length = best_lengths[next_index] + 1
+            if proposed_length > best_lengths[index]:
+                best_lengths[index] = proposed_length
+                next_indexes[index] = next_index
+
+    best_start = max(
+        range(len(candidates)),
+        key=lambda index: (
+            best_lengths[index],
+            candidates[index].number == 1,
+            -candidates[index].start,
+        ),
+    )
+
+    chain: list[NumericSequenceCandidate] = []
+    current_index = best_start
+    while current_index != -1:
+        chain.append(candidates[current_index])
+        current_index = next_indexes[current_index]
+
+    return chain
+
+
+def build_numeric_sequence_boundaries(
+    text: str,
+    chain: list[NumericSequenceCandidate],
+) -> list[tuple[int, int]]:
+    boundaries: list[tuple[int, int]] = []
+    previous_body_start = 0
+
+    for candidate in chain:
+        structural_start = find_last_structural_header_start(
+            text,
+            search_start=previous_body_start,
+            search_end=candidate.start,
+        )
+        if candidate.inline and structural_start is not None:
+            segment_start = structural_start
+            body_start = structural_start
+        else:
+            segment_start = candidate.start
+            body_start = candidate.body_start
+
+        boundaries.append((segment_start, body_start))
+        previous_body_start = body_start
+
+    return boundaries
+
+
+def find_last_structural_header_start(
+    text: str,
+    *,
+    search_start: int,
+    search_end: int,
+) -> int | None:
+    if search_end <= search_start:
+        return None
+
+    structural_matches = list(_STRUCTURAL_HEADER_RE.finditer(text, search_start, search_end))
+    if not structural_matches:
+        return None
+    return structural_matches[-1].start()
+
+
+def parse_numeric_identifier(value: str) -> int | None:
+    match = re.match(r"^(?P<number>\d+)", value.strip())
+    if not match:
+        return None
+    return int(match.group("number"))
 
 
 def split_oversized_text(

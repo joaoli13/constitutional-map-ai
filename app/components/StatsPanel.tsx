@@ -3,6 +3,7 @@
 import {useState} from "react";
 import {useTranslations} from "next-intl";
 
+import {useFullscreen} from "@/hooks/useFullscreen";
 import type {CountryIndexRecord} from "@/lib/types";
 
 type SortKey = "name" | "sub_region" | "article_count" | "cluster_count" | "semantic_coverage" | "semantic_entropy";
@@ -14,6 +15,7 @@ type StatsPanelProps = {
 
 export default function StatsPanel({countries}: StatsPanelProps) {
   const t = useTranslations("Atlas.Stats");
+  const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
 
@@ -40,7 +42,12 @@ export default function StatsPanel({countries}: StatsPanelProps) {
   }
 
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-white/92 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+    <section
+      ref={ref}
+      className={`rounded-[2rem] border border-slate-200 bg-white/92 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)] ${
+        isFullscreen ? "flex h-full flex-col rounded-none border-0 shadow-none" : ""
+      }`}
+    >
       <div className="flex items-baseline justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
@@ -48,11 +55,20 @@ export default function StatsPanel({countries}: StatsPanelProps) {
           </p>
           <h2 className="mt-1.5 text-2xl font-semibold text-slate-950">{t("title")}</h2>
         </div>
-        {countries.length > 0 && (
-          <span className="flex-shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-            {countries.length}
-          </span>
-        )}
+        <div className="flex items-center gap-2">
+          {countries.length > 0 && (
+            <span className="flex-shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+              {countries.length}
+            </span>
+          )}
+          <button
+            className="flex-shrink-0 rounded-full border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-950"
+            type="button"
+            onClick={() => void toggleFullscreen()}
+          >
+            {isFullscreen ? t("exitFullscreen") : t("enterFullscreen")}
+          </button>
+        </div>
       </div>
 
       {countries.length === 0 ? (
@@ -60,8 +76,8 @@ export default function StatsPanel({countries}: StatsPanelProps) {
           {t("empty")}
         </div>
       ) : (
-        <div className="mt-4 overflow-hidden rounded-xl border border-slate-200">
-          <div className="max-h-[420px] overflow-y-auto">
+        <div className={`mt-4 overflow-hidden rounded-xl border border-slate-200 ${isFullscreen ? "min-h-0 flex-1" : ""}`}>
+          <div className={`overflow-y-auto ${isFullscreen ? "h-full" : "max-h-[420px]"}`}>
             <table className="w-full text-sm">
               <thead>
                 <tr className="sticky top-0 border-b border-slate-200 bg-slate-50 text-left">

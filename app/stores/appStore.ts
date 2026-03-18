@@ -16,6 +16,7 @@ type AppState = {
   loadedCountryData: CountryDataCache;
   selectedPoint: AtlasSelectionPoint | null;
   searchResults: SearchResult[];
+  restrictSearchToSelectedCountries: boolean;
   colorMode: ColorMode;
   toggleCountrySelection: (countryCode: string) => void;
   addCountries: (countryCodes: string[]) => void;
@@ -24,6 +25,7 @@ type AppState = {
   setCountryData: (countryCode: string, points: CountryPoint[]) => void;
   setSelectedPoint: (point: AtlasSelectionPoint | null) => void;
   setSearchResults: (results: SearchResult[]) => void;
+  setRestrictSearchToSelectedCountries: (value: boolean) => void;
   setColorMode: (mode: ColorMode) => void;
 };
 
@@ -32,6 +34,7 @@ export const useAppStore = create<AppState>((set) => ({
   loadedCountryData: {},
   selectedPoint: null,
   searchResults: [],
+  restrictSearchToSelectedCountries: false,
   colorMode: "country",
   toggleCountrySelection: (countryCode) =>
     set((state) => {
@@ -62,5 +65,7 @@ export const useAppStore = create<AppState>((set) => ({
     })),
   setSelectedPoint: (point) => set({selectedPoint: point}),
   setSearchResults: (results) => set({searchResults: results}),
+  setRestrictSearchToSelectedCountries: (value) =>
+    set({restrictSearchToSelectedCountries: value}),
   setColorMode: (mode) => set({colorMode: mode}),
 }));

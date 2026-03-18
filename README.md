@@ -1,6 +1,6 @@
-# The Constitutional Atlas
+# Constitutional Map
 
-A global semantic atlas of constitutional law — 193 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
+A global semantic map of constitutional law — 193 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
 
 **Live app → [tca-mu.vercel.app](https://tca-mu.vercel.app)**
 
@@ -24,7 +24,7 @@ Key capabilities:
 ## Repository structure
 
 ```
-the-constitutional-atlas/
+project-root/
 │
 ├── pipeline/                   # Python data pipeline (M1 → M4.5)
 │   ├── scripts/
@@ -51,7 +51,7 @@ the-constitutional-atlas/
 │   │   ├── [locale]/           # next-intl locale layout + main page
 │   │   └── api/
 │   │       ├── search/         # GET /api/search — full-text search via Neon
-│   │       ├── article/        # GET /api/article — fetch full article text
+│   │       ├── article/        # GET /api/article — fetch full article text via Neon
 │   │       └── compare/        # GET /api/compare — Jaccard similarity
 │   │
 │   ├── components/
@@ -69,7 +69,7 @@ the-constitutional-atlas/
 │   └── public/data/
 │       ├── index.json          # Country index (193 entries, stats per country)
 │       ├── clusters.json       # Global cluster summaries
-│       └── countries/          # Per-country article JSON (193 files, ~18 MB total)
+│       └── countries/          # Per-country point JSON (193 files, snippets + coordinates)
 │
 ├── .env.example                # Required environment variables
 ├── LICENSE.md                  # MIT (code) + CC BY-NC 3.0 (constitutional data)
@@ -88,7 +88,7 @@ M4 Clusterer   →  UMAP 50D (clustering) + 3D (viz), HDBSCAN global + per-count
 M4.5 Exporter  →  static JSON for Vercel CDN + upsert to Neon PostgreSQL
 ```
 
-The generated `app/public/data/` is committed to the repository and served directly by Vercel's CDN. The Neon database powers the full-text search API.
+The generated `app/public/data/` is committed to the repository and served directly by Vercel's CDN. Full article texts stay behind the Neon-backed API, which also powers full-text search.
 
 ---
 
