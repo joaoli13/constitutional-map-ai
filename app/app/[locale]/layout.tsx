@@ -1,0 +1,95 @@
+import type {Metadata} from "next";
+import {NextIntlClientProvider} from "next-intl";
+import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
+import {notFound} from "next/navigation";
+
+import LanguageSelector from "@/components/LanguageSelector";
+import {routing, type AppLocale} from "@/i18n/routing";
+import "../globals.css";
+
+type LocaleLayoutProps = Readonly<{
+  children: React.ReactNode;
+  params: Promise<{locale: string}>;
+}>;
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export async function generateMetadata({
+  params,
+}: LocaleLayoutProps): Promise<Metadata> {
+  const {locale} = await params;
+  const resolvedLocale = routing.locales.includes(locale as never)
+    ? (locale as AppLocale)
+    : routing.defaultLocale;
+  const t = await getTranslations({locale: resolvedLocale, namespace: "Meta"});
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
+  const {locale} = await params;
+  if (!routing.locales.includes(locale as never)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+  const messages = await getMessages();
+  const chromeT = await getTranslations({locale, namespace: "Chrome"});
+
+  return (
+    <NextIntlClientProvider messages={messages}>
+      <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
+        <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-4">
+          <div>
+            <h1 className="text-[13px] font-bold uppercase tracking-[0.3em] text-slate-900">
+              {chromeT("eyebrow")}
+            </h1>
+            <p className="mt-0.5 text-[13px] text-slate-500">{chromeT("subtitle")}</p>
+          </div>
+          <LanguageSelector />
+        </header>
+        {children}
+        <section className="mx-auto w-full max-w-[1120px] px-6 pb-4 pt-2">
+          <div className="rounded-[2rem] border border-slate-200/80 bg-white/70 px-6 py-6 shadow-[0_12px_40px_rgba(15,23,42,0.05)] backdrop-blur">
+            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500">
+              {chromeT("primerEyebrow")}
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-950">
+              {chromeT("primerTitle")}
+            </h2>
+            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+              <p>{chromeT("primerP1")}</p>
+              <p>{chromeT("primerP2")}</p>
+              <p>{chromeT("primerP3")}</p>
+              <p>{chromeT("primerP4")}</p>
+              <p>{chromeT("primerP5")}</p>
+            </div>
+          </div>
+        </section>
+        <footer className="mx-auto w-full max-w-[1500px] border-t border-slate-200/70 px-6 py-6 text-xs leading-6 text-slate-500">
+          <p>
+            {chromeT("dataNotice")}{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="https://www.constituteproject.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {chromeT("projectLinkLabel")}
+            </a>
+            . {chromeT("citationLabel")}{" "}
+            <span className="text-slate-700">{chromeT("citationText")}</span>
+          </p>
+        </footer>
+      </div>
+    </NextIntlClientProvider>
+  );
+}

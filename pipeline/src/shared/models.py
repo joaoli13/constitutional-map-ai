@@ -20,6 +20,7 @@ class CountryMetadata(BaseModel):
     constitution_year: int
     last_amendment_year: int | None = None
     language: str = "en"
+    available_languages: list[str] = Field(default_factory=list)
     source_url: str
     file_path: str
     sha256: str | None = None

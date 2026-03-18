@@ -1,0 +1,116 @@
+{
+  "Meta": {
+    "title": "The Constitutional Atlas",
+    "description": "Explore a geografia semântica do direito constitucional no mundo."
+  },
+  "LanguageSelector": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português"
+  },
+  "Chrome": {
+    "eyebrow": "The Constitutional Atlas",
+    "subtitle": "Um atlas semântico global do direito constitucional",
+    "primerEyebrow": "Guia de Leitura",
+    "primerTitle": "Como ler a visualização",
+    "primerP1": "Cada ponto na vista 3D representa um segmento constitucional, normalmente um artigo ou outra unidade jurídica relevante. Pontos próximos não estão juntos por serem do mesmo país, mas porque a linguagem desses trechos é semanticamente parecida.",
+    "primerP2": "O mapa e a lista de países são ferramentas de seleção. Eles decidem quais constituições entram na cena. Selecionar mais países não altera a geometria do embedding; altera quais partes desse espaço semântico global você consegue inspecionar.",
+    "primerP3": "O embedding transforma texto jurídico em vetores, e a etapa de clustering agrupa vetores que tendem a tratar de temas constitucionais relacionados. No modo país, a cor mostra a origem política. No modo cluster, a cor mostra a vizinhança temática.",
+    "primerP4": "Nuvens grandes e densas costumam indicar ideias constitucionais recorrentes, como direitos, instituições, poderes de emergência, eleições ou regras de emenda. Pontos isolados muitas vezes marcam dispositivos incomuns, redações raras ou escolhas constitucionais muito específicas.",
+    "primerP5": "Use a busca quando você já tiver um conceito em mente, e use a comparação quando quiser ver como países diferentes ocupam o mesmo terreno semântico. A leitura mais útil acontece indo e voltando entre mapa, forma dos clusters e detalhe do artigo.",
+    "dataNotice": "Os textos constitucionais desta aplicação são provenientes do Constitute Project e são utilizados sob a licença Creative Commons Attribution-Non Commercial 3.0 Unported, exceto quando houver indicação de direitos de terceiros.",
+    "projectLinkLabel": "constituteproject.org",
+    "citationLabel": "Citação sugerida:",
+    "citationText": "Elkins, Zachary, Tom Ginsburg, James Melton. Constitute: The World’s Constitutions to Read, Search, and Compare."
+  },
+  "Atlas": {
+    "countryLoadError": "Não foi possível carregar os dados do país {country}.",
+    "Presets": {
+      "g7": "G7",
+      "g20": "G20",
+      "brics": "BRICS",
+      "eu": "UE",
+      "asean": "ASEAN",
+      "au": "União Africana",
+      "all": "Todos",
+      "none": "Nenhum"
+    },
+    "WorldMap": {
+      "eyebrow": "Mapa-Múndi",
+      "title": "Selecione sistemas constitucionais no mapa.",
+      "body": "Clique em qualquer país com dados para carregar seus pontos semânticos. Arraste para navegar e use o zoom para comparações regionais.",
+      "zoomIn": "Zoom +",
+      "zoomOut": "Zoom -",
+      "selectedCount": "{count, plural, =0 {Nenhum país selecionado} one {# país selecionado} other {# países selecionados}}",
+      "availableCountry": "{country} possui dados constitucionais disponíveis.",
+      "selectedCountry": "{country} foi adicionado ao conjunto de comparação.",
+      "unavailableCountry": "{country} não está disponível no conjunto de dados atual.",
+      "unknownCountry": "Este país",
+      "hint": "Passe o cursor sobre um país para ver sua disponibilidade."
+    },
+    "ControlPanel": {
+      "eyebrow": "Painel de Controle",
+      "title": "Monte conjuntos de comparação rapidamente.",
+      "body": "Os presets são aditivos. A lista de países pode ser filtrada por nome e reordenada para explorações amplas ou focadas.",
+      "selectedLabel": "Selecionados",
+      "countryCountLabel": "Países",
+      "clusterCountLabel": "Clusters",
+      "presetsLabel": "Presets",
+      "filterPlaceholder": "Filtre países por nome, código ou região",
+      "orderLabel": "Ordenar por",
+      "orderName": "Nome",
+      "orderRegion": "Região",
+      "orderArticles": "Quantidade de artigos",
+      "noneSelected": "Ainda não há países selecionados.",
+      "clickToRemove": "Clique para remover",
+      "articlesShort": "Artigos",
+      "statusLoading": "carregando",
+      "statusReady": "em cache"
+    },
+    "Search": {
+      "eyebrow": "Busca",
+      "title": "Pesquise em todo o corpus constitucional.",
+      "placeholder": "Experimente liberdade de expressão, poderes de emergência, direitos trabalhistas...",
+      "submit": "Buscar",
+      "loading": "Buscando...",
+      "empty": "Execute uma busca para ver artigos ranqueados.",
+      "error": "A busca está temporariamente indisponível."
+    },
+    "Canvas": {
+      "eyebrow": "Espaço Semântico 3D",
+      "title": "Navegue pelo campo de clusters semânticos.",
+      "body": "{visible} pontos visíveis de {loaded} segmentos carregados.",
+      "colorByCountry": "Por país",
+      "colorByCluster": "Por cluster",
+      "autoRotateOn": "Auto-rotação",
+      "autoRotateOff": "Parar rotação",
+      "focusSelection": "Focar seleção",
+      "resetView": "Ver todos",
+      "empty": "Selecione um ou mais países para renderizar seus segmentos constitucionais em 3D.",
+      "hoverHint": "Passe o cursor sobre um ponto para inspecionar seu artigo e trecho de texto.",
+      "doubleClickHint": "Dê um duplo clique em um ponto para focar a câmera na sua posição semântica."
+    },
+    "Stats": {
+      "eyebrow": "Estatísticas por País",
+      "title": "Cobertura semântica por país selecionado.",
+      "empty": "Selecione países no mapa ou no painel de controle para inspecionar suas métricas.",
+      "colCountry": "País",
+      "colRegion": "Sub-região",
+      "articleCount": "Artigos",
+      "clusterCount": "Quantidade de clusters",
+      "coverage": "Cobertura",
+      "entropy": "Entropia"
+    },
+    "Detail": {
+      "eyebrow": "Painel de Detalhe",
+      "title": "Detalhe do artigo selecionado.",
+      "empty": "Clique em um ponto do canvas ou escolha um resultado de busca para inspecionar aqui o texto constitucional completo.",
+      "loading": "Carregando o artigo constitucional completo...",
+      "country": "País",
+      "article": "Artigo",
+      "cluster": "Cluster global",
+      "probability": "Probabilidade do cluster"
+    }
+  }
+}

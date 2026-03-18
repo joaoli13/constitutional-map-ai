@@ -3,110 +3,110 @@
     "id": "EGY_2019_Article_248_p1",
     "article_id": "Article 248.p1",
     "text_snippet": "Preamble In the Name of God, Most Gracious, Most Merciful This is Our Constitution Egypt is the gift of the Nile and the gift of Egyptians to humanity. Blessed with a unique location and history, the",
-    "x": 12.197945594787598,
-    "y": -2.1223502159118652,
-    "z": 7.942150115966797,
-    "global_cluster": 43,
+    "x": 7.907403469085693,
+    "y": -0.37082117795944214,
+    "z": 8.748771667480469,
+    "global_cluster": 161,
     "country_cluster": 0,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.16173377633094788
   },
   {
     "id": "EGY_2019_Article_248_p2",
     "article_id": "Article 248.p2",
     "text_snippet": "The state shall draft a national housing plan that upholds environmental particularity, and guarantees the contribution of personal and collaborative initiatives in its implementation. The state shall",
-    "x": 12.255319595336914,
-    "y": -2.1472620964050293,
-    "z": 8.02770709991455,
-    "global_cluster": 43,
+    "x": 7.834873199462891,
+    "y": -0.6447998881340027,
+    "z": 8.659781455993652,
+    "global_cluster": 161,
     "country_cluster": 0,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.3445625901222229
   },
   {
     "id": "EGY_2019_Article_248_p3",
     "article_id": "Article 248.p3",
     "text_snippet": "The House of Representatives may propose to withdraw confidence from the President of the Republic and hold early presidential elections upon a causal motion signed by at least a majority of the membe",
-    "x": 12.24162483215332,
-    "y": -2.1625919342041016,
-    "z": 7.994192600250244,
-    "global_cluster": 43,
+    "x": 7.860595703125,
+    "y": -0.72404545545578,
+    "z": 8.572065353393555,
+    "global_cluster": 161,
     "country_cluster": 0,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.7084928750991821
   },
   {
     "id": "EGY_2019_Article_248_p4",
     "article_id": "Article 248.p4",
     "text_snippet": "In its first session after the enforcement of this Constitution, the House of Representatives commits to issuing a transitional justice law that ensures revealing the truth, accountability, proposing",
-    "x": 12.250144958496094,
-    "y": -2.17819881439209,
-    "z": 7.987508296966553,
-    "global_cluster": 43,
+    "x": 7.861639022827148,
+    "y": -0.6909193396568298,
+    "z": 8.57277774810791,
+    "global_cluster": 161,
     "country_cluster": 0,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.6991342902183533
   },
   {
     "id": "EGY_2019_Article_249",
     "article_id": "Article 249",
     "text_snippet": "The opinion of the Senate shall be taken as follows: - Proposals for the amendment of one or more articles of the Constitution. Projects concerning the general plan for Social and Economic Development",
-    "x": 12.248497009277344,
-    "y": -2.181424140930176,
-    "z": 7.971076011657715,
-    "global_cluster": 43,
-    "country_cluster": 1,
-    "cluster_probability": 1.0
+    "x": 11.417665481567383,
+    "y": -2.5725841522216797,
+    "z": 8.863290786743164,
+    "global_cluster": 447,
+    "country_cluster": -1,
+    "cluster_probability": 0.09781064838171005
   },
   {
     "id": "EGY_2019_Article_250",
     "article_id": "Article 250",
     "text_snippet": "The Senate shall consist of a number of members determined by law, not less than 180 members. Two-thirds of the members of the Council shall be elected by direct secret universal suffrage. The Preside",
-    "x": 11.358353614807129,
-    "y": -2.1266672611236572,
-    "z": 6.60837459564209,
-    "global_cluster": 43,
+    "x": 10.349274635314941,
+    "y": -2.0818729400634766,
+    "z": 7.069685935974121,
+    "global_cluster": -1,
     "country_cluster": 1,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.0
   },
   {
     "id": "EGY_2019_Article_251",
     "article_id": "Article 251",
     "text_snippet": "A candidate for membership in the Senate or the person who appoints him must be an Egyptian with civil and political rights. He must have at least a university degree or equivalent, and his age must b",
-    "x": 11.278404235839844,
-    "y": -1.9859743118286133,
-    "z": 6.692121982574463,
-    "global_cluster": 43,
+    "x": 8.468538284301758,
+    "y": -0.5534475445747375,
+    "z": 8.308221817016602,
+    "global_cluster": -1,
     "country_cluster": 1,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.0
   },
   {
     "id": "EGY_2019_Article_252",
     "article_id": "Article 252",
     "text_snippet": "The membership of the Senate and House of Representatives shall not be combined.",
-    "x": 11.242938041687012,
-    "y": -1.8831778764724731,
-    "z": 6.875545024871826,
-    "global_cluster": 43,
+    "x": 10.673758506774902,
+    "y": -2.0900518894195557,
+    "z": 6.580226898193359,
+    "global_cluster": -1,
     "country_cluster": 1,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.0
   },
   {
     "id": "EGY_2019_Article_253",
     "article_id": "Article 253",
     "text_snippet": "The Prime Minister, his deputies, ministers and other members of the government are not accountable to the Senate.",
-    "x": 12.061237335205078,
-    "y": -2.1954896450042725,
-    "z": 7.839385986328125,
-    "global_cluster": 43,
+    "x": 9.084259033203125,
+    "y": -3.220289707183838,
+    "z": 6.990849494934082,
+    "global_cluster": -1,
     "country_cluster": 1,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.0
   },
   {
     "id": "EGY_2019_Article_254",
     "article_id": "Article 254",
     "text_snippet": "The provisions of the Constitution shall apply to the Senate in articles 103, 104, 105, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 1, 2, 132, 133, 136 and 137, in a manner n",
-    "x": 12.243889808654785,
-    "y": -2.1838572025299072,
-    "z": 7.989204406738281,
-    "global_cluster": 43,
+    "x": 10.587129592895508,
+    "y": -2.005241632461548,
+    "z": 7.157229900360107,
+    "global_cluster": -1,
     "country_cluster": 1,
-    "cluster_probability": 1.0
+    "cluster_probability": 0.0
   }
 ]

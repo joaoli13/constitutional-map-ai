@@ -3,88 +3,88 @@
     "id": "ROU_2003_Section_1_Central_Public_Administration",
     "article_id": "Section 1. Central Public Administration",
     "text_snippet": "Article 116. Structure 1. The ministries are organized under the direction of the Government. 2. Other specialized bodies can be organized under the direction of the Government or of the ministries or",
-    "x": 11.428194046020508,
-    "y": 2.4686856269836426,
-    "z": 4.468587875366211,
-    "global_cluster": 58,
+    "x": 11.280165672302246,
+    "y": -1.4116636514663696,
+    "z": 9.399030685424805,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   },
   {
     "id": "ROU_2003_Section_1_Courts_of_Justice",
     "article_id": "Section 1. Courts of Justice",
     "text_snippet": "Article 124. Carrying Out Justice 1. Justice is carried out in the name of the law. 2. Justice is impartial and the same for all citizens. 3. The judges are independent and subject only to the law. Ar",
-    "x": 11.39726734161377,
-    "y": 3.104201555252075,
-    "z": 3.856235980987549,
-    "global_cluster": 58,
+    "x": 11.304436683654785,
+    "y": -1.440564751625061,
+    "z": 9.445210456848145,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   },
   {
     "id": "ROU_2003_Section_1_Organization_and_Operation",
     "article_id": "Section 1. Organization and Operation",
     "text_snippet": "TITLE I GENERAL PRINCIPLES Article 1. The Romanian State 1. Romania is a national state, sovereign and independent, unitary and indivisible. 2. The form of government of the Romanian state is the Repu",
-    "x": 11.391061782836914,
-    "y": 3.086338520050049,
-    "z": 3.869971990585327,
-    "global_cluster": 58,
+    "x": 11.27817153930664,
+    "y": -1.3081127405166626,
+    "z": 13.87096881866455,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   },
   {
     "id": "ROU_2003_Section_2_Local_Public_Administration",
     "article_id": "Section 2. Local Public Administration",
     "text_snippet": "Article 120. Basic Principles 1. The public administration in territorial-administrative units is based on the principle of decentralization, local autonomy, and decentralization of public services. 2",
-    "x": 11.416589736938477,
-    "y": 3.0814526081085205,
-    "z": 3.8838586807250977,
-    "global_cluster": 58,
+    "x": 11.115265846252441,
+    "y": -1.4667176008224487,
+    "z": 9.42731761932373,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   },
   {
     "id": "ROU_2003_Section_2_The_Public_Ministry",
     "article_id": "Section 2. The Public Ministry",
     "text_snippet": "Article 131. Role of the Public Ministry 1. In the judicial area, the Public Ministry represents the general interests of society and defends the legal order as well as the rights and freedoms of the",
-    "x": 11.429801940917969,
-    "y": 3.09554386138916,
-    "z": 3.906348466873169,
-    "global_cluster": 58,
+    "x": 11.793214797973633,
+    "y": -0.5990466475486755,
+    "z": 9.453804969787598,
+    "global_cluster": -1,
     "country_cluster": -1,
-    "cluster_probability": 0.05935245007276535
+    "cluster_probability": 0.0
   },
   {
     "id": "ROU_2003_Section_2_The_Status_of_Deputies_and_Senators",
     "article_id": "Section 2. The Status of Deputies and Senators",
     "text_snippet": "Article 69. The Representative Mandate 1. The deputies and senators are at the service of the people in exercising their mandate. 2. Any imperative mandate is null. Article 70. The Mandate of Deputies",
-    "x": 11.394617080688477,
-    "y": 3.1162350177764893,
-    "z": 3.857174873352051,
-    "global_cluster": 58,
+    "x": 10.754396438598633,
+    "y": -2.60509991645813,
+    "z": 7.792379856109619,
+    "global_cluster": 164,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 1.0
   },
   {
     "id": "ROU_2003_Section_3_Legislation",
     "article_id": "Section 3. Legislation",
     "text_snippet": "Article 73. Categories of Laws 1. Parliament adopts Constitutional Revision Laws, organic laws, and ordinary laws. 2. Constitutional Revision Laws are for the purpose of amending the Constitution. 3.",
-    "x": 11.37133502960205,
-    "y": 3.1332597732543945,
-    "z": 3.8327064514160156,
-    "global_cluster": 58,
+    "x": 11.275659561157227,
+    "y": -1.5122017860412598,
+    "z": 9.439154624938965,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   },
   {
     "id": "ROU_2003_Section_3_The_High_Council_of_the_Judiciary",
     "article_id": "Section 3. The High Council of the Judiciary",
     "text_snippet": "Article 133. Role and Structure 1. The High Council of the Judiciary guarantees the independence of the judiciary. 2. The High Council of the Judiciary is composed of 19 members, of whom: 14 are elect",
-    "x": 11.387548446655273,
-    "y": 3.1097307205200195,
-    "z": 3.8637709617614746,
-    "global_cluster": 58,
+    "x": 11.287812232971191,
+    "y": -1.468601107597351,
+    "z": 9.43452262878418,
+    "global_cluster": 19,
     "country_cluster": -1,
-    "cluster_probability": 0.073579341173172
+    "cluster_probability": 0.030036065727472305
   }
 ]
