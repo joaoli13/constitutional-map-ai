@@ -56,11 +56,16 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const countryByCode = Object.fromEntries(
     atlasIndex.countries.map((country) => [country.code, country]),
   );
+  const hasCountrySelection = selectedCountries.length > 0;
   const countryColors = buildCountryPalette(selectedCountries);
   const loadedPoints = buildLoadedPoints(loadedCountryData, countryByCode);
-  const searchHighlightedPoints = restrictSearchToSelectedCountries
+  const searchHighlightedPoints = hasCountrySelection && restrictSearchToSelectedCountries
     ? searchResults.map(toSelectionPointFromSearchResult)
     : [];
+  const effectiveSelectedPoint =
+    selectedPoint && selectedCountries.includes(selectedPoint.country_code)
+      ? selectedPoint
+      : null;
   const selectedCountryRecords = selectedCountries
     .map((countryCode) => countryByCode[countryCode])
     .filter(Boolean);
@@ -91,41 +96,58 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
 
     async function loadArticle() {
       if (!selectedPoint) {
         setArticleDetail(null);
+        setIsArticleLoading(false);
         return;
       }
 
       const cached = articleCache.current[selectedPoint.id];
       if (cached) {
         setArticleDetail(cached);
+        setIsArticleLoading(false);
         return;
       }
 
       setIsArticleLoading(true);
       try {
         const response = await fetch(
-          `/api/article?${new URLSearchParams({id: selectedPoint.id}).toString()}`,
+          `/api/article?${new URLSearchParams({
+            id: selectedPoint.id,
+            country_code: selectedPoint.country_code,
+            article_id: selectedPoint.article_id,
+          }).toString()}`,
+          {signal: controller.signal},
         );
         if (!response.ok) {
           throw new Error(`Article request failed with status ${response.status}`);
         }
 
         const payload = (await response.json()) as ArticleDetail;
-        if (!cancelled) {
+        if (!controller.signal.aborted) {
           articleCache.current[selectedPoint.id] = payload;
           setArticleDetail(payload);
         }
       } catch (error) {
-        console.error("Article detail load failed", error);
-        if (!cancelled) {
-          setArticleDetail(null);
+        if (controller.signal.aborted) {
+          return;
+        }
+        if (
+          error instanceof Error
+          && error.message.includes("status 429")
+        ) {
+          setArticleDetail(articleCache.current[selectedPoint.id] ?? null);
+        } else {
+          console.error("Article detail load failed", error);
+          setArticleDetail((currentDetail) =>
+            currentDetail && currentDetail.id === selectedPoint.id ? currentDetail : null,
+          );
         }
       } finally {
-        if (!cancelled) {
+        if (!controller.signal.aborted) {
           setIsArticleLoading(false);
         }
       }
@@ -134,11 +156,16 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
     void loadArticle();
 
     return () => {
-      cancelled = true;
+      controller.abort();
     };
   }, [selectedPoint]);
 
   function handleSelectPoint(point: AtlasSelectionPoint) {
+    if (selectedPoint?.id === point.id) {
+      return;
+    }
+    setArticleDetail(null);
+    setIsArticleLoading(true);
     setSelectedPoint(point);
     if (!selectedCountries.includes(point.country_code)) {
       addCountries([point.country_code]);
@@ -194,10 +221,10 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
       ) : null}
 
       <Canvas3D
-        points={loadedPoints}
+        points={hasCountrySelection ? loadedPoints : []}
         searchHighlightedPoints={searchHighlightedPoints}
         selectedCountries={selectedCountries}
-        selectedPoint={selectedPoint}
+        selectedPoint={hasCountrySelection ? effectiveSelectedPoint : null}
         countryColors={countryColors}
         colorMode={colorMode}
         articleDetail={articleDetail}
