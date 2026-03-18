@@ -136,11 +136,11 @@ export default async function LocaleLayout({
             {chromeT("sourceCodeText")}{" "}
             <a
               className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://github.com/joaoli13/the-constitutional-atlas"
+              href="https://github.com/joaoli13/constitutional-map-ai"
               target="_blank"
               rel="noreferrer"
             >
-              GitHub repository
+              github.com/joaoli13/constitutional-map-ai
             </a>
           </p>
           <p className="mt-2">
