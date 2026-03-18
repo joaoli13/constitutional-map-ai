@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import os
+import warnings
 from dataclasses import dataclass
+from importlib.metadata import PackageNotFoundError, version
+from inspect import signature
 
 import numpy as np
 
@@ -52,6 +55,18 @@ class GlobalHDBSCANRunner:
             )
 
         import hdbscan
+        from sklearn.utils.validation import check_array
+
+        if "force_all_finite" not in signature(check_array).parameters:
+            sklearn_version = _safe_package_version("scikit-learn")
+            hdbscan_version = _safe_package_version("hdbscan")
+            raise RuntimeError(
+                "Incompatible dependency set for M4: "
+                f"scikit-learn {sklearn_version} removes check_array(force_all_finite=...), "
+                f"but hdbscan {hdbscan_version} still relies on it. "
+                "Use the pipeline environment with the project constraints "
+                "(scikit-learn>=1.5,<1.8), then rerun M4."
+            )
 
         model = hdbscan.HDBSCAN(
             min_cluster_size=self.min_cluster_size,
@@ -61,6 +76,19 @@ class GlobalHDBSCANRunner:
             prediction_data=True,
             core_dist_n_jobs=1,
         )
-        labels = model.fit_predict(features).astype(int, copy=False)
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message="'force_all_finite' was renamed to 'ensure_all_finite' in 1\\.6 and will be removed in 1\\.8\\.",
+                category=FutureWarning,
+            )
+            labels = model.fit_predict(features).astype(int, copy=False)
         probabilities = np.asarray(model.probabilities_, dtype=np.float32)
         return GlobalClusteringResult(labels=labels, probabilities=probabilities)
+
+
+def _safe_package_version(package_name: str) -> str:
+    try:
+        return version(package_name)
+    except PackageNotFoundError:
+        return "unknown"

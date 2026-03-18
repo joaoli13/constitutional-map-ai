@@ -104,6 +104,10 @@ def write_static_jsons(
         metadata_map=metadata_map,
         show_progress=show_progress,
     )
+    expected_country_filenames = {f"{country_code}.json" for country_code in country_payloads}
+    for stale_country_path in countries_dir.glob("*.json"):
+        if stale_country_path.name not in expected_country_filenames:
+            stale_country_path.unlink()
 
     index_path = output_dir / INDEX_FILENAME
     clusters_path = output_dir / CLUSTERS_FILENAME

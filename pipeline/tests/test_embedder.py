@@ -38,7 +38,8 @@ def _articles_csv(path) -> None:
     frame.to_csv(path, index=False)
 
 
-def _metadata_json(path) -> None:
+def _metadata_json(path, *, disabled_codes: set[str] | None = None) -> None:
+    disabled_codes = disabled_codes or set()
     payload = [
         {
             "country_name": "Brazil",
@@ -53,6 +54,7 @@ def _metadata_json(path) -> None:
             "source_url": "https://example.test/constitution/Brazil_2017?lang=en",
             "file_path": "data/raw/BRA_2017.txt",
             "status": "success",
+            "processing_enabled": "BRA" not in disabled_codes,
         },
         {
             "country_name": "Austria",
@@ -67,6 +69,7 @@ def _metadata_json(path) -> None:
             "source_url": "https://example.test/constitution/Austria_2013?lang=en",
             "file_path": "data/raw/AUT_2013.txt",
             "status": "success",
+            "processing_enabled": "AUT" not in disabled_codes,
         },
     ]
     path.write_text(json.dumps(payload), encoding="utf-8")
@@ -257,6 +260,36 @@ def test_embedder_writes_checkpoint_during_long_run(tmp_path) -> None:
     frame = pd.read_parquet(output_path)
     assert len(frame) == 3
     assert report.embedded_segments == 3
+
+
+def test_embedder_skips_processing_disabled_countries(tmp_path) -> None:
+    articles_path = tmp_path / "all_articles.csv"
+    metadata_path = tmp_path / "metadata.json"
+    output_path = tmp_path / "embeddings.parquet"
+    report_path = tmp_path / "embedding_report.json"
+    _articles_csv(articles_path)
+    _metadata_json(metadata_path, disabled_codes={"AUT"})
+
+    client = GeminiEmbeddingClient(
+        embed_fn=lambda **_: {"embedding": [1.0, 0.0, 0.0, 0.0]},
+        dimensions=4,
+    )
+    processor = EmbeddingBatchProcessor(client, batch_size=2, max_rpm=10_000, checkpoint_interval=10)
+    embedder = ConstitutionalEmbedder(
+        articles_path=articles_path,
+        metadata_path=metadata_path,
+        output_path=output_path,
+        report_path=report_path,
+        client=client,
+        batch_processor=processor,
+        token_counter=lambda text: len(text.split()),
+    )
+
+    report = embedder.run()
+    frame = pd.read_parquet(output_path)
+
+    assert report.total_segments == 2
+    assert set(frame["country_code"]) == {"BRA"}
 
 
 def test_batch_processor_reports_progress_for_successes_and_failures(tmp_path) -> None:

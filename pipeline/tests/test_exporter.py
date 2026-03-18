@@ -113,15 +113,23 @@ def _metadata_fixture(path) -> None:
 
 
 class FakeCursor:
-    def __init__(self) -> None:
+    def __init__(self, *, delete_rowcount: int = 0) -> None:
         self.executed: list[tuple[str, object | None]] = []
         self.fetchone_result = (3,)
+        self.delete_rowcount = delete_rowcount
+        self.rowcount = 0
 
     def execute(self, sql: str, params=None) -> None:
         self.executed.append((sql, params))
+        if "DELETE FROM articles" in sql:
+            self.rowcount = self.delete_rowcount
+        else:
+            self.rowcount = 0
 
     def executemany(self, sql: str, param_list) -> None:
-        self.executed.append((sql, list(param_list)))
+        batch = list(param_list)
+        self.executed.append((sql, batch))
+        self.rowcount = len(batch)
 
     def fetchone(self):
         return self.fetchone_result
@@ -134,12 +142,13 @@ class FakeCursor:
 
 
 class FakeConnection:
-    def __init__(self) -> None:
+    def __init__(self, *, delete_rowcount: int = 0) -> None:
         self.cursors: list[FakeCursor] = []
         self.commit_count = 0
+        self.delete_rowcount = delete_rowcount
 
     def cursor(self) -> FakeCursor:
-        cursor = FakeCursor()
+        cursor = FakeCursor(delete_rowcount=self.delete_rowcount)
         self.cursors.append(cursor)
         return cursor
 
@@ -153,6 +162,9 @@ def test_json_writer_outputs_expected_files_and_schema(tmp_path) -> None:
     output_dir = tmp_path / "public" / "data"
     frame = _clustered_fixture(clustered_path)
     _metadata_fixture(metadata_path)
+    stale_country_dir = output_dir / "countries"
+    stale_country_dir.mkdir(parents=True, exist_ok=True)
+    (stale_country_dir / "STALE.json").write_text("[]\n", encoding="utf-8")
 
     artifacts = write_static_jsons(
         load_clustered_frame(clustered_path),
@@ -173,11 +185,12 @@ def test_json_writer_outputs_expected_files_and_schema(tmp_path) -> None:
     assert len(alpha_payload) == 2
     assert all(len(point["text_snippet"]) <= 200 for point in alpha_payload)
     assert not (output_dir / "countries-full").exists()
+    assert not (artifacts.countries_dir / "STALE.json").exists()
 
 
 def test_neon_migration_and_upsert_use_expected_sql(tmp_path) -> None:
     del tmp_path
-    connection = FakeConnection()
+    connection = FakeConnection(delete_rowcount=1)
     migrate_schema(connection)
 
     assert connection.commit_count == 1
@@ -219,9 +232,13 @@ def test_neon_migration_and_upsert_use_expected_sql(tmp_path) -> None:
 
     assert result.row_count == 2
     assert result.batch_count == 2
-    assert connection.commit_count == 3
+    assert result.pruned_row_count == 1
+    assert connection.commit_count == 4
     upsert_statements = [entry for cursor in connection.cursors[1:] for entry in cursor.executed]
-    assert all("ON CONFLICT (id) DO UPDATE" in sql for sql, _ in upsert_statements)
+    upsert_sql_entries = [entry for entry in upsert_statements if "ON CONFLICT (id) DO UPDATE" in entry[0]]
+    delete_sql_entries = [entry for entry in upsert_statements if "DELETE FROM articles" in entry[0]]
+    assert len(upsert_sql_entries) == 2
+    assert len(delete_sql_entries) == 1
 
 
 def test_build_neon_rows_and_validator_detect_missing_country_file(tmp_path) -> None:

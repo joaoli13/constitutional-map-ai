@@ -7,6 +7,7 @@ import pytest
 
 from src.m2_segmenter.csv_writer import (
     REPORT_FILENAME,
+    remove_stale_country_csvs,
     write_all_articles_csv,
     write_country_csv,
     write_segmentation_report,
@@ -277,3 +278,18 @@ def test_csv_writer_outputs_country_consolidated_and_report_files(tmp_path) -> N
     payload = json.loads(report_json.read_text(encoding="utf-8"))
     assert payload[0]["pattern"] == "article"
     assert payload[0]["segment_count"] == 6
+
+
+def test_remove_stale_country_csvs_keeps_only_current_country_files(tmp_path) -> None:
+    current_path = tmp_path / "TST_2024.csv"
+    stale_path = tmp_path / "OLD_1900.csv"
+    current_path.write_text("header\n", encoding="utf-8")
+    stale_path.write_text("header\n", encoding="utf-8")
+    (tmp_path / ALL_ARTICLES_FILENAME).write_text("header\n", encoding="utf-8")
+
+    removed_paths = remove_stale_country_csvs([current_path], output_dir=tmp_path)
+
+    assert removed_paths == [stale_path]
+    assert current_path.exists()
+    assert not stale_path.exists()
+    assert (tmp_path / ALL_ARTICLES_FILENAME).exists()

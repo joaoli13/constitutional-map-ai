@@ -173,6 +173,9 @@ export default async function LocaleLayout({
             </a>
             . {chromeT("licenseNote")}
           </p>
+          <p className="mt-2 text-slate-600">
+            {chromeT("aiDisclaimer")}
+          </p>
           <p className="mt-2">
             {chromeT("supportText")}{" "}
             <a

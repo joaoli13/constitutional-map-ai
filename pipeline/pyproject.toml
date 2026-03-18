@@ -16,7 +16,7 @@ dependencies = [
     # M4 — Clusterer
     "umap-learn>=0.5",
     "hdbscan>=0.8",
-    "scikit-learn>=1.5",
+    "scikit-learn>=1.5,<1.8",
     # Shared data
     "pyarrow>=16",
     "pandas>=2.2",

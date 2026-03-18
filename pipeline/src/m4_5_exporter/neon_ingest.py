@@ -80,11 +80,19 @@ ON CONFLICT (id) DO UPDATE SET
     z = EXCLUDED.z;
 """
 
+DELETE_STALE_SQL = """
+DELETE FROM articles
+WHERE NOT (id = ANY(%s));
+"""
+
+TRUNCATE_SQL = "TRUNCATE TABLE articles;"
+
 
 @dataclass
 class NeonIngestResult:
     row_count: int
     batch_count: int
+    pruned_row_count: int
 
 
 def connect_neon(dsn: str | None = None) -> PsycopgConnection:
@@ -153,28 +161,55 @@ def upsert_articles(
     batch_size: int = NEON_BATCH_SIZE,
     show_progress: bool = False,
 ) -> NeonIngestResult:
-    """Upsert article rows into Neon in batches."""
-
-    if not rows:
-        return NeonIngestResult(row_count=0, batch_count=0)
+    """Upsert article rows into Neon in batches and prune stale rows."""
 
     batch_count = 0
-    batch_offsets = range(0, len(rows), batch_size)
-    total_batches = (len(rows) + batch_size - 1) // batch_size
-    for offset in tqdm(
-        batch_offsets,
-        total=total_batches,
-        desc="Upsert Neon batches",
-        unit="batch",
-        disable=not show_progress,
-    ):
-        batch = rows[offset : offset + batch_size]
-        with connection.cursor() as cursor:
-            cursor.executemany(UPSERT_SQL, batch)
-        connection.commit()
-        batch_count += 1
+    if rows:
+        batch_offsets = range(0, len(rows), batch_size)
+        total_batches = (len(rows) + batch_size - 1) // batch_size
+        for offset in tqdm(
+            batch_offsets,
+            total=total_batches,
+            desc="Upsert Neon batches",
+            unit="batch",
+            disable=not show_progress,
+        ):
+            batch = rows[offset : offset + batch_size]
+            with connection.cursor() as cursor:
+                cursor.executemany(UPSERT_SQL, batch)
+            connection.commit()
+            batch_count += 1
 
-    return NeonIngestResult(row_count=len(rows), batch_count=batch_count)
+    pruned_row_count = prune_stale_articles(
+        connection,
+        valid_ids=[str(row["id"]) for row in rows],
+    )
+
+    return NeonIngestResult(
+        row_count=len(rows),
+        batch_count=batch_count,
+        pruned_row_count=pruned_row_count,
+    )
+
+
+def prune_stale_articles(
+    connection: PsycopgConnection,
+    *,
+    valid_ids: list[str],
+) -> int:
+    """Remove Neon rows that are no longer present in the current dataset."""
+
+    with connection.cursor() as cursor:
+        if valid_ids:
+            cursor.execute(DELETE_STALE_SQL, (valid_ids,))
+            deleted_count = max(cursor.rowcount, 0)
+        else:
+            cursor.execute("SELECT COUNT(*) FROM articles;")
+            row = cursor.fetchone()
+            deleted_count = int(row[0]) if row is not None else 0
+            cursor.execute(TRUNCATE_SQL)
+    connection.commit()
+    return deleted_count
 
 
 def fetch_article_count(connection: PsycopgConnection) -> int:

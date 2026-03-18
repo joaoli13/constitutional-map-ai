@@ -40,6 +40,8 @@ test(
       `${BASE_URL}/api/search?q=rights&country=BRA&limit=3`,
     );
     assert.equal(response.status, 200);
+    assert.ok(response.headers.get("x-ratelimit-limit"));
+    assert.ok(response.headers.get("x-ratelimit-remaining"));
 
     const payload = await response.json();
     assert.equal(payload.query, "rights");
@@ -62,6 +64,26 @@ test(
         ["BRA", "COL"].includes(result.country_code),
       ),
     );
+  },
+);
+
+test(
+  "GET /robots.txt disallows API and data crawling",
+  {timeout: 120_000},
+  async (t) => {
+    const server = startNextServer();
+    t.after(() => stopNextServer(server));
+
+    await waitForRobotsRoute(server);
+
+    const response = await fetch(`${BASE_URL}/robots.txt`);
+    assert.equal(response.status, 200);
+
+    const payload = await response.text();
+    assert.match(payload, /User-Agent: \*/);
+    assert.match(payload, /Disallow: \/api\//);
+    assert.match(payload, /Disallow: \/data\//);
+    assert.match(payload, /Crawl-delay: 10/);
   },
 );
 
@@ -118,6 +140,36 @@ async function waitForSearchRoute(server) {
 
   throw new Error(
     `Timed out waiting for /api/search readiness.\n${String(lastError ?? "")}\n${server.logs.join("")}`,
+  );
+}
+
+async function waitForRobotsRoute(server) {
+  const deadline = Date.now() + 90_000;
+  let lastError = null;
+
+  while (Date.now() < deadline) {
+    if (server.exitCode !== null) {
+      throw new Error(
+        `next dev exited early with code ${server.exitCode}\n${server.logs.join("")}`,
+      );
+    }
+
+    try {
+      const response = await fetch(`${BASE_URL}/robots.txt`);
+      if (response.status === 200) {
+        return;
+      }
+
+      lastError = new Error(`Unexpected readiness status ${response.status}`);
+    } catch (error) {
+      lastError = error;
+    }
+
+    await sleep(1000);
+  }
+
+  throw new Error(
+    `Timed out waiting for /robots.txt readiness.\n${String(lastError ?? "")}\n${server.logs.join("")}`,
   );
 }
 

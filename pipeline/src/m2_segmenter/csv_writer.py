@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
+from typing import Iterable
 
 from src.shared.constants import ALL_ARTICLES_FILENAME, ARTICLES_DIR
 from src.shared.models import Article
@@ -54,6 +55,26 @@ def write_segmentation_report(
     payload = [report.to_dict() for report in reports]
     report_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return report_path
+
+
+def remove_stale_country_csvs(
+    keep_paths: Iterable[Path | str],
+    *,
+    output_dir: Path | str = ARTICLES_DIR,
+) -> list[Path]:
+    output_dir = Path(output_dir)
+    if not output_dir.exists():
+        return []
+
+    keep_names = {Path(path).name for path in keep_paths}
+    removed_paths: list[Path] = []
+    for csv_path in output_dir.glob("*.csv"):
+        if csv_path.name == ALL_ARTICLES_FILENAME or csv_path.name in keep_names:
+            continue
+        csv_path.unlink()
+        removed_paths.append(csv_path)
+
+    return sorted(removed_paths)
 
 
 def _write_csv(path: Path, articles: list[Article]) -> None:

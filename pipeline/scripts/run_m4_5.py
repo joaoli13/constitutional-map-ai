@@ -115,7 +115,9 @@ def main() -> int:
         finally:
             connection.close()
         print(
-            f"Neon ingest complete: {ingest_result.row_count} rows across {ingest_result.batch_count} batches."
+            "Neon ingest complete: "
+            f"{ingest_result.row_count} rows across {ingest_result.batch_count} batches; "
+            f"{ingest_result.pruned_row_count} stale rows pruned."
         )
 
     print("M4.5: validating exports...")

@@ -22,6 +22,7 @@ from src.m4_clusterer.report_generator import (
 from src.m4_clusterer.umap_reducer import DualUMAPReducer, UMAPProjectionResult
 from src.shared.constants import CLUSTERS_DIR, EMBEDDINGS_DIR, RAW_DIR
 from src.shared.models import CountryMetadata
+from src.shared.processing_policy import is_country_processing_enabled
 
 LOGGER = logging.getLogger(__name__)
 
@@ -167,7 +168,18 @@ class SemanticClusterer:
         frame["article_id"] = frame["article_id"].astype(str)
         frame["text"] = frame["text"].astype(str)
         frame["embedding"] = frame["embedding"].apply(lambda value: np.asarray(value, dtype=np.float32))
+        enabled_country_codes = self._load_enabled_country_codes()
+        frame = frame[frame["country_code"].isin(enabled_country_codes)].copy()
         return frame.sort_values(["country_code", "article_id"], kind="stable").reset_index(drop=True)
+
+    def _load_enabled_country_codes(self) -> set[str]:
+        payload = json.loads(self.metadata_path.read_text(encoding="utf-8"))
+        metadata_entries = [CountryMetadata.model_validate(item) for item in payload]
+        return {
+            entry.country_code
+            for entry in metadata_entries
+            if entry.status == "success" and is_country_processing_enabled(entry)
+        }
 
     def _load_region_map(self) -> dict[str, str]:
         payload = json.loads(self.metadata_path.read_text(encoding="utf-8"))

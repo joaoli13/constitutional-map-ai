@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
+import warnings
 
 import numpy as np
 
@@ -57,7 +58,13 @@ class CountryClusterer:
                     prediction_data=False,
                     core_dist_n_jobs=1,
                 )
-                subset_labels = model.fit_predict(subset).astype(int, copy=False)
+                with warnings.catch_warnings():
+                    warnings.filterwarnings(
+                        "ignore",
+                        message="'force_all_finite' was renamed to 'ensure_all_finite' in 1\\.6 and will be removed in 1\\.8\\.",
+                        category=FutureWarning,
+                    )
+                    subset_labels = model.fit_predict(subset).astype(int, copy=False)
             except Exception as exc:
                 self.logger.warning("Country clustering failed for %s: %s", code, exc)
                 subset_labels = np.full(len(subset), -1, dtype=int)

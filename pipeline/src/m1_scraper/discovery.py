@@ -18,6 +18,7 @@ from src.m1_scraper.url_builder import (
 )
 from src.shared.country_codes import CountryInfo, by_name
 from src.shared.models import CountryMetadata
+from src.shared.processing_policy import apply_country_processing_policy
 
 _COUNTRY_NAME_ALIASES = {
     "bahamas the": "Bahamas",
@@ -148,7 +149,7 @@ def build_discovery_metadata(
         metadata_kwargs["scraped_at"] = previous_metadata.scraped_at
         metadata_kwargs["status"] = previous_metadata.status
 
-    return CountryMetadata(**metadata_kwargs)
+    return apply_country_processing_policy(CountryMetadata(**metadata_kwargs))
 
 
 def resolve_country_info(display_name: str) -> CountryInfo | None:

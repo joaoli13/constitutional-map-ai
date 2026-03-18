@@ -8,6 +8,8 @@ import {useFullscreen} from "@/hooks/useFullscreen";
 import {colorForCluster} from "@/lib/colors";
 import type {ArticleDetail, AtlasSelectionPoint, ColorMode} from "@/lib/types";
 
+type Point3D = Pick<AtlasSelectionPoint, "x" | "y" | "z">;
+
 // Use the factory pattern so we control which Plotly bundle is loaded.
 // react-plotly.js's default import requires "plotly.js/dist/plotly" (not installed);
 // the factory lets us substitute plotly.js-dist-min instead.
@@ -42,6 +44,9 @@ const INITIAL_CAMERA = {
   up: {x: 0, y: 1, z: 0},
 };
 
+const MIN_FOCUS_AXIS_RADIUS = 0.8;
+const FOCUS_AXIS_RADIUS_RATIO = 0.08;
+
 const AXIS_STYLE = {
   showgrid: false,
   showticklabels: false,
@@ -68,6 +73,11 @@ export default function Canvas3D({
   const graphDivRef = useRef<HTMLElement | null>(null);
   const plotlyRef = useRef<typeof import("plotly.js-dist-min") | null>(null);
   const [hoveredPoint, setHoveredPoint] = useState<AtlasSelectionPoint | null>(null);
+  const [focusRanges, setFocusRanges] = useState<{
+    x: [number, number];
+    y: [number, number];
+    z: [number, number];
+  } | null>(null);
   // uirevision: stable string preserves camera on data updates;
   // changes on "Fit all" to trigger camera reset.
   const [uirevision, setUirevision] = useState<string>("stable");
@@ -115,6 +125,49 @@ export default function Canvas3D({
     return countryColors[point.country_code] ?? "#64748b";
   }
 
+  const countryCentroidLabels = useMemo(() => {
+    if (colorMode !== "country" || selectedCountries.length === 0) {
+      return [];
+    }
+
+    const selectedSet = new Set(selectedCountries);
+    const groupedPoints = new Map<string, AtlasSelectionPoint[]>();
+
+    for (const point of points) {
+      if (!selectedSet.has(point.country_code)) {
+        continue;
+      }
+
+      const existingPoints = groupedPoints.get(point.country_code);
+      if (existingPoints) {
+        existingPoints.push(point);
+      } else {
+        groupedPoints.set(point.country_code, [point]);
+      }
+    }
+
+    return selectedCountries.flatMap((countryCode) => {
+      const countryPoints = groupedPoints.get(countryCode);
+      if (!countryPoints || countryPoints.length === 0) {
+        return [];
+      }
+
+      const centroid = computeCentroid(countryPoints);
+      if (!centroid) {
+        return [];
+      }
+
+      return [
+        {
+          countryCode,
+          countryName: countryPoints[0].country_name,
+          color: countryColors[countryCode] ?? "#64748b",
+          ...centroid,
+        },
+      ];
+    });
+  }, [colorMode, countryColors, points, selectedCountries]);
+
   // Build Plotly traces: ghost layer (unselected) + selected layer.
   const traces = useMemo(() => {
     const selectedSet = new Set(selectedCountries);
@@ -143,8 +196,8 @@ export default function Canvas3D({
         y: pts.map((p) => p.y),
         z: pts.map((p) => p.z),
         customdata: pts as unknown as Plotly.Datum[],
-        text: pts.map((p) => `<b>${p.country_name}</b> · ${p.article_id}`),
-        hovertemplate: "%{text}<extra></extra>",
+        hovertext: pts.map((p) => formatHoverContent(p)),
+        hovertemplate: "%{hovertext}<extra></extra>",
         marker: {
           size: pts.map((p) => 2.5 + (p.cluster_probability ?? 0) * 4),
           color: pts.map((p) => resolveColor(p)),
@@ -164,10 +217,8 @@ export default function Canvas3D({
             y: searchHighlightedPoints.map((point) => point.y),
             z: searchHighlightedPoints.map((point) => point.z),
             customdata: searchHighlightedPoints as unknown as Plotly.Datum[],
-            text: searchHighlightedPoints.map(
-              (point) => `<b>${point.country_name}</b> · ${point.article_id}`,
-            ),
-            hovertemplate: "%{text}<extra></extra>",
+            hovertext: searchHighlightedPoints.map((point) => formatHoverContent(point)),
+            hovertemplate: "%{hovertext}<extra></extra>",
             marker: {
               size: searchHighlightedPoints.map((point) => {
                 const baseSize = 2.5 + (point.cluster_probability ?? 0) * 4;
@@ -205,14 +256,48 @@ export default function Canvas3D({
         } as Partial<Plotly.ScatterData>)
       : null;
 
+    const centroidLabelTraces = countryCentroidLabels.map(
+      (label) =>
+        ({
+          type: "scatter3d",
+          mode: "text",
+          x: [label.x],
+          y: [label.y],
+          z: [label.z],
+          text: [label.countryName],
+          textposition: "middle center",
+          textfont: {
+            color: label.color,
+            size: 15,
+            family: "Palatino Linotype, Book Antiqua, Georgia, serif",
+          },
+          hoverinfo: "skip",
+          marker: {
+            size: 0,
+            color: label.color,
+            opacity: 0,
+          },
+          showlegend: false,
+        } as Partial<Plotly.ScatterData>),
+    );
+
     return [
       makeTrace(ghostPoints, 0.12),
       makeTrace(activeBackgroundPoints, searchHighlightIds.size > 0 ? 0.4 : 0.88),
       ...(searchHighlightTrace ? [searchHighlightTrace] : []),
       ...(highlightTrace ? [highlightTrace] : []),
+      ...centroidLabelTraces,
     ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [points, searchHighlightedPoints, selectedCountries, colorMode, countryColors, selectedPoint]);
+  }, [
+    points,
+    searchHighlightedPoints,
+    selectedCountries,
+    colorMode,
+    countryColors,
+    selectedPoint,
+    countryCentroidLabels,
+  ]);
 
   const layout = useMemo(
     () =>
@@ -222,14 +307,15 @@ export default function Canvas3D({
         paper_bgcolor: "transparent",
         scene: {
           bgcolor: "rgba(237,244,239,0)",
-          xaxis: AXIS_STYLE,
-          yaxis: AXIS_STYLE,
-          zaxis: AXIS_STYLE,
+          xaxis: buildSceneAxis(focusRanges?.x),
+          yaxis: buildSceneAxis(focusRanges?.y),
+          zaxis: buildSceneAxis(focusRanges?.z),
           aspectmode: "cube",
+          camera: INITIAL_CAMERA,
         },
         showlegend: false,
       }) as Partial<Plotly.Layout>,
-    [uirevision],
+    [focusRanges, uirevision],
   );
 
   const config = useMemo(
@@ -243,41 +329,40 @@ export default function Canvas3D({
 
   const handleClick = useCallback(
     (data: Plotly.PlotMouseEvent) => {
-      const pt = data.points[0];
-      if (pt?.customdata) onSelectPoint(pt.customdata as unknown as AtlasSelectionPoint);
+      const point = extractSelectionPointFromPoints(data.points);
+      if (point) onSelectPoint(point);
     },
     [onSelectPoint],
   );
 
   const handleHover = useCallback((data: Plotly.PlotHoverEvent) => {
-    const pt = data.points[0];
-    if (pt?.customdata) setHoveredPoint(pt.customdata as unknown as AtlasSelectionPoint);
+    setHoveredPoint(extractSelectionPointFromPoints(data.points));
   }, []);
 
   const handleUnhover = useCallback(() => setHoveredPoint(null), []);
 
   function handleResetView() {
-    if (graphDivRef.current && plotlyRef.current) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      void (plotlyRef.current.relayout as any)(graphDivRef.current, {
-        "scene.camera": INITIAL_CAMERA,
-      });
-    }
+    setFocusRanges(null);
     setUirevision(`reset-${Date.now()}`);
   }
 
   function handleFocusSelection() {
-    if (!selectedPoint || !graphDivRef.current || !plotlyRef.current) return;
+    if (!selectedPoint) return;
     const {x, y, z} = selectedPoint;
-    const dist = 4;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    void (plotlyRef.current.relayout as any)(graphDivRef.current, {
-      "scene.camera": {
-        eye: {x: x + dist, y: y + dist, z: z + dist * 0.6},
-        center: {x, y, z},
-        up: {x: 0, y: 1, z: 0},
-      },
+    const focusContextPoints =
+      points.length > 0
+        ? points
+        : searchHighlightedPoints.length > 0
+          ? searchHighlightedPoints
+          : [selectedPoint];
+    const axisRadius = computeFocusAxisRadius(focusContextPoints);
+
+    setFocusRanges({
+      x: [x - axisRadius, x + axisRadius],
+      y: [y - axisRadius, y + axisRadius],
+      z: [z - axisRadius, z + axisRadius],
     });
+    setUirevision(`focus-${selectedPoint.id}-${Date.now()}`);
   }
 
   return (
@@ -376,11 +461,13 @@ export default function Canvas3D({
           )}
 
           {hoveredPoint && (
-            <div className="pointer-events-none absolute bottom-4 left-4 max-w-sm rounded-[1.25rem] border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur">
+            <div className="pointer-events-none absolute bottom-4 left-4 w-[22rem] rounded-[1.25rem] border border-white/70 bg-white/90 px-4 py-3 text-sm text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur">
               <p className="font-semibold">
                 {hoveredPoint.country_name} · {hoveredPoint.article_id}
               </p>
-              <p className="mt-1 text-slate-600">{hoveredPoint.text_snippet}</p>
+              <p className="mt-1 whitespace-pre-wrap break-words text-slate-600">
+                {wrapSnippetText(hoveredPoint.text_snippet)}
+              </p>
             </div>
           )}
         </div>
@@ -437,4 +524,156 @@ export default function Canvas3D({
       </div>
     </section>
   );
+}
+
+function computeCentroid(points: Point3D[]) {
+  if (points.length === 0) {
+    return null;
+  }
+
+  const totals = points.reduce(
+    (accumulator, point) => {
+      accumulator.x += point.x;
+      accumulator.y += point.y;
+      accumulator.z += point.z;
+      return accumulator;
+    },
+    {x: 0, y: 0, z: 0},
+  );
+
+  return {
+    x: totals.x / points.length,
+    y: totals.y / points.length,
+    z: totals.z / points.length,
+  };
+}
+
+function buildSceneAxis(range?: [number, number]) {
+  return range
+    ? {
+        ...AXIS_STYLE,
+        autorange: false,
+        range,
+      }
+    : {
+        ...AXIS_STYLE,
+        autorange: true,
+      };
+}
+
+function computeFocusAxisRadius(points: Point3D[]) {
+  if (points.length === 0) {
+    return MIN_FOCUS_AXIS_RADIUS;
+  }
+
+  const bounds = points.reduce(
+    (accumulator, point) => ({
+      minX: Math.min(accumulator.minX, point.x),
+      maxX: Math.max(accumulator.maxX, point.x),
+      minY: Math.min(accumulator.minY, point.y),
+      maxY: Math.max(accumulator.maxY, point.y),
+      minZ: Math.min(accumulator.minZ, point.z),
+      maxZ: Math.max(accumulator.maxZ, point.z),
+    }),
+    {
+      minX: Number.POSITIVE_INFINITY,
+      maxX: Number.NEGATIVE_INFINITY,
+      minY: Number.POSITIVE_INFINITY,
+      maxY: Number.NEGATIVE_INFINITY,
+      minZ: Number.POSITIVE_INFINITY,
+      maxZ: Number.NEGATIVE_INFINITY,
+    },
+  );
+
+  const maxSpan = Math.max(
+    bounds.maxX - bounds.minX,
+    bounds.maxY - bounds.minY,
+    bounds.maxZ - bounds.minZ,
+  );
+
+  return Math.max(maxSpan * FOCUS_AXIS_RADIUS_RATIO, MIN_FOCUS_AXIS_RADIUS);
+}
+
+function extractSelectionPoint(
+  point: Plotly.PlotDatum | undefined,
+): AtlasSelectionPoint | null {
+  if (!point) {
+    return null;
+  }
+
+  const directCustomData = (point as {customdata?: unknown}).customdata;
+  if (isSelectionPoint(directCustomData)) {
+    return directCustomData;
+  }
+
+  const pointNumber =
+    typeof point.pointNumber === "number" ? point.pointNumber : null;
+  const traceCustomData = (
+    point.data as {customdata?: unknown[] | undefined} | undefined
+  )?.customdata;
+
+  if (
+    pointNumber !== null
+    && Array.isArray(traceCustomData)
+    && isSelectionPoint(traceCustomData[pointNumber])
+  ) {
+    return traceCustomData[pointNumber];
+  }
+
+  return null;
+}
+
+function extractSelectionPointFromPoints(
+  points: readonly Plotly.PlotDatum[] | undefined,
+): AtlasSelectionPoint | null {
+  if (!points || points.length === 0) {
+    return null;
+  }
+
+  for (const point of points) {
+    const selectionPoint = extractSelectionPoint(point);
+    if (selectionPoint) {
+      return selectionPoint;
+    }
+  }
+
+  return null;
+}
+
+function isSelectionPoint(value: unknown): value is AtlasSelectionPoint {
+  return (
+    typeof value === "object"
+    && value !== null
+    && "id" in value
+    && "text_snippet" in value
+    && "country_code" in value
+    && "article_id" in value
+  );
+}
+
+function formatHoverContent(point: AtlasSelectionPoint): string {
+  return `<b>${point.country_name}</b> · ${point.article_id}<br>${escapeHoverText(
+    wrapSnippetText(point.text_snippet, 8),
+  ).replaceAll("\n", "<br>")}`;
+}
+
+function escapeHoverText(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function wrapSnippetText(value: string, wordsPerLine: number = 8): string {
+  const words = value.trim().split(/\s+/).filter(Boolean);
+  if (words.length <= wordsPerLine) {
+    return value.trim();
+  }
+
+  const lines: string[] = [];
+  for (let index = 0; index < words.length; index += wordsPerLine) {
+    lines.push(words.slice(index, index + wordsPerLine).join(" "));
+  }
+
+  return lines.join("\n");
 }

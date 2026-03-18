@@ -65,7 +65,8 @@ def _write_embeddings_fixture(path) -> None:
     pd.DataFrame(rows).to_parquet(path, index=False)
 
 
-def _write_metadata_fixture(path) -> None:
+def _write_metadata_fixture(path, *, disabled_codes: set[str] | None = None) -> None:
+    disabled_codes = disabled_codes or set()
     payload = [
         {
             "country_name": "Alpha",
@@ -80,6 +81,7 @@ def _write_metadata_fixture(path) -> None:
             "source_url": "https://example.test/AAA",
             "file_path": "data/raw/AAA_2024.txt",
             "status": "success",
+            "processing_enabled": "AAA" not in disabled_codes,
         },
         {
             "country_name": "Beta",
@@ -94,6 +96,7 @@ def _write_metadata_fixture(path) -> None:
             "source_url": "https://example.test/BBB",
             "file_path": "data/raw/BBB_2024.txt",
             "status": "success",
+            "processing_enabled": "BBB" not in disabled_codes,
         },
         {
             "country_name": "Gamma",
@@ -108,6 +111,7 @@ def _write_metadata_fixture(path) -> None:
             "source_url": "https://example.test/CCC",
             "file_path": "data/raw/CCC_2024.txt",
             "status": "success",
+            "processing_enabled": "CCC" not in disabled_codes,
         },
         {
             "country_name": "Delta",
@@ -122,6 +126,7 @@ def _write_metadata_fixture(path) -> None:
             "source_url": "https://example.test/DDD",
             "file_path": "data/raw/DDD_2024.txt",
             "status": "success",
+            "processing_enabled": "DDD" not in disabled_codes,
         },
         {
             "country_name": "Tiny",
@@ -136,6 +141,7 @@ def _write_metadata_fixture(path) -> None:
             "source_url": "https://example.test/TNY",
             "file_path": "data/raw/TNY_2024.txt",
             "status": "success",
+            "processing_enabled": "TNY" not in disabled_codes,
         },
     ]
     path.write_text(json.dumps(payload), encoding="utf-8")
@@ -253,3 +259,23 @@ def test_build_cluster_report_matches_frame_counts() -> None:
     assert report.per_country_cluster_count == {"AAA": 1, "BBB": 1}
     assert report.largest_cluster.id == 0
     assert report.largest_cluster.size == 2
+
+
+def test_clusterer_skips_processing_disabled_countries(tmp_path) -> None:
+    embeddings_path = tmp_path / "embeddings.parquet"
+    metadata_path = tmp_path / "metadata.json"
+    output_path = tmp_path / "clustered.parquet"
+    report_path = tmp_path / "cluster_report.json"
+    _write_embeddings_fixture(embeddings_path)
+    _write_metadata_fixture(metadata_path, disabled_codes={"TNY"})
+
+    clusterer = SemanticClusterer(
+        embeddings_path=embeddings_path,
+        metadata_path=metadata_path,
+        output_path=output_path,
+        report_path=report_path,
+    )
+
+    clustered_frame, _, _ = clusterer.run()
+
+    assert "TNY" not in set(clustered_frame["country_code"])

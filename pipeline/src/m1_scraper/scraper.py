@@ -34,6 +34,7 @@ from src.shared.constants import (
     SCRAPER_RATE_LIMIT_SECONDS,
 )
 from src.shared.models import CountryMetadata
+from src.shared.processing_policy import apply_country_processing_policy
 
 LOGGER = logging.getLogger(__name__)
 
@@ -369,4 +370,4 @@ class ConstitutionalScraper:
             metadata.sha256 = previous_metadata.sha256
             metadata.scraped_at = previous_metadata.scraped_at
 
-        return metadata
+        return apply_country_processing_policy(metadata)

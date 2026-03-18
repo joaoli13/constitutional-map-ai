@@ -35,6 +35,8 @@ from src.shared.constants import (
     EMBEDDINGS_DIR,
     RAW_DIR,
 )
+from src.shared.models import CountryMetadata
+from src.shared.processing_policy import is_country_processing_enabled
 
 LOGGER = logging.getLogger(__name__)
 REPORT_FILENAME = "embedding_report.json"
@@ -231,23 +233,24 @@ class ConstitutionalEmbedder:
         frame["text"] = frame["text"].fillna("").astype(str)
         frame["country_code"] = self._resolve_country_codes(frame)
         frame = frame.loc[:, ["country_code", "country_name", "year", "article_id", "text"]]
+        frame = frame[frame["country_code"].isin(self._load_enabled_country_codes())].copy()
         frame = frame.drop_duplicates(subset=["country_code", "year", "article_id"], keep="first")
         return frame.reset_index(drop=True)
 
     def _resolve_country_codes(self, frame: pd.DataFrame) -> pd.Series:
-        metadata_payload = json.loads(self.metadata_path.read_text(encoding="utf-8"))
+        metadata_entries = self._load_metadata_entries()
         direct_map: dict[tuple[str, int], str] = {}
         fallback_name_map: dict[str, set[str]] = {}
 
-        for item in metadata_payload:
-            if item.get("status") != "success":
+        for metadata in metadata_entries:
+            if metadata.status != "success":
                 continue
 
-            country_name = str(item["country_name"])
-            country_code = str(item["country_code"])
-            document_year = extract_document_year_from_file_path(str(item["file_path"]))
+            country_name = metadata.country_name
+            country_code = metadata.country_code
+            document_year = extract_document_year_from_file_path(metadata.file_path)
             if document_year is None:
-                document_year = int(item["constitution_year"])
+                document_year = int(metadata.constitution_year)
 
             direct_map[(country_name, document_year)] = country_code
             fallback_name_map.setdefault(country_name, set()).add(country_code)
@@ -269,6 +272,17 @@ class ConstitutionalEmbedder:
             )
 
         return pd.Series(resolved_codes, index=frame.index)
+
+    def _load_metadata_entries(self) -> list[CountryMetadata]:
+        payload = json.loads(self.metadata_path.read_text(encoding="utf-8"))
+        return [CountryMetadata.model_validate(item) for item in payload]
+
+    def _load_enabled_country_codes(self) -> set[str]:
+        return {
+            metadata.country_code
+            for metadata in self._load_metadata_entries()
+            if metadata.status == "success" and is_country_processing_enabled(metadata)
+        }
 
     def _write_report(self, report: EmbeddingRunReport) -> None:
         self.report_path.parent.mkdir(parents=True, exist_ok=True)

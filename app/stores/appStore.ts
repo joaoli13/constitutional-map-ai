@@ -39,10 +39,16 @@ export const useAppStore = create<AppState>((set) => ({
   toggleCountrySelection: (countryCode) =>
     set((state) => {
       const alreadySelected = state.selectedCountries.includes(countryCode);
+      const nextSelectedCountries = alreadySelected
+        ? state.selectedCountries.filter((code) => code !== countryCode)
+        : [...state.selectedCountries, countryCode];
       return {
-        selectedCountries: alreadySelected
-          ? state.selectedCountries.filter((code) => code !== countryCode)
-          : [...state.selectedCountries, countryCode],
+        selectedCountries: nextSelectedCountries,
+        selectedPoint:
+          state.selectedPoint
+          && !nextSelectedCountries.includes(state.selectedPoint.country_code)
+            ? null
+            : state.selectedPoint,
       };
     }),
   addCountries: (countryCodes) =>
@@ -54,8 +60,10 @@ export const useAppStore = create<AppState>((set) => ({
       selectedCountries: state.selectedCountries.filter(
         (code) => code !== countryCode,
       ),
+      selectedPoint:
+        state.selectedPoint?.country_code === countryCode ? null : state.selectedPoint,
     })),
-  clearCountrySelection: () => set({selectedCountries: []}),
+  clearCountrySelection: () => set({selectedCountries: [], selectedPoint: null}),
   setCountryData: (countryCode, points) =>
     set((state) => ({
       loadedCountryData: {

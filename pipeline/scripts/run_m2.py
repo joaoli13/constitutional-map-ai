@@ -48,11 +48,13 @@ def main() -> int:
 
     from src.m2_segmenter import ConstitutionalSegmenter
     from src.m2_segmenter.csv_writer import (
+        remove_stale_country_csvs,
         write_all_articles_csv,
         write_country_csv,
         write_segmentation_report,
     )
     from src.shared.models import CountryMetadata
+    from src.shared.processing_policy import is_country_processing_enabled
 
     logging.basicConfig(
         level=getattr(logging, args.log_level),
@@ -61,7 +63,11 @@ def main() -> int:
 
     metadata_payload = json.loads(args.metadata_path.read_text(encoding="utf-8"))
     metadata_entries = [CountryMetadata.model_validate(item) for item in metadata_payload]
-    metadata_entries = [entry for entry in metadata_entries if entry.status == "success"]
+    metadata_entries = [
+        entry
+        for entry in metadata_entries
+        if entry.status == "success" and is_country_processing_enabled(entry)
+    ]
 
     if args.country_code:
         metadata_entries = [
@@ -73,6 +79,7 @@ def main() -> int:
     segmenter = ConstitutionalSegmenter(raw_dir=args.metadata_path.parent)
     all_articles = []
     reports = []
+    written_country_paths = []
 
     for metadata in metadata_entries:
         raw_path = args.metadata_path.parent / Path(metadata.file_path).name
@@ -82,10 +89,11 @@ def main() -> int:
 
         raw_text = raw_path.read_text(encoding="utf-8")
         articles, report = segmenter.segment_country(metadata, raw_text)
-        write_country_csv(articles, output_dir=args.output_dir)
+        written_country_paths.append(write_country_csv(articles, output_dir=args.output_dir))
         all_articles.extend(articles)
         reports.append(report)
 
+    remove_stale_country_csvs(written_country_paths, output_dir=args.output_dir)
     write_all_articles_csv(all_articles, output_dir=args.output_dir)
     write_segmentation_report(reports, output_dir=args.output_dir)
 

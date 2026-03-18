@@ -26,6 +26,8 @@ class CountryMetadata(BaseModel):
     sha256: str | None = None
     scraped_at: datetime | None = None
     status: ScraperStatus = "pending"
+    processing_enabled: bool = True
+    processing_reason: str | None = None
 
 
 # ── M2: Segmenter ─────────────────────────────────────────────────────────────

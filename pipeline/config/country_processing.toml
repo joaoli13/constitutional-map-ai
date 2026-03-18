@@ -1,0 +1,26 @@
+# Toggle constitutional corpora in or out of the semantic pipeline.
+# To re-include a country later, change `processing_enabled = true`.
+
+[countries.GBR]
+processing_enabled = false
+reason = "The United Kingdom does not have a single written constitutional text."
+
+[countries.CAN]
+processing_enabled = false
+reason = "Canada's constitutional corpus is distributed across multiple sparse instruments."
+
+[countries.NZL]
+processing_enabled = false
+reason = "New Zealand's constitutional corpus is distributed across multiple sparse instruments."
+
+[countries.ISR]
+processing_enabled = false
+reason = "Israel's constitutional corpus is distributed across basic laws and related instruments."
+
+[countries.SMR]
+processing_enabled = false
+reason = "San Marino's constitutional corpus is unusually sparse for this segmentation pipeline."
+
+[countries.SAU]
+processing_enabled = false
+reason = "Saudi Arabia relies on a sparse set of foundational instruments rather than a comparable written constitution."
