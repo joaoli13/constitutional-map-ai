@@ -11,6 +11,7 @@ from typing import Callable
 
 import tiktoken
 
+from src.m2_segmenter.overrides import split_india_articles, strip_schedules
 from src.m2_segmenter.patterns import FALLBACK_PATTERNS, PRIMARY_PATTERNS, SegmentPattern
 from src.m2_segmenter.validators import (
     character_coverage_ratio,
@@ -82,8 +83,55 @@ class ConstitutionalSegmenter:
         document_year = extract_document_year_from_file_path(metadata.file_path)
         year = document_year or metadata.last_amendment_year or metadata.constitution_year
 
-        pattern, segments, fallback_used = self._detect_segments(source_text)
+        # Strip schedule/annex sections (common-law countries append schedules
+        # after the main articles; they are noise for semantic analysis).
+        source_text, schedules_stripped = strip_schedules(source_text)
         warnings: list[str] = []
+        if schedules_stripped:
+            warnings.append("Schedule/annex section detected and stripped from the end of the text.")
+
+        # Country-specific override: India uses N[LETTERS]. Title pattern
+        if metadata.country_code == "IND":
+            india_segments = split_india_articles(source_text)
+            if india_segments:
+                pattern_name = "india_article"
+                segments = india_segments
+                fallback_used = False
+                articles = [
+                    Article(
+                        country_name=metadata.country_name,
+                        country_code=metadata.country_code,
+                        year=year,
+                        article_id=identifier,
+                        text=body,
+                    )
+                    for identifier, body in segments
+                    if body.strip()
+                ]
+                articles = self._split_oversized_articles(articles)
+                articles, duplicate_count = remove_duplicate_articles(articles)
+                if duplicate_count:
+                    warnings.append(f"Removed {duplicate_count} duplicate segments.")
+                coverage_ratio = character_coverage_ratio(source_text, articles)
+                warnings.extend(validate_segment_count(len(articles)))
+                coverage_warning = validate_character_coverage(coverage_ratio)
+                if coverage_warning is not None:
+                    warnings.append(coverage_warning)
+                report = SegmentationReport(
+                    country_name=metadata.country_name,
+                    country_code=metadata.country_code,
+                    year=year,
+                    pattern=pattern_name,
+                    fallback_used=fallback_used,
+                    segment_count=len(articles),
+                    duplicate_count=duplicate_count,
+                    coverage_ratio=coverage_ratio,
+                    warnings=warnings,
+                )
+                self._log_report(report)
+                return articles, report
+
+        pattern, segments, fallback_used = self._detect_segments(source_text)
 
         if not segments:
             warnings.append("No segment boundary matched; the full document was kept as one segment.")
