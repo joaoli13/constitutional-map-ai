@@ -14,12 +14,12 @@
     "subtitle": "Um atlas semântico global do direito constitucional",
     "primerEyebrow": "Guia de Leitura",
     "primerTitle": "Como ler a visualização",
-    "primerP1": "Cada ponto na vista 3D representa um segmento constitucional, normalmente um artigo ou outra unidade jurídica relevante. Pontos próximos não estão juntos por serem do mesmo país, mas porque a linguagem desses trechos é semanticamente parecida.",
-    "primerP2": "O mapa e a lista de países são ferramentas de seleção. Eles decidem quais constituições entram na cena. Selecionar mais países não altera a geometria do embedding; altera quais partes desse espaço semântico global você consegue inspecionar.",
-    "primerP3": "O embedding transforma texto jurídico em vetores, e a etapa de clustering agrupa vetores que tendem a tratar de temas constitucionais relacionados. No modo país, a cor mostra a origem política. No modo cluster, a cor mostra a vizinhança temática.",
-    "primerP4": "Nuvens grandes e densas costumam indicar ideias constitucionais recorrentes, como direitos, instituições, poderes de emergência, eleições ou regras de emenda. Pontos isolados muitas vezes marcam dispositivos incomuns, redações raras ou escolhas constitucionais muito específicas.",
-    "primerP5": "Use a busca quando você já tiver um conceito em mente, e use a comparação quando quiser ver como países diferentes ocupam o mesmo terreno semântico. A leitura mais útil acontece indo e voltando entre mapa, forma dos clusters e detalhe do artigo.",
-    "primerP6": "Nas estatísticas por país, Cobertura mede quanto da paisagem global de clusters uma constituição alcança. Entropia mede quão uniformemente seus segmentos se distribuem por essa paisagem: entropia alta sugere maior diversidade semântica, enquanto entropia baixa sugere concentração em menos temas.",
+    "primerP1": "Cada ponto na vista 3D representa um **segmento constitucional**, normalmente um artigo ou outra unidade jurídica relevante. Pontos próximos não estão juntos por serem do mesmo país, mas porque a linguagem desses trechos é **semanticamente parecida**.",
+    "primerP2": "O **mapa** e a **lista de países** são ferramentas de seleção. Eles decidem quais constituições entram na cena. Selecionar mais países não altera a geometria do embedding; altera quais partes desse espaço semântico global você consegue inspecionar.",
+    "primerP3": "O **embedding** transforma texto jurídico em vetores, e a etapa de **clustering** agrupa vetores que tendem a tratar de temas constitucionais relacionados. No **modo país**, a cor mostra a origem política. No **modo cluster**, a cor mostra a vizinhança temática.",
+    "primerP4": "**Nuvens grandes e densas** costumam indicar ideias constitucionais recorrentes, como direitos, instituições, poderes de emergência, eleições ou regras de emenda. **Pontos isolados** muitas vezes marcam dispositivos incomuns, redações raras ou escolhas constitucionais muito específicas.",
+    "primerP5": "Use a **busca** quando você já tiver um conceito em mente, e use a **comparação** quando quiser ver como países diferentes ocupam o mesmo terreno semântico. A leitura mais útil acontece indo e voltando entre mapa, forma dos clusters e detalhe do artigo.",
+    "primerP6": "Nas estatísticas por país, **Cobertura** mede quanto da paisagem global de clusters uma constituição alcança. **Entropia** mede quão uniformemente seus segmentos se distribuem por essa paisagem: entropia alta sugere maior diversidade semântica, enquanto entropia baixa sugere concentração em menos temas.",
     "dataNotice": "Os textos constitucionais desta aplicação são provenientes do Constitute Project e são utilizados sob a licença Creative Commons Attribution-Non Commercial 3.0 Unported, exceto quando houver indicação de direitos de terceiros.",
     "projectLinkLabel": "constituteproject.org",
     "sourceLabel": "Fonte:",
@@ -27,7 +27,7 @@
     "sourceCodeText": "Código aberto — contribuições são bem-vindas.",
     "licenseNote": "Código: MIT · Dados: CC BY-NC 3.0.",
     "madeBy": "Feito por",
-    "supportText": "Este projeto roda com embeddings de IA e servidores em nuvem. Se ele for útil para você, considere custear um mês de infraestrutura:"
+    "supportText": "Este projeto roda com embeddings de IA e servidores em nuvem. Manter o corpus constitucional atualizado exige execuções recorrentes do pipeline e custos de API. Se ele for útil para você, considere custear um mês de infraestrutura:"
   },
   "Atlas": {
     "countryLoadError": "Não foi possível carregar os dados do país {country}.",

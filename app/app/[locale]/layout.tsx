@@ -31,6 +31,19 @@ export async function generateMetadata({
   };
 }
 
+function rich(text: string) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-slate-800">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -68,12 +81,12 @@ export default async function LocaleLayout({
               {chromeT("primerTitle")}
             </h2>
             <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-              <p>{chromeT("primerP1")}</p>
-              <p>{chromeT("primerP2")}</p>
-              <p>{chromeT("primerP3")}</p>
-              <p>{chromeT("primerP4")}</p>
-              <p>{chromeT("primerP5")}</p>
-              <p>{chromeT("primerP6")}</p>
+              <p>{rich(chromeT("primerP1"))}</p>
+              <p>{rich(chromeT("primerP2"))}</p>
+              <p>{rich(chromeT("primerP3"))}</p>
+              <p>{rich(chromeT("primerP4"))}</p>
+              <p>{rich(chromeT("primerP5"))}</p>
+              <p>{rich(chromeT("primerP6"))}</p>
             </div>
           </div>
         </section>
