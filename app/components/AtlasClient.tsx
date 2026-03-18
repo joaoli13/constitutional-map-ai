@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState, type CSSProperties} from "react";
 import {useTranslations} from "next-intl";
 
 import Canvas3D from "@/components/Canvas3D";
@@ -27,6 +27,7 @@ type AtlasClientProps = {
 
 export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const t = useTranslations("Atlas");
+  const leftColumnRef = useRef<HTMLDivElement | null>(null);
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const loadedCountryData = useAppStore((state) => state.loadedCountryData);
   const selectedPoint = useAppStore((state) => state.selectedPoint);
@@ -40,6 +41,7 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const [focusTarget, setFocusTarget] = useState<[number, number, number] | null>(
     null,
   );
+  const [controlPanelHeight, setControlPanelHeight] = useState<number | null>(null);
   const [articleDetail, setArticleDetail] = useState<ArticleDetail | null>(null);
   const [isArticleLoading, setIsArticleLoading] = useState(false);
   const articleCache = useRef<Record<string, ArticleDetail>>({});
@@ -52,6 +54,31 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const selectedCountryRecords = selectedCountries
     .map((countryCode) => countryByCode[countryCode])
     .filter(Boolean);
+
+  useLayoutEffect(() => {
+    const node = leftColumnRef.current;
+    if (!node || typeof ResizeObserver === "undefined") {
+      return;
+    }
+
+    const updateHeight = () => {
+      const nextHeight = Math.ceil(node.getBoundingClientRect().height);
+      setControlPanelHeight((currentHeight) =>
+        currentHeight === nextHeight ? currentHeight : nextHeight,
+      );
+    };
+
+    updateHeight();
+
+    const observer = new ResizeObserver(() => {
+      updateHeight();
+    });
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -128,8 +155,8 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-[1500px] flex-col gap-6 px-6 pb-16 pt-7">
-      <section className="grid gap-6 xl:grid-cols-[1.18fr_0.82fr]">
-        <div className="flex flex-col gap-5">
+      <section className="grid gap-6 xl:grid-cols-[1.18fr_0.82fr] xl:items-start">
+        <div ref={leftColumnRef} className="flex flex-col gap-5">
           <div className="min-h-0 flex-1">
             <WorldMap
               countries={atlasIndex.countries}
@@ -141,7 +168,16 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
           </div>
           <SearchPanel onSelectResult={handleSelectSearchResult} />
         </div>
-        <div className="grid gap-5 xl:content-start">
+        <div
+          className="min-h-0 xl:h-[var(--control-panel-height)]"
+          style={
+            controlPanelHeight === null
+              ? undefined
+              : ({
+                  "--control-panel-height": `${controlPanelHeight}px`,
+                } as CSSProperties)
+          }
+        >
           <ControlPanel
             countries={atlasIndex.countries}
             selectedCountries={selectedCountries}

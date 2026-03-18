@@ -183,13 +183,13 @@ def split_with_pattern(text: str, pattern: SegmentPattern) -> list[tuple[str, st
     segments: list[tuple[str, str]] = []
     orphan_prefix = text[: matches[0].start()].strip()
 
+    if orphan_prefix:
+        segments.append(("Preamble", orphan_prefix))
+
     for index, match in enumerate(matches):
         identifier = normalize_source_text(match.group(0))
         next_start = matches[index + 1].start() if index + 1 < len(matches) else len(text)
         body = text[match.end() : next_start].strip()
-
-        if index == 0 and orphan_prefix:
-            body = f"{orphan_prefix}\n\n{body}".strip() if body else orphan_prefix
 
         if not body:
             continue

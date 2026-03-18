@@ -22,14 +22,14 @@ PATTERNS: list[SegmentPattern] = [
     SegmentPattern(
         name="article",
         regex=re.compile(
-            rf"^(?P<identifier>Article\b\.?\s*{_ARTICLE_NUMBER})(?:[ \t]+[-:][ \t]+.*)?$",
+            rf"^(?P<identifier>Article\b\.?\s*{_ARTICLE_NUMBER})(?:[ \t]*[.:-][ \t]*.*)?$",
             re.IGNORECASE | re.MULTILINE,
         ),
     ),
     SegmentPattern(
         name="art",
         regex=re.compile(
-            rf"^(?P<identifier>Art\b\.?\s*{_ARTICLE_NUMBER})(?:[ \t]+[-:][ \t]+.*)?$",
+            rf"^(?P<identifier>Art\b\.?\s*{_ARTICLE_NUMBER})(?:[ \t]*[.:-][ \t]*.*)?$",
             re.IGNORECASE | re.MULTILINE,
         ),
     ),

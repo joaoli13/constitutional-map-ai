@@ -66,7 +66,7 @@ export default function ControlPanel({
     });
 
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-[#f7f2ea]/90 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+    <section className="flex h-full min-h-0 flex-col rounded-[2rem] border border-slate-200 bg-[#f7f2ea]/90 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
         {t("eyebrow")}
       </p>
@@ -146,7 +146,7 @@ export default function ControlPanel({
         </select>
       </div>
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-4 flex min-h-0 flex-1 flex-col space-y-3">
         <div className="max-h-[84px] overflow-y-auto pr-1">
           <div className="flex flex-wrap gap-1.5">
           {selectedCountries.length === 0 ? (
@@ -180,7 +180,7 @@ export default function ControlPanel({
           </div>
         </div>
 
-        <div className="max-h-[300px] space-y-1.5 overflow-y-auto pr-0.5">
+        <div className="min-h-[300px] flex-1 space-y-1.5 overflow-y-auto pr-0.5">
           {filteredCountries.map((country) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);

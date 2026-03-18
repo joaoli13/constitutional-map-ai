@@ -73,6 +73,7 @@ export default async function LocaleLayout({
               <p>{chromeT("primerP3")}</p>
               <p>{chromeT("primerP4")}</p>
               <p>{chromeT("primerP5")}</p>
+              <p>{chromeT("primerP6")}</p>
             </div>
           </div>
         </section>

@@ -45,6 +45,18 @@ def _article_text(prefix: str) -> str:
     return "\n\n".join(blocks)
 
 
+def _article_text_with_titles(prefix: str) -> str:
+    blocks = []
+    for number in range(1, 7):
+        blocks.extend(
+            [
+                f"{prefix} {number}. Heading {number}",
+                f"Body of segment {number}.",
+            ]
+        )
+    return "\n\n".join(blocks)
+
+
 def _section_text() -> str:
     blocks = []
     for number in range(1, 7):
@@ -117,6 +129,46 @@ def test_segmenter_detects_each_supported_pattern(pattern_name: str, text: str) 
         assert report.fallback_used is True
     else:
         assert report.fallback_used is False
+
+
+def test_segmenter_detects_article_headers_with_titles_after_number() -> None:
+    segmenter = ConstitutionalSegmenter(token_counter=lambda value: len(value.split()))
+    articles, report = segmenter.segment_country(_metadata(), _article_text_with_titles("Article"))
+
+    assert report.pattern == "article"
+    assert len(articles) == 6
+    assert articles[0].article_id == "Article 1. Heading 1"
+    assert articles[0].text == "Body of segment 1."
+
+
+def test_segmenter_emits_preamble_as_its_own_segment() -> None:
+    text = "\n\n".join(
+        [
+            "Preamble",
+            "Introductory text before the first article.",
+            "Article 1. Heading 1",
+            "Body of segment 1.",
+            "Article 2. Heading 2",
+            "Body of segment 2.",
+            "Article 3. Heading 3",
+            "Body of segment 3.",
+            "Article 4. Heading 4",
+            "Body of segment 4.",
+            "Article 5. Heading 5",
+            "Body of segment 5.",
+            "Article 6. Heading 6",
+            "Body of segment 6.",
+        ]
+    )
+    segmenter = ConstitutionalSegmenter(token_counter=lambda value: len(value.split()))
+    articles, report = segmenter.segment_country(_metadata(), text)
+
+    assert report.pattern == "article"
+    assert len(articles) == 7
+    assert articles[0].article_id == "Preamble"
+    assert articles[0].text == "Preamble\n\nIntroductory text before the first article."
+    assert articles[1].article_id == "Article 1. Heading 1"
+    assert articles[1].text == "Body of segment 1."
 
 
 def test_segmenter_splits_oversized_segments_and_suffixes_ids() -> None:

@@ -19,6 +19,7 @@
     "primerP3": "El embedding convierte texto jurídico en vectores, y la etapa de clustering agrupa vectores que tienden a tratar temas constitucionales relacionados. En modo país, el color muestra origen político. En modo clúster, el color muestra vecindad temática.",
     "primerP4": "Las nubes grandes y densas suelen indicar ideas constitucionales recurrentes, como derechos, instituciones, poderes de emergencia, elecciones o reglas de reforma. Los puntos aislados suelen marcar disposiciones poco comunes, lenguaje raro o decisiones de diseño constitucional específicas de un país.",
     "primerP5": "Usa la búsqueda cuando ya tengas un concepto en mente, y la comparación cuando quieras ver cómo distintos países ocupan un mismo terreno semántico. La estrategia más útil es ir y venir entre mapa, forma del clúster y detalle del artículo.",
+    "primerP6": "En las estadísticas por país, Cobertura mide cuánto del paisaje global de clústeres alcanza una constitución. Entropía mide cuán uniformemente se distribuyen sus segmentos en ese paisaje: una entropía alta sugiere mayor diversidad semántica, mientras que una entropía baja sugiere concentración en menos temas.",
     "dataNotice": "Los textos constitucionales de esta aplicación provienen del Constitute Project y se utilizan bajo la licencia Creative Commons Attribution-Non Commercial 3.0 Unported, salvo cuando se identifiquen derechos de terceros.",
     "projectLinkLabel": "constituteproject.org",
     "sourceLabel": "Fuente:",

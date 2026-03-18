@@ -19,6 +19,7 @@
     "primerP3": "The embedding turns legal text into vectors, and the clustering step groups vectors that tend to discuss related constitutional themes. In country mode, color shows political origin. In cluster mode, color shows thematic neighborhood.",
     "primerP4": "Large, dense clouds usually indicate recurring constitutional ideas such as rights, institutions, emergency powers, elections, or amendment rules. Isolated points often mark unusual provisions, rare wording, or country-specific constitutional design choices.",
     "primerP5": "Use search when you already have a concept in mind, and use comparison when you want to see how different countries occupy the same semantic terrain. The most useful reading strategy is to move back and forth between map, cluster shape, and article detail.",
+    "primerP6": "In the country statistics, Coverage measures how much of the global cluster landscape a constitution reaches. Entropy measures how evenly its segments are distributed across that landscape: high entropy suggests a broader semantic spread, while low entropy suggests concentration in fewer themes.",
     "dataNotice": "Constitution texts in this application are sourced from the Constitute Project and used under the Creative Commons Attribution-Non Commercial 3.0 Unported License, except where third-party rights are identified.",
     "projectLinkLabel": "constituteproject.org",
     "sourceLabel": "Source:",
