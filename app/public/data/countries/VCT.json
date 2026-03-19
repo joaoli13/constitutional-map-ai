@@ -1,0 +1,189 @@
+[
+  {
+    "id": "VCT_1979_100",
+    "article_id": "100",
+    "text_snippet": "CHAPTER VIII. JUDICIAL PROVISIONS 96. Original jurisdiction of High Court in constitutional questions 1. Subject to the provisions of section 22(2), 38(8)(b), 102(2) and 105(10) of this Constitution,",
+    "x": 7.0061774253845215,
+    "y": 6.847964286804199,
+    "z": 4.658045291900635,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "VCT_1979_105",
+    "article_id": "105",
+    "text_snippet": "CHAPTER IX. MISCELLANEOUS 101. Supreme law This Constitution is the supreme law of Saint Vincent and, subject to the provisions of this Constitution, if any other law is inconsistent with this Constit",
+    "x": 9.007181167602539,
+    "y": 7.959170818328857,
+    "z": 4.306171894073486,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.703803300857544
+  },
+  {
+    "id": "VCT_1979_18_p1",
+    "article_id": "18.p1",
+    "text_snippet": "CHAPTER I. PROTECTION OF FUNDAMENTAL RIGHTS AND FREEDOMS 1. Fundamental rights and freedoms Whereas every person in Saint Vincent is entitled to the fundamental rights and freedoms, that is to say, th",
+    "x": 8.956619262695312,
+    "y": 7.215514659881592,
+    "z": 3.59651517868042,
+    "global_cluster": 260,
+    "country_cluster": 0,
+    "cluster_probability": 0.9873573780059814
+  },
+  {
+    "id": "VCT_1979_18_p2",
+    "article_id": "18.p2",
+    "text_snippet": "5. Nothing contained in or done under the authority of any law shall be held to be inconsistent with or in contravention of this section to the extent that the law in question makes provision which is",
+    "x": 8.941778182983398,
+    "y": 7.259041786193848,
+    "z": 3.603142023086548,
+    "global_cluster": 260,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "VCT_1979_22",
+    "article_id": "22",
+    "text_snippet": "CHAPTER II. THE GOVERNOR-GENERAL 19. Establishment of office There shall be a Governor-General of Saint Vincent who shall be appointed by Her Majesty and shall hold office during Her Majesty's pleasur",
+    "x": 9.164047241210938,
+    "y": 8.053150177001953,
+    "z": 4.486268043518066,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "VCT_1979_36",
+    "article_id": "36",
+    "text_snippet": "PART 1. Composition of Parliament 23. Establishment There shall be a Parliament of Saint Vincent which shall consist of Her Majesty and a House of Assembly. 24. Composition of House of Assembly 1. The",
+    "x": 9.21385669708252,
+    "y": 8.025762557983398,
+    "z": 4.476282596588135,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "VCT_1979_46",
+    "article_id": "46",
+    "text_snippet": "PART 2. Legislation and procedure of Parliament 37. Power to make laws Subject to the provisions of this Constitution, Parliament may make laws for the peace, order and good government of Saint Vincen",
+    "x": 9.198873519897461,
+    "y": 8.053398132324219,
+    "z": 4.434848308563232,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "VCT_1979_49",
+    "article_id": "49",
+    "text_snippet": "PART 3. Summoning, prorogation and dissolution 47. Sessions 1. Each session of Parliament shall be held at such place within Saint Vincent and shall begin at such time, not being later than six months",
+    "x": 9.245719909667969,
+    "y": 8.072809219360352,
+    "z": 4.519590854644775,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.9793659448623657
+  },
+  {
+    "id": "VCT_1979_67",
+    "article_id": "67",
+    "text_snippet": "CHAPTER IV. THE EXECUTIVE 50. Executive authority 1. The executive authority of Saint Vincent is vested in Her Majesty. 2. Subject to the provisions of this Constitution, the executive authority of Sa",
+    "x": 9.074031829833984,
+    "y": 8.031614303588867,
+    "z": 4.4434590339660645,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.8518363237380981
+  },
+  {
+    "id": "VCT_1979_76",
+    "article_id": "76",
+    "text_snippet": "CHAPTER V. FINANCE 68. Consolidated Fund All revenues or other moneys raised or received by Saint Vincent (not being revenues or other moneys that are payable, by or under any law for the time being i",
+    "x": 8.943148612976074,
+    "y": 8.222088813781738,
+    "z": 4.225446701049805,
+    "global_cluster": -1,
+    "country_cluster": 2,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "VCT_1979_78",
+    "article_id": "78",
+    "text_snippet": "PART 1. The Public Service Commission 77. Public Service Commission 1. There shall be a Public Service Commission for Saint Vincent (hereinafter in this section referred to as the Commission) which sh",
+    "x": 8.554563522338867,
+    "y": 7.896170616149902,
+    "z": 4.510040760040283,
+    "global_cluster": -1,
+    "country_cluster": 1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "VCT_1979_83",
+    "article_id": "83",
+    "text_snippet": "PART 2. Appointments, etc., to particular offices 79. Appointment, etc., of permanent secretaries and certain other officers 1. This section applies to the offices of Secretary to the Cabinet, permane",
+    "x": 8.519601821899414,
+    "y": 7.949315547943115,
+    "z": 4.604740142822266,
+    "global_cluster": -1,
+    "country_cluster": 1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "VCT_1979_85",
+    "article_id": "85",
+    "text_snippet": "PART 3. The Police 84. Police Service Commission 1. There shall be a Police Service Commission for Saint Vincent which shall consist of-- the chairman of the Public Service Commission; one member appo",
+    "x": 8.496777534484863,
+    "y": 7.889606952667236,
+    "z": 4.553382873535156,
+    "global_cluster": 453,
+    "country_cluster": 1,
+    "cluster_probability": 0.9211856126785278
+  },
+  {
+    "id": "VCT_1979_87",
+    "article_id": "87",
+    "text_snippet": "PART 4. The Public Service Board of Appeal 86. Public Service Board of Appeal 1. There shall be a Public Service Board of Appeal for Saint Vincent (hereinafter in this section and in section 87 of thi",
+    "x": 8.506952285766602,
+    "y": 7.931753635406494,
+    "z": 4.546802997589111,
+    "global_cluster": 453,
+    "country_cluster": 1,
+    "cluster_probability": 0.8444992899894714
+  },
+  {
+    "id": "VCT_1979_89",
+    "article_id": "89",
+    "text_snippet": "PART 5. Pensions 88. Pensions laws and protection of pensions rights 1. The law to be applied with respect to any pensions benefits that were granted to any person before the commencement of this Cons",
+    "x": 7.8613667488098145,
+    "y": 8.54039478302002,
+    "z": 4.219080448150635,
+    "global_cluster": 168,
+    "country_cluster": -1,
+    "cluster_probability": 0.7815394997596741
+  },
+  {
+    "id": "VCT_1979_95",
+    "article_id": "95",
+    "text_snippet": "CHAPTER VII. CITIZENSHIP 90. Persons who become citizens on 27th October 1979 1. Every person who, having been born in Saint Vincent, is immediately before the commencement of this Constitution a citi",
+    "x": 9.493450164794922,
+    "y": 7.172451972961426,
+    "z": 3.3880667686462402,
+    "global_cluster": 384,
+    "country_cluster": 0,
+    "cluster_probability": 0.5489286184310913
+  },
+  {
+    "id": "VCT_1979_Preamble",
+    "article_id": "Preamble",
+    "text_snippet": "Preamble WHEREAS the Peoples of the Islands of Saint Vincent, who are known as Vincentians-- a. have affirmed that the Nation is founded on the belief in the supremacy of God and the freedom and digni",
+    "x": 9.28082275390625,
+    "y": 7.474919319152832,
+    "z": 3.934577226638794,
+    "global_cluster": 329,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  }
+]

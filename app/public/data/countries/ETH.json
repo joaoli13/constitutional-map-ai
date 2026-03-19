@@ -1,0 +1,79 @@
+[
+  {
+    "id": "ETH_1994_21_p1",
+    "article_id": "21.p1",
+    "text_snippet": "CHAPTER FIVE. THE STRUCTURE AND DIVISION OF POWERS Article 50. Structure of the Organs of State 1. The Federal democratic Republic of Ethiopia comprises the Federal Government and the State members. 2",
+    "x": 8.703880310058594,
+    "y": 4.444065093994141,
+    "z": 4.870138168334961,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ETH_1994_21_p2",
+    "article_id": "21.p2",
+    "text_snippet": "a. The Council of Ministers of the Federal Government shall have the power to decree a state of emergency should an external invasion, a breakdown of law and order which endangers the constitutional o",
+    "x": 8.190034866333008,
+    "y": 4.420739650726318,
+    "z": 5.905180931091309,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "ETH_1994_3",
+    "article_id": "3",
+    "text_snippet": "CHAPTER ONE. GENERAL PROVISIONS Article 1. Nomenclature of the State This Constitution establishes a Federal and Democratic State structure. Accordingly, the Ethiopian state shall be known as The Fede",
+    "x": 8.755230903625488,
+    "y": 4.43337869644165,
+    "z": 4.78012228012085,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ETH_1994_4",
+    "article_id": "4",
+    "text_snippet": "CHAPTER TWO. FUNDAMENTAL PRINCIPLES OF THE CONSTITUTION Article 8. Sovereignty of the People 1. All sovereign power resides in the Nations, Nationalities and Peoples of Ethiopia. 2. This Constitution",
+    "x": 8.734134674072266,
+    "y": 4.416318893432617,
+    "z": 4.770997047424316,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ETH_1994_7",
+    "article_id": "7",
+    "text_snippet": "PART ONE. HUMAN RIGHTS Article 14. Rights to life, the Security of Person and Liberty Every person has the inviolable and inalienable right to life, the security of person and liberty. Article 15. Rig",
+    "x": 8.66664981842041,
+    "y": 4.2911458015441895,
+    "z": 4.71365213394165,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ETH_1994_9",
+    "article_id": "9",
+    "text_snippet": "PART TWO. DEMOCRATIC RIGHTS Article 29. Right of Thought, Opinion and Expression 1. Everyone has the right to hold opinions without interference. 2. Everyone has the right to freedom of expression wit",
+    "x": 8.73281478881836,
+    "y": 4.3589911460876465,
+    "z": 4.7187066078186035,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "ETH_1994_Preamble",
+    "article_id": "Preamble",
+    "text_snippet": "Preamble We, the Nations, Nationalities and Peoples of Ethiopia: Strongly committed, in full and free exercise of our right to self-determination, to building a political community founded on the rule",
+    "x": 8.777621269226074,
+    "y": 4.459192752838135,
+    "z": 4.771914958953857,
+    "global_cluster": 19,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  }
+]

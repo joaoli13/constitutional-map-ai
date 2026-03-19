@@ -1,0 +1,200 @@
+[
+  {
+    "id": "GRD_1992_100",
+    "article_id": "100",
+    "text_snippet": "Chapter VII. Citizenship 94. Persons who become citizens on 7th February 1974 1. Every person who, having been born in Grenada is on 6th February 1974 a citizen of the United Kingdom and Colonies shal",
+    "x": 9.460116386413574,
+    "y": 7.19390344619751,
+    "z": 3.397340774536133,
+    "global_cluster": 384,
+    "country_cluster": 1,
+    "cluster_probability": 0.6407859921455383
+  },
+  {
+    "id": "GRD_1992_105",
+    "article_id": "105",
+    "text_snippet": "Chapter VIII. Judicial Provisions 101. Original Jurisdiction of High Court in constitutional question 1. Subject to the provisions of sections 22(2), 39(8), 49(4), 56 and 108 of this Constitution, any",
+    "x": 7.017306327819824,
+    "y": 6.868164539337158,
+    "z": 4.658940315246582,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GRD_1992_111",
+    "article_id": "111",
+    "text_snippet": "Chapter IX. Miscellaneous 106. Supreme law This Constitution is the supreme law of Grenada and, subject to the provisions of this Constitution, if any other law is inconsistent with this Constitution,",
+    "x": 8.970295906066895,
+    "y": 7.93769645690918,
+    "z": 4.2463226318359375,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.688825249671936
+  },
+  {
+    "id": "GRD_1992_18_p1",
+    "article_id": "18.p1",
+    "text_snippet": "Chapter I. Protection of Fundamental Rights and Freedoms 1. Fundamental rights and freedoms Whereas every person in Grenada is entitled to the fundamental rights and freedoms, that is to say, the righ",
+    "x": 8.983147621154785,
+    "y": 7.161738872528076,
+    "z": 3.6178970336914062,
+    "global_cluster": 260,
+    "country_cluster": 1,
+    "cluster_probability": 0.8381080627441406
+  },
+  {
+    "id": "GRD_1992_18_p2",
+    "article_id": "18.p2",
+    "text_snippet": "a. that is reasonably required in the interests of defence, public safety, public order, public morality or public health; b. that is reasonably required for the purpose of protecting the rights or fr",
+    "x": 8.976262092590332,
+    "y": 7.225407600402832,
+    "z": 3.6180179119110107,
+    "global_cluster": 260,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "GRD_1992_22",
+    "article_id": "22",
+    "text_snippet": "Chapter II. Governor-General 19. Establishment of office of Governor-General There shall be a Governor-General of Grenada who shall be appointed by Her Majesty and shall hold office during Her Majesty",
+    "x": 9.157095909118652,
+    "y": 8.053229331970215,
+    "z": 4.469645977020264,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.8518363237380981
+  },
+  {
+    "id": "GRD_1992_37_p1",
+    "article_id": "37.p1",
+    "text_snippet": "Part I. Composition of Parliament 23. Establishment of Parliament There shall be a Parliament of Grenada which shall consist of Her Majesty, a Senate and a House of Representatives. The Senate 24. Com",
+    "x": 9.2305326461792,
+    "y": 8.049505233764648,
+    "z": 4.512515544891357,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "GRD_1992_37_p2",
+    "article_id": "37.p2",
+    "text_snippet": "6. An appeal shall lie as of right to the Court of Appeal from any final decision of the High Court determining such a question as is referred to in subsection (1) of this section. 7. No appeal shall",
+    "x": 6.977987766265869,
+    "y": 6.631085395812988,
+    "z": 4.819900035858154,
+    "global_cluster": -1,
+    "country_cluster": -1,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GRD_1992_50",
+    "article_id": "50",
+    "text_snippet": "Part II. Legislation and Procedure of Parliament 38. Power to make laws Subject to the provisions of this Constitution, Parliament may make laws for the peace, order and good government of Grenada. 39",
+    "x": 9.28690242767334,
+    "y": 8.036720275878906,
+    "z": 4.515955448150635,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "GRD_1992_53",
+    "article_id": "53",
+    "text_snippet": "Part III. Summoning, Prorogation and Dissolution 51. Sessions of Parliament 1. Each session of Parliament shall be held at such place within Grenada and shall commence at such time as the Governor-Gen",
+    "x": 9.273641586303711,
+    "y": 8.071066856384277,
+    "z": 4.595685005187988,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.6286119818687439
+  },
+  {
+    "id": "GRD_1992_56",
+    "article_id": "56",
+    "text_snippet": "Part IV. Delimitation of Constituencies 54. Constituencies For the purpose of the election of members of the House of Representatives, Grenada shall be divided into such number of constituencies havin",
+    "x": 9.341383934020996,
+    "y": 7.953256130218506,
+    "z": 4.841207504272461,
+    "global_cluster": -1,
+    "country_cluster": 2,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GRD_1992_74",
+    "article_id": "74",
+    "text_snippet": "Chapter IV. The Executive 57. Exercise of executive authority of Grenada 1. The executive authority of Grenada is vested in Her Majesty. 2. Subject to the provision so this Constitution, the executive",
+    "x": 9.0685453414917,
+    "y": 8.027481079101562,
+    "z": 4.421646595001221,
+    "global_cluster": 346,
+    "country_cluster": 2,
+    "cluster_probability": 0.9178001880645752
+  },
+  {
+    "id": "GRD_1992_82",
+    "article_id": "82",
+    "text_snippet": "Chapter V. Finance 75. Consolidated Fund All revenues or other moneys raised or received by Grenada (not being revenues or other moneys that are payable, by or under any law for the time being in forc",
+    "x": 8.914133071899414,
+    "y": 8.135671615600586,
+    "z": 4.202425479888916,
+    "global_cluster": -1,
+    "country_cluster": 2,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GRD_1992_84",
+    "article_id": "84",
+    "text_snippet": "Part I. The Public Service Commission 83. Public Service Commission 1. There shall be a Public Service Commission for Grenada which shall consist of a Chairman and four other members who shall be appo",
+    "x": 8.599222183227539,
+    "y": 7.9330596923828125,
+    "z": 4.442974090576172,
+    "global_cluster": 453,
+    "country_cluster": 0,
+    "cluster_probability": 0.9211856126785278
+  },
+  {
+    "id": "GRD_1992_89",
+    "article_id": "89",
+    "text_snippet": "Part II. Appointments, etc., to particular offices 85. Appointment, etc., of permanent secretaries and certain other officers 1. This section applies to the offices of Secretary to the Cabinet, perman",
+    "x": 8.29397964477539,
+    "y": 7.857004165649414,
+    "z": 4.858277797698975,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "GRD_1992_91",
+    "article_id": "91",
+    "text_snippet": "Part III. The Public Service Board of Appeal 90. Public Service Board of Appeal 1. There shall be a Public Service Board of Appeal for Grenada which shall consist of- one member appointed by the Gover",
+    "x": 8.447152137756348,
+    "y": 7.90711784362793,
+    "z": 4.593912601470947,
+    "global_cluster": 453,
+    "country_cluster": 0,
+    "cluster_probability": 0.7741943597793579
+  },
+  {
+    "id": "GRD_1992_93",
+    "article_id": "93",
+    "text_snippet": "Part IV. Pensions 92. Pensions laws and protection of pensions rights 1. The law to be applied with respect to any pensions benefits that were granted to any person before this section comes into oper",
+    "x": 7.907554626464844,
+    "y": 8.503498077392578,
+    "z": 4.224018573760986,
+    "global_cluster": 168,
+    "country_cluster": -1,
+    "cluster_probability": 0.20620517432689667
+  },
+  {
+    "id": "GRD_1992_Preamble",
+    "article_id": "Preamble",
+    "text_snippet": "Preamble Whereas the people of Grenada a. have affirmed that their nation is founded upon principles that acknowledge the fatherhood and supremacy of God and man’s duties toward his fellow man; b. rec",
+    "x": 9.297281265258789,
+    "y": 7.412021636962891,
+    "z": 3.9184563159942627,
+    "global_cluster": 329,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  }
+]

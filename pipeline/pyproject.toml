@@ -1,0 +1,58 @@
+[project]
+name = "tca-pipeline"
+version = "0.1.0"
+description = "Constitutional Map — data pipeline (M1–M4.5)"
+requires-python = ">=3.11"
+dependencies = [
+    # M1 — Scraper
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "playwright>=1.44",
+    "lxml>=5.2",
+    # M2 — Segmenter
+    "tiktoken>=0.7",          # token counting for 8k-token split
+    # M3 — Embedder
+    "google-generativeai>=0.7",
+    # M4 — Clusterer
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
+    "scikit-learn>=1.5,<1.8",
+    # Shared data
+    "pyarrow>=16",
+    "pandas>=2.2",
+    "pydantic>=2.7",
+    # M4.5 — Exporter / Neon ingest
+    "psycopg2-binary>=2.9",
+    # Utilities
+    "python-dotenv>=1.0",
+    "tenacity>=8.3",           # retry / backoff
+    "tqdm>=4.66",              # progress bars
+    "rich>=13",                # logging
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "pytest-mock>=3.14",
+    "ruff>=0.4",
+    "pyright>=1.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

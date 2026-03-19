@@ -1,0 +1,200 @@
+[
+  {
+    "id": "IRL_2019_1",
+    "article_id": "1",
+    "text_snippet": "It is the firm will of the Irish Nation, in harmony and friendship, to unite all the people who share the territory of the island of Ireland, in all the diversity of their identities and traditions, r",
+    "x": 10.580902099609375,
+    "y": 6.925773620605469,
+    "z": 6.900639057159424,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_10",
+    "article_id": "10",
+    "text_snippet": "1°. The President may be impeached for stated misbehaviour. 2°. The charge shall be preferred by either of the Houses of the Oireachtas, subject to and in accordance with the provisions of this sectio",
+    "x": 9.899103164672852,
+    "y": 7.266420364379883,
+    "z": 6.73301887512207,
+    "global_cluster": 380,
+    "country_cluster": 0,
+    "cluster_probability": 0.7006472945213318
+  },
+  {
+    "id": "IRL_2019_11",
+    "article_id": "11",
+    "text_snippet": "1°. The President shall have an official residence in or near the City of Dublin. 2°. The President shall receive such emoluments and allowances as may be determined by law. 3°. The emoluments and all",
+    "x": 10.58957576751709,
+    "y": 6.945928573608398,
+    "z": 6.946806907653809,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_12",
+    "article_id": "12",
+    "text_snippet": "All official reports and publications of the Oireachtas or of either House thereof and utterances made in either House wherever published shall be privileged.",
+    "x": 11.087868690490723,
+    "y": 7.7491865158081055,
+    "z": 7.967492580413818,
+    "global_cluster": 230,
+    "country_cluster": 0,
+    "cluster_probability": 0.19500413537025452
+  },
+  {
+    "id": "IRL_2019_13",
+    "article_id": "13",
+    "text_snippet": "The members of each House of the Oireachtas shall, except in case of treason as defined in this Constitution, felony or breach of the peace, be privileged from arrest in going to and returning from, a",
+    "x": 11.064563751220703,
+    "y": 7.700076580047607,
+    "z": 7.956479549407959,
+    "global_cluster": 230,
+    "country_cluster": 0,
+    "cluster_probability": 0.26532310247421265
+  },
+  {
+    "id": "IRL_2019_14",
+    "article_id": "14",
+    "text_snippet": "No person may be at the same time a member of both Houses of the Oireachtas, and, if any person who is already a member of either House becomes a member of the other House, he shall forthwith be deeme",
+    "x": 10.6156005859375,
+    "y": 6.908097267150879,
+    "z": 7.318514347076416,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "IRL_2019_15_p1",
+    "article_id": "15.p1",
+    "text_snippet": "The Oireachtas may make provision by law for the payment of allowances to the members of each House thereof in respect of their duties as public representatives and for the grant to them of free trave",
+    "x": 10.601703643798828,
+    "y": 6.958907127380371,
+    "z": 6.952481269836426,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_15_p2",
+    "article_id": "15.p2",
+    "text_snippet": "1°. The executive power of the State in or in connection with its external relations shall in accordance with Article 28 of this Constitution be exercised by or on the authority of the Government. 2°.",
+    "x": 10.592286109924316,
+    "y": 6.9299116134643555,
+    "z": 6.939847469329834,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_15_p3",
+    "article_id": "15.p3",
+    "text_snippet": "1°. Freedom of conscience and the free profession and practice of religion are, subject to public order and morality, guaranteed to every citizen. 2°. The State guarantees not to endow any religion. 3",
+    "x": 10.610790252685547,
+    "y": 6.940650939941406,
+    "z": 6.9400835037231445,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_2",
+    "article_id": "2",
+    "text_snippet": "Institutions with executive powers and functions that are shared between those jurisdictions may be established by their respective responsible authorities for stated purposes and may exercise powers",
+    "x": 10.60329532623291,
+    "y": 6.939889907836914,
+    "z": 6.924855709075928,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_3",
+    "article_id": "3",
+    "text_snippet": "Provision may, however, be made by law for the exclusive use of either of the said languages for any one or more official purposes, either throughout the State or in any part thereof. ARTICLE 9 1 1°.",
+    "x": 10.604157447814941,
+    "y": 6.93265438079834,
+    "z": 6.9200897216796875,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_4",
+    "article_id": "4",
+    "text_snippet": "Provision may also be made by law for the management of land, mines, minerals and waters acquired by the State after the coming into operation of this Constitution and for the control of the alienatio",
+    "x": 10.601064682006836,
+    "y": 6.949855804443359,
+    "z": 6.9421067237854,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_5",
+    "article_id": "5",
+    "text_snippet": "Subject to the provisions of this Article, elections for the office of President shall be regulated by law.",
+    "x": 10.090866088867188,
+    "y": 5.911706447601318,
+    "z": 7.518896579742432,
+    "global_cluster": 368,
+    "country_cluster": 1,
+    "cluster_probability": 0.6181403398513794
+  },
+  {
+    "id": "IRL_2019_6",
+    "article_id": "6",
+    "text_snippet": "1°. The President shall not be a member of either House of the Oireachtas. 2°. If a member of either House of the Oireachtas be elected President, he shall be deemed to have vacated his seat in that H",
+    "x": 10.467325210571289,
+    "y": 6.905627727508545,
+    "z": 7.091458320617676,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_7",
+    "article_id": "7",
+    "text_snippet": "The first President shall enter upon his office as soon as may be after his election, and every subsequent President shall enter upon his office on the day following the expiration of the term of offi",
+    "x": 10.02637767791748,
+    "y": 6.388821125030518,
+    "z": 7.374398231506348,
+    "global_cluster": 368,
+    "country_cluster": 1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "IRL_2019_8",
+    "article_id": "8",
+    "text_snippet": "The President shall enter upon his office by taking and subscribing publicly, in the presence of members of both Houses of the Oireachtas, of Judges of the Supreme Court, of the Court of Appeal and of",
+    "x": 9.010669708251953,
+    "y": 7.037933826446533,
+    "z": 6.477386951446533,
+    "global_cluster": -1,
+    "country_cluster": 0,
+    "cluster_probability": 0.0
+  },
+  {
+    "id": "IRL_2019_9",
+    "article_id": "9",
+    "text_snippet": "The President shall not leave the State during his term of office save with the consent of the Government.",
+    "x": 10.117717742919922,
+    "y": 6.552281856536865,
+    "z": 7.31996488571167,
+    "global_cluster": 294,
+    "country_cluster": 1,
+    "cluster_probability": 0.530367910861969
+  },
+  {
+    "id": "IRL_2019_Preamble",
+    "article_id": "Preamble",
+    "text_snippet": "Preamble In the Name of the Most Holy Trinity, from Whom is all authority and to Whom, as our final end, all actions both of men and States must be referred, We, the people of Éire, Humbly acknowledgi",
+    "x": 10.6148099899292,
+    "y": 6.942049026489258,
+    "z": 6.937997817993164,
+    "global_cluster": 63,
+    "country_cluster": 0,
+    "cluster_probability": 1.0
+  }
+]

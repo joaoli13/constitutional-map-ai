@@ -1,0 +1,123 @@
+[
+  {
+    "id": "USA_1992_Preamble",
+    "article_id": "Preamble",
+    "text_snippet": "Preamble We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and sec",
+    "x": 10.67955207824707,
+    "y": 6.565310955047607,
+    "z": 8.273066520690918,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_1",
+    "article_id": "Section 1",
+    "text_snippet": "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+    "x": 10.709457397460938,
+    "y": 6.5706963539123535,
+    "z": 8.291762351989746,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_10",
+    "article_id": "Section 10",
+    "text_snippet": "No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of",
+    "x": 10.710091590881348,
+    "y": 6.581464767456055,
+    "z": 8.275422096252441,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_2",
+    "article_id": "Section 2",
+    "text_snippet": "The House of Representatives shall be composed of Members chosen every second Year by the People of the several States, and the Electors in each State shall have the Qualifications requisite for Elect",
+    "x": 10.718899726867676,
+    "y": 6.57900333404541,
+    "z": 8.305009841918945,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_3",
+    "article_id": "Section 3",
+    "text_snippet": "The Senate of the United States shall be composed of two Senators from each State, chosen by the Legislature thereof, for six Years; and each Senator shall have one Vote. Immediately after they shall",
+    "x": 10.717814445495605,
+    "y": 6.583511829376221,
+    "z": 8.280224800109863,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_4",
+    "article_id": "Section 4",
+    "text_snippet": "The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter",
+    "x": 10.709650039672852,
+    "y": 6.605960369110107,
+    "z": 8.281773567199707,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_5",
+    "article_id": "Section 5",
+    "text_snippet": "Each House shall be the Judge of the Elections, Returns and Qualifications of its own Members, and a Majority of each shall constitute a Quorum to do Business; but a smaller Number may adjourn from da",
+    "x": 10.705394744873047,
+    "y": 6.645673751831055,
+    "z": 8.346330642700195,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 0.6369674801826477
+  },
+  {
+    "id": "USA_1992_Section_6",
+    "article_id": "Section 6",
+    "text_snippet": "The Senators and Representatives shall receive a Compensation for their Services, to be ascertained by Law, and paid out of the Treasury of the United States. They shall in all Cases, except Treason,",
+    "x": 10.742708206176758,
+    "y": 6.5932536125183105,
+    "z": 8.260700225830078,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_7",
+    "article_id": "Section 7",
+    "text_snippet": "All Bills for raising Revenue shall originate in the House of Representatives; but the Senate may propose or concur with Amendments as on other Bills. Every Bill which shall have passed the House of R",
+    "x": 10.708710670471191,
+    "y": 6.620866775512695,
+    "z": 8.314464569091797,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_8",
+    "article_id": "Section 8",
+    "text_snippet": "The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, to pay the Debts and provide for the common Defence and general Welfare of the United States; but all Duties, Impos",
+    "x": 10.719008445739746,
+    "y": 6.6087565422058105,
+    "z": 8.282626152038574,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  },
+  {
+    "id": "USA_1992_Section_9",
+    "article_id": "Section 9",
+    "text_snippet": "The Migration or Importation of such Persons as any of the States now existing shall think proper to admit, shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eig",
+    "x": 10.713321685791016,
+    "y": 6.606006622314453,
+    "z": 8.280000686645508,
+    "global_cluster": 206,
+    "country_cluster": -1,
+    "cluster_probability": 1.0
+  }
+]
