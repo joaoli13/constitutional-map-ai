@@ -23,26 +23,45 @@ export async function searchArticles(params: {
   limit: number;
 }): Promise<SearchResponse> {
   const sql = getNeonSql();
+
+  // Build WHERE conditions dynamically to avoid Neon HTTP driver issues
+  // with null array parameters in ANY($n) expressions.
+  const queryParams: (string | number)[] = [params.query];
+
+  let countryClause = "";
+  if (params.countries && params.countries.length > 0) {
+    // Pass as PostgreSQL array literal string — reliably handled by Neon HTTP driver.
+    queryParams.push(`{${params.countries.join(",")}}`);
+    countryClause = `AND country_code = ANY($${queryParams.length}::text[])`;
+  }
+
+  let clusterClause = "";
+  if (params.cluster !== null) {
+    queryParams.push(params.cluster);
+    clusterClause = `AND global_cluster = $${queryParams.length}`;
+  }
+
+  const selectParams = [...queryParams, params.limit];
   const rows = (await sql.query(
     `SELECT id, country_code, country_name, article_id, text_snippet,
             global_cluster, x, y, z,
             ts_rank(to_tsvector('english', text), query) AS rank
      FROM articles, plainto_tsquery('english', $1) query
      WHERE to_tsvector('english', text) @@ query
-       AND ($2::text[] IS NULL OR country_code = ANY($2))
-       AND ($3::int IS NULL OR global_cluster = $3)
+       ${countryClause}
+       ${clusterClause}
      ORDER BY rank DESC
-      LIMIT $4`,
-    [params.query, params.countries, params.cluster, params.limit],
+     LIMIT $${selectParams.length}`,
+    selectParams,
   )) as SearchResultRow[];
 
   const countRows = (await sql.query(
     `SELECT COUNT(*)::text AS count
      FROM articles, plainto_tsquery('english', $1) query
      WHERE to_tsvector('english', text) @@ query
-       AND ($2::text[] IS NULL OR country_code = ANY($2))
-       AND ($3::int IS NULL OR global_cluster = $3)`,
-    [params.query, params.countries, params.cluster],
+       ${countryClause}
+       ${clusterClause}`,
+    queryParams,
   )) as CountRow[];
 
   return {

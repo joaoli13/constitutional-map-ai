@@ -59,8 +59,11 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const hasCountrySelection = selectedCountries.length > 0;
   const countryColors = buildCountryPalette(selectedCountries);
   const loadedPoints = buildLoadedPoints(loadedCountryData, countryByCode);
+  const selectedCountriesSet = new Set(selectedCountries);
   const searchHighlightedPoints = hasCountrySelection && restrictSearchToSelectedCountries
-    ? searchResults.map(toSelectionPointFromSearchResult)
+    ? searchResults
+        .filter((r) => selectedCountriesSet.has(r.country_code))
+        .map(toSelectionPointFromSearchResult)
     : [];
   const effectiveSelectedPoint =
     selectedPoint && selectedCountries.includes(selectedPoint.country_code)

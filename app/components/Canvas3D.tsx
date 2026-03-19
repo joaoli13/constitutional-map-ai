@@ -173,6 +173,7 @@ export default function Canvas3D({
     const selectedSet = new Set(selectedCountries);
     const hasSelection = selectedCountries.length > 0;
     const searchHighlightIds = new Set(searchHighlightedPoints.map((point) => point.id));
+    const isSearchActive = searchHighlightIds.size > 0;
 
     const ghostPoints = hasSelection
       ? points.filter((p) => !selectedSet.has(p.country_code))
@@ -180,10 +181,9 @@ export default function Canvas3D({
     const activePoints = hasSelection
       ? points.filter((p) => selectedSet.has(p.country_code))
       : points;
-    const activeBackgroundPoints =
-      searchHighlightIds.size > 0
-        ? activePoints.filter((point) => !searchHighlightIds.has(point.id))
-        : activePoints;
+    const activeBackgroundPoints = isSearchActive
+      ? activePoints.filter((point) => !searchHighlightIds.has(point.id))
+      : activePoints;
 
     function makeTrace(
       pts: AtlasSelectionPoint[],
@@ -208,32 +208,31 @@ export default function Canvas3D({
       } as Partial<Plotly.ScatterData>;
     }
 
-    const searchHighlightTrace =
-      searchHighlightedPoints.length > 0
-        ? ({
-            type: "scatter3d",
-            mode: "markers",
-            x: searchHighlightedPoints.map((point) => point.x),
-            y: searchHighlightedPoints.map((point) => point.y),
-            z: searchHighlightedPoints.map((point) => point.z),
-            customdata: searchHighlightedPoints as unknown as Plotly.Datum[],
-            hovertext: searchHighlightedPoints.map((point) => formatHoverContent(point)),
-            hovertemplate: "%{hovertext}<extra></extra>",
-            marker: {
-              size: searchHighlightedPoints.map((point) => {
-                const baseSize = 2.5 + (point.cluster_probability ?? 0) * 4;
-                return Math.max(baseSize * 2.2, 9);
-              }),
-              color: "#facc15",
-              opacity: 1,
-              line: {
-                width: 3.5,
-                color: "#111827",
-              },
+    const searchHighlightTrace = isSearchActive
+      ? ({
+          type: "scatter3d",
+          mode: "markers",
+          x: searchHighlightedPoints.map((point) => point.x),
+          y: searchHighlightedPoints.map((point) => point.y),
+          z: searchHighlightedPoints.map((point) => point.z),
+          customdata: searchHighlightedPoints as unknown as Plotly.Datum[],
+          hovertext: searchHighlightedPoints.map((point) => formatHoverContent(point)),
+          hovertemplate: "%{hovertext}<extra></extra>",
+          marker: {
+            size: searchHighlightedPoints.map((point) => {
+              const baseSize = 2.5 + (point.cluster_probability ?? 0) * 4;
+              return Math.max(baseSize * 2.2, 9);
+            }),
+            color: searchHighlightedPoints.map((point) => resolveColor(point)),
+            opacity: 1,
+            line: {
+              width: 2.5,
+              color: "rgba(255,255,255,0.85)",
             },
-            showlegend: false,
-          } as Partial<Plotly.ScatterData>)
-        : null;
+          },
+          showlegend: false,
+        } as Partial<Plotly.ScatterData>)
+      : null;
 
     const highlightTrace = selectedPoint
       ? ({
@@ -282,8 +281,8 @@ export default function Canvas3D({
     );
 
     return [
-      makeTrace(ghostPoints, 0.12),
-      makeTrace(activeBackgroundPoints, searchHighlightIds.size > 0 ? 0.4 : 0.88),
+      makeTrace(ghostPoints, isSearchActive ? 0.03 : 0.12),
+      makeTrace(activeBackgroundPoints, isSearchActive ? 0.1 : 0.88),
       ...(searchHighlightTrace ? [searchHighlightTrace] : []),
       ...(highlightTrace ? [highlightTrace] : []),
       ...centroidLabelTraces,
