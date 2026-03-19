@@ -5,16 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "npm install --include=optional && next build",
     "start": "next start",
     "lint": "eslint",
     "test:integration": "node --test tests/search.integration.test.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
-    "@vercel/analytics": "^1.5.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
+    "@vercel/analytics": "^1.5.0",
     "next": "16.1.7",
     "next-intl": "^4.8.3",
     "plotly.js-dist-min": "^3.4.0",
@@ -38,7 +37,5 @@
     "eslint-config-next": "16.1.7",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "optionalDependencies": {}
-
+  }
 }
