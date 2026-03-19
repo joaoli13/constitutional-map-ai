@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npm install --include=optional && next build",
     "start": "next start",
     "lint": "eslint",
     "test:integration": "node --test tests/search.integration.test.mjs"
