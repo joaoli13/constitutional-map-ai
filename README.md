@@ -2,7 +2,7 @@
 
 A global semantic map of constitutional law — 193 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
 
-**Live app → [tca-mu.vercel.app](https://tca-mu.vercel.app)**
+**Live app → [constitutionalmap.ai](https://constitutionalmap.ai)**
 
 ---
 
@@ -85,10 +85,10 @@ M1 Scraper     →  fetch constitutional texts from constituteproject.org
 M2 Segmenter   →  split into articles, validate, write CSV
 M3 Embedder    →  Google Gemini text-embedding-004 (768D), cache to Parquet
 M4 Clusterer   →  UMAP 50D (clustering) + 3D (viz), HDBSCAN global + per-country
-M4.5 Exporter  →  static JSON for Vercel CDN + upsert to Neon PostgreSQL
+M4.5 Exporter  →  static JSON for CDN + upsert to Neon PostgreSQL
 ```
 
-The generated `app/public/data/` is committed to the repository and served directly by Vercel's CDN. Full article texts stay behind the Neon-backed API, which also powers full-text search.
+The generated `app/public/data/` is committed to the repository and served directly via CDN. Full article texts stay behind the Neon-backed API, which also powers full-text search.
 
 ---
 
