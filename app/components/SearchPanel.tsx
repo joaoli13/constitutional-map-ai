@@ -168,8 +168,8 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         <div className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[11px] text-slate-600">
           <p className="font-medium text-slate-700">{t("advancedSearchDesc")}</p>
           <pre className="mt-2 overflow-x-auto rounded-xl bg-white px-3 py-2.5 font-mono text-[10.5px] leading-5 text-slate-800 ring-1 ring-slate-200">{
-`("supreme court" OR "constitutional court")
-AND (appoint OR nominate OR elect)
+`((supreme OR constitutional) AND (court OR tribunal))
+AND (appoint* OR nomina* OR elect*)
 AND (president OR senate OR parliament)`
           }</pre>
           <button
@@ -177,7 +177,7 @@ AND (president OR senate OR parliament)`
             type="button"
             disabled={isSearching}
             onClick={() => {
-              const example = `("supreme court" OR "constitutional court") AND (appoint OR nominate OR elect) AND (president OR senate OR parliament)`;
+              const example = `((supreme OR constitutional) AND (court OR tribunal)) AND (appoint* OR nomina* OR elect*) AND (president OR senate OR parliament)`;
               setQuery(example);
               setShowAdvancedHelp(false);
               void runSearch(example);

@@ -28,7 +28,8 @@ function toTsqueryExpression(input: string): string {
     .replace(/\bOR\b/gi, "|")
     .replace(/"([^"]+)"/g, (_, phrase: string) =>
       phrase.trim().split(/\s+/).join(" <-> "),
-    );
+    )
+    .replace(/(\w+)\*/g, "$1:*");
 }
 
 export async function searchArticles(params: {
