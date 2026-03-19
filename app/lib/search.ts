@@ -16,6 +16,21 @@ type CountRow = {
   count: string;
 };
 
+function detectQueryMode(input: string): "advanced" | "simple" {
+  const hasParens = /[()]/.test(input);
+  const hasBooleanOps = /\b(AND|OR)\b/i.test(input);
+  return hasParens && hasBooleanOps ? "advanced" : "simple";
+}
+
+function toTsqueryExpression(input: string): string {
+  return input
+    .replace(/\bAND\b/gi, "&")
+    .replace(/\bOR\b/gi, "|")
+    .replace(/"([^"]+)"/g, (_, phrase: string) =>
+      phrase.trim().split(/\s+/).join(" <-> "),
+    );
+}
+
 export async function searchArticles(params: {
   query: string;
   countries: string[] | null;
@@ -24,9 +39,15 @@ export async function searchArticles(params: {
 }): Promise<SearchResponse> {
   const sql = getNeonSql();
 
+  const mode = detectQueryMode(params.query);
+  const broadExpr = mode === "advanced" ? toTsqueryExpression(params.query) : params.query;
+  const broadFn = mode === "advanced" ? "to_tsquery" : "websearch_to_tsquery";
+
   // Build WHERE conditions dynamically to avoid Neon HTTP driver issues
   // with null array parameters in ANY($n) expressions.
-  const queryParams: (string | number)[] = [params.query];
+  // $1 = original query (for phraseto_tsquery and fallback)
+  // $2 = broad expression (may equal $1 in simple mode)
+  const queryParams: (string | number)[] = [params.query, broadExpr];
 
   let countryClause = "";
   if (params.countries && params.countries.length > 0) {
@@ -41,27 +62,82 @@ export async function searchArticles(params: {
     clusterClause = `AND global_cluster = $${queryParams.length}`;
   }
 
-  const selectParams = [...queryParams, params.limit];
-  const rows = (await sql.query(
-    `SELECT id, country_code, country_name, article_id, text_snippet,
-            global_cluster, x, y, z,
-            ts_rank(to_tsvector('english', text), query) AS rank
-     FROM articles, plainto_tsquery('english', $1) query
-     WHERE to_tsvector('english', text) @@ query
-       ${countryClause}
-       ${clusterClause}
-     ORDER BY rank DESC
-     LIMIT $${selectParams.length}`,
-    selectParams,
-  )) as SearchResultRow[];
+  // Track whether we fell back to simple mode so COUNT uses the same tsquery function.
+  let resolvedBroadFn = broadFn;
+  let resolvedBroadExpr = broadExpr;
+
+  let rows: SearchResultRow[];
+  try {
+    const selectParams = [...queryParams, params.limit];
+    rows = (await sql.query(
+      `WITH q AS (
+         SELECT
+           phraseto_tsquery('english', $1::text)    AS phrase_q,
+           ${broadFn}('english', $2::text)          AS broad_q
+       )
+       SELECT id, country_code, country_name, article_id, text_snippet,
+              global_cluster, x, y, z,
+              (
+                4 * ts_rank_cd(search_tsv, q.phrase_q) +
+                1 * ts_rank_cd(search_tsv, q.broad_q)
+              ) AS rank
+       FROM articles, q
+       WHERE search_tsv @@ q.broad_q
+         ${countryClause}
+         ${clusterClause}
+       ORDER BY rank DESC, year DESC
+       LIMIT $${selectParams.length}`,
+      selectParams,
+    )) as SearchResultRow[];
+  } catch (err) {
+    // to_tsquery raised on malformed advanced input — fall back to simple mode
+    console.warn("[search] advanced query failed, falling back to websearch_to_tsquery:", params.query, err);
+    resolvedBroadFn = "websearch_to_tsquery";
+    resolvedBroadExpr = params.query;
+    const fallbackParams = [...queryParams.slice(0, 1), params.query, ...queryParams.slice(2), params.limit] as (string | number)[];
+    rows = (await sql.query(
+      `WITH q AS (
+         SELECT
+           phraseto_tsquery('english', $1::text)        AS phrase_q,
+           websearch_to_tsquery('english', $2::text)    AS broad_q
+       )
+       SELECT id, country_code, country_name, article_id, text_snippet,
+              global_cluster, x, y, z,
+              (
+                4 * ts_rank_cd(search_tsv, q.phrase_q) +
+                1 * ts_rank_cd(search_tsv, q.broad_q)
+              ) AS rank
+       FROM articles, q
+       WHERE search_tsv @@ q.broad_q
+         ${countryClause}
+         ${clusterClause}
+       ORDER BY rank DESC, year DESC
+       LIMIT $${fallbackParams.length}`,
+      fallbackParams,
+    )) as SearchResultRow[];
+  }
+
+  // COUNT uses $1 = resolvedBroadExpr only — no unused params.
+  const countParams: (string | number)[] = [resolvedBroadExpr];
+  let countCountryClause = "";
+  if (params.countries && params.countries.length > 0) {
+    countParams.push(`{${params.countries.join(",")}}`);
+    countCountryClause = `AND country_code = ANY($${countParams.length}::text[])`;
+  }
+  let countClusterClause = "";
+  if (params.cluster !== null) {
+    countParams.push(params.cluster);
+    countClusterClause = `AND global_cluster = $${countParams.length}`;
+  }
 
   const countRows = (await sql.query(
-    `SELECT COUNT(*)::text AS count
-     FROM articles, plainto_tsquery('english', $1) query
-     WHERE to_tsvector('english', text) @@ query
-       ${countryClause}
-       ${clusterClause}`,
-    queryParams,
+    `WITH q AS (SELECT ${resolvedBroadFn}('english', $1::text) AS broad_q)
+     SELECT COUNT(*)::text AS count
+     FROM articles, q
+     WHERE search_tsv @@ q.broad_q
+       ${countCountryClause}
+       ${countClusterClause}`,
+    countParams,
   )) as CountRow[];
 
   return {

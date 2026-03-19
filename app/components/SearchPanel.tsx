@@ -1,9 +1,10 @@
 "use client";
 
-import {FormEvent, useEffect, useState} from "react";
+import {KeyboardEvent, useEffect, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 
 import {useFullscreen} from "@/hooks/useFullscreen";
+import {highlightTerms} from "@/lib/highlight";
 import {useAppStore} from "@/stores/appStore";
 import type {SearchResponse, SearchResult} from "@/lib/types";
 
@@ -20,6 +21,7 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
     (state) => state.restrictSearchToSelectedCountries,
   );
   const setSearchResults = useAppStore((state) => state.setSearchResults);
+  const setLastSearchQuery = useAppStore((state) => state.setLastSearchQuery);
   const setRestrictSearchToSelectedCountries = useAppStore(
     (state) => state.setRestrictSearchToSelectedCountries,
   );
@@ -27,22 +29,23 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [resultCount, setResultCount] = useState<number | null>(null);
+  const [showAdvancedHelp, setShowAdvancedHelp] = useState(false);
   const hasSelectedCountries = selectedCountries.length > 0;
   const hasActiveSearch = query.trim().length > 0 || searchResults.length > 0 || resultCount !== null;
+  const prevHasCountries = useRef(hasSelectedCountries);
 
   useEffect(() => {
-    if (!hasSelectedCountries && restrictSearchToSelectedCountries) {
+    if (!hasSelectedCountries) {
       setRestrictSearchToSelectedCountries(false);
+      prevHasCountries.current = false;
+    } else if (!prevHasCountries.current) {
+      setRestrictSearchToSelectedCountries(true);
+      prevHasCountries.current = true;
     }
-  }, [
-    hasSelectedCountries,
-    restrictSearchToSelectedCountries,
-    setRestrictSearchToSelectedCountries,
-  ]);
+  }, [hasSelectedCountries, setRestrictSearchToSelectedCountries]);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const normalized = query.trim();
+  async function runSearch(text: string) {
+    const normalized = text.trim();
     if (!normalized) {
       setSearchResults([]);
       setResultCount(null);
@@ -58,15 +61,14 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         params.set("countries", selectedCountries.join(","));
       }
 
-      const response = await fetch(
-        `/api/search?${params.toString()}`,
-      );
+      const response = await fetch(`/api/search?${params.toString()}`);
       if (!response.ok) {
         throw new Error(`Search failed with status ${response.status}`);
       }
 
       const payload = (await response.json()) as SearchResponse;
       setSearchResults(payload.results);
+      setLastSearchQuery(normalized);
       setResultCount(payload.total);
     } catch (searchError) {
       console.error("Search request failed", searchError);
@@ -78,11 +80,24 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
     }
   }
 
+  function handleSubmit(event: {preventDefault(): void}) {
+    event.preventDefault();
+    void runSearch(query);
+  }
+
+  function handleTextareaKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      void runSearch(query);
+    }
+  }
+
   function handleClearSearch() {
     setQuery("");
     setError(null);
     setResultCount(null);
     setSearchResults([]);
+    setLastSearchQuery("");
   }
 
   return (
@@ -111,11 +126,13 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
       </div>
 
       <form className="mt-3 flex gap-2" onSubmit={handleSubmit}>
-        <input
-          className="min-w-0 flex-1 rounded-2xl border border-slate-300 bg-[#f7f4ee] px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+        <textarea
+          className="min-w-0 flex-1 resize-none rounded-2xl border border-slate-300 bg-[#f7f4ee] px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-500"
           placeholder={t("placeholder")}
+          rows={2}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
+          onKeyDown={handleTextareaKeyDown}
         />
         <button
           className="flex-shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-40"
@@ -134,8 +151,41 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         </button>
       </form>
 
-      {t("languageHint") && (
-        <p className="mt-2 text-[11px] text-slate-400">{t("languageHint")}</p>
+      <div className="mt-2 flex items-center gap-3">
+        {t("languageHint") && (
+          <p className="text-[11px] text-slate-400">{t("languageHint")}</p>
+        )}
+        <button
+          className="ml-auto flex-shrink-0 text-[11px] text-slate-400 underline-offset-2 hover:text-slate-600 hover:underline"
+          type="button"
+          onClick={() => setShowAdvancedHelp((v) => !v)}
+        >
+          {t("advancedSearchToggle")} {showAdvancedHelp ? "▴" : "▾"}
+        </button>
+      </div>
+
+      {showAdvancedHelp && (
+        <div className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[11px] text-slate-600">
+          <p className="font-medium text-slate-700">{t("advancedSearchDesc")}</p>
+          <pre className="mt-2 overflow-x-auto rounded-xl bg-white px-3 py-2.5 font-mono text-[10.5px] leading-5 text-slate-800 ring-1 ring-slate-200">{
+`("supreme court" OR "constitutional court")
+AND (appoint OR nominate OR elect)
+AND (president OR senate OR parliament)`
+          }</pre>
+          <button
+            className="mt-2 rounded-lg bg-slate-950 px-3 py-1 text-[11px] font-medium text-white transition hover:bg-slate-700 disabled:opacity-50"
+            type="button"
+            disabled={isSearching}
+            onClick={() => {
+              const example = `("supreme court" OR "constitutional court") AND (appoint OR nominate OR elect) AND (president OR senate OR parliament)`;
+              setQuery(example);
+              setShowAdvancedHelp(false);
+              void runSearch(example);
+            }}
+          >
+            {isSearching ? "…" : t("advancedSearchTryExample")}
+          </button>
+        </div>
       )}
 
       <label
@@ -215,30 +265,3 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
   );
 }
 
-function highlightTerms(text: string, query: string) {
-  const terms = query
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean);
-  if (terms.length === 0) {
-    return text;
-  }
-
-  const pattern = new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gi");
-  const parts = text.split(pattern);
-
-  return parts.map((part, index) =>
-    terms.includes(part.toLowerCase()) ? (
-      <mark key={`${part}-${index}`} className="rounded bg-amber-200 px-1 text-slate-950">
-        {part}
-      </mark>
-    ) : (
-      <span key={`${part}-${index}`}>{part}</span>
-    ),
-  );
-}
-
-function escapeRegExp(value: string) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}

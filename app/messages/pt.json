@@ -92,7 +92,10 @@
       "resultsCount": "{count, plural, =0 {0 segmentos encontrados} one {# segmento encontrado} other {# segmentos encontrados}}",
       "loading": "Buscando...",
       "empty": "Execute uma busca para ver artigos ranqueados.",
-      "error": "A busca está temporariamente indisponível."
+      "error": "A busca está temporariamente indisponível.",
+      "advancedSearchToggle": "Busca avançada",
+      "advancedSearchDesc": "Use AND, OR e aspas para frases exatas. Agrupe termos com parênteses.",
+      "advancedSearchTryExample": "Usar este exemplo"
     },
     "Canvas": {
       "eyebrow": "Espaço Semântico 3D",

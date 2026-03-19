@@ -6,6 +6,8 @@ import {useTranslations} from "next-intl";
 
 import {useFullscreen} from "@/hooks/useFullscreen";
 import {colorForCluster} from "@/lib/colors";
+import {highlightTerms} from "@/lib/highlight";
+import {useAppStore} from "@/stores/appStore";
 import type {ArticleDetail, AtlasSelectionPoint, ColorMode} from "@/lib/types";
 
 type Point3D = Pick<AtlasSelectionPoint, "x" | "y" | "z">;
@@ -70,6 +72,7 @@ export default function Canvas3D({
 }: Canvas3DProps) {
   const t = useTranslations("Atlas.Canvas");
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
+  const lastSearchQuery = useAppStore((state) => state.lastSearchQuery);
   const graphDivRef = useRef<HTMLElement | null>(null);
   const plotlyRef = useRef<typeof import("plotly.js-dist-min") | null>(null);
   const [hoveredPoint, setHoveredPoint] = useState<AtlasSelectionPoint | null>(null);
@@ -513,7 +516,9 @@ export default function Canvas3D({
                   <p className="text-sm text-slate-400">{t("detailLoading")}</p>
                 ) : (
                   <p className="whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                    {articleDetail?.text ?? selectedPoint.text_snippet}
+                    {lastSearchQuery
+                      ? highlightTerms(articleDetail?.text ?? selectedPoint.text_snippet, lastSearchQuery)
+                      : (articleDetail?.text ?? selectedPoint.text_snippet)}
                   </p>
                 )}
               </div>

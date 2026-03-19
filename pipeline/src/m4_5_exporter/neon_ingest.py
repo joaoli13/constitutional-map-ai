@@ -28,14 +28,15 @@ CREATE TABLE IF NOT EXISTS articles (
     global_cluster INTEGER NOT NULL,
     x REAL NOT NULL,
     y REAL NOT NULL,
-    z REAL NOT NULL
+    z REAL NOT NULL,
+    search_tsv tsvector GENERATED ALWAYS AS (to_tsvector('english', coalesce(text, ''))) STORED
 );
 """
 
 CREATE_INDEX_SQL = """
-CREATE INDEX IF NOT EXISTS articles_text_tsv_idx
+CREATE INDEX IF NOT EXISTS articles_search_tsv_idx
 ON articles
-USING GIN (to_tsvector('english', text));
+USING GIN (search_tsv);
 """
 
 UPSERT_SQL = """

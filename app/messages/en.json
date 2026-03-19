@@ -92,7 +92,10 @@
       "resultsCount": "{count, plural, =0 {0 segments found} one {# segment found} other {# segments found}}",
       "loading": "Searching...",
       "empty": "Run a search to see ranked article matches.",
-      "error": "Search is temporarily unavailable."
+      "error": "Search is temporarily unavailable.",
+      "advancedSearchToggle": "Advanced search",
+      "advancedSearchDesc": "Use AND, OR and quotes for exact phrases. Group terms with parentheses.",
+      "advancedSearchTryExample": "Try this example"
     },
     "Canvas": {
       "eyebrow": "3D Semantic Space",

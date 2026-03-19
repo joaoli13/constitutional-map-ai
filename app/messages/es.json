@@ -92,7 +92,10 @@
       "resultsCount": "{count, plural, =0 {0 segmentos encontrados} one {# segmento encontrado} other {# segmentos encontrados}}",
       "loading": "Buscando...",
       "empty": "Ejecuta una búsqueda para ver coincidencias de artículos ordenadas.",
-      "error": "La búsqueda no está disponible temporalmente."
+      "error": "La búsqueda no está disponible temporalmente.",
+      "advancedSearchToggle": "Búsqueda avanzada",
+      "advancedSearchDesc": "Usa AND, OR y comillas para frases exactas. Agrupa términos con paréntesis.",
+      "advancedSearchTryExample": "Usar este ejemplo"
     },
     "Canvas": {
       "eyebrow": "Espacio Semántico 3D",
