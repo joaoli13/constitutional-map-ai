@@ -53,7 +53,7 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
     setError(null);
 
     try {
-      const params = new URLSearchParams({q: normalized, limit: "20"});
+      const params = new URLSearchParams({q: normalized, limit: "70"});
       if (restrictSearchToSelectedCountries && hasSelectedCountries) {
         params.set("countries", selectedCountries.join(","));
       }
