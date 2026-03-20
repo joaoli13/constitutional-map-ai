@@ -79,7 +79,7 @@
       "statusReady": "cached"
     },
     "Search": {
-      "eyebrow": "Search",
+      "eyebrow": "KEYWORD SEARCH",
       "title": "Search the full constitutional corpus.",
       "enterFullscreen": "Full screen",
       "exitFullscreen": "Exit full screen",
@@ -89,13 +89,29 @@
       "submit": "Search",
       "restrictToSelectedAndHighlight": "Restrict search to the {count, plural, one {# selected country} other {# selected countries}} and highlight the results in the 3D map",
       "restrictToSelectedDisabled": "Select one or more countries to restrict the search.",
-      "resultsCount": "{count, plural, =0 {0 segments found} one {# segment found} other {# segments found}}",
+      "resultsCount": "{shown} of {total} segments",
       "loading": "Searching...",
       "empty": "Run a search to see ranked article matches.",
       "error": "Search is temporarily unavailable.",
       "advancedSearchToggle": "Advanced search",
       "advancedSearchDesc": "Use AND, OR and quotes for exact phrases. Group terms with parentheses.",
       "advancedSearchTryExample": "Try this example"
+    },
+    "SemanticSearch": {
+      "eyebrow": "SEMANTIC SEARCH",
+      "title": "Retrieve neighboring concepts across the corpus.",
+      "enterFullscreen": "Full screen",
+      "exitFullscreen": "Exit full screen",
+      "placeholder": "Try judicial independence, decentralization, social rights...",
+      "languageHint": "Queries may be written in any language, but English usually works best against this corpus.",
+      "clear": "Clear",
+      "submit": "Retrieve",
+      "restrictToSelectedAndHighlight": "Restrict retrieval to the {count, plural, one {# selected country} other {# selected countries}} and highlight the results in the 3D map",
+      "restrictToSelectedDisabled": "Select one or more countries to restrict retrieval.",
+      "resultsCount": "{shown} of {total} candidate segments",
+      "empty": "Run a semantic search to inspect nearby constitutional segments.",
+      "error": "Semantic search is temporarily unavailable.",
+      "scoreLabel": "Similarity"
     },
     "Canvas": {
       "eyebrow": "3D Semantic Space",

@@ -2,16 +2,15 @@
 
 import {
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
-  type CSSProperties,
 } from "react";
 import {useTranslations} from "next-intl";
 
 import Canvas3D from "@/components/Canvas3D";
 import ControlPanel from "@/components/ControlPanel";
 import SearchPanel from "@/components/SearchPanel";
+import SemanticSearchPanel from "@/components/SemanticSearchPanel";
 import StatsPanel from "@/components/StatsPanel";
 import WorldMap from "@/components/WorldMap";
 import {buildCountryPalette} from "@/lib/colors";
@@ -23,6 +22,7 @@ import type {
   AtlasSelectionPoint,
   ClusterSummary,
   CountryPoint,
+  SemanticSearchResult,
   SearchResult,
 } from "@/lib/types";
 
@@ -33,11 +33,11 @@ type AtlasClientProps = {
 
 export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const t = useTranslations("Atlas");
-  const leftColumnRef = useRef<HTMLDivElement | null>(null);
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const loadedCountryData = useAppStore((state) => state.loadedCountryData);
   const selectedPoint = useAppStore((state) => state.selectedPoint);
   const searchResults = useAppStore((state) => state.searchResults);
+  const semanticSearchResults = useAppStore((state) => state.semanticSearchResults);
   const restrictSearchToSelectedCountries = useAppStore(
     (state) => state.restrictSearchToSelectedCountries,
   );
@@ -48,7 +48,6 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const setSelectedPoint = useAppStore((state) => state.setSelectedPoint);
   const setColorMode = useAppStore((state) => state.setColorMode);
   const {loadingCountries, errorCountry} = useCountryData(selectedCountries);
-  const [controlPanelHeight, setControlPanelHeight] = useState<number | null>(null);
   const [articleDetail, setArticleDetail] = useState<ArticleDetail | null>(null);
   const [isArticleLoading, setIsArticleLoading] = useState(false);
   const articleCache = useRef<Record<string, ArticleDetail>>({});
@@ -61,9 +60,18 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const loadedPoints = buildLoadedPoints(loadedCountryData, countryByCode);
   const selectedCountriesSet = new Set(selectedCountries);
   const searchHighlightedPoints = hasCountrySelection && restrictSearchToSelectedCountries
-    ? searchResults
-        .filter((r) => selectedCountriesSet.has(r.country_code))
-        .map(toSelectionPointFromSearchResult)
+    ? Array.from(
+        new Map(
+          [...searchResults, ...semanticSearchResults]
+            .filter((result) => selectedCountriesSet.has(result.country_code))
+            .map((result) => [
+              result.id,
+              "score" in result
+                ? toSelectionPointFromSemanticSearchResult(result)
+                : toSelectionPointFromSearchResult(result),
+            ]),
+        ).values(),
+      )
     : [];
   const effectiveSelectedPoint =
     selectedPoint && selectedCountries.includes(selectedPoint.country_code)
@@ -72,31 +80,6 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const selectedCountryRecords = selectedCountries
     .map((countryCode) => countryByCode[countryCode])
     .filter(Boolean);
-
-  useLayoutEffect(() => {
-    const node = leftColumnRef.current;
-    if (!node || typeof ResizeObserver === "undefined") {
-      return;
-    }
-
-    const updateHeight = () => {
-      const nextHeight = Math.ceil(node.getBoundingClientRect().height);
-      setControlPanelHeight((currentHeight) =>
-        currentHeight === nextHeight ? currentHeight : nextHeight,
-      );
-    };
-
-    updateHeight();
-
-    const observer = new ResizeObserver(() => {
-      updateHeight();
-    });
-    observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -179,11 +162,15 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
     handleSelectPoint(toSelectionPointFromSearchResult(result));
   }
 
+  function handleSelectSemanticSearchResult(result: SemanticSearchResult) {
+    handleSelectPoint(toSelectionPointFromSemanticSearchResult(result));
+  }
+
   return (
-    <main className="mx-auto flex w-full max-w-[1500px] flex-col gap-6 px-6 pb-16 pt-7">
-      <section className="grid gap-6 xl:grid-cols-[1.18fr_0.82fr] xl:items-start">
-        <div ref={leftColumnRef} className="flex flex-col gap-5">
-          <div className="min-h-0 flex-1">
+    <main className="mx-auto flex w-full max-w-[1560px] flex-col gap-6 px-6 pb-16 pt-7">
+      <section className="flex flex-col gap-6">
+        <div className="grid gap-6 xl:grid-cols-12">
+          <div className="min-h-0 xl:col-span-7 xl:h-[39rem] 2xl:h-[41rem]">
             <WorldMap
               countries={atlasIndex.countries}
               selectedCountries={selectedCountries}
@@ -192,28 +179,22 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
               onToggleCountry={toggleCountrySelection}
             />
           </div>
-          <SearchPanel onSelectResult={handleSelectSearchResult} />
+          <div className="min-h-0 xl:col-span-5 xl:h-[39rem] 2xl:h-[41rem]">
+            <ControlPanel
+              countries={atlasIndex.countries}
+              selectedCountries={selectedCountries}
+              loadingCountries={loadingCountries}
+              globalClusterCount={clusters.length}
+              countryColors={countryColors}
+              onToggleCountry={toggleCountrySelection}
+              onAddCountries={addCountries}
+              onClearCountries={clearCountrySelection}
+            />
+          </div>
         </div>
-        <div
-          className="min-h-0 xl:h-[var(--control-panel-height)]"
-          style={
-            controlPanelHeight === null
-              ? undefined
-              : ({
-                  "--control-panel-height": `${controlPanelHeight}px`,
-                } as CSSProperties)
-          }
-        >
-          <ControlPanel
-            countries={atlasIndex.countries}
-            selectedCountries={selectedCountries}
-            loadingCountries={loadingCountries}
-            globalClusterCount={clusters.length}
-            countryColors={countryColors}
-            onToggleCountry={toggleCountrySelection}
-            onAddCountries={addCountries}
-            onClearCountries={clearCountrySelection}
-          />
+        <div className="grid gap-6 xl:grid-cols-2">
+          <SearchPanel onSelectResult={handleSelectSearchResult} />
+          <SemanticSearchPanel onSelectResult={handleSelectSemanticSearchResult} />
         </div>
       </section>
 
@@ -271,6 +252,7 @@ function buildLoadedPoints(
         country_cluster: point.country_cluster,
         cluster_probability: point.cluster_probability,
         rank: null,
+        semantic_score: null,
       });
     }
   }
@@ -292,5 +274,26 @@ function toSelectionPointFromSearchResult(result: SearchResult): AtlasSelectionP
     country_cluster: null,
     cluster_probability: null,
     rank: result.rank,
+    semantic_score: null,
+  };
+}
+
+function toSelectionPointFromSemanticSearchResult(
+  result: SemanticSearchResult,
+): AtlasSelectionPoint {
+  return {
+    id: result.id,
+    article_id: result.article_id,
+    text_snippet: result.text_snippet,
+    country_code: result.country_code,
+    country_name: result.country_name,
+    x: result.x - UMAP_CENTER.x,
+    y: result.y - UMAP_CENTER.y,
+    z: result.z - UMAP_CENTER.z,
+    global_cluster: result.global_cluster,
+    country_cluster: null,
+    cluster_probability: null,
+    rank: null,
+    semantic_score: result.score,
   };
 }

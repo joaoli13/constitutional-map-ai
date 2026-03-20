@@ -146,7 +146,7 @@ export default function ControlPanel({
         </select>
       </div>
 
-      <div className="mt-4 flex min-h-0 flex-1 flex-col space-y-3">
+      <div className="mt-4 flex min-h-0 flex-1 flex-col gap-3">
         <div className="max-h-[84px] overflow-y-auto pr-1">
           <div className="flex flex-wrap gap-1.5">
           {selectedCountries.length === 0 ? (
@@ -180,7 +180,7 @@ export default function ControlPanel({
           </div>
         </div>
 
-        <div className="max-h-[320px] space-y-1.5 overflow-y-auto pr-0.5 sm:max-h-[380px] xl:min-h-[300px] xl:flex-1 xl:max-h-none">
+        <div className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-0.5">
           {filteredCountries.map((country) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);

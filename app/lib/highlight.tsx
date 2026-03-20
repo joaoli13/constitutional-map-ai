@@ -1,26 +1,16 @@
 import type {ReactNode} from "react";
-
-const STOPWORDS = new Set([
-  "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
-  "of", "with", "by", "from", "is", "are", "was", "were", "be", "been",
-  "being", "have", "has", "had", "do", "does", "did", "will", "would",
-  "could", "should", "may", "might", "shall", "can", "not", "no", "nor",
-  "so", "yet", "as", "if", "that", "this", "these", "those", "it", "its",
-  "he", "she", "they", "we", "you", "i", "me", "him", "her", "us", "them",
-]);
+import {getHighlightTerms, type HighlightMode} from "./highlight-terms";
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-export function highlightTerms(text: string, query: string): ReactNode {
-  const terms = query
-    .replace(/["()]/g, " ")
-    .replace(/\b(AND|OR|NOT)\b/gi, " ")
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter((t) => t.length > 1 && !STOPWORDS.has(t));
+export function highlightTerms(
+  text: string,
+  query: string,
+  mode: HighlightMode = "structured",
+): ReactNode {
+  const terms = getHighlightTerms(query, mode);
 
   if (terms.length === 0) return text;
 

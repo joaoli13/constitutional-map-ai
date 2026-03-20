@@ -79,7 +79,7 @@
       "statusReady": "en caché"
     },
     "Search": {
-      "eyebrow": "Búsqueda",
+      "eyebrow": "KEYWORD SEARCH",
       "title": "Busca en todo el corpus constitucional.",
       "enterFullscreen": "Pantalla completa",
       "exitFullscreen": "Salir de pantalla completa",
@@ -89,13 +89,29 @@
       "submit": "Buscar",
       "restrictToSelectedAndHighlight": "Restringir la búsqueda a los {count, plural, one {# país seleccionado} other {# países seleccionados}} y destacar los resultados en el mapa 3D",
       "restrictToSelectedDisabled": "Selecciona uno o más países para restringir la búsqueda.",
-      "resultsCount": "{count, plural, =0 {0 segmentos encontrados} one {# segmento encontrado} other {# segmentos encontrados}}",
+      "resultsCount": "{shown} de {total} segmentos",
       "loading": "Buscando...",
       "empty": "Ejecuta una búsqueda para ver coincidencias de artículos ordenadas.",
       "error": "La búsqueda no está disponible temporalmente.",
       "advancedSearchToggle": "Búsqueda avanzada",
       "advancedSearchDesc": "Usa AND, OR y comillas para frases exactas. Agrupa términos con paréntesis.",
       "advancedSearchTryExample": "Usar este ejemplo"
+    },
+    "SemanticSearch": {
+      "eyebrow": "SEMANTIC SEARCH",
+      "title": "Recupera vecinos conceptuales en todo el corpus.",
+      "enterFullscreen": "Pantalla completa",
+      "exitFullscreen": "Salir de pantalla completa",
+      "placeholder": "Prueba judicial independence, decentralization, social rights...",
+      "languageHint": "Las consultas pueden escribirse en cualquier idioma, pero el inglés suele funcionar mejor en este corpus.",
+      "clear": "Limpiar",
+      "submit": "Recuperar",
+      "restrictToSelectedAndHighlight": "Restringir la recuperación a los {count, plural, one {# país seleccionado} other {# países seleccionados}} y destacar los resultados en el mapa 3D",
+      "restrictToSelectedDisabled": "Selecciona uno o más países para restringir la recuperación.",
+      "resultsCount": "{shown} de {total} segmentos candidatos",
+      "empty": "Ejecuta una búsqueda semántica para inspeccionar segmentos constitucionales cercanos.",
+      "error": "La búsqueda semántica no está disponible temporalmente.",
+      "scoreLabel": "Similitud"
     },
     "Canvas": {
       "eyebrow": "Espacio Semántico 3D",

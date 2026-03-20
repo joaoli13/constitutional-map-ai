@@ -7,22 +7,28 @@ import {useFullscreen} from "@/hooks/useFullscreen";
 import {highlightTerms} from "@/lib/highlight";
 import {SEARCH_PANEL_LIMIT} from "@/lib/search-config";
 import {useAppStore} from "@/stores/appStore";
-import type {SearchResponse, SearchResult} from "@/lib/types";
+import type {SemanticSearchResponse, SemanticSearchResult} from "@/lib/types";
 
-type SearchPanelProps = {
-  onSelectResult: (result: SearchResult) => void;
+type SemanticSearchPanelProps = {
+  onSelectResult: (result: SemanticSearchResult) => void;
 };
 
-export default function SearchPanel({onSelectResult}: SearchPanelProps) {
-  const t = useTranslations("Atlas.Search");
+export default function SemanticSearchPanel({
+  onSelectResult,
+}: SemanticSearchPanelProps) {
+  const t = useTranslations("Atlas.SemanticSearch");
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const selectedCountries = useAppStore((state) => state.selectedCountries);
-  const searchResults = useAppStore((state) => state.searchResults);
+  const semanticSearchResults = useAppStore((state) => state.semanticSearchResults);
   const restrictSearchToSelectedCountries = useAppStore(
     (state) => state.restrictSearchToSelectedCountries,
   );
-  const setSearchResults = useAppStore((state) => state.setSearchResults);
-  const setLastSearchQuery = useAppStore((state) => state.setLastSearchQuery);
+  const setSemanticSearchResults = useAppStore(
+    (state) => state.setSemanticSearchResults,
+  );
+  const setLastSemanticSearchQuery = useAppStore(
+    (state) => state.setLastSemanticSearchQuery,
+  );
   const setRestrictSearchToSelectedCountries = useAppStore(
     (state) => state.setRestrictSearchToSelectedCountries,
   );
@@ -30,9 +36,10 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [resultCount, setResultCount] = useState<number | null>(null);
-  const [showAdvancedHelp, setShowAdvancedHelp] = useState(false);
   const hasSelectedCountries = selectedCountries.length > 0;
-  const hasActiveSearch = query.trim().length > 0 || searchResults.length > 0 || resultCount !== null;
+  const hasActiveSearch = query.trim().length > 0
+    || semanticSearchResults.length > 0
+    || resultCount !== null;
   const prevHasCountries = useRef(hasSelectedCountries);
 
   useEffect(() => {
@@ -48,7 +55,7 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
   async function runSearch(text: string) {
     const normalized = text.trim();
     if (!normalized) {
-      setSearchResults([]);
+      setSemanticSearchResults([]);
       setResultCount(null);
       return;
     }
@@ -65,18 +72,18 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         params.set("countries", selectedCountries.join(","));
       }
 
-      const response = await fetch(`/api/search?${params.toString()}`);
+      const response = await fetch(`/api/semantic-search?${params.toString()}`);
       if (!response.ok) {
-        throw new Error(`Search failed with status ${response.status}`);
+        throw new Error(`Semantic search failed with status ${response.status}`);
       }
 
-      const payload = (await response.json()) as SearchResponse;
-      setSearchResults(payload.results);
-      setLastSearchQuery(normalized);
+      const payload = (await response.json()) as SemanticSearchResponse;
+      setSemanticSearchResults(payload.results);
+      setLastSemanticSearchQuery(normalized);
       setResultCount(payload.total);
     } catch (searchError) {
-      console.error("Search request failed", searchError);
-      setSearchResults([]);
+      console.error("Semantic search request failed", searchError);
+      setSemanticSearchResults([]);
       setResultCount(null);
       setError(t("error"));
     } finally {
@@ -100,8 +107,8 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
     setQuery("");
     setError(null);
     setResultCount(null);
-    setSearchResults([]);
-    setLastSearchQuery("");
+    setSemanticSearchResults([]);
+    setLastSemanticSearchQuery("");
   }
 
   return (
@@ -131,7 +138,7 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
 
       <form className="mt-3 flex gap-2" onSubmit={handleSubmit}>
         <textarea
-          className="min-w-0 flex-1 resize-none rounded-2xl border border-slate-300 bg-[#f7f4ee] px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+          className="min-w-0 flex-1 resize-none rounded-2xl border border-slate-300 bg-[#f2f6f1] px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-500"
           placeholder={t("placeholder")}
           rows={2}
           value={query}
@@ -147,7 +154,7 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
           {t("clear")}
         </button>
         <button
-          className="flex-shrink-0 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex-shrink-0 rounded-full bg-emerald-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
           disabled={isSearching}
         >
@@ -155,42 +162,9 @@ export default function SearchPanel({onSelectResult}: SearchPanelProps) {
         </button>
       </form>
 
-      <div className="mt-2 flex items-center gap-3">
-        {t("languageHint") && (
-          <p className="text-[11px] text-slate-400">{t("languageHint")}</p>
-        )}
-        <button
-          className="ml-auto flex-shrink-0 text-[11px] text-slate-400 underline-offset-2 hover:text-slate-600 hover:underline"
-          type="button"
-          onClick={() => setShowAdvancedHelp((v) => !v)}
-        >
-          {t("advancedSearchToggle")} {showAdvancedHelp ? "▴" : "▾"}
-        </button>
-      </div>
-
-      {showAdvancedHelp && (
-        <div className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-[11px] text-slate-600">
-          <p className="font-medium text-slate-700">{t("advancedSearchDesc")}</p>
-          <pre className="mt-2 overflow-x-auto rounded-xl bg-white px-3 py-2.5 font-mono text-[10.5px] leading-5 text-slate-800 ring-1 ring-slate-200">{
-`((supreme OR constitutional) AND (court OR tribunal))
-AND (appoint* OR nomina* OR elect*)
-AND (president OR senate OR parliament)`
-          }</pre>
-          <button
-            className="mt-2 rounded-lg bg-slate-950 px-3 py-1 text-[11px] font-medium text-white transition hover:bg-slate-700 disabled:opacity-50"
-            type="button"
-            disabled={isSearching}
-            onClick={() => {
-              const example = `((supreme OR constitutional) AND (court OR tribunal)) AND (appoint* OR nomina* OR elect*) AND (president OR senate OR parliament)`;
-              setQuery(example);
-              setShowAdvancedHelp(false);
-              void runSearch(example);
-            }}
-          >
-            {isSearching ? "…" : t("advancedSearchTryExample")}
-          </button>
-        </div>
-      )}
+      {t("languageHint") ? (
+        <p className="mt-2 text-[11px] text-slate-400">{t("languageHint")}</p>
+      ) : null}
 
       <label
         className={`mt-3 flex items-center gap-2 rounded-xl border px-3 py-2 text-sm transition ${
@@ -200,7 +174,7 @@ AND (president OR senate OR parliament)`
         }`}
       >
         <input
-          className="size-4 rounded border-slate-300 text-slate-950 focus:ring-slate-400"
+          className="size-4 rounded border-slate-300 text-emerald-900 focus:ring-emerald-400"
           type="checkbox"
           checked={restrictSearchToSelectedCountries}
           disabled={!hasSelectedCountries}
@@ -222,7 +196,7 @@ AND (president OR senate OR parliament)`
       ) : null}
 
       <div className={`mt-3 ${isFullscreen ? "flex min-h-0 flex-1 flex-col" : "space-y-2.5"}`}>
-        {searchResults.length === 0 ? (
+        {semanticSearchResults.length === 0 ? (
           <div className="rounded-[1.25rem] border border-dashed border-slate-300 px-4 py-4 text-sm text-slate-500">
             {t("empty")}
           </div>
@@ -233,15 +207,15 @@ AND (president OR senate OR parliament)`
                 isFullscreen ? "min-h-0 flex-1" : "max-h-[230px]"
               }`}
             >
-              {searchResults.map((result) => (
+              {semanticSearchResults.map((result) => (
                 <button
                   key={result.id}
-                  className="grid w-full gap-2 rounded-[1.1rem] border border-slate-200 bg-[#fbfaf7] px-4 py-3 text-left transition hover:border-slate-500"
+                  className="grid w-full gap-2 rounded-[1.1rem] border border-slate-200 bg-[#f7fbf5] px-4 py-3 text-left transition hover:border-emerald-500"
                   type="button"
                   onClick={() => onSelectResult(result)}
                 >
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-slate-950 px-2 py-1 text-xs font-semibold text-white">
+                    <span className="rounded-full bg-emerald-900 px-2 py-1 text-xs font-semibold text-white">
                       {result.country_code}
                     </span>
                     <span className="text-sm font-semibold text-slate-900">
@@ -250,9 +224,12 @@ AND (president OR senate OR parliament)`
                     <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
                       {result.article_id}
                     </span>
+                    <span className="ml-auto rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-900">
+                      {t("scoreLabel")}: {result.score.toFixed(3)}
+                    </span>
                   </div>
                   <p className="text-sm leading-6 text-slate-600">
-                    {highlightTerms(result.text_snippet, query, "structured")}
+                    {highlightTerms(result.text_snippet, query, "plain")}
                   </p>
                 </button>
               ))}
@@ -260,7 +237,7 @@ AND (president OR senate OR parliament)`
             {resultCount !== null ? (
               <div className="mt-3 border-t border-slate-200 px-1 pt-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 {t("resultsCount", {
-                  shown: searchResults.length,
+                  shown: semanticSearchResults.length,
                   total: resultCount,
                 })}
               </div>

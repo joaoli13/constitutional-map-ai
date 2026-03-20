@@ -56,9 +56,10 @@ export type AtlasSelectionPoint = {
   country_cluster: number | null;
   cluster_probability: number | null;
   rank: number | null;
+  semantic_score: number | null;
 };
 
-export type SearchResult = {
+export type SearchResultBase = {
   id: string;
   country_code: string;
   country_name: string;
@@ -68,13 +69,26 @@ export type SearchResult = {
   x: number;
   y: number;
   z: number;
+};
+
+export type SearchResult = SearchResultBase & {
   rank: number;
+};
+
+export type SemanticSearchResult = SearchResultBase & {
+  score: number;
 };
 
 export type SearchResponse = {
   query: string;
   total: number;
   results: SearchResult[];
+};
+
+export type SemanticSearchResponse = {
+  query: string;
+  total: number;
+  results: SemanticSearchResult[];
 };
 
 export type CompareResponse = {

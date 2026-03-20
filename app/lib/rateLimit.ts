@@ -21,6 +21,8 @@ export type RateLimitDecision = {
 
 const DEFAULT_SEARCH_LIMIT = 30;
 const DEFAULT_SEARCH_WINDOW_MS = 60_000;
+const DEFAULT_SEMANTIC_SEARCH_LIMIT = 10;
+const DEFAULT_SEMANTIC_SEARCH_WINDOW_MS = 60_000;
 const DEFAULT_ARTICLE_LIMIT = 120;
 const DEFAULT_ARTICLE_WINDOW_MS = 60_000;
 const MAX_STORE_ENTRIES = 10_000;
@@ -35,6 +37,11 @@ globalForRateLimit.__tcaRateLimitStore = store;
 export const SEARCH_RATE_LIMIT = createPolicy("search", {
   limit: DEFAULT_SEARCH_LIMIT,
   windowMs: DEFAULT_SEARCH_WINDOW_MS,
+});
+
+export const SEMANTIC_SEARCH_RATE_LIMIT = createPolicy("semantic_search", {
+  limit: DEFAULT_SEMANTIC_SEARCH_LIMIT,
+  windowMs: DEFAULT_SEMANTIC_SEARCH_WINDOW_MS,
 });
 
 export const ARTICLE_RATE_LIMIT = createPolicy("article", {

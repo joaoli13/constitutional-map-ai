@@ -6,6 +6,7 @@ import type {
   AtlasSelectionPoint,
   ColorMode,
   CountryPoint,
+  SemanticSearchResult,
   SearchResult,
 } from "@/lib/types";
 
@@ -16,7 +17,9 @@ type AppState = {
   loadedCountryData: CountryDataCache;
   selectedPoint: AtlasSelectionPoint | null;
   searchResults: SearchResult[];
+  semanticSearchResults: SemanticSearchResult[];
   lastSearchQuery: string;
+  lastSemanticSearchQuery: string;
   restrictSearchToSelectedCountries: boolean;
   colorMode: ColorMode;
   toggleCountrySelection: (countryCode: string) => void;
@@ -26,7 +29,9 @@ type AppState = {
   setCountryData: (countryCode: string, points: CountryPoint[]) => void;
   setSelectedPoint: (point: AtlasSelectionPoint | null) => void;
   setSearchResults: (results: SearchResult[]) => void;
+  setSemanticSearchResults: (results: SemanticSearchResult[]) => void;
   setLastSearchQuery: (query: string) => void;
+  setLastSemanticSearchQuery: (query: string) => void;
   setRestrictSearchToSelectedCountries: (value: boolean) => void;
   setColorMode: (mode: ColorMode) => void;
 };
@@ -36,7 +41,9 @@ export const useAppStore = create<AppState>((set) => ({
   loadedCountryData: {},
   selectedPoint: null,
   searchResults: [],
+  semanticSearchResults: [],
   lastSearchQuery: "",
+  lastSemanticSearchQuery: "",
   restrictSearchToSelectedCountries: false,
   colorMode: "country",
   toggleCountrySelection: (countryCode) =>
@@ -76,7 +83,9 @@ export const useAppStore = create<AppState>((set) => ({
     })),
   setSelectedPoint: (point) => set({selectedPoint: point}),
   setSearchResults: (results) => set({searchResults: results}),
+  setSemanticSearchResults: (results) => set({semanticSearchResults: results}),
   setLastSearchQuery: (query) => set({lastSearchQuery: query}),
+  setLastSemanticSearchQuery: (query) => set({lastSemanticSearchQuery: query}),
   setRestrictSearchToSelectedCountries: (value) =>
     set({restrictSearchToSelectedCountries: value}),
   setColorMode: (mode) => set({colorMode: mode}),

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:unit": "node --experimental-strip-types --test tests/highlight.unit.test.ts",
     "test:integration": "node --test tests/search.integration.test.mjs"
   },
   "dependencies": {

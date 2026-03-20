@@ -68,6 +68,88 @@ test(
 );
 
 test(
+  "GET /api/semantic-search validates required query parameter",
+  {timeout: 120_000},
+  async (t) => {
+    const server = startNextServer();
+    t.after(() => stopNextServer(server));
+
+    await waitForSemanticSearchRoute(server);
+
+    const response = await fetch(`${BASE_URL}/api/semantic-search`);
+    assert.equal(response.status, 400);
+
+    const payload = await response.json();
+    assert.equal(payload.error, "Missing required query parameter: q");
+  },
+);
+
+test(
+  "GET /api/semantic-search fails cleanly when GEMINI_API_KEY is missing",
+  {timeout: 120_000},
+  async (t) => {
+    const server = startNextServer({
+      NEON_DATABASE_URL:
+        process.env.NEON_DATABASE_URL
+        || "postgresql://user:password@example.neon.tech/neondb?sslmode=require",
+      GEMINI_API_KEY: "",
+    });
+    t.after(() => stopNextServer(server));
+
+    await waitForSemanticSearchRoute(server);
+
+    const response = await fetch(
+      `${BASE_URL}/api/semantic-search?q=judicial%20independence&limit=3`,
+    );
+    assert.equal(response.status, 500);
+
+    const payload = await response.json();
+    assert.equal(payload.error, "Semantic search request failed.");
+  },
+);
+
+test(
+  "GET /api/semantic-search returns ranked vector results from Neon",
+  {timeout: 120_000},
+  async (t) => {
+    const dsn = process.env.NEON_DATABASE_URL;
+    const geminiKey = process.env.GEMINI_API_KEY;
+    if (!dsn || dsn.includes("ep-xxx") || dsn.includes("user:password")) {
+      t.skip("NEON_DATABASE_URL is not configured with a real database.");
+      return;
+    }
+    if (!geminiKey) {
+      t.skip("GEMINI_API_KEY is not configured.");
+      return;
+    }
+
+    const server = startNextServer();
+    t.after(() => stopNextServer(server));
+
+    await waitForSemanticSearchRoute(server);
+
+    const response = await fetch(
+      `${BASE_URL}/api/semantic-search?q=judicial%20independence&country=BRA&limit=3`,
+    );
+    if (response.status === 500) {
+      t.skip(
+        "Semantic search requires a Neon dataset backfilled with embeddings and a working Gemini key.",
+      );
+      return;
+    }
+    assert.equal(response.status, 200);
+
+    const payload = await response.json();
+    assert.equal(payload.query, "judicial independence");
+    assert.ok(Array.isArray(payload.results));
+    assert.ok(payload.results.length > 0);
+    assert.ok(payload.total >= payload.results.length);
+    assert.equal(payload.results[0].country_code, "BRA");
+    assert.equal(typeof payload.results[0].score, "number");
+  },
+);
+
+test(
   "GET /robots.txt disallows API and data crawling",
   {timeout: 120_000},
   async (t) => {
@@ -87,7 +169,7 @@ test(
   },
 );
 
-function startNextServer() {
+function startNextServer(envOverrides = {}) {
   const child = spawn(
     process.execPath,
     [NEXT_BIN, "dev", "--hostname", HOST, "--port", String(PORT)],
@@ -95,6 +177,7 @@ function startNextServer() {
       cwd: APP_DIR,
       env: {
         ...process.env,
+        ...envOverrides,
         NEXT_TELEMETRY_DISABLED: "1",
       },
       stdio: ["ignore", "pipe", "pipe"],
@@ -140,6 +223,36 @@ async function waitForSearchRoute(server) {
 
   throw new Error(
     `Timed out waiting for /api/search readiness.\n${String(lastError ?? "")}\n${server.logs.join("")}`,
+  );
+}
+
+async function waitForSemanticSearchRoute(server) {
+  const deadline = Date.now() + 90_000;
+  let lastError = null;
+
+  while (Date.now() < deadline) {
+    if (server.exitCode !== null) {
+      throw new Error(
+        `next dev exited early with code ${server.exitCode}\n${server.logs.join("")}`,
+      );
+    }
+
+    try {
+      const response = await fetch(`${BASE_URL}/api/semantic-search`);
+      if (response.status === 400) {
+        return;
+      }
+
+      lastError = new Error(`Unexpected readiness status ${response.status}`);
+    } catch (error) {
+      lastError = error;
+    }
+
+    await sleep(1000);
+  }
+
+  throw new Error(
+    `Timed out waiting for /api/semantic-search readiness.\n${String(lastError ?? "")}\n${server.logs.join("")}`,
   );
 }
 

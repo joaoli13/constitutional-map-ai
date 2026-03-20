@@ -79,7 +79,7 @@
       "statusReady": "em cache"
     },
     "Search": {
-      "eyebrow": "Busca",
+      "eyebrow": "KEYWORD SEARCH",
       "title": "Pesquise em todo o corpus constitucional.",
       "enterFullscreen": "Tela cheia",
       "exitFullscreen": "Sair da tela cheia",
@@ -89,13 +89,29 @@
       "submit": "Buscar",
       "restrictToSelectedAndHighlight": "Restringir a busca aos {count, plural, one {# país selecionado} other {# países selecionados}} e destacar os resultados no mapa 3D",
       "restrictToSelectedDisabled": "Selecione um ou mais países para restringir a busca.",
-      "resultsCount": "{count, plural, =0 {0 segmentos encontrados} one {# segmento encontrado} other {# segmentos encontrados}}",
+      "resultsCount": "{shown} de {total} segmentos",
       "loading": "Buscando...",
       "empty": "Execute uma busca para ver artigos ranqueados.",
       "error": "A busca está temporariamente indisponível.",
       "advancedSearchToggle": "Busca avançada",
       "advancedSearchDesc": "Use AND, OR e aspas para frases exatas. Agrupe termos com parênteses.",
       "advancedSearchTryExample": "Usar este exemplo"
+    },
+    "SemanticSearch": {
+      "eyebrow": "SEMANTIC SEARCH",
+      "title": "Recupere vizinhos conceituais em todo o corpus.",
+      "enterFullscreen": "Tela cheia",
+      "exitFullscreen": "Sair da tela cheia",
+      "placeholder": "Experimente judicial independence, decentralization, social rights...",
+      "languageHint": "As consultas podem ser feitas em qualquer idioma, mas o inglês tende a funcionar melhor neste corpus.",
+      "clear": "Limpar",
+      "submit": "Recuperar",
+      "restrictToSelectedAndHighlight": "Restringir a recuperação aos {count, plural, one {# país selecionado} other {# países selecionados}} e destacar os resultados no mapa 3D",
+      "restrictToSelectedDisabled": "Selecione um ou mais países para restringir a recuperação.",
+      "resultsCount": "{shown} de {total} segmentos candidatos",
+      "empty": "Execute uma busca semântica para inspecionar segmentos constitucionais próximos.",
+      "error": "A busca semântica está temporariamente indisponível.",
+      "scoreLabel": "Similaridade"
     },
     "Canvas": {
       "eyebrow": "Espaço Semântico 3D",
