@@ -842,7 +842,7 @@ export default function Canvas3D({
             {t("focusSelection")}
           </button>
           <button
-            className="rounded-full border border-slate-300 bg-white/80 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500"
+            className="hidden rounded-full border border-slate-300 bg-white/80 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 sm:inline-flex"
             type="button"
             onClick={() => void toggleFullscreen()}
           >
