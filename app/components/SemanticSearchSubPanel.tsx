@@ -336,15 +336,15 @@ export default function SemanticSearchSubPanel({
         </p>
       ) : null}
 
-      <div className="mt-3">
+      <div className={`mt-3 ${isFullscreen ? "min-h-0 flex-1 flex flex-col" : ""}`}>
         {semanticSearchResults.length === 0 ? (
           <div className="rounded-[1.25rem] border border-dashed border-slate-300 px-4 py-4 text-sm text-slate-500">
             {t("empty")}
           </div>
         ) : (
-          <div className="space-y-2.5">
+          <div className={`space-y-2.5 ${isFullscreen ? "min-h-0 flex-1 flex flex-col" : ""}`}>
             <div
-              className="visible-scrollbar space-y-2.5 overflow-y-scroll pr-2 max-h-[250px]"
+              className={`visible-scrollbar space-y-2.5 overflow-y-scroll pr-2 ${isFullscreen ? "min-h-0 flex-1" : "max-h-[250px]"}`}
             >
               {semanticSearchResults.map((result) => (
                 isFullscreen ? (
