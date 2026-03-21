@@ -235,5 +235,25 @@
     "popupEyebrow": "Vista compartida",
     "popupDismiss": "Explorar esta vista",
     "popupCountries": "{count, plural, one {# país seleccionado} other {# países seleccionados}}"
+  },
+  "WelcomeOnboarding": {
+    "buttonLabel": "Cómo funciona",
+    "modalLabel": "Abrir guía de bienvenida",
+    "eyebrow": "Bienvenida",
+    "title": "Empieza en tres pasos",
+    "intro": "Explora textos constitucionales de más de 190 países en un mapa semántico 3D.",
+    "step1Title": "1. Selecciona países o bloques",
+    "step1Body": "Carga un país, un bloque geopolítico o todos los países disponibles en el atlas.",
+    "step2Title": "2. Realiza tu búsqueda",
+    "step2Body": "Usa la búsqueda sintáctica para términos exactos y la búsqueda semántica para conceptos o ideas.",
+    "step3Title": "3. Lee el mapa semántico",
+    "step3Body": "Los puntos cercanos indican segmentos constitucionales con significado similar. Abre el detalle del artículo desde un punto o desde un resultado.",
+    "secondaryTitle": "También disponible",
+    "secondaryExport": "Exportar conjuntos de resultados",
+    "secondaryShare": "Compartir una vista de investigación por enlace con un comentario",
+    "secondaryStats": "Comparar estadísticas por país",
+    "reopenHint": "Puedes reabrir esta guía en cualquier momento desde el encabezado.",
+    "start": "Empezar a explorar",
+    "close": "Cerrar"
   }
 }

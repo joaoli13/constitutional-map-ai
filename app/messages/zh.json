@@ -235,5 +235,25 @@
     "popupEyebrow": "共享视图",
     "popupDismiss": "探索此视图",
     "popupCountries": "{count, plural, other {已选择#个国家}}"
+  },
+  "WelcomeOnboarding": {
+    "buttonLabel": "使用说明",
+    "modalLabel": "打开欢迎指南",
+    "eyebrow": "欢迎",
+    "title": "三步开始使用",
+    "intro": "在 3D 语义地图中探索 190 多个国家的宪法文本。",
+    "step1Title": "1. 选择国家或国家集团",
+    "step1Body": "加载单个国家、一个地缘政治集团，或所有可用国家的数据。",
+    "step2Title": "2. 进行搜索",
+    "step2Body": "精确术语用关键词搜索，概念或主题用语义搜索。",
+    "step3Title": "3. 阅读语义地图",
+    "step3Body": "距离较近的点表示语义更相似的宪法片段。你可以从点或搜索结果打开条文详情。",
+    "secondaryTitle": "还可以",
+    "secondaryExport": "导出结果集",
+    "secondaryShare": "通过带评论的链接分享研究视图",
+    "secondaryStats": "比较各国统计数据",
+    "reopenHint": "你可以随时从页眉重新打开本指南。",
+    "start": "开始探索",
+    "close": "关闭"
   }
 }

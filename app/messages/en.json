@@ -232,5 +232,25 @@
     "popupEyebrow": "Shared view",
     "popupDismiss": "Explore this view",
     "popupCountries": "{count, plural, one {# country selected} other {# countries selected}}"
+  },
+  "WelcomeOnboarding": {
+    "buttonLabel": "How it works",
+    "modalLabel": "Open welcome guide",
+    "eyebrow": "Welcome",
+    "title": "Start in three steps",
+    "intro": "Explore constitutional texts from more than 190 countries on a 3D semantic map.",
+    "step1Title": "1. Select countries or blocs",
+    "step1Body": "Load one country, a geopolitical bloc, or all available countries into the atlas.",
+    "step2Title": "2. Run your search",
+    "step2Body": "Use keyword search for exact terms and semantic search for concepts or ideas.",
+    "step3Title": "3. Read the semantic map",
+    "step3Body": "Nearby points indicate constitutional segments with similar meaning. Open article details from a point or a search result.",
+    "secondaryTitle": "Also available",
+    "secondaryExport": "Export result sets",
+    "secondaryShare": "Share a research view by link with a comment",
+    "secondaryStats": "Compare country statistics",
+    "reopenHint": "You can reopen this guide anytime from the header.",
+    "start": "Start exploring",
+    "close": "Close"
   }
 }

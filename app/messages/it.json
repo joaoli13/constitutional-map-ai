@@ -235,5 +235,25 @@
     "popupEyebrow": "Vista condivisa",
     "popupDismiss": "Esplora questa vista",
     "popupCountries": "{count, plural, one {# paese selezionato} other {# paesi selezionati}}"
+  },
+  "WelcomeOnboarding": {
+    "buttonLabel": "Come funziona",
+    "modalLabel": "Apri guida di benvenuto",
+    "eyebrow": "Benvenuto",
+    "title": "Inizia in tre passaggi",
+    "intro": "Esplora testi costituzionali di oltre 190 paesi in una mappa semantica 3D.",
+    "step1Title": "1. Seleziona paesi o blocchi",
+    "step1Body": "Carica un paese, un blocco geopolitico o tutti i paesi disponibili nell'atlante.",
+    "step2Title": "2. Esegui la ricerca",
+    "step2Body": "Usa la ricerca sintattica per termini esatti e la ricerca semantica per concetti o idee.",
+    "step3Title": "3. Leggi la mappa semantica",
+    "step3Body": "I punti vicini indicano segmenti costituzionali con significato simile. Apri il dettaglio dell'articolo da un punto o da un risultato di ricerca.",
+    "secondaryTitle": "Disponibile anche",
+    "secondaryExport": "Esporta insiemi di risultati",
+    "secondaryShare": "Condividi una vista di ricerca tramite link con un commento",
+    "secondaryStats": "Confronta le statistiche per paese",
+    "reopenHint": "Puoi riaprire questa guida in qualsiasi momento dall'intestazione.",
+    "start": "Inizia a esplorare",
+    "close": "Chiudi"
   }
 }

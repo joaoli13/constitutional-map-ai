@@ -235,5 +235,25 @@
     "popupEyebrow": "共有ビュー",
     "popupDismiss": "このビューを探索",
     "popupCountries": "{count, plural, other {#か国が選択されています}}"
+  },
+  "WelcomeOnboarding": {
+    "buttonLabel": "使い方",
+    "modalLabel": "ウェルカムガイドを開く",
+    "eyebrow": "ようこそ",
+    "title": "3つのステップで開始",
+    "intro": "190以上の国の憲法テキストを3Dセマンティックマップで探索できます。",
+    "step1Title": "1. 国またはブロックを選択",
+    "step1Body": "1か国、地政学ブロック、または利用可能なすべての国を読み込みます。",
+    "step2Title": "2. 検索を実行",
+    "step2Body": "正確な語句にはキーワード検索、概念やアイデアにはセマンティック検索を使います。",
+    "step3Title": "3. セマンティックマップを読む",
+    "step3Body": "近い点ほど意味の近い憲法セグメントです。点や検索結果から条文詳細を開けます。",
+    "secondaryTitle": "そのほかにできること",
+    "secondaryExport": "結果セットをエクスポート",
+    "secondaryShare": "コメント付きリンクで調査ビューを共有",
+    "secondaryStats": "国別統計を比較",
+    "reopenHint": "このガイドはヘッダーからいつでも開き直せます。",
+    "start": "探索を始める",
+    "close": "閉じる"
   }
 }

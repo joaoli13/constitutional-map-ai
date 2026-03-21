@@ -4,7 +4,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 
-import LanguageSelector from "@/components/LanguageSelector";
+import HeaderControls from "@/components/HeaderControls";
 import {routing, type AppLocale} from "@/i18n/routing";
 import "../globals.css";
 
@@ -221,7 +221,7 @@ export default async function LocaleLayout({
               {chromeT("subtitle")}
             </p>
           </div>
-          <LanguageSelector />
+          <HeaderControls />
         </header>
         {children}
         <section className="mx-auto w-full max-w-[1500px] px-6 pb-4 pt-0">
