@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import os
 from dataclasses import dataclass
 from pathlib import Path
@@ -13,7 +14,12 @@ from tqdm import tqdm
 
 from src.m1_scraper.url_builder import extract_document_year_from_file_path
 from src.m4_5_exporter.json_writer import build_record_id, build_text_snippet, load_metadata_map
-from src.shared.constants import CLUSTERS_DIR, NEON_BATCH_SIZE, RAW_DIR
+from src.shared.constants import (
+    DEFAULT_EMBEDDING_DIMENSIONS,
+    EMBEDDINGS_DIR,
+    NEON_BATCH_SIZE,
+    RAW_DIR,
+)
 
 CREATE_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS articles (
@@ -29,8 +35,16 @@ CREATE TABLE IF NOT EXISTS articles (
     x REAL NOT NULL,
     y REAL NOT NULL,
     z REAL NOT NULL,
+    embedding vector(768),
     search_tsv tsvector GENERATED ALWAYS AS (to_tsvector('english', coalesce(text, ''))) STORED
 );
+"""
+
+CREATE_EXTENSION_SQL = "CREATE EXTENSION IF NOT EXISTS vector;"
+
+ALTER_TABLE_ADD_EMBEDDING_SQL = """
+ALTER TABLE articles
+ADD COLUMN IF NOT EXISTS embedding vector(768);
 """
 
 CREATE_INDEX_SQL = """
@@ -52,7 +66,8 @@ INSERT INTO articles (
     global_cluster,
     x,
     y,
-    z
+    z,
+    embedding
 ) VALUES (
     %(id)s,
     %(country_code)s,
@@ -65,7 +80,8 @@ INSERT INTO articles (
     %(global_cluster)s,
     %(x)s,
     %(y)s,
-    %(z)s
+    %(z)s,
+    %(embedding)s::vector
 )
 ON CONFLICT (id) DO UPDATE SET
     country_code = EXCLUDED.country_code,
@@ -78,7 +94,8 @@ ON CONFLICT (id) DO UPDATE SET
     global_cluster = EXCLUDED.global_cluster,
     x = EXCLUDED.x,
     y = EXCLUDED.y,
-    z = EXCLUDED.z;
+    z = EXCLUDED.z,
+    embedding = EXCLUDED.embedding;
 """
 
 DELETE_STALE_SQL = """
@@ -109,7 +126,9 @@ def migrate_schema(connection: PsycopgConnection) -> None:
     """Create the articles table and GIN index idempotently."""
 
     with connection.cursor() as cursor:
+        cursor.execute(CREATE_EXTENSION_SQL)
         cursor.execute(CREATE_TABLE_SQL)
+        cursor.execute(ALTER_TABLE_ADD_EMBEDDING_SQL)
         cursor.execute(CREATE_INDEX_SQL)
     connection.commit()
 
@@ -117,12 +136,14 @@ def migrate_schema(connection: PsycopgConnection) -> None:
 def build_neon_rows(
     clustered_frame: pd.DataFrame,
     *,
+    embeddings_path: Path | str = EMBEDDINGS_DIR / "embeddings.parquet",
     metadata_path: Path | str = RAW_DIR / "metadata.json",
     show_progress: bool = False,
 ) -> list[dict[str, object]]:
     """Map clustered parquet rows to Neon article records."""
 
     metadata_map = load_metadata_map(metadata_path)
+    embedding_lookup = load_embedding_lookup(embeddings_path)
     rows: list[dict[str, object]] = []
 
     for row in tqdm(
@@ -135,9 +156,13 @@ def build_neon_rows(
         metadata = metadata_map[str(row.country_code)]
         document_year = extract_document_year_from_file_path(metadata.file_path)
         year = document_year or metadata.last_amendment_year or metadata.constitution_year
+        record_id = build_record_id(str(row.country_code), year, str(row.article_id))
+        embedding = embedding_lookup.get(record_id)
+        if embedding is None:
+            raise ValueError(f"Missing embedding for Neon article row: {record_id}")
         rows.append(
             {
-                "id": build_record_id(str(row.country_code), year, str(row.article_id)),
+                "id": record_id,
                 "country_code": str(row.country_code),
                 "country_name": str(row.country_name),
                 "region": str(row.region),
@@ -149,6 +174,7 @@ def build_neon_rows(
                 "x": float(row.x),
                 "y": float(row.y),
                 "z": float(row.z),
+                "embedding": embedding,
             }
         )
 
@@ -220,3 +246,65 @@ def fetch_article_count(connection: PsycopgConnection) -> int:
         cursor.execute("SELECT COUNT(*) FROM articles;")
         row = cursor.fetchone()
     return int(row[0]) if row is not None else 0
+
+
+def load_embedding_lookup(
+    embeddings_path: Path | str,
+    *,
+    expected_dimensions: int = DEFAULT_EMBEDDING_DIMENSIONS,
+) -> dict[str, str]:
+    """Load and validate canonical document embeddings keyed by article record id."""
+
+    embeddings_path = Path(embeddings_path)
+    if not embeddings_path.exists():
+        raise FileNotFoundError(f"Embeddings Parquet not found: {embeddings_path}")
+
+    frame = pd.read_parquet(embeddings_path)
+    required_columns = {"country_code", "year", "article_id", "embedding"}
+    missing_columns = required_columns.difference(frame.columns)
+    if missing_columns:
+        raise ValueError(
+            f"Embeddings Parquet is missing required columns: {sorted(missing_columns)}"
+        )
+
+    lookup: dict[str, str] = {}
+    for row in frame.itertuples(index=False):
+        vector = validate_embedding_vector(
+            getattr(row, "embedding"),
+            expected_dimensions=expected_dimensions,
+        )
+        record_id = build_record_id(
+            str(getattr(row, "country_code")),
+            int(getattr(row, "year")),
+            str(getattr(row, "article_id")),
+        )
+        lookup[record_id] = vector_to_sql_literal(vector)
+
+    return lookup
+
+
+def validate_embedding_vector(
+    embedding: object,
+    *,
+    expected_dimensions: int = DEFAULT_EMBEDDING_DIMENSIONS,
+) -> list[float]:
+    """Validate an embedding vector before Neon ingest."""
+
+    if isinstance(embedding, (str, bytes)) or not hasattr(embedding, "__iter__"):
+        raise ValueError("Embedding payload must be a list or tuple of floats.")
+
+    vector = [float(value) for value in embedding]
+    if len(vector) != expected_dimensions:
+        raise ValueError(
+            f"Embedding dimension mismatch: expected {expected_dimensions}, got {len(vector)}."
+        )
+    if any(not math.isfinite(value) for value in vector):
+        raise ValueError("Embedding vector contains NaN or Inf values.")
+
+    return vector
+
+
+def vector_to_sql_literal(vector: list[float]) -> str:
+    """Serialize a validated embedding to pgvector input syntax."""
+
+    return "[" + ",".join(str(value) for value in vector) + "]"

@@ -17,6 +17,16 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
 
+const BASE_URL = "https://constitutionalmap.ai";
+
+const OG_LOCALE_MAP: Record<AppLocale, string> = {
+  en: "en_US",
+  es: "es_ES",
+  pt: "pt_BR",
+  it: "it_IT",
+  fr: "fr_FR",
+};
+
 export async function generateMetadata({
   params,
 }: LocaleLayoutProps): Promise<Metadata> {
@@ -27,8 +37,42 @@ export async function generateMetadata({
   const t = await getTranslations({locale: resolvedLocale, namespace: "Meta"});
 
   return {
+    metadataBase: new URL(BASE_URL),
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: `/${resolvedLocale}`,
+      languages: {
+        en: "/en",
+        es: "/es",
+        pt: "/pt",
+        it: "/it",
+        fr: "/fr",
+        "x-default": "/en",
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `/${resolvedLocale}`,
+      siteName: "Constitutional Map AI",
+      locale: OG_LOCALE_MAP[resolvedLocale],
+      type: "website",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: t("ogImageAlt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/og-image.png"],
+    },
   };
 }
 
@@ -43,6 +87,27 @@ function rich(text: string) {
       part
     ),
   );
+}
+
+function buildJsonLd(locale: AppLocale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Constitutional Map AI – Global Constitutional Corpus",
+    description:
+      "A searchable semantic corpus of constitutional texts from 190+ countries, embedded and clustered for comparative legal research.",
+    url: `${BASE_URL}/${locale}`,
+    spatialCoverage: "Global",
+    temporalCoverage: "1789/..",
+    inLanguage: locale,
+    license: "https://creativecommons.org/licenses/by-nc/3.0/",
+    creator: {
+      "@type": "Person",
+      name: "João Lima",
+      url: "https://x.com/joaoli13",
+    },
+    isAccessibleForFree: true,
+  };
 }
 
 export default async function LocaleLayout({
@@ -72,6 +137,8 @@ export default async function LocaleLayout({
     },
   ];
 
+  const jsonLd = buildJsonLd(locale as AppLocale);
+
   return (
     <NextIntlClientProvider messages={messages}>
       <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
@@ -87,7 +154,7 @@ export default async function LocaleLayout({
           <LanguageSelector />
         </header>
         {children}
-        <section className="mx-auto w-full max-w-[1120px] px-6 pb-4 pt-2">
+        <section className="mx-auto w-full max-w-[1500px] px-6 pb-4 pt-0">
           <div className="rounded-[2rem] border border-slate-200/80 bg-white/70 px-6 py-6 shadow-[0_12px_40px_rgba(15,23,42,0.05)] backdrop-blur">
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500">
               {chromeT("primerEyebrow")}
@@ -104,7 +171,7 @@ export default async function LocaleLayout({
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
                     {section.title}
                   </h3>
-                  <div className="mt-3 space-y-4 text-sm leading-7 text-slate-600">
+                  <div className="mt-3 space-y-5 text-sm leading-[1.85] text-slate-600">
                     {section.paragraphs.map((paragraph) => (
                       <p key={paragraph}>{rich(paragraph)}</p>
                     ))}
@@ -142,6 +209,16 @@ export default async function LocaleLayout({
             >
               github.com/joaoli13/constitutional-map-ai
             </a>
+          </p>
+          <p className="mt-2">
+            {chromeT("agentGuideText")}{" "}
+            <a
+              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+              href="/agents.md"
+            >
+              {chromeT("agentGuideLinkLabel")}
+            </a>
+            .
           </p>
           <p className="mt-2">
             {chromeT("madeBy")}{" "}
@@ -190,6 +267,10 @@ export default async function LocaleLayout({
         </footer>
       </div>
       <Analytics />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+      />
     </NextIntlClientProvider>
   );
 }

@@ -5,6 +5,11 @@ const STOPWORDS = new Set([
   "could", "should", "may", "might", "shall", "can", "not", "no", "nor",
   "so", "yet", "as", "if", "that", "this", "these", "those", "it", "its",
   "he", "she", "they", "we", "you", "i", "me", "him", "her", "us", "them",
+  "aunque", "após", "como", "com", "con", "contra", "conforme", "contudo",
+  "cuando", "de", "del", "desde", "do", "dos", "da", "das", "durante",
+  "e", "em", "en", "entre", "hasta", "mas", "mediante", "ou", "para",
+  "pero", "por", "porque", "porém", "pois", "que", "se", "sem", "si",
+  "sin", "sobre", "todavia", "todavía", "tras", "versus", "via", "y",
 ]);
 
 export type HighlightMode = "plain" | "structured";
@@ -25,7 +30,7 @@ export function getHighlightTerms(
         .trim()
         .toLowerCase()
         .split(/\s+/)
-        .filter((term) => term.length > 1 && !STOPWORDS.has(term)),
+        .filter((term) => term.length > 3 && !STOPWORDS.has(term)),
     ),
   );
 }

@@ -7,10 +7,14 @@ import {
 } from "react";
 import {useTranslations} from "next-intl";
 
+import ShareModal from "@/components/ShareModal";
+import SharedViewPopup from "@/components/SharedViewPopup";
+import {deserializeSharedView} from "@/lib/share-state";
+
 import Canvas3D from "@/components/Canvas3D";
 import ControlPanel from "@/components/ControlPanel";
+import {CountryIndexProvider} from "@/components/CountryBadge";
 import SearchPanel from "@/components/SearchPanel";
-import SemanticSearchPanel from "@/components/SemanticSearchPanel";
 import StatsPanel from "@/components/StatsPanel";
 import WorldMap from "@/components/WorldMap";
 import {buildCountryPalette} from "@/lib/colors";
@@ -24,14 +28,16 @@ import type {
   CountryPoint,
   SemanticSearchResult,
   SearchResult,
+  SharedViewPayload,
 } from "@/lib/types";
 
 type AtlasClientProps = {
   atlasIndex: AtlasIndexData;
   clusters: ClusterSummary[];
+  initialSharedView?: SharedViewPayload;
 };
 
-export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
+export default function AtlasClient({atlasIndex, clusters, initialSharedView}: AtlasClientProps) {
   const t = useTranslations("Atlas");
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const loadedCountryData = useAppStore((state) => state.loadedCountryData);
@@ -47,10 +53,59 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const clearCountrySelection = useAppStore((state) => state.clearCountrySelection);
   const setSelectedPoint = useAppStore((state) => state.setSelectedPoint);
   const setColorMode = useAppStore((state) => state.setColorMode);
+  const pendingSegmentId = useAppStore((state) => state.pendingSegmentId);
+  const setPendingSegmentId = useAppStore((state) => state.setPendingSegmentId);
   const {loadingCountries, errorCountry} = useCountryData(selectedCountries);
   const [articleDetail, setArticleDetail] = useState<ArticleDetail | null>(null);
   const [isArticleLoading, setIsArticleLoading] = useState(false);
   const articleCache = useRef<Record<string, ArticleDetail>>({});
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [sharedViewPopup, setSharedViewPopup] = useState<SharedViewPayload | null>(null);
+
+  // Apply shared view state synchronously on first render so Canvas3D picks up
+  // the camera before it mounts. The ref guard prevents re-application on rerenders.
+  const sharedViewAppliedRef = useRef(false);
+  if (initialSharedView && !sharedViewAppliedRef.current) {
+    sharedViewAppliedRef.current = true;
+    deserializeSharedView(initialSharedView);
+  }
+
+  // Show the popup after mount so the atlas has time to restore state first.
+  useEffect(() => {
+    if (initialSharedView) {
+      setSharedViewPopup(initialSharedView);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Restore a pending segment point once the country data has loaded.
+  useEffect(() => {
+    if (!pendingSegmentId) return;
+    for (const [countryCode, countryPoints] of Object.entries(loadedCountryData)) {
+      const match = countryPoints.find((p) => p.id === pendingSegmentId);
+      if (match) {
+        setPendingSegmentId(null);
+        const country = atlasIndex.countries.find((c) => c.code === countryCode);
+        handleSelectPoint({
+          id: match.id,
+          article_id: match.article_id,
+          text_snippet: match.text_snippet,
+          country_code: countryCode,
+          country_name: country?.name ?? countryCode,
+          x: match.x - UMAP_CENTER.x,
+          y: match.y - UMAP_CENTER.y,
+          z: match.z - UMAP_CENTER.z,
+          global_cluster: match.global_cluster,
+          country_cluster: match.country_cluster,
+          cluster_probability: match.cluster_probability,
+          rank: null,
+          semantic_score: null,
+        });
+        break;
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loadedCountryData, pendingSegmentId]);
 
   const countryByCode = Object.fromEntries(
     atlasIndex.countries.map((country) => [country.code, country]),
@@ -59,7 +114,7 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   const countryColors = buildCountryPalette(selectedCountries);
   const loadedPoints = buildLoadedPoints(loadedCountryData, countryByCode);
   const selectedCountriesSet = new Set(selectedCountries);
-  const searchHighlightedPoints = hasCountrySelection && restrictSearchToSelectedCountries
+  const searchResultPoints = hasCountrySelection
     ? Array.from(
         new Map(
           [...searchResults, ...semanticSearchResults]
@@ -72,6 +127,9 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
             ]),
         ).values(),
       )
+    : [];
+  const searchHighlightedPoints = restrictSearchToSelectedCountries
+    ? searchResultPoints
     : [];
   const effectiveSelectedPoint =
     selectedPoint && selectedCountries.includes(selectedPoint.country_code)
@@ -167,58 +225,76 @@ export default function AtlasClient({atlasIndex, clusters}: AtlasClientProps) {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-[1560px] flex-col gap-6 px-6 pb-16 pt-7">
-      <section className="flex flex-col gap-6">
-        <div className="grid gap-6 xl:grid-cols-12">
-          <div className="min-h-0 xl:col-span-7 xl:h-[39rem] 2xl:h-[41rem]">
-            <WorldMap
-              countries={atlasIndex.countries}
-              selectedCountries={selectedCountries}
-              loadingCountries={loadingCountries}
-              countryColors={countryColors}
-              onToggleCountry={toggleCountrySelection}
-            />
+    <CountryIndexProvider countries={atlasIndex.countries}>
+      <main className="mx-auto flex w-full max-w-[1560px] flex-col gap-6 px-6 pb-6 pt-7">
+        <section className="flex flex-col gap-6">
+          <div className="grid gap-6 xl:grid-cols-12">
+            <div className="min-h-0 xl:col-span-7 xl:h-[39rem] 2xl:h-[41rem]">
+              <WorldMap
+                countries={atlasIndex.countries}
+                selectedCountries={selectedCountries}
+                loadingCountries={loadingCountries}
+                countryColors={countryColors}
+                onToggleCountry={toggleCountrySelection}
+              />
+            </div>
+            <div className="min-h-0 xl:col-span-5 xl:h-[39rem] 2xl:h-[41rem]">
+              <ControlPanel
+                countries={atlasIndex.countries}
+                selectedCountries={selectedCountries}
+                loadingCountries={loadingCountries}
+                globalClusterCount={clusters.length}
+                countryColors={countryColors}
+                onToggleCountry={toggleCountrySelection}
+                onAddCountries={addCountries}
+                onClearCountries={clearCountrySelection}
+              />
+            </div>
           </div>
-          <div className="min-h-0 xl:col-span-5 xl:h-[39rem] 2xl:h-[41rem]">
-            <ControlPanel
-              countries={atlasIndex.countries}
-              selectedCountries={selectedCountries}
-              loadingCountries={loadingCountries}
-              globalClusterCount={clusters.length}
-              countryColors={countryColors}
-              onToggleCountry={toggleCountrySelection}
-              onAddCountries={addCountries}
-              onClearCountries={clearCountrySelection}
-            />
+          <SearchPanel
+            onSelectKeywordResult={handleSelectSearchResult}
+            onSelectSemanticResult={handleSelectSemanticSearchResult}
+          />
+        </section>
+
+        {errorCountry ? (
+          <div className="rounded-[1.5rem] border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+            {t("countryLoadError", {country: errorCountry})}
           </div>
-        </div>
-        <div className="grid gap-6 xl:grid-cols-2">
-          <SearchPanel onSelectResult={handleSelectSearchResult} />
-          <SemanticSearchPanel onSelectResult={handleSelectSemanticSearchResult} />
-        </div>
-      </section>
+        ) : null}
 
-      {errorCountry ? (
-        <div className="rounded-[1.5rem] border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
-          {t("countryLoadError", {country: errorCountry})}
-        </div>
-      ) : null}
+        <Canvas3D
+          points={hasCountrySelection ? loadedPoints : []}
+          searchHighlightedPoints={searchHighlightedPoints}
+          searchResultPoints={searchResultPoints}
+          selectedCountries={selectedCountries}
+          loadingCountries={loadingCountries}
+          selectedPoint={hasCountrySelection ? effectiveSelectedPoint : null}
+          countryColors={countryColors}
+          colorMode={colorMode}
+          articleDetail={articleDetail}
+          isArticleLoading={isArticleLoading}
+          onSelectPoint={handleSelectPoint}
+          onSetColorMode={setColorMode}
+          onShare={() => setIsShareModalOpen(true)}
+          sharedView={initialSharedView}
+          onShowSharedView={initialSharedView ? () => setSharedViewPopup(initialSharedView) : undefined}
+        />
 
-      <Canvas3D
-        points={hasCountrySelection ? loadedPoints : []}
-        searchHighlightedPoints={searchHighlightedPoints}
-        selectedCountries={selectedCountries}
-        selectedPoint={hasCountrySelection ? effectiveSelectedPoint : null}
-        countryColors={countryColors}
-        colorMode={colorMode}
-        articleDetail={articleDetail}
-        isArticleLoading={isArticleLoading}
-        onSelectPoint={handleSelectPoint}
-        onSetColorMode={setColorMode}
-      />
+        <StatsPanel countries={selectedCountryRecords} />
+      </main>
 
-      <StatsPanel countries={selectedCountryRecords} />
-    </main>
+      {isShareModalOpen && (
+        <ShareModal onClose={() => setIsShareModalOpen(false)} />
+      )}
+
+      {sharedViewPopup && (
+        <SharedViewPopup
+          view={sharedViewPopup}
+          onDismiss={() => setSharedViewPopup(null)}
+        />
+      )}
+    </CountryIndexProvider>
   );
 }
 

@@ -1,8 +1,10 @@
 "use client";
 
 import {KeyboardEvent, useEffect, useRef, useState} from "react";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
+import {CountryBadge} from "@/components/CountryBadge";
+import {fetchArticleDetailForResult} from "@/lib/article-client";
 import {useFullscreen} from "@/hooks/useFullscreen";
 import {highlightTerms} from "@/lib/highlight";
 import {SEARCH_PANEL_LIMIT} from "@/lib/search-config";
@@ -17,6 +19,10 @@ export default function SemanticSearchPanel({
   onSelectResult,
 }: SemanticSearchPanelProps) {
   const t = useTranslations("Atlas.SemanticSearch");
+  const locale = useLocale();
+  const exampleQuery = t("exampleQuery");
+  const showLocalizedExample = locale === "pt" || locale === "es";
+  const localizedExampleQuery = showLocalizedExample ? t("localizedExampleQuery") : "";
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const semanticSearchResults = useAppStore((state) => state.semanticSearchResults);
@@ -32,10 +38,14 @@ export default function SemanticSearchPanel({
   const setRestrictSearchToSelectedCountries = useAppStore(
     (state) => state.setRestrictSearchToSelectedCountries,
   );
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(() => useAppStore.getState().lastSemanticSearchQuery);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [resultCount, setResultCount] = useState<number | null>(null);
+  const [expandedResultId, setExpandedResultId] = useState<string | null>(null);
+  const [expandedArticleTexts, setExpandedArticleTexts] = useState<Record<string, string>>({});
+  const [loadingExpandedResultId, setLoadingExpandedResultId] = useState<string | null>(null);
+  const [expandedResultError, setExpandedResultError] = useState<string | null>(null);
   const hasSelectedCountries = selectedCountries.length > 0;
   const hasActiveSearch = query.trim().length > 0
     || semanticSearchResults.length > 0
@@ -51,6 +61,15 @@ export default function SemanticSearchPanel({
       prevHasCountries.current = true;
     }
   }, [hasSelectedCountries, setRestrictSearchToSelectedCountries]);
+
+  // Auto-run search on mount when restoring a shared view
+  const initialQueryRef = useRef(useAppStore.getState().lastSemanticSearchQuery);
+  useEffect(() => {
+    if (initialQueryRef.current && semanticSearchResults.length === 0) {
+      void runSearch(initialQueryRef.current);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function runSearch(text: string) {
     const normalized = text.trim();
@@ -81,6 +100,8 @@ export default function SemanticSearchPanel({
       setSemanticSearchResults(payload.results);
       setLastSemanticSearchQuery(normalized);
       setResultCount(payload.total);
+      setExpandedResultId(null);
+      setExpandedResultError(null);
     } catch (searchError) {
       console.error("Semantic search request failed", searchError);
       setSemanticSearchResults([]);
@@ -109,13 +130,47 @@ export default function SemanticSearchPanel({
     setResultCount(null);
     setSemanticSearchResults([]);
     setLastSemanticSearchQuery("");
+    setExpandedResultId(null);
+    setExpandedResultError(null);
+  }
+
+  async function handleToggleExpandedResult(result: SemanticSearchResult) {
+    onSelectResult(result);
+    if (expandedResultId === result.id) {
+      setExpandedResultId(null);
+      setExpandedResultError(null);
+      return;
+    }
+
+    setExpandedResultId(result.id);
+    setExpandedResultError(null);
+
+    if (expandedArticleTexts[result.id]) {
+      return;
+    }
+
+    setLoadingExpandedResultId(result.id);
+    try {
+      const article = await fetchArticleDetailForResult(result);
+      setExpandedArticleTexts((current) => ({
+        ...current,
+        [result.id]: article.text,
+      }));
+    } catch (articleError) {
+      console.error("Semantic result full text load failed", articleError);
+      setExpandedResultError(t("fullTextUnavailable"));
+    } finally {
+      setLoadingExpandedResultId((current) =>
+        current === result.id ? null : current,
+      );
+    }
   }
 
   return (
     <section
       ref={ref}
-      className={`rounded-[2rem] border border-slate-200 bg-white/90 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ${
-        isFullscreen ? "flex h-full flex-col rounded-none border-0 p-5 shadow-none" : ""
+      className={`flex flex-col rounded-[2rem] border border-slate-200 bg-white/90 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ${
+        isFullscreen ? "h-full rounded-none border-0 p-5 shadow-none" : ""
       }`}
     >
       <div className="flex items-start justify-between gap-4">
@@ -162,6 +217,56 @@ export default function SemanticSearchPanel({
         </button>
       </form>
 
+      <div className="mt-2 rounded-2xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-900/70">
+              {t("exampleLabel")}
+            </p>
+            <p className="mt-1 text-sm leading-6 text-slate-700">
+              {exampleQuery}
+            </p>
+          </div>
+          <button
+            className="flex-shrink-0 rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-xs font-semibold text-emerald-900 transition hover:border-emerald-400 hover:bg-emerald-50 disabled:opacity-50"
+            type="button"
+            disabled={isSearching}
+            onClick={() => {
+              setQuery(exampleQuery);
+              void runSearch(exampleQuery);
+            }}
+          >
+            {isSearching ? "…" : t("exampleTry")}
+          </button>
+        </div>
+      </div>
+
+      {showLocalizedExample ? (
+        <div className="mt-2 rounded-2xl border border-teal-100 bg-teal-50/70 px-4 py-3">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-900/70">
+                {t("localizedExampleLabel")}
+              </p>
+              <p className="mt-1 text-sm leading-6 text-slate-700">
+                {localizedExampleQuery}
+              </p>
+            </div>
+            <button
+              className="flex-shrink-0 rounded-full bg-teal-900 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-teal-800 disabled:opacity-50"
+              type="button"
+              disabled={isSearching}
+              onClick={() => {
+                setQuery(localizedExampleQuery);
+                void runSearch(localizedExampleQuery);
+              }}
+            >
+              {isSearching ? "…" : t("localizedExampleTry")}
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       {t("languageHint") ? (
         <p className="mt-2 text-[11px] text-slate-400">{t("languageHint")}</p>
       ) : null}
@@ -195,43 +300,92 @@ export default function SemanticSearchPanel({
         </p>
       ) : null}
 
-      <div className={`mt-3 ${isFullscreen ? "flex min-h-0 flex-1 flex-col" : "space-y-2.5"}`}>
+      <div className="mt-3">
         {semanticSearchResults.length === 0 ? (
           <div className="rounded-[1.25rem] border border-dashed border-slate-300 px-4 py-4 text-sm text-slate-500">
             {t("empty")}
           </div>
         ) : (
-          <div className={`${isFullscreen ? "flex min-h-0 flex-1 flex-col" : "space-y-2.5"}`}>
+          <div className="space-y-2.5">
             <div
-              className={`visible-scrollbar space-y-2.5 overflow-y-scroll pr-2 ${
-                isFullscreen ? "min-h-0 flex-1" : "max-h-[230px]"
-              }`}
+              className="visible-scrollbar space-y-2.5 overflow-y-scroll pr-2 max-h-[200px]"
             >
               {semanticSearchResults.map((result) => (
-                <button
-                  key={result.id}
-                  className="grid w-full gap-2 rounded-[1.1rem] border border-slate-200 bg-[#f7fbf5] px-4 py-3 text-left transition hover:border-emerald-500"
-                  type="button"
-                  onClick={() => onSelectResult(result)}
-                >
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-emerald-900 px-2 py-1 text-xs font-semibold text-white">
-                      {result.country_code}
-                    </span>
-                    <span className="text-sm font-semibold text-slate-900">
-                      {result.country_name}
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                      {result.article_id}
-                    </span>
-                    <span className="ml-auto rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-900">
-                      {t("scoreLabel")}: {result.score.toFixed(3)}
-                    </span>
+                isFullscreen ? (
+                  <div
+                    key={result.id}
+                    className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-[#f7fbf5]"
+                  >
+                    <button
+                      className="grid w-full gap-2 px-4 py-3 text-left transition hover:bg-white"
+                      type="button"
+                      onClick={() => void handleToggleExpandedResult(result)}
+                    >
+                      <div className="flex flex-wrap items-center gap-2">
+                        <CountryBadge
+                          countryCode={result.country_code}
+                          countryName={result.country_name}
+                          tone="emerald"
+                        />
+                        <span className="text-sm font-semibold text-slate-900">
+                          {result.country_name}
+                        </span>
+                        <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                          {result.article_id}
+                        </span>
+                        <span className="ml-auto rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-900">
+                          {t("scoreLabel")}: {result.score.toFixed(3)}
+                        </span>
+                        <span className="text-sm text-slate-400">
+                          {expandedResultId === result.id ? "▴" : "▾"}
+                        </span>
+                      </div>
+                      <p className="text-sm leading-6 text-slate-600">
+                        {highlightTerms(result.text_snippet, query, "plain")}
+                      </p>
+                    </button>
+                    {expandedResultId === result.id ? (
+                      <div className="border-t border-slate-200 bg-white/80 px-4 py-4">
+                        {loadingExpandedResultId === result.id ? (
+                          <p className="text-sm text-slate-500">{t("loadingFullText")}</p>
+                        ) : expandedResultError ? (
+                          <p className="text-sm text-rose-700">{expandedResultError}</p>
+                        ) : (
+                          <p className="whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                            {expandedArticleTexts[result.id] ?? result.text_snippet}
+                          </p>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
-                  <p className="text-sm leading-6 text-slate-600">
-                    {highlightTerms(result.text_snippet, query, "plain")}
-                  </p>
-                </button>
+                ) : (
+                  <button
+                    key={result.id}
+                    className="grid w-full gap-2 rounded-[1.1rem] border border-slate-200 bg-[#f7fbf5] px-4 py-3 text-left transition hover:border-emerald-500"
+                    type="button"
+                    onClick={() => onSelectResult(result)}
+                  >
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CountryBadge
+                        countryCode={result.country_code}
+                        countryName={result.country_name}
+                        tone="emerald"
+                      />
+                      <span className="text-sm font-semibold text-slate-900">
+                        {result.country_name}
+                      </span>
+                      <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                        {result.article_id}
+                      </span>
+                      <span className="ml-auto rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-900">
+                        {t("scoreLabel")}: {result.score.toFixed(3)}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-6 text-slate-600">
+                      {highlightTerms(result.text_snippet, query, "plain")}
+                    </p>
+                  </button>
+                )
               ))}
             </div>
             {resultCount !== null ? (

@@ -106,6 +106,29 @@ export type CompareResponse = {
   unique_to_b: number[];
 };
 
+export type PlotlyCamera = {
+  eye: {x: number; y: number; z: number};
+  center: {x: number; y: number; z: number};
+  up: {x: number; y: number; z: number};
+};
+
+export type SharedViewPayload = {
+  id?: string;
+  title: string;
+  observation: string;
+  author_name?: string | null;
+  countries?: string[] | null;
+  query_text?: string | null;
+  query_semantic?: string | null;
+  filter_country?: string | null;
+  filter_cluster?: number | null;
+  focused_segment_id?: string | null;
+  camera?: PlotlyCamera | null;
+  color_mode?: ColorMode | null;
+  locale?: string;
+  created_at?: string;
+};
+
 export type ArticleDetail = {
   id: string;
   country_code: string;

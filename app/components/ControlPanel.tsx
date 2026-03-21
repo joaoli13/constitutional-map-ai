@@ -66,7 +66,7 @@ export default function ControlPanel({
     });
 
   return (
-    <section className="flex h-full min-h-0 flex-col rounded-[2rem] border border-slate-200 bg-[#f7f2ea]/90 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+    <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-[#f7f2ea]/90 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
         {t("eyebrow")}
       </p>
@@ -75,13 +75,13 @@ export default function ControlPanel({
 
       <div className="mt-4 grid grid-cols-3 gap-2">
         <div className="rounded-xl bg-slate-950 px-4 py-3 text-white">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-300">
             {t("selectedLabel")}
           </p>
           <p className="mt-1.5 text-2xl font-semibold tabular-nums">{selectedCountries.length}</p>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white px-4 py-3">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">
             {t("countryCountLabel")}
           </p>
           <p className="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900">
@@ -89,7 +89,7 @@ export default function ControlPanel({
           </p>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white px-4 py-3">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">
             {t("clusterCountLabel")}
           </p>
           <p className="mt-1.5 text-2xl font-semibold tabular-nums text-slate-900">
@@ -150,7 +150,7 @@ export default function ControlPanel({
         <div className="max-h-[84px] overflow-y-auto pr-1">
           <div className="flex flex-wrap gap-1.5">
           {selectedCountries.length === 0 ? (
-            <span className="rounded-full border border-dashed border-slate-300 px-3 py-1.5 text-xs text-slate-400">
+            <span className="rounded-full border border-dashed border-slate-300 px-3 py-1.5 text-xs text-slate-500">
               {t("noneSelected")}
             </span>
           ) : (
@@ -172,7 +172,7 @@ export default function ControlPanel({
                     style={{backgroundColor: color}}
                   />
                   {country?.name ?? countryCode}
-                  <span className="ml-0.5 text-slate-400">×</span>
+                  <span className="ml-0.5 text-slate-500">×</span>
                 </button>
               );
             })
@@ -180,7 +180,7 @@ export default function ControlPanel({
           </div>
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-0.5">
+        <div className="max-h-[320px] space-y-1.5 overflow-y-auto pr-0.5 overscroll-contain sm:max-h-[380px] xl:min-h-0 xl:flex-1 xl:max-h-none">
           {filteredCountries.map((country) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);
@@ -207,7 +207,7 @@ export default function ControlPanel({
                   )}
                   <div>
                     <p className="text-sm font-semibold leading-tight">{country.name}</p>
-                    <p className={`text-xs ${isSelected ? "text-slate-300" : "text-slate-400"}`}>
+                    <p className={`text-xs ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
                       {country.code} · {country.region}
                     </p>
                   </div>
@@ -216,7 +216,7 @@ export default function ControlPanel({
                   <p className={`text-sm font-semibold tabular-nums ${isSelected ? "text-white" : "text-slate-700"}`}>
                     {country.article_count}
                   </p>
-                  <p className={`text-[10px] uppercase tracking-wide ${isSelected ? "text-slate-300" : "text-slate-400"}`}>
+                  <p className={`text-[10px] uppercase tracking-wide ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
                     {isLoading ? t("statusLoading") : t("articlesShort")}
                   </p>
                 </div>

@@ -6,6 +6,7 @@ import type {
   AtlasSelectionPoint,
   ColorMode,
   CountryPoint,
+  PlotlyCamera,
   SemanticSearchResult,
   SearchResult,
 } from "@/lib/types";
@@ -22,6 +23,10 @@ type AppState = {
   lastSemanticSearchQuery: string;
   restrictSearchToSelectedCountries: boolean;
   colorMode: ColorMode;
+  cameraState: PlotlyCamera | null;
+  focusedCountryCode: string | null;
+  focusedSegmentId: string | null;
+  pendingSegmentId: string | null;
   toggleCountrySelection: (countryCode: string) => void;
   addCountries: (countryCodes: string[]) => void;
   removeCountrySelection: (countryCode: string) => void;
@@ -34,6 +39,10 @@ type AppState = {
   setLastSemanticSearchQuery: (query: string) => void;
   setRestrictSearchToSelectedCountries: (value: boolean) => void;
   setColorMode: (mode: ColorMode) => void;
+  setCameraState: (camera: PlotlyCamera | null) => void;
+  setFocusedCountryCode: (code: string | null) => void;
+  setFocusedSegmentId: (id: string | null) => void;
+  setPendingSegmentId: (id: string | null) => void;
 };
 
 export const useAppStore = create<AppState>((set) => ({
@@ -46,6 +55,10 @@ export const useAppStore = create<AppState>((set) => ({
   lastSemanticSearchQuery: "",
   restrictSearchToSelectedCountries: false,
   colorMode: "country",
+  cameraState: null,
+  focusedCountryCode: null,
+  focusedSegmentId: null,
+  pendingSegmentId: null,
   toggleCountrySelection: (countryCode) =>
     set((state) => {
       const alreadySelected = state.selectedCountries.includes(countryCode);
@@ -89,4 +102,8 @@ export const useAppStore = create<AppState>((set) => ({
   setRestrictSearchToSelectedCountries: (value) =>
     set({restrictSearchToSelectedCountries: value}),
   setColorMode: (mode) => set({colorMode: mode}),
+  setCameraState: (camera) => set({cameraState: camera}),
+  setFocusedCountryCode: (code) => set({focusedCountryCode: code}),
+  setFocusedSegmentId: (id) => set({focusedSegmentId: id}),
+  setPendingSegmentId: (id) => set({pendingSegmentId: id}),
 }));

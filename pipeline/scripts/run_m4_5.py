@@ -29,6 +29,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to the M1 metadata.json file.",
     )
     parser.add_argument(
+        "--embeddings-path",
+        type=Path,
+        default=PIPELINE_ROOT / "data" / "embeddings" / "embeddings.parquet",
+        help="Path to the M3 embeddings parquet file.",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
         default=REPO_ROOT / "app" / "public" / "data",
@@ -102,6 +108,7 @@ def main() -> int:
             print("M4.5: building Neon rows...")
             ingest_rows = build_neon_rows(
                 clustered_frame,
+                embeddings_path=args.embeddings_path,
                 metadata_path=args.metadata_path,
                 show_progress=show_progress,
             )

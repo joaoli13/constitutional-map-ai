@@ -25,6 +25,8 @@ const DEFAULT_SEMANTIC_SEARCH_LIMIT = 10;
 const DEFAULT_SEMANTIC_SEARCH_WINDOW_MS = 60_000;
 const DEFAULT_ARTICLE_LIMIT = 120;
 const DEFAULT_ARTICLE_WINDOW_MS = 60_000;
+const DEFAULT_SHARE_LIMIT = 5;
+const DEFAULT_SHARE_WINDOW_MS = 3_600_000; // 1 hour
 const MAX_STORE_ENTRIES = 10_000;
 
 const globalForRateLimit = globalThis as typeof globalThis & {
@@ -47,6 +49,11 @@ export const SEMANTIC_SEARCH_RATE_LIMIT = createPolicy("semantic_search", {
 export const ARTICLE_RATE_LIMIT = createPolicy("article", {
   limit: DEFAULT_ARTICLE_LIMIT,
   windowMs: DEFAULT_ARTICLE_WINDOW_MS,
+});
+
+export const SHARE_RATE_LIMIT = createPolicy("share", {
+  limit: DEFAULT_SHARE_LIMIT,
+  windowMs: DEFAULT_SHARE_WINDOW_MS,
 });
 
 export function checkRateLimit(

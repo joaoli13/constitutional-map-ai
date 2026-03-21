@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 10,
       },
     ],
+    sitemap: "https://constitutionalmap.ai/sitemap.xml",
   };
 }

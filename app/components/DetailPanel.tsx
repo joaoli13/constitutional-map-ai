@@ -2,6 +2,7 @@
 
 import {useTranslations} from "next-intl";
 
+import {CountryBadge} from "@/components/CountryBadge";
 import type {ArticleDetail, AtlasSelectionPoint} from "@/lib/types";
 
 type DetailPanelProps = {
@@ -37,9 +38,12 @@ export default function DetailPanel({
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
           {t("eyebrow")}
         </p>
-        <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
-          {selectedPoint.country_code}
-        </span>
+        <CountryBadge
+          countryCode={selectedPoint.country_code}
+          countryName={selectedPoint.country_name}
+          tone="slate"
+          size="sm"
+        />
       </div>
       <h2 className="mt-2 text-2xl font-semibold text-slate-950">{t("title")}</h2>
 
