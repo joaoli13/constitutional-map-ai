@@ -22,7 +22,7 @@ export default function SemanticSearchSubPanel({
   const t = useTranslations("Atlas.SemanticSearch");
   const locale = useLocale();
   const exampleQuery = t("exampleQuery");
-  const showLocalizedExample = locale === "pt" || locale === "es";
+  const showLocalizedExample = ["pt", "es", "it", "fr", "ja", "zh"].includes(locale);
   const localizedExampleQuery = showLocalizedExample ? t("localizedExampleQuery") : "";
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const selectedCountries = useAppStore((state) => state.selectedCountries);

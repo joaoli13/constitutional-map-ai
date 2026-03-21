@@ -25,6 +25,8 @@ const OG_LOCALE_MAP: Record<AppLocale, string> = {
   pt: "pt_BR",
   it: "it_IT",
   fr: "fr_FR",
+  ja: "ja_JP",
+  zh: "zh_CN",
 };
 
 export async function generateMetadata({
@@ -48,6 +50,8 @@ export async function generateMetadata({
         pt: "/pt",
         it: "/it",
         fr: "/fr",
+        ja: "/ja",
+        zh: "/zh",
         "x-default": "/en",
       },
     },
@@ -89,24 +93,85 @@ function rich(text: string) {
   );
 }
 
-function buildJsonLd(locale: AppLocale) {
+function buildJsonLd(locale: AppLocale, title: string, description: string) {
+  const localeUrl = `${BASE_URL}/${locale}`;
+  const websiteId = `${localeUrl}#website`;
+  const organizationId = `${BASE_URL}#organization`;
+  const catalogId = `${localeUrl}#catalog`;
+  const datasetId = `${localeUrl}#dataset`;
+
   return {
     "@context": "https://schema.org",
-    "@type": "Dataset",
-    name: "Constitutional Map AI – Global Constitutional Corpus",
-    description:
-      "A searchable semantic corpus of constitutional texts from 190+ countries, embedded and clustered for comparative legal research.",
-    url: `${BASE_URL}/${locale}`,
-    spatialCoverage: "Global",
-    temporalCoverage: "1789/..",
-    inLanguage: locale,
-    license: "https://creativecommons.org/licenses/by-nc/3.0/",
-    creator: {
-      "@type": "Person",
-      name: "João Lima",
-      url: "https://x.com/joaoli13",
-    },
-    isAccessibleForFree: true,
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: localeUrl,
+        name: "Constitutional Map AI",
+        alternateName: "Constitutional Map",
+        description,
+        inLanguage: locale,
+        isAccessibleForFree: true,
+        publisher: {"@id": organizationId},
+        about: {"@id": datasetId},
+      },
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "Constitutional Map AI",
+        url: BASE_URL,
+        logo: `${BASE_URL}/favicon-512.png`,
+        founder: {
+          "@type": "Person",
+          name: "João Lima",
+          url: "https://x.com/joaoli13",
+        },
+        sameAs: [
+          "https://github.com/joaoli13/constitutional-map-ai",
+          "https://x.com/joaoli13",
+          "https://buymeacoffee.com/Joaoli13",
+        ],
+      },
+      {
+        "@type": "DataCatalog",
+        "@id": catalogId,
+        url: localeUrl,
+        name: title,
+        description,
+        inLanguage: locale,
+        isAccessibleForFree: true,
+        publisher: {"@id": organizationId},
+        dataset: {"@id": datasetId},
+      },
+      {
+        "@type": "Dataset",
+        "@id": datasetId,
+        url: localeUrl,
+        name: "Constitutional Map AI – Global Constitutional Corpus",
+        alternateName: "Global Constitutional Corpus",
+        description:
+          "A free, globally scoped corpus of constitutional articles from 190+ countries for comparative legal research, semantic search, clustering, and 3D exploration.",
+        inLanguage: locale,
+        isAccessibleForFree: true,
+        license: "https://creativecommons.org/licenses/by-nc/3.0/",
+        creator: {
+          "@type": "Person",
+          name: "João Lima",
+          url: "https://x.com/joaoli13",
+        },
+        publisher: {"@id": organizationId},
+        includedInDataCatalog: {"@id": catalogId},
+        keywords: [
+          "constitutional law",
+          "comparative constitutional law",
+          "constitutional corpus",
+          "semantic search",
+          "3D visualization",
+        ],
+        spatialCoverage: "Global",
+        temporalCoverage: "1789/..",
+      },
+    ],
   };
 }
 
@@ -121,6 +186,7 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const metaT = await getTranslations({locale, namespace: "Meta"});
   const chromeT = await getTranslations({locale, namespace: "Chrome"});
   const primerSections = [
     {
@@ -137,7 +203,11 @@ export default async function LocaleLayout({
     },
   ];
 
-  const jsonLd = buildJsonLd(locale as AppLocale);
+  const jsonLd = buildJsonLd(
+    locale as AppLocale,
+    metaT("title"),
+    metaT("description"),
+  );
 
   return (
     <NextIntlClientProvider messages={messages}>

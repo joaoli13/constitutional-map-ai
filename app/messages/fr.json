@@ -10,7 +10,9 @@
     "es": "Español",
     "pt": "Português",
     "it": "Italiano",
-    "fr": "Français"
+    "fr": "Français",
+    "ja": "日本語",
+    "zh": "中文"
   },
   "Chrome": {
     "eyebrow": "Constitutional Map",
@@ -163,7 +165,7 @@
       "clearFocus": "Effacer",
       "focusStatusCountry": "Focus 3D actif pour le pays {country}.",
       "focusStatusSegment": "Focus 3D actif pour {country} {article}.",
-      "empty": "Sélectionnez un ou plusieurs pays pour afficher leurs segments constitutionnels en 3D.",
+      "empty": "Sélectionnez un ou plusieurs pays pour afficher leurs articles constitutionnels en 3D.",
       "hoverHint": "Survolez un point pour examiner son article et extrait de texte.",
       "doubleClickHint": "Double-cliquez sur un point pour centrer la caméra sur sa position sémantique.",
       "detailEmpty": "Cliquez sur un point pour examiner l'article constitutionnel complet.",

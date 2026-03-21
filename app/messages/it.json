@@ -10,7 +10,9 @@
     "es": "Español",
     "pt": "Português",
     "it": "Italiano",
-    "fr": "Français"
+    "fr": "Français",
+    "ja": "日本語",
+    "zh": "中文"
   },
   "Chrome": {
     "eyebrow": "Constitutional Map",
@@ -59,14 +61,14 @@
       "zoomOut": "Zoom -",
       "selectedCount": "{count, plural, =0 {Nessun paese selezionato} one {# paese selezionato} other {# paesi selezionati}}",
       "availableCountry": "{country} ha dati costituzionali disponibili.",
-      "selectedCountry": "{country} è stato aggiunto all'insieme di confronto.",
+      "selectedCountry": "{country} è stato aggiunto al gruppo di confronto.",
       "unavailableCountry": "{country} non è disponibile nel set di dati attuale.",
       "unknownCountry": "Questo paese",
       "hint": "Passa il cursore su un paese per vedere la sua disponibilità."
     },
     "ControlPanel": {
       "eyebrow": "Pannello di Controllo",
-      "title": "Crea rapidamente insiemi di confronto",
+      "title": "Crea rapidamente gruppi di confronto",
       "body": "I preset sono additivi. L'elenco dei paesi può essere filtrato per nome e riordinato per esplorazioni ampie o mirate.",
       "selectedLabel": "Selezionati",
       "countryCountLabel": "Paesi",
@@ -163,7 +165,7 @@
       "clearFocus": "Cancella",
       "focusStatusCountry": "Focus 3D attivo per il paese {country}.",
       "focusStatusSegment": "Focus 3D attivo per {country} {article}.",
-      "empty": "Seleziona uno o più paesi per renderizzare i loro segmenti costituzionali in 3D.",
+      "empty": "Seleziona uno o più paesi per renderizzare i loro articoli costituzionali in 3D.",
       "hoverHint": "Passa il cursore su un punto per esaminare il suo articolo e frammento di testo.",
       "doubleClickHint": "Fai doppio clic su un punto per centrare la telecamera sulla sua posizione semantica.",
       "detailEmpty": "Fai clic su un punto per esaminare l'articolo costituzionale completo.",
