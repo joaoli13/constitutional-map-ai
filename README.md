@@ -7,13 +7,13 @@ A global semantic map of constitutional law — 193 countries, more than 30 000 
 ## Preview
 
 <p align="center">
-  <a href="./docs/media/3d-constitutional-map.mp4">
+  <a href="https://constitutionalmap.ai/media/3d-constitutional-map.mp4">
     <img src="./docs/media/overview.png" alt="Overview of the Constitutional Map interface, including the world map, 3D semantic view, and comparison controls." width="100%" />
   </a>
 </p>
 
 <p align="center">
-  <em>The overview image shows the product at a glance. Click it to open the short 3D walkthrough video, or use the direct link: <a href="./docs/media/3d-constitutional-map.mp4">3D Constitutional Map demo</a>.</em>
+  <em>The overview image shows the product at a glance. Click it to watch the short 3D walkthrough hosted by the live app, or use the direct link: <a href="https://constitutionalmap.ai/media/3d-constitutional-map.mp4">3D Constitutional Map demo</a>.</em>
 </p>
 
 ---
