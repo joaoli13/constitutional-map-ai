@@ -255,5 +255,23 @@
     "reopenHint": "你可以随时从页眉重新打开本指南。",
     "start": "开始探索",
     "close": "关闭"
+  },
+  "BlogTutorial": {
+    "metaTitle": "教程博客 | Constitutional Map AI",
+    "metaDescription": "简短教程，帮助你学习如何阅读语义地图、比较国家，并在完整宪法文本中验证发现。",
+    "eyebrow": "Constitutional Map AI",
+    "title": "教程博客",
+    "intro": "用简短文章更快掌握 atlas 的使用流程：如何选择国家、在 3D 画布中比较分布，以及如何在完整宪法文本中验证一个发现。",
+    "openAtlas": "打开 atlas",
+    "viewPlaylist": "查看官方播放列表",
+    "statsTutorials": "教程数量",
+    "statsFormat": "形式",
+    "statsFormatValue": "短文阅读",
+    "statsLanguages": "语言",
+    "statsLanguagesValue": "已本地化",
+    "readingTime": "{minutes} 分钟",
+    "readTutorial": "阅读教程",
+    "watchRelatedVideo": "查看相关视频",
+    "backToIndex": "返回索引"
   }
 }

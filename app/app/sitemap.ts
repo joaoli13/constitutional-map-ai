@@ -1,18 +1,61 @@
 import type {MetadataRoute} from "next";
 
+import {listBlogTutorialSlugs, listBlogTutorials} from "@/lib/blog-tutorial";
+import {routing} from "@/i18n/routing";
+
 const BASE_URL = "https://constitutionalmap.ai";
-const LOCALES = ["en", "es", "pt", "it", "fr"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return LOCALES.map((locale) => ({
+  const localeEntries = routing.locales.map((locale) => ({
     url: `${BASE_URL}/${locale}`,
     lastModified: new Date(),
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: locale === "en" ? 1.0 : 0.8,
     alternates: {
       languages: Object.fromEntries(
-        LOCALES.map((l) => [l, `${BASE_URL}/${l}`]),
+        routing.locales.map((value) => [value, `${BASE_URL}/${value}`]),
       ),
     },
   }));
+
+  const blogEntries = routing.locales.flatMap((locale) => {
+    const tutorials = listBlogTutorials(locale);
+    const indexEntry = {
+      url: `${BASE_URL}/${locale}/blog-tutorial`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: locale === routing.defaultLocale ? 0.7 : 0.6,
+      alternates: {
+        languages: Object.fromEntries(
+          routing.locales.map((value) => [
+            value,
+            `${BASE_URL}/${value}/blog-tutorial`,
+          ]),
+        ),
+      },
+    };
+
+    const articleEntries = listBlogTutorialSlugs().map((slug) => {
+      const entry = tutorials.find((item) => item.slug === slug);
+
+      return {
+        url: `${BASE_URL}/${locale}/blog-tutorial/${slug}`,
+        lastModified: new Date(`${entry?.publishedAt ?? "2026-03-30"}T00:00:00Z`),
+        changeFrequency: "monthly" as const,
+        priority: locale === routing.defaultLocale ? 0.6 : 0.5,
+        alternates: {
+          languages: Object.fromEntries(
+            routing.locales.map((value) => [
+              value,
+              `${BASE_URL}/${value}/blog-tutorial/${slug}`,
+            ]),
+          ),
+        },
+      };
+    });
+
+    return [indexEntry, ...articleEntries];
+  });
+
+  return [...localeEntries, ...blogEntries];
 }

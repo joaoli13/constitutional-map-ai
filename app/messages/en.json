@@ -252,5 +252,23 @@
     "reopenHint": "You can reopen this guide anytime from the header.",
     "start": "Start exploring",
     "close": "Close"
+  },
+  "BlogTutorial": {
+    "metaTitle": "Blog tutorial | Constitutional Map AI",
+    "metaDescription": "Short tutorials for learning how to navigate the semantic map, compare countries, and validate findings in the full constitutional text.",
+    "eyebrow": "Constitutional Map AI",
+    "title": "Blog tutorial",
+    "intro": "Short entries for learning the atlas workflow faster: how to select countries, compare distributions in the 3D canvas, and validate a finding in the full constitutional text.",
+    "openAtlas": "Open atlas",
+    "viewPlaylist": "View official playlist",
+    "statsTutorials": "Tutorials",
+    "statsFormat": "Format",
+    "statsFormatValue": "Short reads",
+    "statsLanguages": "Languages",
+    "statsLanguagesValue": "Localized",
+    "readingTime": "{minutes} min",
+    "readTutorial": "Read tutorial",
+    "watchRelatedVideo": "Watch related video",
+    "backToIndex": "Back to index"
   }
 }

@@ -255,5 +255,23 @@
     "reopenHint": "このガイドはヘッダーからいつでも開き直せます。",
     "start": "探索を始める",
     "close": "閉じる"
+  },
+  "BlogTutorial": {
+    "metaTitle": "ブログチュートリアル | Constitutional Map AI",
+    "metaDescription": "セマンティックマップの読み方、国の比較方法、全文テキストでの検証方法を学ぶための短いチュートリアルです。",
+    "eyebrow": "Constitutional Map AI",
+    "title": "ブログチュートリアル",
+    "intro": "国の選択、3D キャンバス上での分布比較、全文テキストでの検証まで、アトラスの流れを素早く学ぶための短い記事です。",
+    "openAtlas": "アトラスを開く",
+    "viewPlaylist": "公式プレイリストを見る",
+    "statsTutorials": "チュートリアル数",
+    "statsFormat": "形式",
+    "statsFormatValue": "短い記事",
+    "statsLanguages": "言語",
+    "statsLanguagesValue": "多言語対応",
+    "readingTime": "{minutes}分",
+    "readTutorial": "記事を読む",
+    "watchRelatedVideo": "関連動画を見る",
+    "backToIndex": "一覧へ戻る"
   }
 }

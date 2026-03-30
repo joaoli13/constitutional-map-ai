@@ -6,7 +6,6 @@ import {notFound} from "next/navigation";
 
 import HeaderControls from "@/components/HeaderControls";
 import {routing, type AppLocale} from "@/i18n/routing";
-import "../globals.css";
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;

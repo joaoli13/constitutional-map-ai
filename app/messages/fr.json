@@ -255,5 +255,23 @@
     "reopenHint": "Vous pouvez rouvrir ce guide à tout moment depuis l'en-tête.",
     "start": "Commencer l'exploration",
     "close": "Fermer"
+  },
+  "BlogTutorial": {
+    "metaTitle": "Blog tutorial | Constitutional Map AI",
+    "metaDescription": "De courts tutoriels pour apprendre à lire la carte sémantique, comparer des pays et valider des résultats dans le texte constitutionnel complet.",
+    "eyebrow": "Constitutional Map AI",
+    "title": "Blog tutorial",
+    "intro": "De courtes entrées pour apprendre plus vite le flux de l'atlas : comment sélectionner des pays, comparer des distributions dans le canvas 3D et valider un résultat dans le texte constitutionnel complet.",
+    "openAtlas": "Ouvrir l'atlas",
+    "viewPlaylist": "Voir la playlist officielle",
+    "statsTutorials": "Tutoriels",
+    "statsFormat": "Format",
+    "statsFormatValue": "Lecture courte",
+    "statsLanguages": "Langues",
+    "statsLanguagesValue": "Localisé",
+    "readingTime": "{minutes} min",
+    "readTutorial": "Lire le tutoriel",
+    "watchRelatedVideo": "Voir la vidéo liée",
+    "backToIndex": "Retour à l'index"
   }
 }
