@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-20T00:46:37.607688+00:00",
+  "generated_at": "2026-03-30T15:42:59.227707+00:00",
   "pipeline_version": "0.1.0",
-  "total_articles": 30684,
+  "total_articles": 30828,
   "countries": [
     {
       "code": "AFG",
@@ -12,9 +12,9 @@
       "constitution_year": 2004,
       "last_amendment_year": null,
       "article_count": 163,
-      "cluster_count": 59,
-      "semantic_coverage": 0.1138996138996139,
-      "semantic_entropy": 0.8357198737246323,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.8268730316398916,
       "has_data": true
     },
     {
@@ -26,9 +26,9 @@
       "constitution_year": 2010,
       "last_amendment_year": null,
       "article_count": 245,
-      "cluster_count": 93,
-      "semantic_coverage": 0.17953667953667954,
-      "semantic_entropy": 0.8549079098906135,
+      "cluster_count": 90,
+      "semantic_coverage": 0.17681728880157171,
+      "semantic_entropy": 0.8655094599564579,
       "has_data": true
     },
     {
@@ -40,9 +40,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 203,
-      "cluster_count": 80,
-      "semantic_coverage": 0.15444015444015444,
-      "semantic_entropy": 0.8651726681467792,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.8665638847885281,
       "has_data": true
     },
     {
@@ -54,9 +54,9 @@
       "constitution_year": 1993,
       "last_amendment_year": null,
       "article_count": 108,
-      "cluster_count": 44,
-      "semantic_coverage": 0.08494208494208494,
-      "semantic_entropy": 0.8060905849842168,
+      "cluster_count": 47,
+      "semantic_coverage": 0.09233791748526522,
+      "semantic_entropy": 0.8149647077806429,
       "has_data": true
     },
     {
@@ -68,9 +68,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 153,
-      "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.4916774871051886,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07662082514734773,
+      "semantic_entropy": 0.49458091653777797,
       "has_data": true
     },
     {
@@ -83,8 +83,8 @@
       "last_amendment_year": null,
       "article_count": 130,
       "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.8763775916996667,
+      "semantic_coverage": 0.07465618860510806,
+      "semantic_entropy": 0.8873577924040564,
       "has_data": true
     },
     {
@@ -96,9 +96,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 221,
-      "cluster_count": 87,
-      "semantic_coverage": 0.16795366795366795,
-      "semantic_entropy": 0.9126406169760818,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.9039968828425846,
       "has_data": true
     },
     {
@@ -111,8 +111,8 @@
       "last_amendment_year": null,
       "article_count": 22,
       "cluster_count": 9,
-      "semantic_coverage": 0.017374517374517374,
-      "semantic_entropy": 0.911551355173181,
+      "semantic_coverage": 0.01768172888015717,
+      "semantic_entropy": 0.8997742849325225,
       "has_data": true
     },
     {
@@ -124,9 +124,9 @@
       "constitution_year": 1985,
       "last_amendment_year": 1985,
       "article_count": 164,
-      "cluster_count": 25,
-      "semantic_coverage": 0.04826254826254826,
-      "semantic_entropy": 0.7048835039133682,
+      "cluster_count": 24,
+      "semantic_coverage": 0.047151277013752456,
+      "semantic_entropy": 0.6919603581465112,
       "has_data": true
     },
     {
@@ -138,9 +138,9 @@
       "constitution_year": 2013,
       "last_amendment_year": null,
       "article_count": 225,
-      "cluster_count": 21,
-      "semantic_coverage": 0.04054054054054054,
-      "semantic_entropy": 0.2260716423390555,
+      "cluster_count": 28,
+      "semantic_coverage": 0.0550098231827112,
+      "semantic_entropy": 0.692007555195216,
       "has_data": true
     },
     {
@@ -152,9 +152,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 165,
-      "cluster_count": 33,
-      "semantic_coverage": 0.0637065637065637,
-      "semantic_entropy": 0.4243904301350427,
+      "cluster_count": 32,
+      "semantic_coverage": 0.06286836935166994,
+      "semantic_entropy": 0.4304986853307065,
       "has_data": true
     },
     {
@@ -166,9 +166,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 293,
-      "cluster_count": 104,
-      "semantic_coverage": 0.20077220077220076,
-      "semantic_entropy": 0.8802400744528968,
+      "cluster_count": 105,
+      "semantic_coverage": 0.206286836935167,
+      "semantic_entropy": 0.874734789132093,
       "has_data": true
     },
     {
@@ -180,9 +180,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 195,
-      "cluster_count": 50,
-      "semantic_coverage": 0.09652509652509653,
-      "semantic_entropy": 0.7038273924856054,
+      "cluster_count": 56,
+      "semantic_coverage": 0.1100196463654224,
+      "semantic_entropy": 0.7193679755724425,
       "has_data": true
     },
     {
@@ -194,9 +194,9 @@
       "constitution_year": 1990,
       "last_amendment_year": null,
       "article_count": 161,
-      "cluster_count": 81,
-      "semantic_coverage": 0.15637065637065636,
-      "semantic_entropy": 0.9295470950936325,
+      "cluster_count": 85,
+      "semantic_coverage": 0.16699410609037327,
+      "semantic_entropy": 0.9251319535030651,
       "has_data": true
     },
     {
@@ -208,9 +208,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 178,
-      "cluster_count": 85,
-      "semantic_coverage": 0.1640926640926641,
-      "semantic_entropy": 0.9499863480798669,
+      "cluster_count": 88,
+      "semantic_coverage": 0.17288801571709234,
+      "semantic_entropy": 0.9408795254703429,
       "has_data": true
     },
     {
@@ -222,9 +222,9 @@
       "constitution_year": 2014,
       "last_amendment_year": null,
       "article_count": 186,
-      "cluster_count": 67,
-      "semantic_coverage": 0.12934362934362933,
-      "semantic_entropy": 0.7987398549781265,
+      "cluster_count": 66,
+      "semantic_coverage": 0.12966601178781925,
+      "semantic_entropy": 0.805117072281444,
       "has_data": true
     },
     {
@@ -236,9 +236,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 175,
-      "cluster_count": 82,
-      "semantic_coverage": 0.1583011583011583,
-      "semantic_entropy": 0.8830649292707713,
+      "cluster_count": 78,
+      "semantic_coverage": 0.15324165029469547,
+      "semantic_entropy": 0.9005559659974902,
       "has_data": true
     },
     {
@@ -250,9 +250,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 126,
-      "cluster_count": 55,
-      "semantic_coverage": 0.10617760617760617,
-      "semantic_entropy": 0.9406738805975983,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10609037328094302,
+      "semantic_entropy": 0.9447219939450281,
       "has_data": true
     },
     {
@@ -265,8 +265,8 @@
       "last_amendment_year": null,
       "article_count": 139,
       "cluster_count": 56,
-      "semantic_coverage": 0.10810810810810811,
-      "semantic_entropy": 0.9458986761698328,
+      "semantic_coverage": 0.1100196463654224,
+      "semantic_entropy": 0.9170584444873237,
       "has_data": true
     },
     {
@@ -278,9 +278,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 41,
-      "cluster_count": 2,
-      "semantic_coverage": 0.003861003861003861,
-      "semantic_entropy": 0.17203694935311378,
+      "cluster_count": 1,
+      "semantic_coverage": 0.0019646365422396855,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -293,8 +293,8 @@
       "last_amendment_year": 2004,
       "article_count": 147,
       "cluster_count": 42,
-      "semantic_coverage": 0.08108108108108109,
-      "semantic_entropy": 0.6187616152127882,
+      "semantic_coverage": 0.0825147347740668,
+      "semantic_entropy": 0.6035335370412929,
       "has_data": true
     },
     {
@@ -306,9 +306,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 18,
-      "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
-      "semantic_entropy": 0.8193399999898041,
+      "cluster_count": 7,
+      "semantic_coverage": 0.0137524557956778,
+      "semantic_entropy": 0.8165982976888231,
       "has_data": true
     },
     {
@@ -320,9 +320,9 @@
       "constitution_year": 2009,
       "last_amendment_year": null,
       "article_count": 412,
-      "cluster_count": 80,
-      "semantic_coverage": 0.15444015444015444,
-      "semantic_entropy": 0.8741106626394968,
+      "cluster_count": 74,
+      "semantic_coverage": 0.14538310412573674,
+      "semantic_entropy": 0.8853634220583998,
       "has_data": true
     },
     {
@@ -334,9 +334,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 264,
-      "cluster_count": 63,
-      "semantic_coverage": 0.12162162162162163,
-      "semantic_entropy": 0.8654564205798622,
+      "cluster_count": 64,
+      "semantic_coverage": 0.12573673870333987,
+      "semantic_entropy": 0.8622936290651442,
       "has_data": true
     },
     {
@@ -348,9 +348,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 118,
-      "cluster_count": 57,
-      "semantic_coverage": 0.11003861003861004,
-      "semantic_entropy": 0.9704157839922866,
+      "cluster_count": 55,
+      "semantic_coverage": 0.10805500982318271,
+      "semantic_entropy": 0.9465319935587347,
       "has_data": true
     },
     {
@@ -362,9 +362,9 @@
       "constitution_year": 2006,
       "last_amendment_year": 2006,
       "article_count": 93,
-      "cluster_count": 14,
-      "semantic_coverage": 0.02702702702702703,
-      "semantic_entropy": 0.3873114849841737,
+      "cluster_count": 13,
+      "semantic_coverage": 0.025540275049115914,
+      "semantic_entropy": 0.37941748883421034,
       "has_data": true
     },
     {
@@ -377,7 +377,7 @@
       "last_amendment_year": null,
       "article_count": 36,
       "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
+      "semantic_coverage": 0.0019646365422396855,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -390,9 +390,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 128,
-      "cluster_count": 64,
-      "semantic_coverage": 0.12355212355212356,
-      "semantic_entropy": 0.9028946491975831,
+      "cluster_count": 66,
+      "semantic_coverage": 0.12966601178781925,
+      "semantic_entropy": 0.9108839694324389,
       "has_data": true
     },
     {
@@ -404,9 +404,9 @@
       "constitution_year": 2016,
       "last_amendment_year": null,
       "article_count": 160,
-      "cluster_count": 81,
-      "semantic_coverage": 0.15637065637065636,
-      "semantic_entropy": 0.9593838059394422,
+      "cluster_count": 85,
+      "semantic_coverage": 0.16699410609037327,
+      "semantic_entropy": 0.9522936056709497,
       "has_data": true
     },
     {
@@ -432,9 +432,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 222,
-      "cluster_count": 31,
-      "semantic_coverage": 0.059845559845559844,
-      "semantic_entropy": 0.30675625577939614,
+      "cluster_count": 33,
+      "semantic_coverage": 0.06483300589390963,
+      "semantic_entropy": 0.4817506264760066,
       "has_data": true
     },
     {
@@ -446,9 +446,23 @@
       "constitution_year": 2023,
       "last_amendment_year": null,
       "article_count": 218,
-      "cluster_count": 52,
-      "semantic_coverage": 0.10038610038610038,
-      "semantic_entropy": 0.9201199171968126,
+      "cluster_count": 55,
+      "semantic_coverage": 0.10805500982318271,
+      "semantic_entropy": 0.9073839808097701,
+      "has_data": true
+    },
+    {
+      "code": "CHN",
+      "iso_alpha2": "CN",
+      "name": "China",
+      "region": "Asia",
+      "sub_region": "Eastern Asia",
+      "constitution_year": 2018,
+      "last_amendment_year": 2018,
+      "article_count": 144,
+      "cluster_count": 16,
+      "semantic_coverage": 0.03143418467583497,
+      "semantic_entropy": 0.4529879235619121,
       "has_data": true
     },
     {
@@ -461,8 +475,8 @@
       "last_amendment_year": null,
       "article_count": 185,
       "cluster_count": 91,
-      "semantic_coverage": 0.17567567567567569,
-      "semantic_entropy": 0.9622601142331457,
+      "semantic_coverage": 0.1787819253438114,
+      "semantic_entropy": 0.9481188833745083,
       "has_data": true
     },
     {
@@ -474,9 +488,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 70,
-      "cluster_count": 37,
-      "semantic_coverage": 0.07142857142857142,
-      "semantic_entropy": 0.9814840716882917,
+      "cluster_count": 42,
+      "semantic_coverage": 0.0825147347740668,
+      "semantic_entropy": 0.9684975507192239,
       "has_data": true
     },
     {
@@ -488,9 +502,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 230,
-      "cluster_count": 99,
-      "semantic_coverage": 0.19111969111969113,
-      "semantic_entropy": 0.9221278893273009,
+      "cluster_count": 104,
+      "semantic_coverage": 0.2043222003929273,
+      "semantic_entropy": 0.9019960231354216,
       "has_data": true
     },
     {
@@ -502,9 +516,9 @@
       "constitution_year": 2015,
       "last_amendment_year": null,
       "article_count": 247,
-      "cluster_count": 101,
-      "semantic_coverage": 0.19498069498069498,
-      "semantic_entropy": 0.9227149859065926,
+      "cluster_count": 105,
+      "semantic_coverage": 0.206286836935167,
+      "semantic_entropy": 0.9258780562951984,
       "has_data": true
     },
     {
@@ -516,9 +530,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 383,
-      "cluster_count": 108,
-      "semantic_coverage": 0.2084942084942085,
-      "semantic_entropy": 0.923300301410019,
+      "cluster_count": 107,
+      "semantic_coverage": 0.21021611001964635,
+      "semantic_entropy": 0.9181482555329302,
       "has_data": true
     },
     {
@@ -530,9 +544,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 123,
-      "cluster_count": 59,
-      "semantic_coverage": 0.1138996138996139,
-      "semantic_entropy": 0.9108398042097877,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.8766649533089891,
       "has_data": true
     },
     {
@@ -544,9 +558,9 @@
       "constitution_year": 1992,
       "last_amendment_year": 1992,
       "article_count": 323,
-      "cluster_count": 111,
-      "semantic_coverage": 0.21428571428571427,
-      "semantic_entropy": 0.9093435561536616,
+      "cluster_count": 109,
+      "semantic_coverage": 0.21414538310412573,
+      "semantic_entropy": 0.9190279928868997,
       "has_data": true
     },
     {
@@ -558,9 +572,9 @@
       "constitution_year": 2020,
       "last_amendment_year": 2020,
       "article_count": 198,
-      "cluster_count": 69,
-      "semantic_coverage": 0.13320463320463322,
-      "semantic_entropy": 0.8994116688856776,
+      "cluster_count": 72,
+      "semantic_coverage": 0.14145383104125736,
+      "semantic_entropy": 0.9032602421666054,
       "has_data": true
     },
     {
@@ -572,9 +586,9 @@
       "constitution_year": 2019,
       "last_amendment_year": null,
       "article_count": 230,
-      "cluster_count": 68,
-      "semantic_coverage": 0.13127413127413126,
-      "semantic_entropy": 0.7850835704798576,
+      "cluster_count": 67,
+      "semantic_coverage": 0.13163064833005894,
+      "semantic_entropy": 0.8064024671892073,
       "has_data": true
     },
     {
@@ -586,9 +600,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 201,
-      "cluster_count": 53,
-      "semantic_coverage": 0.10231660231660232,
-      "semantic_entropy": 0.6879699744106575,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.6976861294424644,
       "has_data": true
     },
     {
@@ -600,9 +614,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 116,
-      "cluster_count": 45,
-      "semantic_coverage": 0.08687258687258688,
-      "semantic_entropy": 0.8300077701215081,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07662082514734773,
+      "semantic_entropy": 0.8365423306482969,
       "has_data": true
     },
     {
@@ -614,9 +628,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 195,
-      "cluster_count": 32,
-      "semantic_coverage": 0.06177606177606178,
-      "semantic_entropy": 0.31957890906533504,
+      "cluster_count": 36,
+      "semantic_coverage": 0.07072691552062868,
+      "semantic_entropy": 0.43377067341029046,
       "has_data": true
     },
     {
@@ -628,9 +642,9 @@
       "constitution_year": 2010,
       "last_amendment_year": 2010,
       "article_count": 98,
-      "cluster_count": 63,
-      "semantic_coverage": 0.12162162162162163,
-      "semantic_entropy": 0.9748489391405823,
+      "cluster_count": 59,
+      "semantic_coverage": 0.11591355599214145,
+      "semantic_entropy": 0.9687058024914905,
       "has_data": true
     },
     {
@@ -642,9 +656,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 126,
-      "cluster_count": 65,
-      "semantic_coverage": 0.12548262548262548,
-      "semantic_entropy": 0.9539625174564721,
+      "cluster_count": 63,
+      "semantic_coverage": 0.1237721021611002,
+      "semantic_entropy": 0.937935122354136,
       "has_data": true
     },
     {
@@ -657,8 +671,8 @@
       "last_amendment_year": null,
       "article_count": 75,
       "cluster_count": 19,
-      "semantic_coverage": 0.03667953667953668,
-      "semantic_entropy": 0.5433970515514317,
+      "semantic_coverage": 0.03732809430255403,
+      "semantic_entropy": 0.520857143972123,
       "has_data": true
     },
     {
@@ -671,8 +685,8 @@
       "last_amendment_year": null,
       "article_count": 278,
       "cluster_count": 82,
-      "semantic_coverage": 0.1583011583011583,
-      "semantic_entropy": 0.86771147890213,
+      "semantic_coverage": 0.16110019646365423,
+      "semantic_entropy": 0.8815266449160581,
       "has_data": true
     },
     {
@@ -684,9 +698,9 @@
       "constitution_year": 2020,
       "last_amendment_year": null,
       "article_count": 240,
-      "cluster_count": 107,
-      "semantic_coverage": 0.20656370656370657,
-      "semantic_entropy": 0.9710924010219418,
+      "cluster_count": 103,
+      "semantic_coverage": 0.20235756385068762,
+      "semantic_entropy": 0.9652916518737966,
       "has_data": true
     },
     {
@@ -699,8 +713,8 @@
       "last_amendment_year": 2021,
       "article_count": 469,
       "cluster_count": 92,
-      "semantic_coverage": 0.1776061776061776,
-      "semantic_entropy": 0.9187195714034054,
+      "semantic_coverage": 0.1807465618860511,
+      "semantic_entropy": 0.9076542333277807,
       "has_data": true
     },
     {
@@ -712,9 +726,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 255,
-      "cluster_count": 115,
-      "semantic_coverage": 0.222007722007722,
-      "semantic_entropy": 0.9668092364269447,
+      "cluster_count": 112,
+      "semantic_coverage": 0.2200392927308448,
+      "semantic_entropy": 0.9593957784571182,
       "has_data": true
     },
     {
@@ -727,7 +741,7 @@
       "last_amendment_year": null,
       "article_count": 60,
       "cluster_count": 24,
-      "semantic_coverage": 0.04633204633204633,
+      "semantic_coverage": 0.047151277013752456,
       "semantic_entropy": 0.719390328966376,
       "has_data": true
     },
@@ -740,9 +754,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 170,
-      "cluster_count": 69,
-      "semantic_coverage": 0.13320463320463322,
-      "semantic_entropy": 0.9407750756426905,
+      "cluster_count": 64,
+      "semantic_coverage": 0.12573673870333987,
+      "semantic_entropy": 0.9356342527277367,
       "has_data": true
     },
     {
@@ -755,8 +769,8 @@
       "last_amendment_year": 2015,
       "article_count": 169,
       "cluster_count": 42,
-      "semantic_coverage": 0.08108108108108109,
-      "semantic_entropy": 0.6940413165505149,
+      "semantic_coverage": 0.0825147347740668,
+      "semantic_entropy": 0.6715103641701241,
       "has_data": true
     },
     {
@@ -769,7 +783,7 @@
       "last_amendment_year": null,
       "article_count": 7,
       "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
+      "semantic_coverage": 0.0019646365422396855,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -782,9 +796,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 132,
-      "cluster_count": 46,
-      "semantic_coverage": 0.0888030888030888,
-      "semantic_entropy": 0.8403419576150013,
+      "cluster_count": 42,
+      "semantic_coverage": 0.0825147347740668,
+      "semantic_entropy": 0.8004400438783688,
       "has_data": true
     },
     {
@@ -797,8 +811,8 @@
       "last_amendment_year": null,
       "article_count": 183,
       "cluster_count": 76,
-      "semantic_coverage": 0.14671814671814673,
-      "semantic_entropy": 0.9449580335483819,
+      "semantic_coverage": 0.14931237721021612,
+      "semantic_entropy": 0.961430770334548,
       "has_data": true
     },
     {
@@ -810,9 +824,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 126,
-      "cluster_count": 69,
-      "semantic_coverage": 0.13320463320463322,
-      "semantic_entropy": 0.9632715966906714,
+      "cluster_count": 66,
+      "semantic_coverage": 0.12966601178781925,
+      "semantic_entropy": 0.9728035653959616,
       "has_data": true
     },
     {
@@ -824,9 +838,9 @@
       "constitution_year": 1990,
       "last_amendment_year": 1990,
       "article_count": 23,
-      "cluster_count": 9,
-      "semantic_coverage": 0.017374517374517374,
-      "semantic_entropy": 0.9246934699012204,
+      "cluster_count": 10,
+      "semantic_coverage": 0.019646365422396856,
+      "semantic_entropy": 0.9311066102039657,
       "has_data": true
     },
     {
@@ -838,9 +852,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 137,
-      "cluster_count": 68,
-      "semantic_coverage": 0.13127413127413126,
-      "semantic_entropy": 0.9562281181945119,
+      "cluster_count": 69,
+      "semantic_coverage": 0.13555992141453832,
+      "semantic_entropy": 0.9498388009170396,
       "has_data": true
     },
     {
@@ -866,9 +880,9 @@
       "constitution_year": 2018,
       "last_amendment_year": 2018,
       "article_count": 79,
-      "cluster_count": 27,
-      "semantic_coverage": 0.052123552123552123,
-      "semantic_entropy": 0.6079847036345831,
+      "cluster_count": 25,
+      "semantic_coverage": 0.04911591355599214,
+      "semantic_entropy": 0.5719341109445552,
       "has_data": true
     },
     {
@@ -880,9 +894,9 @@
       "constitution_year": 1996,
       "last_amendment_year": 1996,
       "article_count": 357,
-      "cluster_count": 81,
-      "semantic_coverage": 0.15637065637065636,
-      "semantic_entropy": 0.8799027414017405,
+      "cluster_count": 80,
+      "semantic_coverage": 0.15717092337917485,
+      "semantic_entropy": 0.8796877041892728,
       "has_data": true
     },
     {
@@ -895,8 +909,8 @@
       "last_amendment_year": null,
       "article_count": 163,
       "cluster_count": 87,
-      "semantic_coverage": 0.16795366795366795,
-      "semantic_entropy": 0.9610390659242837,
+      "semantic_coverage": 0.17092337917485265,
+      "semantic_entropy": 0.9599637446915957,
       "has_data": true
     },
     {
@@ -909,8 +923,8 @@
       "last_amendment_year": null,
       "article_count": 350,
       "cluster_count": 94,
-      "semantic_coverage": 0.18146718146718147,
-      "semantic_entropy": 0.9175334700509921,
+      "semantic_coverage": 0.18467583497053044,
+      "semantic_entropy": 0.9155886352401792,
       "has_data": true
     },
     {
@@ -922,9 +936,9 @@
       "constitution_year": 1996,
       "last_amendment_year": 1996,
       "article_count": 133,
-      "cluster_count": 61,
-      "semantic_coverage": 0.11776061776061776,
-      "semantic_entropy": 0.8987025446244152,
+      "cluster_count": 56,
+      "semantic_coverage": 0.1100196463654224,
+      "semantic_entropy": 0.9030381917645607,
       "has_data": true
     },
     {
@@ -936,9 +950,9 @@
       "constitution_year": 2012,
       "last_amendment_year": 2012,
       "article_count": 135,
-      "cluster_count": 51,
-      "semantic_coverage": 0.09845559845559845,
-      "semantic_entropy": 0.915014034947679,
+      "cluster_count": 53,
+      "semantic_coverage": 0.10412573673870335,
+      "semantic_entropy": 0.9229781690648329,
       "has_data": true
     },
     {
@@ -950,9 +964,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 125,
-      "cluster_count": 56,
-      "semantic_coverage": 0.10810810810810811,
-      "semantic_entropy": 0.9138015726463774,
+      "cluster_count": 59,
+      "semantic_coverage": 0.11591355599214145,
+      "semantic_entropy": 0.9175564125745501,
       "has_data": true
     },
     {
@@ -964,9 +978,9 @@
       "constitution_year": 1992,
       "last_amendment_year": null,
       "article_count": 18,
-      "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
-      "semantic_entropy": 0.8509553984313722,
+      "cluster_count": 7,
+      "semantic_coverage": 0.0137524557956778,
+      "semantic_entropy": 0.859812753150758,
       "has_data": true
     },
     {
@@ -978,9 +992,9 @@
       "constitution_year": 1993,
       "last_amendment_year": 1993,
       "article_count": 309,
-      "cluster_count": 84,
-      "semantic_coverage": 0.16216216216216217,
-      "semantic_entropy": 0.8758045438432743,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.872720161134985,
       "has_data": true
     },
     {
@@ -992,9 +1006,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 14,
-      "cluster_count": 3,
-      "semantic_coverage": 0.005791505791505791,
-      "semantic_entropy": 0.8194483718728035,
+      "cluster_count": 4,
+      "semantic_coverage": 0.007858546168958742,
+      "semantic_entropy": 0.9591479170272448,
       "has_data": true
     },
     {
@@ -1006,9 +1020,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 378,
-      "cluster_count": 100,
-      "semantic_coverage": 0.19305019305019305,
-      "semantic_entropy": 0.8731917637149967,
+      "cluster_count": 99,
+      "semantic_coverage": 0.1944990176817289,
+      "semantic_entropy": 0.8901617014255507,
       "has_data": true
     },
     {
@@ -1020,9 +1034,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 152,
-      "cluster_count": 39,
-      "semantic_coverage": 0.07528957528957529,
-      "semantic_entropy": 0.5431984668714147,
+      "cluster_count": 41,
+      "semantic_coverage": 0.08055009823182711,
+      "semantic_entropy": 0.5742689048286728,
       "has_data": true
     },
     {
@@ -1035,7 +1049,7 @@
       "last_amendment_year": 2012,
       "article_count": 20,
       "cluster_count": 2,
-      "semantic_coverage": 0.003861003861003861,
+      "semantic_coverage": 0.003929273084479371,
       "semantic_entropy": 0.3227569588973983,
       "has_data": true
     },
@@ -1048,9 +1062,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 29,
-      "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
-      "semantic_entropy": 0.6506473757562798,
+      "cluster_count": 7,
+      "semantic_coverage": 0.0137524557956778,
+      "semantic_entropy": 0.630079073851228,
       "has_data": true
     },
     {
@@ -1062,9 +1076,9 @@
       "constitution_year": 2002,
       "last_amendment_year": null,
       "article_count": 74,
-      "cluster_count": 25,
-      "semantic_coverage": 0.04826254826254826,
-      "semantic_entropy": 0.6440304412510094,
+      "cluster_count": 21,
+      "semantic_coverage": 0.0412573673870334,
+      "semantic_entropy": 0.6271658049115539,
       "has_data": true
     },
     {
@@ -1076,9 +1090,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 441,
-      "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.42377663479707695,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07662082514734773,
+      "semantic_entropy": 0.347051917421818,
       "has_data": true
     },
     {
@@ -1090,9 +1104,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 18,
-      "cluster_count": 5,
-      "semantic_coverage": 0.009652509652509652,
-      "semantic_entropy": 0.7208642439793533,
+      "cluster_count": 4,
+      "semantic_coverage": 0.007858546168958742,
+      "semantic_entropy": 0.6458459985690298,
       "has_data": true
     },
     {
@@ -1104,9 +1118,9 @@
       "constitution_year": 1989,
       "last_amendment_year": 1989,
       "article_count": 178,
-      "cluster_count": 47,
-      "semantic_coverage": 0.09073359073359073,
-      "semantic_entropy": 0.6753960725615593,
+      "cluster_count": 49,
+      "semantic_coverage": 0.0962671905697446,
+      "semantic_entropy": 0.6987722470247144,
       "has_data": true
     },
     {
@@ -1118,9 +1132,9 @@
       "constitution_year": 2005,
       "last_amendment_year": null,
       "article_count": 145,
-      "cluster_count": 54,
-      "semantic_coverage": 0.10424710424710425,
-      "semantic_entropy": 0.773776714246157,
+      "cluster_count": 48,
+      "semantic_coverage": 0.09430255402750491,
+      "semantic_entropy": 0.7591791710739371,
       "has_data": true
     },
     {
@@ -1133,8 +1147,8 @@
       "last_amendment_year": 2013,
       "article_count": 82,
       "cluster_count": 20,
-      "semantic_coverage": 0.03861003861003861,
-      "semantic_entropy": 0.5469340782820306,
+      "semantic_coverage": 0.03929273084479371,
+      "semantic_entropy": 0.5284818180204359,
       "has_data": true
     },
     {
@@ -1161,8 +1175,8 @@
       "last_amendment_year": 2020,
       "article_count": 136,
       "cluster_count": 74,
-      "semantic_coverage": 0.14285714285714285,
-      "semantic_entropy": 0.979429280985829,
+      "semantic_coverage": 0.14538310412573674,
+      "semantic_entropy": 0.9728318326977965,
       "has_data": true
     },
     {
@@ -1174,9 +1188,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 129,
-      "cluster_count": 54,
-      "semantic_coverage": 0.10424710424710425,
-      "semantic_entropy": 0.9663621723873417,
+      "cluster_count": 56,
+      "semantic_coverage": 0.1100196463654224,
+      "semantic_entropy": 0.9561077952672673,
       "has_data": true
     },
     {
@@ -1188,9 +1202,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 132,
-      "cluster_count": 45,
-      "semantic_coverage": 0.08687258687258688,
-      "semantic_entropy": 0.9053839766424122,
+      "cluster_count": 49,
+      "semantic_coverage": 0.0962671905697446,
+      "semantic_entropy": 0.9333183152318166,
       "has_data": true
     },
     {
@@ -1202,9 +1216,9 @@
       "constitution_year": 1946,
       "last_amendment_year": null,
       "article_count": 104,
-      "cluster_count": 37,
-      "semantic_coverage": 0.07142857142857142,
-      "semantic_entropy": 0.9859571014998426,
+      "cluster_count": 36,
+      "semantic_coverage": 0.07072691552062868,
+      "semantic_entropy": 0.9779558021063371,
       "has_data": true
     },
     {
@@ -1216,9 +1230,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 100,
-      "cluster_count": 17,
-      "semantic_coverage": 0.032818532818532815,
-      "semantic_entropy": 0.4883979193593074,
+      "cluster_count": 20,
+      "semantic_coverage": 0.03929273084479371,
+      "semantic_entropy": 0.5724140743327507,
       "has_data": true
     },
     {
@@ -1231,8 +1245,8 @@
       "last_amendment_year": null,
       "article_count": 335,
       "cluster_count": 94,
-      "semantic_coverage": 0.18146718146718147,
-      "semantic_entropy": 0.8571202530402838,
+      "semantic_coverage": 0.18467583497053044,
+      "semantic_entropy": 0.899860109568459,
       "has_data": true
     },
     {
@@ -1244,9 +1258,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 115,
-      "cluster_count": 35,
-      "semantic_coverage": 0.06756756756756757,
-      "semantic_entropy": 0.6896569360533825,
+      "cluster_count": 36,
+      "semantic_coverage": 0.07072691552062868,
+      "semantic_entropy": 0.6886203629949246,
       "has_data": true
     },
     {
@@ -1258,9 +1272,9 @@
       "constitution_year": 2008,
       "last_amendment_year": 2008,
       "article_count": 159,
-      "cluster_count": 46,
-      "semantic_coverage": 0.0888030888030888,
-      "semantic_entropy": 0.7312752219343702,
+      "cluster_count": 44,
+      "semantic_coverage": 0.08644400785854617,
+      "semantic_entropy": 0.7217107261663813,
       "has_data": true
     },
     {
@@ -1272,9 +1286,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 142,
-      "cluster_count": 43,
-      "semantic_coverage": 0.08301158301158301,
-      "semantic_entropy": 0.880146503643085,
+      "cluster_count": 41,
+      "semantic_coverage": 0.08055009823182711,
+      "semantic_entropy": 0.811944514029268,
       "has_data": true
     },
     {
@@ -1286,9 +1300,9 @@
       "constitution_year": 1983,
       "last_amendment_year": null,
       "article_count": 22,
-      "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
-      "semantic_entropy": 0.7887003205245375,
+      "cluster_count": 5,
+      "semantic_coverage": 0.009823182711198428,
+      "semantic_entropy": 0.8261650471771164,
       "has_data": true
     },
     {
@@ -1300,9 +1314,9 @@
       "constitution_year": 1987,
       "last_amendment_year": 1987,
       "article_count": 131,
-      "cluster_count": 59,
-      "semantic_coverage": 0.1138996138996139,
-      "semantic_entropy": 0.9731915578750299,
+      "cluster_count": 58,
+      "semantic_coverage": 0.11394891944990176,
+      "semantic_entropy": 0.9703095238424543,
       "has_data": true
     },
     {
@@ -1314,9 +1328,9 @@
       "constitution_year": 1992,
       "last_amendment_year": null,
       "article_count": 184,
-      "cluster_count": 71,
-      "semantic_coverage": 0.13706563706563707,
-      "semantic_entropy": 0.9041109411000968,
+      "cluster_count": 69,
+      "semantic_coverage": 0.13555992141453832,
+      "semantic_entropy": 0.948012199230045,
       "has_data": true
     },
     {
@@ -1328,9 +1342,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 33,
-      "cluster_count": 5,
-      "semantic_coverage": 0.009652509652509652,
-      "semantic_entropy": 0.3588294465509664,
+      "cluster_count": 4,
+      "semantic_coverage": 0.007858546168958742,
+      "semantic_entropy": 0.33052737630794277,
       "has_data": true
     },
     {
@@ -1342,9 +1356,9 @@
       "constitution_year": 2004,
       "last_amendment_year": 2004,
       "article_count": 95,
-      "cluster_count": 37,
-      "semantic_coverage": 0.07142857142857142,
-      "semantic_entropy": 0.9105394245829292,
+      "cluster_count": 40,
+      "semantic_coverage": 0.07858546168958742,
+      "semantic_entropy": 0.9250691720578677,
       "has_data": true
     },
     {
@@ -1356,9 +1370,9 @@
       "constitution_year": 1986,
       "last_amendment_year": null,
       "article_count": 98,
-      "cluster_count": 27,
-      "semantic_coverage": 0.052123552123552123,
-      "semantic_entropy": 0.6797938509980982,
+      "cluster_count": 24,
+      "semantic_coverage": 0.047151277013752456,
+      "semantic_entropy": 0.6591963878311576,
       "has_data": true
     },
     {
@@ -1371,8 +1385,8 @@
       "last_amendment_year": null,
       "article_count": 221,
       "cluster_count": 91,
-      "semantic_coverage": 0.17567567567567569,
-      "semantic_entropy": 0.9187638519612463,
+      "semantic_coverage": 0.1787819253438114,
+      "semantic_entropy": 0.9312569861162767,
       "has_data": true
     },
     {
@@ -1384,9 +1398,9 @@
       "constitution_year": 1978,
       "last_amendment_year": null,
       "article_count": 125,
-      "cluster_count": 61,
-      "semantic_coverage": 0.11776061776061776,
-      "semantic_entropy": 0.9469683608146575,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.9233548027630104,
       "has_data": true
     },
     {
@@ -1398,9 +1412,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 116,
-      "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.9196771095694968,
+      "cluster_count": 41,
+      "semantic_coverage": 0.08055009823182711,
+      "semantic_entropy": 0.9293355726274877,
       "has_data": true
     },
     {
@@ -1413,8 +1427,8 @@
       "last_amendment_year": 2015,
       "article_count": 32,
       "cluster_count": 2,
-      "semantic_coverage": 0.003861003861003861,
-      "semantic_entropy": 0.3912435636292556,
+      "semantic_coverage": 0.003929273084479371,
+      "semantic_entropy": 0.4138168503036338,
       "has_data": true
     },
     {
@@ -1427,8 +1441,8 @@
       "last_amendment_year": 2018,
       "article_count": 24,
       "cluster_count": 4,
-      "semantic_coverage": 0.007722007722007722,
-      "semantic_entropy": 0.5194602975157967,
+      "semantic_coverage": 0.007858546168958742,
+      "semantic_entropy": 0.4966963645051813,
       "has_data": true
     },
     {
@@ -1440,9 +1454,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 155,
-      "cluster_count": 34,
-      "semantic_coverage": 0.06563706563706563,
-      "semantic_entropy": 0.5300227562807671,
+      "cluster_count": 35,
+      "semantic_coverage": 0.068762278978389,
+      "semantic_entropy": 0.5182913052953901,
       "has_data": true
     },
     {
@@ -1454,9 +1468,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 120,
-      "cluster_count": 45,
-      "semantic_coverage": 0.08687258687258688,
-      "semantic_entropy": 0.9202347874356255,
+      "cluster_count": 41,
+      "semantic_coverage": 0.08055009823182711,
+      "semantic_entropy": 0.9316243938747862,
       "has_data": true
     },
     {
@@ -1468,9 +1482,9 @@
       "constitution_year": 2016,
       "last_amendment_year": null,
       "article_count": 117,
-      "cluster_count": 26,
-      "semantic_coverage": 0.05019305019305019,
-      "semantic_entropy": 0.4942620204752795,
+      "cluster_count": 25,
+      "semantic_coverage": 0.04911591355599214,
+      "semantic_entropy": 0.4729524483636919,
       "has_data": true
     },
     {
@@ -1482,9 +1496,9 @@
       "constitution_year": 2011,
       "last_amendment_year": null,
       "article_count": 180,
-      "cluster_count": 77,
-      "semantic_coverage": 0.14864864864864866,
-      "semantic_entropy": 0.953693623026357,
+      "cluster_count": 82,
+      "semantic_coverage": 0.16110019646365423,
+      "semantic_entropy": 0.9548534749021529,
       "has_data": true
     },
     {
@@ -1496,9 +1510,9 @@
       "constitution_year": 2002,
       "last_amendment_year": 2002,
       "article_count": 98,
-      "cluster_count": 36,
-      "semantic_coverage": 0.0694980694980695,
-      "semantic_entropy": 0.8887439685823932,
+      "cluster_count": 34,
+      "semantic_coverage": 0.06679764243614932,
+      "semantic_entropy": 0.9128822947685208,
       "has_data": true
     },
     {
@@ -1510,9 +1524,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 145,
-      "cluster_count": 55,
-      "semantic_coverage": 0.10617760617760617,
-      "semantic_entropy": 0.7835542827861212,
+      "cluster_count": 56,
+      "semantic_coverage": 0.1100196463654224,
+      "semantic_entropy": 0.8008954724323849,
       "has_data": true
     },
     {
@@ -1524,9 +1538,9 @@
       "constitution_year": 2010,
       "last_amendment_year": null,
       "article_count": 169,
-      "cluster_count": 79,
-      "semantic_coverage": 0.1525096525096525,
-      "semantic_entropy": 0.9420575007999265,
+      "cluster_count": 73,
+      "semantic_coverage": 0.14341846758349705,
+      "semantic_entropy": 0.9263792133719374,
       "has_data": true
     },
     {
@@ -1538,9 +1552,9 @@
       "constitution_year": 2008,
       "last_amendment_year": null,
       "article_count": 310,
-      "cluster_count": 54,
-      "semantic_coverage": 0.10424710424710425,
-      "semantic_entropy": 0.4732686170374847,
+      "cluster_count": 50,
+      "semantic_coverage": 0.09823182711198428,
+      "semantic_entropy": 0.46157466342488146,
       "has_data": true
     },
     {
@@ -1552,9 +1566,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 139,
-      "cluster_count": 41,
-      "semantic_coverage": 0.07915057915057915,
-      "semantic_entropy": 0.8976836825907414,
+      "cluster_count": 43,
+      "semantic_coverage": 0.08447937131630648,
+      "semantic_entropy": 0.9144118219965603,
       "has_data": true
     },
     {
@@ -1566,9 +1580,9 @@
       "constitution_year": 1995,
       "last_amendment_year": 1995,
       "article_count": 124,
-      "cluster_count": 24,
-      "semantic_coverage": 0.04633204633204633,
-      "semantic_entropy": 0.6727639978373617,
+      "cluster_count": 31,
+      "semantic_coverage": 0.060903732809430254,
+      "semantic_entropy": 0.7058332354365219,
       "has_data": true
     },
     {
@@ -1580,9 +1594,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 135,
-      "cluster_count": 53,
-      "semantic_coverage": 0.10231660231660232,
-      "semantic_entropy": 0.7386255498023162,
+      "cluster_count": 60,
+      "semantic_coverage": 0.11787819253438114,
+      "semantic_entropy": 0.7502479300516736,
       "has_data": true
     },
     {
@@ -1594,9 +1608,9 @@
       "constitution_year": 1992,
       "last_amendment_year": null,
       "article_count": 123,
-      "cluster_count": 73,
-      "semantic_coverage": 0.14092664092664092,
-      "semantic_entropy": 0.9691480833398693,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14734774066797643,
+      "semantic_entropy": 0.961556441826853,
       "has_data": true
     },
     {
@@ -1608,9 +1622,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 122,
-      "cluster_count": 56,
-      "semantic_coverage": 0.10810810810810811,
-      "semantic_entropy": 0.9836352638772035,
+      "cluster_count": 59,
+      "semantic_coverage": 0.11591355599214145,
+      "semantic_entropy": 0.9828952125635825,
       "has_data": true
     },
     {
@@ -1622,9 +1636,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 365,
-      "cluster_count": 39,
-      "semantic_coverage": 0.07528957528957529,
-      "semantic_entropy": 0.38232904038901244,
+      "cluster_count": 34,
+      "semantic_coverage": 0.06679764243614932,
+      "semantic_entropy": 0.316161833325344,
       "has_data": true
     },
     {
@@ -1636,9 +1650,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 175,
-      "cluster_count": 58,
-      "semantic_coverage": 0.11196911196911197,
-      "semantic_entropy": 0.7173387906361576,
+      "cluster_count": 63,
+      "semantic_coverage": 0.1237721021611002,
+      "semantic_entropy": 0.7467051451390275,
       "has_data": true
     },
     {
@@ -1650,9 +1664,9 @@
       "constitution_year": 2001,
       "last_amendment_year": 2001,
       "article_count": 71,
-      "cluster_count": 4,
-      "semantic_coverage": 0.007722007722007722,
-      "semantic_entropy": 0.2008557093463552,
+      "cluster_count": 5,
+      "semantic_coverage": 0.009823182711198428,
+      "semantic_entropy": 0.21656378803040172,
       "has_data": true
     },
     {
@@ -1664,9 +1678,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 307,
-      "cluster_count": 99,
-      "semantic_coverage": 0.19111969111969113,
-      "semantic_entropy": 0.8159156704360775,
+      "cluster_count": 97,
+      "semantic_coverage": 0.1905697445972495,
+      "semantic_entropy": 0.8356283908151592,
       "has_data": true
     },
     {
@@ -1678,9 +1692,9 @@
       "constitution_year": 2012,
       "last_amendment_year": 2012,
       "article_count": 103,
-      "cluster_count": 67,
-      "semantic_coverage": 0.12934362934362933,
-      "semantic_entropy": 0.979967466202925,
+      "cluster_count": 62,
+      "semantic_coverage": 0.12180746561886051,
+      "semantic_entropy": 0.9789689767992517,
       "has_data": true
     },
     {
@@ -1693,8 +1707,8 @@
       "last_amendment_year": 2016,
       "article_count": 15,
       "cluster_count": 7,
-      "semantic_coverage": 0.013513513513513514,
-      "semantic_entropy": 0.9795697645470609,
+      "semantic_coverage": 0.0137524557956778,
+      "semantic_entropy": 1.0,
       "has_data": true
     },
     {
@@ -1706,9 +1720,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 213,
-      "cluster_count": 64,
-      "semantic_coverage": 0.12355212355212356,
-      "semantic_entropy": 0.9195308016087118,
+      "cluster_count": 67,
+      "semantic_coverage": 0.13163064833005894,
+      "semantic_entropy": 0.9014803043670393,
       "has_data": true
     },
     {
@@ -1720,9 +1734,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 33,
-      "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
-      "semantic_entropy": 0.0,
+      "cluster_count": 2,
+      "semantic_coverage": 0.003929273084479371,
+      "semantic_entropy": 0.22228483068568797,
       "has_data": true
     },
     {
@@ -1734,9 +1748,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 156,
-      "cluster_count": 54,
-      "semantic_coverage": 0.10424710424710425,
-      "semantic_entropy": 0.837097534231321,
+      "cluster_count": 51,
+      "semantic_coverage": 0.10019646365422397,
+      "semantic_entropy": 0.8677851007120665,
       "has_data": true
     },
     {
@@ -1748,9 +1762,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 185,
-      "cluster_count": 98,
-      "semantic_coverage": 0.1891891891891892,
-      "semantic_entropy": 0.9645646661749492,
+      "cluster_count": 96,
+      "semantic_coverage": 0.18860510805500982,
+      "semantic_entropy": 0.9523790598696107,
       "has_data": true
     },
     {
@@ -1762,9 +1776,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 318,
-      "cluster_count": 55,
-      "semantic_coverage": 0.10617760617760617,
-      "semantic_entropy": 0.747365990142118,
+      "cluster_count": 54,
+      "semantic_coverage": 0.10609037328094302,
+      "semantic_entropy": 0.7531913537141574,
       "has_data": true
     },
     {
@@ -1776,9 +1790,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 200,
-      "cluster_count": 65,
-      "semantic_coverage": 0.12548262548262548,
-      "semantic_entropy": 0.7547847452413081,
+      "cluster_count": 63,
+      "semantic_coverage": 0.1237721021611002,
+      "semantic_entropy": 0.7660794762080216,
       "has_data": true
     },
     {
@@ -1791,8 +1805,8 @@
       "last_amendment_year": 2008,
       "article_count": 146,
       "cluster_count": 50,
-      "semantic_coverage": 0.09652509652509653,
-      "semantic_entropy": 0.898087857154843,
+      "semantic_coverage": 0.09823182711198428,
+      "semantic_entropy": 0.9175824266685817,
       "has_data": true
     },
     {
@@ -1804,9 +1818,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 112,
-      "cluster_count": 24,
-      "semantic_coverage": 0.04633204633204633,
-      "semantic_entropy": 0.5536909612471858,
+      "cluster_count": 25,
+      "semantic_coverage": 0.04911591355599214,
+      "semantic_entropy": 0.5946658210954687,
       "has_data": true
     },
     {
@@ -1818,9 +1832,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 348,
-      "cluster_count": 61,
-      "semantic_coverage": 0.11776061776061776,
-      "semantic_entropy": 0.5274535956685742,
+      "cluster_count": 58,
+      "semantic_coverage": 0.11394891944990176,
+      "semantic_entropy": 0.5137686326980153,
       "has_data": true
     },
     {
@@ -1832,9 +1846,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 105,
-      "cluster_count": 46,
-      "semantic_coverage": 0.0888030888030888,
-      "semantic_entropy": 0.9364562708406142,
+      "cluster_count": 43,
+      "semantic_coverage": 0.08447937131630648,
+      "semantic_entropy": 0.9383484613005401,
       "has_data": true
     },
     {
@@ -1860,9 +1874,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 82,
-      "cluster_count": 40,
-      "semantic_coverage": 0.07722007722007722,
-      "semantic_entropy": 0.9796563570065545,
+      "cluster_count": 36,
+      "semantic_coverage": 0.07072691552062868,
+      "semantic_entropy": 0.971670805321198,
       "has_data": true
     },
     {
@@ -1875,7 +1889,7 @@
       "last_amendment_year": null,
       "article_count": 19,
       "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
+      "semantic_coverage": 0.0019646365422396855,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -1888,9 +1902,9 @@
       "constitution_year": 2004,
       "last_amendment_year": 2004,
       "article_count": 329,
-      "cluster_count": 93,
-      "semantic_coverage": 0.17953667953667954,
-      "semantic_entropy": 0.8967928727240478,
+      "cluster_count": 99,
+      "semantic_coverage": 0.1944990176817289,
+      "semantic_entropy": 0.9131392232949551,
       "has_data": true
     },
     {
@@ -1902,9 +1916,9 @@
       "constitution_year": 2021,
       "last_amendment_year": 2021,
       "article_count": 211,
-      "cluster_count": 70,
-      "semantic_coverage": 0.13513513513513514,
-      "semantic_entropy": 0.9248812693192672,
+      "cluster_count": 73,
+      "semantic_coverage": 0.14341846758349705,
+      "semantic_entropy": 0.9167746913330601,
       "has_data": true
     },
     {
@@ -1917,7 +1931,7 @@
       "last_amendment_year": null,
       "article_count": 11,
       "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
+      "semantic_coverage": 0.0019646365422396855,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -1931,8 +1945,8 @@
       "last_amendment_year": 1992,
       "article_count": 20,
       "cluster_count": 8,
-      "semantic_coverage": 0.015444015444015444,
-      "semantic_entropy": 0.9107196304548568,
+      "semantic_coverage": 0.015717092337917484,
+      "semantic_entropy": 0.8724974870615851,
       "has_data": true
     },
     {
@@ -1945,8 +1959,8 @@
       "last_amendment_year": 2016,
       "article_count": 364,
       "cluster_count": 58,
-      "semantic_coverage": 0.11196911196911197,
-      "semantic_entropy": 0.7395645317451005,
+      "semantic_coverage": 0.11394891944990176,
+      "semantic_entropy": 0.7437646598308569,
       "has_data": true
     },
     {
@@ -1959,8 +1973,8 @@
       "last_amendment_year": 2009,
       "article_count": 244,
       "cluster_count": 61,
-      "semantic_coverage": 0.11776061776061776,
-      "semantic_entropy": 0.7257106816439615,
+      "semantic_coverage": 0.11984282907662082,
+      "semantic_entropy": 0.6734547828272329,
       "has_data": true
     },
     {
@@ -1972,9 +1986,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 173,
-      "cluster_count": 26,
-      "semantic_coverage": 0.05019305019305019,
-      "semantic_entropy": 0.6579193320881022,
+      "cluster_count": 29,
+      "semantic_coverage": 0.05697445972495088,
+      "semantic_entropy": 0.6677998752510826,
       "has_data": true
     },
     {
@@ -1986,9 +2000,9 @@
       "constitution_year": 2005,
       "last_amendment_year": 2005,
       "article_count": 297,
-      "cluster_count": 105,
-      "semantic_coverage": 0.20270270270270271,
-      "semantic_entropy": 0.9140936813122303,
+      "cluster_count": 111,
+      "semantic_coverage": 0.2180746561886051,
+      "semantic_entropy": 0.8976867022293641,
       "has_data": true
     },
     {
@@ -2000,9 +2014,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 312,
-      "cluster_count": 92,
-      "semantic_coverage": 0.1776061776061776,
-      "semantic_entropy": 0.9214800802143597,
+      "cluster_count": 93,
+      "semantic_coverage": 0.18271119842829076,
+      "semantic_entropy": 0.9112568780874114,
       "has_data": true
     },
     {
@@ -2015,8 +2029,8 @@
       "last_amendment_year": 2005,
       "article_count": 122,
       "cluster_count": 40,
-      "semantic_coverage": 0.07722007722007722,
-      "semantic_entropy": 0.754401050139517,
+      "semantic_coverage": 0.07858546168958742,
+      "semantic_entropy": 0.7448232897151584,
       "has_data": true
     },
     {
@@ -2028,9 +2042,9 @@
       "constitution_year": 2003,
       "last_amendment_year": null,
       "article_count": 151,
-      "cluster_count": 65,
-      "semantic_coverage": 0.12548262548262548,
-      "semantic_entropy": 0.9387802143695069,
+      "cluster_count": 69,
+      "semantic_coverage": 0.13555992141453832,
+      "semantic_entropy": 0.947728226175476,
       "has_data": true
     },
     {
@@ -2042,9 +2056,9 @@
       "constitution_year": 2003,
       "last_amendment_year": 2003,
       "article_count": 157,
-      "cluster_count": 54,
-      "semantic_coverage": 0.10424710424710425,
-      "semantic_entropy": 0.7451859760235061,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.7577649871969988,
       "has_data": true
     },
     {
@@ -2056,9 +2070,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 138,
-      "cluster_count": 28,
-      "semantic_coverage": 0.05405405405405406,
-      "semantic_entropy": 0.41972494697909113,
+      "cluster_count": 29,
+      "semantic_coverage": 0.05697445972495088,
+      "semantic_entropy": 0.4393015047606574,
       "has_data": true
     },
     {
@@ -2070,9 +2084,9 @@
       "constitution_year": 2015,
       "last_amendment_year": 2015,
       "article_count": 177,
-      "cluster_count": 68,
-      "semantic_coverage": 0.13127413127413126,
-      "semantic_entropy": 0.8337936948152521,
+      "cluster_count": 72,
+      "semantic_coverage": 0.14145383104125736,
+      "semantic_entropy": 0.8404726211120591,
       "has_data": true
     },
     {
@@ -2098,9 +2112,9 @@
       "constitution_year": 2019,
       "last_amendment_year": null,
       "article_count": 70,
-      "cluster_count": 25,
-      "semantic_coverage": 0.04826254826254826,
-      "semantic_entropy": 0.6585647666636246,
+      "cluster_count": 24,
+      "semantic_coverage": 0.047151277013752456,
+      "semantic_entropy": 0.6513813445123917,
       "has_data": true
     },
     {
@@ -2112,9 +2126,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 110,
-      "cluster_count": 69,
-      "semantic_coverage": 0.13320463320463322,
-      "semantic_entropy": 0.9562077805832022,
+      "cluster_count": 72,
+      "semantic_coverage": 0.14145383104125736,
+      "semantic_entropy": 0.9742408622255055,
       "has_data": true
     },
     {
@@ -2126,9 +2140,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 18,
-      "cluster_count": 2,
-      "semantic_coverage": 0.003861003861003861,
-      "semantic_entropy": 0.3372900666170139,
+      "cluster_count": 1,
+      "semantic_coverage": 0.0019646365422396855,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -2140,9 +2154,9 @@
       "constitution_year": 2018,
       "last_amendment_year": 2018,
       "article_count": 19,
-      "cluster_count": 3,
-      "semantic_coverage": 0.005791505791505791,
-      "semantic_entropy": 0.946394630357186,
+      "cluster_count": 1,
+      "semantic_coverage": 0.0019646365422396855,
+      "semantic_entropy": 0.0,
       "has_data": true
     },
     {
@@ -2154,9 +2168,9 @@
       "constitution_year": 2013,
       "last_amendment_year": null,
       "article_count": 194,
-      "cluster_count": 78,
-      "semantic_coverage": 0.15057915057915058,
-      "semantic_entropy": 0.9502112266141278,
+      "cluster_count": 79,
+      "semantic_coverage": 0.15520628683693516,
+      "semantic_entropy": 0.9451509601971164,
       "has_data": true
     },
     {
@@ -2168,9 +2182,9 @@
       "constitution_year": 2014,
       "last_amendment_year": 2014,
       "article_count": 275,
-      "cluster_count": 78,
-      "semantic_coverage": 0.15057915057915058,
-      "semantic_entropy": 0.9023591078459109,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.9123622033458012,
       "has_data": true
     },
     {
@@ -2182,9 +2196,9 @@
       "constitution_year": 2012,
       "last_amendment_year": null,
       "article_count": 157,
-      "cluster_count": 40,
-      "semantic_coverage": 0.07722007722007722,
-      "semantic_entropy": 0.6200915625547494,
+      "cluster_count": 35,
+      "semantic_coverage": 0.068762278978389,
+      "semantic_entropy": 0.5977886582727496,
       "has_data": true
     },
     {
@@ -2196,9 +2210,9 @@
       "constitution_year": 2006,
       "last_amendment_year": null,
       "article_count": 207,
-      "cluster_count": 62,
-      "semantic_coverage": 0.11969111969111969,
-      "semantic_entropy": 0.7201205712402837,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.733440489989998,
       "has_data": true
     },
     {
@@ -2211,8 +2225,8 @@
       "last_amendment_year": 2013,
       "article_count": 42,
       "cluster_count": 4,
-      "semantic_coverage": 0.007722007722007722,
-      "semantic_entropy": 0.4377636676339176,
+      "semantic_coverage": 0.007858546168958742,
+      "semantic_entropy": 0.4020205917889483,
       "has_data": true
     },
     {
@@ -2224,9 +2238,9 @@
       "constitution_year": 2003,
       "last_amendment_year": 2003,
       "article_count": 161,
-      "cluster_count": 79,
-      "semantic_coverage": 0.1525096525096525,
-      "semantic_entropy": 0.8996440577943089,
+      "cluster_count": 84,
+      "semantic_coverage": 0.1650294695481336,
+      "semantic_entropy": 0.9270848266623442,
       "has_data": true
     },
     {
@@ -2239,8 +2253,8 @@
       "last_amendment_year": 1992,
       "article_count": 187,
       "cluster_count": 64,
-      "semantic_coverage": 0.12355212355212356,
-      "semantic_entropy": 0.8202988723199963,
+      "semantic_coverage": 0.12573673870333987,
+      "semantic_entropy": 0.8240509860939096,
       "has_data": true
     },
     {
@@ -2253,8 +2267,8 @@
       "last_amendment_year": 2017,
       "article_count": 173,
       "cluster_count": 37,
-      "semantic_coverage": 0.07142857142857142,
-      "semantic_entropy": 0.6971727688176483,
+      "semantic_coverage": 0.07269155206286837,
+      "semantic_entropy": 0.7082433360219832,
       "has_data": true
     },
     {
@@ -2266,9 +2280,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 177,
-      "cluster_count": 75,
-      "semantic_coverage": 0.14478764478764478,
-      "semantic_entropy": 0.9006013238042969,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.9060156737607831,
       "has_data": true
     },
     {
@@ -2281,7 +2295,7 @@
       "last_amendment_year": 2012,
       "article_count": 21,
       "cluster_count": 2,
-      "semantic_coverage": 0.003861003861003861,
+      "semantic_coverage": 0.003929273084479371,
       "semantic_entropy": 0.6292492238560347,
       "has_data": true
     },
@@ -2294,9 +2308,9 @@
       "constitution_year": 2005,
       "last_amendment_year": null,
       "article_count": 295,
-      "cluster_count": 71,
-      "semantic_coverage": 0.13706563706563707,
-      "semantic_entropy": 0.855158650305115,
+      "cluster_count": 73,
+      "semantic_coverage": 0.14341846758349705,
+      "semantic_entropy": 0.7849704526510028,
       "has_data": true
     },
     {
@@ -2308,9 +2322,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 168,
-      "cluster_count": 67,
-      "semantic_coverage": 0.12934362934362933,
-      "semantic_entropy": 0.9302309429991409,
+      "cluster_count": 66,
+      "semantic_coverage": 0.12966601178781925,
+      "semantic_entropy": 0.9364382604247992,
       "has_data": true
     },
     {
@@ -2322,9 +2336,9 @@
       "constitution_year": 2017,
       "last_amendment_year": null,
       "article_count": 86,
-      "cluster_count": 35,
-      "semantic_coverage": 0.06756756756756757,
-      "semantic_entropy": 0.9050721969147508,
+      "cluster_count": 34,
+      "semantic_coverage": 0.06679764243614932,
+      "semantic_entropy": 0.9091976817885323,
       "has_data": true
     },
     {
@@ -2336,9 +2350,9 @@
       "constitution_year": 2018,
       "last_amendment_year": null,
       "article_count": 233,
-      "cluster_count": 104,
-      "semantic_coverage": 0.20077220077220076,
-      "semantic_entropy": 0.9127510168216261,
+      "cluster_count": 110,
+      "semantic_coverage": 0.21611001964636542,
+      "semantic_entropy": 0.9030197128762683,
       "has_data": true
     },
     {
@@ -2350,9 +2364,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 160,
-      "cluster_count": 84,
-      "semantic_coverage": 0.16216216216216217,
-      "semantic_entropy": 0.9575597554179923,
+      "cluster_count": 86,
+      "semantic_coverage": 0.16895874263261296,
+      "semantic_entropy": 0.9420842423146225,
       "has_data": true
     },
     {
@@ -2364,9 +2378,9 @@
       "constitution_year": 2017,
       "last_amendment_year": null,
       "article_count": 280,
-      "cluster_count": 61,
-      "semantic_coverage": 0.11776061776061776,
-      "semantic_entropy": 0.833077525910968,
+      "cluster_count": 67,
+      "semantic_coverage": 0.13163064833005894,
+      "semantic_entropy": 0.8594874590836582,
       "has_data": true
     },
     {
@@ -2378,9 +2392,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 101,
-      "cluster_count": 29,
-      "semantic_coverage": 0.055984555984555984,
-      "semantic_entropy": 0.5596852318679365,
+      "cluster_count": 33,
+      "semantic_coverage": 0.06483300589390963,
+      "semantic_entropy": 0.5971259120056684,
       "has_data": true
     },
     {
@@ -2393,8 +2407,8 @@
       "last_amendment_year": 2016,
       "article_count": 143,
       "cluster_count": 34,
-      "semantic_coverage": 0.06563706563706563,
-      "semantic_entropy": 0.5408450261948845,
+      "semantic_coverage": 0.06679764243614932,
+      "semantic_entropy": 0.542146009184286,
       "has_data": true
     },
     {
@@ -2406,9 +2420,9 @@
       "constitution_year": 2002,
       "last_amendment_year": null,
       "article_count": 171,
-      "cluster_count": 77,
-      "semantic_coverage": 0.14864864864864866,
-      "semantic_entropy": 0.8574148036899379,
+      "cluster_count": 87,
+      "semantic_coverage": 0.17092337917485265,
+      "semantic_entropy": 0.8984915712163579,
       "has_data": true
     },
     {
@@ -2420,9 +2434,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 113,
-      "cluster_count": 27,
-      "semantic_coverage": 0.052123552123552123,
-      "semantic_entropy": 0.7517847613006186,
+      "cluster_count": 31,
+      "semantic_coverage": 0.060903732809430254,
+      "semantic_entropy": 0.803342614148936,
       "has_data": true
     },
     {
@@ -2434,9 +2448,9 @@
       "constitution_year": 2007,
       "last_amendment_year": 2007,
       "article_count": 154,
-      "cluster_count": 53,
-      "semantic_coverage": 0.10231660231660232,
-      "semantic_entropy": 0.9460164171186652,
+      "cluster_count": 49,
+      "semantic_coverage": 0.0962671905697446,
+      "semantic_entropy": 0.906669640450644,
       "has_data": true
     },
     {
@@ -2448,9 +2462,9 @@
       "constitution_year": 2014,
       "last_amendment_year": null,
       "article_count": 150,
-      "cluster_count": 74,
-      "semantic_coverage": 0.14285714285714285,
-      "semantic_entropy": 0.9732078061890331,
+      "cluster_count": 75,
+      "semantic_coverage": 0.14734774066797643,
+      "semantic_entropy": 0.9600465967450299,
       "has_data": true
     },
     {
@@ -2463,8 +2477,8 @@
       "last_amendment_year": 2017,
       "article_count": 181,
       "cluster_count": 40,
-      "semantic_coverage": 0.07722007722007722,
-      "semantic_entropy": 0.7720090843435279,
+      "semantic_coverage": 0.07858546168958742,
+      "semantic_entropy": 0.6430791640553575,
       "has_data": true
     },
     {
@@ -2476,9 +2490,9 @@
       "constitution_year": 2010,
       "last_amendment_year": 2010,
       "article_count": 231,
-      "cluster_count": 58,
-      "semantic_coverage": 0.11196911196911197,
-      "semantic_entropy": 0.8916608698776551,
+      "cluster_count": 57,
+      "semantic_coverage": 0.11198428290766209,
+      "semantic_entropy": 0.8505394909889389,
       "has_data": true
     },
     {
@@ -2490,9 +2504,9 @@
       "constitution_year": 2005,
       "last_amendment_year": 2005,
       "article_count": 176,
-      "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.6603726316886986,
+      "cluster_count": 36,
+      "semantic_coverage": 0.07072691552062868,
+      "semantic_entropy": 0.6298849974403159,
       "has_data": true
     },
     {
@@ -2505,7 +2519,7 @@
       "last_amendment_year": 2005,
       "article_count": 22,
       "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
+      "semantic_coverage": 0.011787819253438114,
       "semantic_entropy": 0.6928252921560011,
       "has_data": true
     },
@@ -2518,9 +2532,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 314,
-      "cluster_count": 81,
-      "semantic_coverage": 0.15637065637065636,
-      "semantic_entropy": 0.880999750729151,
+      "cluster_count": 84,
+      "semantic_coverage": 0.1650294695481336,
+      "semantic_entropy": 0.8827077931787026,
       "has_data": true
     },
     {
@@ -2532,9 +2546,9 @@
       "constitution_year": 2019,
       "last_amendment_year": 2019,
       "article_count": 169,
-      "cluster_count": 38,
-      "semantic_coverage": 0.07335907335907337,
-      "semantic_entropy": 0.4214923123727548,
+      "cluster_count": 39,
+      "semantic_coverage": 0.07662082514734773,
+      "semantic_entropy": 0.4293408564612558,
       "has_data": true
     },
     {
@@ -2546,9 +2560,9 @@
       "constitution_year": 2004,
       "last_amendment_year": null,
       "article_count": 333,
-      "cluster_count": 79,
-      "semantic_coverage": 0.1525096525096525,
-      "semantic_entropy": 0.8913863808138079,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.8859679550076962,
       "has_data": true
     },
     {
@@ -2561,7 +2575,7 @@
       "last_amendment_year": 1992,
       "article_count": 11,
       "cluster_count": 1,
-      "semantic_coverage": 0.0019305019305019305,
+      "semantic_coverage": 0.0019646365422396855,
       "semantic_entropy": 0.0,
       "has_data": true
     },
@@ -2574,9 +2588,9 @@
       "constitution_year": 2011,
       "last_amendment_year": 2011,
       "article_count": 129,
-      "cluster_count": 26,
-      "semantic_coverage": 0.05019305019305019,
-      "semantic_entropy": 0.6472828759386292,
+      "cluster_count": 31,
+      "semantic_coverage": 0.060903732809430254,
+      "semantic_entropy": 0.6704810504481551,
       "has_data": true
     },
     {
@@ -2589,8 +2603,8 @@
       "last_amendment_year": null,
       "article_count": 17,
       "cluster_count": 6,
-      "semantic_coverage": 0.011583011583011582,
-      "semantic_entropy": 0.8509553984313722,
+      "semantic_coverage": 0.011787819253438114,
+      "semantic_entropy": 0.8757609339601583,
       "has_data": true
     },
     {
@@ -2602,9 +2616,9 @@
       "constitution_year": 2009,
       "last_amendment_year": 2009,
       "article_count": 351,
-      "cluster_count": 111,
-      "semantic_coverage": 0.21428571428571427,
-      "semantic_entropy": 0.90540219997761,
+      "cluster_count": 105,
+      "semantic_coverage": 0.206286836935167,
+      "semantic_entropy": 0.9167049011430982,
       "has_data": true
     },
     {
@@ -2616,9 +2630,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 121,
-      "cluster_count": 36,
-      "semantic_coverage": 0.0694980694980695,
-      "semantic_entropy": 0.7693792795716717,
+      "cluster_count": 38,
+      "semantic_coverage": 0.07465618860510806,
+      "semantic_entropy": 0.8575353469974119,
       "has_data": true
     },
     {
@@ -2630,9 +2644,9 @@
       "constitution_year": 2013,
       "last_amendment_year": 2013,
       "article_count": 98,
-      "cluster_count": 29,
-      "semantic_coverage": 0.055984555984555984,
-      "semantic_entropy": 0.837841918509771,
+      "cluster_count": 26,
+      "semantic_coverage": 0.05108055009823183,
+      "semantic_entropy": 0.7722810987201513,
       "has_data": true
     },
     {
@@ -2645,8 +2659,8 @@
       "last_amendment_year": 2017,
       "article_count": 129,
       "cluster_count": 48,
-      "semantic_coverage": 0.09266409266409266,
-      "semantic_entropy": 0.9120411815547265,
+      "semantic_coverage": 0.09430255402750491,
+      "semantic_entropy": 0.8515725109511769,
       "has_data": true
     },
     {
@@ -2658,9 +2672,9 @@
       "constitution_year": 2015,
       "last_amendment_year": null,
       "article_count": 446,
-      "cluster_count": 116,
-      "semantic_coverage": 0.22393822393822393,
-      "semantic_entropy": 0.89131451715141,
+      "cluster_count": 114,
+      "semantic_coverage": 0.22396856581532418,
+      "semantic_entropy": 0.8839648293882151,
       "has_data": true
     },
     {
@@ -2672,9 +2686,9 @@
       "constitution_year": 2012,
       "last_amendment_year": 2012,
       "article_count": 41,
-      "cluster_count": 5,
-      "semantic_coverage": 0.009652509652509652,
-      "semantic_entropy": 0.3263897335377061,
+      "cluster_count": 6,
+      "semantic_coverage": 0.011787819253438114,
+      "semantic_entropy": 0.3355056261666537,
       "has_data": true
     },
     {
@@ -2686,9 +2700,9 @@
       "constitution_year": 2016,
       "last_amendment_year": 2016,
       "article_count": 276,
-      "cluster_count": 75,
-      "semantic_coverage": 0.14478764478764478,
-      "semantic_entropy": 0.9297178600854092,
+      "cluster_count": 81,
+      "semantic_coverage": 0.15913555992141454,
+      "semantic_entropy": 0.9274586585025479,
       "has_data": true
     },
     {
@@ -2700,9 +2714,9 @@
       "constitution_year": 2017,
       "last_amendment_year": 2017,
       "article_count": 387,
-      "cluster_count": 98,
-      "semantic_coverage": 0.1891891891891892,
-      "semantic_entropy": 0.883247130483559,
+      "cluster_count": 93,
+      "semantic_coverage": 0.18271119842829076,
+      "semantic_entropy": 0.8725784164917191,
       "has_data": true
     }
   ]

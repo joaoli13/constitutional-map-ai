@@ -186,6 +186,7 @@ def _preserve_cached_fields(
 
 def _normalize_lookup_name(value: str) -> str:
     value = unescape(value)
+    value = value.replace("\u2018", "'").replace("\u2019", "'")
     value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     value = value.lower().replace("&", " and ")
     value = re.sub(r"[^a-z0-9]+", " ", value)

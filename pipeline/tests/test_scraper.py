@@ -7,6 +7,7 @@ from hashlib import sha256
 import httpx
 import pytest
 
+from src.m1_scraper.discovery import resolve_country_info
 from src.m1_scraper.parser import extract_text_from_html
 from src.m1_scraper.scraper import ConstitutionalScraper
 from src.m1_scraper.url_builder import build_listing_url, build_text_url
@@ -84,6 +85,14 @@ def test_extract_text_from_html_strips_topics_and_keeps_structure() -> None:
     assert "Art 1" in text
     assert "I. First clause." in text
     assert "2. Second clause." in text
+
+
+def test_resolve_country_info_handles_curly_apostrophes() -> None:
+    country = resolve_country_info("China (People\u2019s Republic of)")
+
+    assert country is not None
+    assert country.alpha3 == "CHN"
+    assert country.name == "China"
 
 
 def test_scraper_run_downloads_supported_constitutions(tmp_path) -> None:
