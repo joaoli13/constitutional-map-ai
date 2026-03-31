@@ -4,7 +4,7 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 
 import {routing, type AppLocale} from "@/i18n/routing";
-import {listBlogTutorials} from "@/lib/blog-tutorial";
+import {getPrimaryRelatedVideo, listBlogTutorials} from "@/lib/blog-tutorial";
 
 type BlogTutorialIndexProps = Readonly<{
   params: Promise<{locale: string}>;
@@ -145,47 +145,53 @@ export default async function BlogTutorialIndex({
         </div>
 
         <section className="mt-8 grid gap-5">
-          {entries.map((entry) => (
-            <article
-              key={entry.slug}
-              className="rounded-[1.75rem] border border-slate-200/80 bg-white/82 p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)]"
-            >
-              <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
-                <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
-                  {entry.eyebrow}
-                </span>
-                <span>{formatDate(entry.publishedAt, resolvedLocale)}</span>
-                <span>{t("readingTime", {minutes: entry.readingMinutes})}</span>
-              </div>
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950">
-                <Link
-                  href={`/${resolvedLocale}/blog-tutorial/${entry.slug}`}
-                  className="transition hover:text-slate-700"
-                >
-                  {entry.title}
-                </Link>
-              </h2>
-              <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
-                {entry.summary}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Link
-                  href={`/${resolvedLocale}/blog-tutorial/${entry.slug}`}
-                  className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
-                >
-                  {t("readTutorial")}
-                </Link>
-                <a
-                  href={entry.relatedVideos[0]?.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-950"
-                >
-                  {t("watchRelatedVideo")}
-                </a>
-              </div>
-            </article>
-          ))}
+          {entries.map((entry) => {
+            const primaryVideo = getPrimaryRelatedVideo(entry);
+
+            return (
+              <article
+                key={entry.slug}
+                className="rounded-[1.75rem] border border-slate-200/80 bg-white/82 p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)]"
+              >
+                <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
+                  <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
+                    {entry.eyebrow}
+                  </span>
+                  <span>{formatDate(entry.publishedAt, resolvedLocale)}</span>
+                  <span>{t("readingTime", {minutes: entry.readingMinutes})}</span>
+                </div>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950">
+                  <Link
+                    href={`/${resolvedLocale}/blog-tutorial/${entry.slug}`}
+                    className="transition hover:text-slate-700"
+                  >
+                    {entry.title}
+                  </Link>
+                </h2>
+                <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
+                  {entry.summary}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={`/${resolvedLocale}/blog-tutorial/${entry.slug}`}
+                    className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+                  >
+                    {t("readTutorial")}
+                  </Link>
+                  {primaryVideo ? (
+                    <a
+                      href={primaryVideo.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-950"
+                    >
+                      {t("watchRelatedVideo")}
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            );
+          })}
         </section>
       </div>
     </main>

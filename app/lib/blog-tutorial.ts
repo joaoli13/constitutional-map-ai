@@ -898,3 +898,17 @@ export function getBlogTutorialBySlug(locale: AppLocale, slug: string) {
 export function listBlogTutorialSlugs() {
   return BLOG_TUTORIALS_BY_LOCALE.en.map((entry) => entry.slug);
 }
+
+function isDirectYoutubeVideo(url: string) {
+  try {
+    const parsed = new URL(url);
+
+    return parsed.hostname.includes("youtube.com") && parsed.pathname === "/watch";
+  } catch {
+    return false;
+  }
+}
+
+export function getPrimaryRelatedVideo(entry: BlogTutorialEntry) {
+  return entry.relatedVideos.find((video) => isDirectYoutubeVideo(video.url)) ?? null;
+}

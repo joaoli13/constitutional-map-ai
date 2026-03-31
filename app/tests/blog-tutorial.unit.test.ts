@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  getPrimaryRelatedVideo,
   getBlogTutorialBySlug,
   listBlogTutorialSlugs,
   listBlogTutorials,
@@ -47,6 +48,21 @@ test("blog tutorial listing is sorted by publish date descending for every local
 
     for (let index = 1; index < entries.length; index += 1) {
       assert.ok(entries[index - 1].publishedAt >= entries[index].publishedAt);
+    }
+  }
+});
+
+test("blog tutorial primary related video always points to a direct video", () => {
+  for (const locale of routing.locales) {
+    for (const entry of listBlogTutorials(locale)) {
+      const primaryVideo = getPrimaryRelatedVideo(entry);
+
+      assert.ok(primaryVideo, `${locale}/${entry.slug} is missing a primary video`);
+      assert.match(
+        primaryVideo.url,
+        /youtube\.com\/watch\?/,
+        `${locale}/${entry.slug} points to ${primaryVideo.url}`,
+      );
     }
   }
 });
