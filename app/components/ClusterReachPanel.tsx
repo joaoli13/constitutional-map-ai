@@ -83,85 +83,89 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
         <p className="mt-2 text-xs leading-relaxed text-slate-400">{t("subtitle")}</p>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200">
-        <div className="overflow-y-auto max-h-[420px]">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="sticky top-0 border-b border-slate-200 bg-slate-50 text-left">
-                <th className="w-10 px-3 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 text-center">
-                  {t("colRank")}
-                </th>
-                <SortTh active={sortKey === "id"} right onClick={() => handleSort("id")} className="w-14">
-                  {t("colClusterId")}{arrow("id")}
-                </SortTh>
-                <SortTh active={sortKey === "country_count"} right onClick={() => handleSort("country_count")} className="w-20">
-                  {t("colCountryCount")}{arrow("country_count")}
-                </SortTh>
-                <SortTh active={sortKey === "size"} right onClick={() => handleSort("size")} className="w-20">
-                  {t("colSize")}{arrow("size")}
-                </SortTh>
-                <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                  {t("colLabel")}
-                </th>
-                <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                  <span className="inline-flex items-center gap-1">
-                    {t("colCountryBreakdown")}
-                    <InfoTip text={t("colCountryBreakdownTooltip")} />
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {sorted.map((cluster, index) => {
-                const isActive = cluster.id === activeClusterId;
-                return (
-                  <tr
-                    key={cluster.id}
-                    className={`cursor-pointer transition ${
-                      isActive ? "bg-slate-950 text-white" : "bg-white hover:bg-slate-50"
-                    }`}
-                    onClick={() => handleRowClick(cluster)}
-                  >
-                    <td className="w-10 px-3 py-3 tabular-nums text-xs text-center text-slate-400">
-                      {index + 1}
-                    </td>
-                    <td className={`w-14 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
-                      {cluster.id}
-                    </td>
-                    <td className={`w-20 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
-                      {cluster.country_count}
-                    </td>
-                    <td className={`w-20 px-3 py-3 text-right tabular-nums ${isActive ? "text-slate-300" : "text-slate-700"}`}>
-                      {cluster.size}
-                    </td>
-                    <td className={`px-4 py-3 text-sm ${isActive ? "text-slate-300" : "text-slate-500"}`}>
-                      {cluster.labels
-                        ? (cluster.labels[locale] ?? cluster.labels["en"] ?? "—")
-                        : <span className="text-slate-300">—</span>}
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex flex-wrap gap-1.5">
-                        {cluster.top_countries.map((code, i) => (
-                          <span key={code} className="inline-flex items-center gap-1">
-                            <CountryBadge countryCode={code} tone={isActive ? "emerald" : "slate"} />
-                            <span className={`text-xs tabular-nums ${isActive ? "text-slate-400" : "text-slate-400"}`}>
-                              {cluster.top_countries_counts[i]}
+      <div className="mt-4 flex gap-4">
+        <div className="w-[65%] overflow-hidden rounded-xl border border-slate-200">
+          <div className="overflow-y-auto max-h-[420px]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="sticky top-0 border-b border-slate-200 bg-slate-50 text-left">
+                  <th className="w-10 px-3 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 text-center">
+                    {t("colRank")}
+                  </th>
+                  <SortTh active={sortKey === "id"} right onClick={() => handleSort("id")} className="w-14">
+                    {t("colClusterId")}{arrow("id")}
+                  </SortTh>
+                  <SortTh active={sortKey === "country_count"} right onClick={() => handleSort("country_count")} className="w-20">
+                    {t("colCountryCount")}{arrow("country_count")}
+                  </SortTh>
+                  <SortTh active={sortKey === "size"} right onClick={() => handleSort("size")} className="w-20">
+                    {t("colSize")}{arrow("size")}
+                  </SortTh>
+                  <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                    {t("colLabel")}
+                  </th>
+                  <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                    <span className="inline-flex items-center gap-1">
+                      {t("colCountryBreakdown")}
+                      <InfoTip text={t("colCountryBreakdownTooltip")} />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {sorted.map((cluster, index) => {
+                  const isActive = cluster.id === activeClusterId;
+                  return (
+                    <tr
+                      key={cluster.id}
+                      className={`cursor-pointer transition ${
+                        isActive ? "bg-slate-950 text-white" : "bg-white hover:bg-slate-50"
+                      }`}
+                      onClick={() => handleRowClick(cluster)}
+                    >
+                      <td className="w-10 px-3 py-3 tabular-nums text-xs text-center text-slate-400">
+                        {index + 1}
+                      </td>
+                      <td className={`w-14 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
+                        {cluster.id}
+                      </td>
+                      <td className={`w-20 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
+                        {cluster.country_count}
+                      </td>
+                      <td className={`w-20 px-3 py-3 text-right tabular-nums ${isActive ? "text-slate-300" : "text-slate-700"}`}>
+                        {cluster.size}
+                      </td>
+                      <td className={`px-4 py-3 text-sm ${isActive ? "text-slate-300" : "text-slate-500"}`}>
+                        {cluster.labels
+                          ? (cluster.labels[locale] ?? cluster.labels["en"] ?? "—")
+                          : <span className="text-slate-300">—</span>}
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex flex-wrap gap-1.5">
+                          {cluster.top_countries.map((code, i) => (
+                            <span key={code} className="inline-flex items-center gap-1">
+                              <CountryBadge countryCode={code} tone={isActive ? "emerald" : "slate"} />
+                              <span className={`text-xs tabular-nums ${isActive ? "text-slate-400" : "text-slate-400"}`}>
+                                {cluster.top_countries_counts[i]}
+                              </span>
                             </span>
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                          ))}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="flex-1 min-w-0">
+          {activeCluster?.all_countries
+            ? <ClusterDetail cluster={activeCluster} />
+            : <ClusterDetailPlaceholder />}
         </div>
       </div>
-
-      {activeCluster?.all_countries && (
-        <ClusterDetail cluster={activeCluster} />
-      )}
     </section>
   );
 }
@@ -184,7 +188,7 @@ function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
   }
 
   return (
-    <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+    <div className="flex h-full flex-col rounded-xl border border-slate-200 bg-slate-50 p-4">
       <div className="mb-3 flex items-center justify-between">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
           {t("detailTitle", {id: cluster.id, count: cluster.country_count})}
@@ -208,8 +212,8 @@ function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
           </button>
         </div>
       </div>
-      <div className="overflow-hidden rounded-lg border border-slate-200 bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(226,232,240,0.92))]">
-        <ComposableMap projection="geoEqualEarth" className="w-full" style={{height: "260px"}}>
+      <div className="flex-1 overflow-hidden rounded-lg border border-slate-200 bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(226,232,240,0.92))]">
+        <ComposableMap projection="geoEqualEarth" className="h-full w-full">
           <ZoomableGroup
             zoom={zoom}
             center={center}
@@ -257,6 +261,18 @@ function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
           </ZoomableGroup>
         </ComposableMap>
       </div>
+    </div>
+  );
+}
+
+function ClusterDetailPlaceholder() {
+  return (
+    <div className="flex h-full flex-col items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 px-6 text-center">
+      <svg className="mb-3 h-8 w-8 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+      </svg>
+      <p className="text-xs text-slate-400">Select a cluster to see its geographic reach</p>
     </div>
   );
 }
