@@ -1,5 +1,6 @@
 import {embedSemanticQuery} from "./gemini";
 import {getNeonSql} from "./neon";
+import {SEMANTIC_SCORE_DROP_THRESHOLD} from "./search-config";
 import type {SemanticSearchResponse, SemanticSearchResult} from "./types";
 
 type SemanticSearchResultRow = Omit<SemanticSearchResult, "global_cluster" | "x" | "y" | "z" | "score"> & {
@@ -73,17 +74,23 @@ export async function semanticSearchArticles(params: {
     countParams,
   )) as CountRow[];
 
+  const results = rows.map((row) => ({
+    ...row,
+    global_cluster: Number(row.global_cluster),
+    x: Number(row.x),
+    y: Number(row.y),
+    z: Number(row.z),
+    score: Number(row.score),
+  }));
+
+  const bestScore = results[0]?.score ?? 0;
+  const minScore = bestScore * (1 - SEMANTIC_SCORE_DROP_THRESHOLD);
+  const filtered = results.filter((r) => r.score >= minScore);
+
   return {
     query: params.query,
     total: Number.parseInt(countRows[0]?.count ?? "0", 10),
-    results: rows.map((row) => ({
-      ...row,
-      global_cluster: Number(row.global_cluster),
-      x: Number(row.x),
-      y: Number(row.y),
-      z: Number(row.z),
-      score: Number(row.score),
-    })),
+    results: filtered,
   };
 }
 

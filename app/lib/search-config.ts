@@ -1,1 +1,2 @@
 export const SEARCH_PANEL_LIMIT = 70;
+export const SEMANTIC_SCORE_DROP_THRESHOLD = 0.12;

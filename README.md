@@ -1,10 +1,18 @@
 # Constitutional Map
 
-A global semantic map of constitutional law — 193 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
+A global semantic map of constitutional law — 188 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
 
 **Live app → [constitutionalmap.ai](https://constitutionalmap.ai)**
 
+## Motivation
+
+I built this atlas after noticing a gap between utility and feasibility. Researchers and journalists often need to compare constitutions across countries, but existing tools either have steep learning curves or only allow keyword searches. By combining semantic embeddings with an interactive 3D view, we can jump to conceptually related passages even when wording differs. The minimum viable product (MVP) for this map was assembled in just two days, thanks to coding assistants that helped with the initial prototype and data pipeline. Although the MVP is simple, it shows how far we can push AI-assisted coding to build usable research tools quickly.
+
 ## Preview
+
+<p align="center">
+  <img src="./docs/media/constitutionalMapAI.gif" alt="Animated walkthrough of the Constitutional Map interface." width="100%" />
+</p>
 
 <p align="center">
   <a href="https://constitutionalmap.ai/media/3d-constitutional-map.mp4">
@@ -25,11 +33,37 @@ Each point in the 3D view represents one constitutional segment (usually an arti
 Key capabilities:
 - **World map selection** — click countries to load their constitutional segments
 - **3D semantic space** — navigate the UMAP-projected embedding, coloured by country or by global cluster
-- **Full-text search** — PostgreSQL `plainto_tsquery` across all 27 711 articles, ranked by relevance
+- **Full-text search** — PostgreSQL `plainto_tsquery` across all 30 828 articles, ranked by relevance
 - **Article detail** — click any point to read the original constitutional text
 - **Country statistics** — article count, cluster count, semantic coverage and entropy per country, sortable by any column
 - **Presets** — G7, G20, BRICS, EU, ASEAN, African Union, All
 - **i18n** — English, Português, Español
+
+---
+
+## Examples
+
+### Health Protection — Brazil and Portugal
+
+This view shows that the leading semantic matches are the core health provisions themselves — Portugal's Article 64 and Brazil's Articles 196, 197, 198, and 200 — ranking at the top of the results and clustering closely in semantic space. Their proximity highlights strong constitutional alignment in treating health as a fundamental right and a state responsibility, while still allowing comparison of each system's institutional structure.
+
+**→ [Open this view in the app](https://constitutionalmap.ai/share/ed9d0789-026d-43ce-a30c-051a106b39f3)**
+
+<p align="center">
+  <img src="./docs/media/health-protection-brazil-portugal-map.png" alt="3D semantic map showing Brazil and Portugal health articles clustered together." width="49%" />
+  <img src="./docs/media/health-protection-brazil-portugual-references.png" alt="Search results listing the top-ranked health protection articles from Brazil and Portugal." width="49%" />
+</p>
+
+### National Flag — Nepal, Laos and Mongolia
+
+This view shows that the semantic search for "national flag description" correctly ranks core constitutional provisions at the top — such as Nepal's Article 8 and Laos's Article 112 — while also surfacing closely related technical and symbolic clauses (e.g., Nepal's construction provisions and Mongolia's Article 12 on state symbols). The clustering reveals how constitutional texts combine descriptive, geometric, and symbolic elements in defining national identity, illustrating the platform's ability to capture both direct matches and structurally related provisions across jurisdictions.
+
+**→ [Open this view in the app](https://constitutionalmap.ai/share/b550b1c9-a261-4bad-b399-f57553b9fafa)**
+
+<p align="center">
+  <img src="./docs/media/Nepal-Laos-Mongolia-national-flag.png" alt="3D semantic map showing Nepal, Laos and Mongolia national flag articles clustered together." width="49%" />
+  <img src="./docs/media/Nepal-article-about-national-flag.png" alt="Detail view of Nepal's Article 8 on the national flag." width="49%" />
+</p>
 
 ---
 
@@ -95,7 +129,7 @@ project-root/
 ```
 M1 Scraper     →  fetch constitutional texts from constituteproject.org
 M2 Segmenter   →  split into articles, validate, write CSV
-M3 Embedder    →  Google Gemini text-embedding-004 (768D), cache to Parquet
+M3 Embedder    →  Google Gemini gemini-embedding-001 (768D), cache to Parquet
 M4 Clusterer   →  UMAP 50D (clustering) + 3D (viz), HDBSCAN global + per-country
 M4.5 Exporter  →  static JSON for CDN + upsert to Neon PostgreSQL
 ```
@@ -109,7 +143,7 @@ The generated `app/public/data/` is committed to the repository and served direc
 | Layer | Technology |
 |---|---|
 | Pipeline | Python 3.12, umap-learn, hdbscan, google-generativeai, pandas, psycopg2 |
-| Embeddings | Google Gemini `text-embedding-004` (768D) |
+| Embeddings | Google Gemini `gemini-embedding-001` (768D) |
 | Database | Neon (serverless PostgreSQL) — full-text search with GIN index |
 | Web app | Next.js 16, TypeScript, Tailwind CSS |
 | 3D viz | Plotly.js (`plotly.js-dist-min` + `react-plotly.js` factory) |
