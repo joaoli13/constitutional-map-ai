@@ -200,7 +200,9 @@
       "colClusterId": "ID",
       "colCountryCount": "Countries",
       "colSize": "Articles",
+      "subtitle": "Country presence reflects individual constitutional articles classified into each cluster. Constitutions that address a theme within a broad, multi-topic article may not appear even if the topic is covered.",
       "colCountryBreakdown": "Country breakdown",
+      "colCountryBreakdownTooltip": "Shows the countries with the most articles in this cluster. A country may be absent if its constitution addresses this theme within a larger, multi-topic article whose embedding was drawn toward a different cluster.",
       "detailTitle": "Cluster {id} · {count} countries represented",
       "colLabel": "Topic"
     }

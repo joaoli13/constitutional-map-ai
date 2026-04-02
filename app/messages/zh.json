@@ -203,7 +203,9 @@
       "colClusterId": "ID",
       "colCountryCount": "国家数",
       "colSize": "条文数",
+      "subtitle": "国家的出现反映了被归入该集群的单独宪法条款。即使某一主题有所涉及，以宽泛的多主题条款处理该主题的宪法也可能不会出现。",
       "colCountryBreakdown": "国家分布",
+      "colCountryBreakdownTooltip": "显示在此集群中拥有最多条款的国家。如果某国宪法在一篇语义嵌入被吸引到其他集群的宽泛多主题条款中涉及该主题，则该国可能不会出现。",
       "detailTitle": "集群 {id} · {count} 个国家",
       "colLabel": "主题"
     }

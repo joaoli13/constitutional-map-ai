@@ -203,7 +203,9 @@
       "colClusterId": "ID",
       "colCountryCount": "Paesi",
       "colSize": "Articoli",
+      "subtitle": "La presenza di un paese riflette i singoli articoli costituzionali classificati nel cluster. Le costituzioni che trattano il tema in articoli ampi e multitematici potrebbero non apparire, anche se l'argomento è trattato.",
       "colCountryBreakdown": "Distribuzione per paese",
+      "colCountryBreakdownTooltip": "Mostra i paesi con più articoli in questo cluster. Un paese può essere assente se la sua costituzione affronta il tema all'interno di un articolo più ampio e multitematico il cui embedding semantico è stato attratto verso un altro cluster.",
       "detailTitle": "Cluster {id} · {count} paesi rappresentati",
       "colLabel": "Tema"
     }

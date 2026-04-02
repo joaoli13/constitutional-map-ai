@@ -74,13 +74,12 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
 
   return (
     <section className="rounded-[2rem] border border-slate-200 bg-white/92 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
-      <div className="flex items-baseline justify-between gap-4">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
-            {t("eyebrow")}
-          </p>
-          <h2 className="mt-1.5 text-2xl font-semibold text-slate-950">{t("title")}</h2>
-        </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
+          {t("eyebrow")}
+        </p>
+        <h2 className="mt-1.5 text-2xl font-semibold text-slate-950">{t("title")}</h2>
+        <p className="mt-2 text-xs leading-relaxed text-slate-400">{t("subtitle")}</p>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-xl border border-slate-200">
@@ -104,7 +103,10 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
                   {t("colLabel")}
                 </th>
                 <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                  {t("colCountryBreakdown")}
+                  <span className="inline-flex items-center gap-1">
+                    {t("colCountryBreakdown")}
+                    <InfoTip text={t("colCountryBreakdownTooltip")} />
+                  </span>
                 </th>
               </tr>
             </thead>
@@ -255,6 +257,19 @@ function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
         </ComposableMap>
       </div>
     </div>
+  );
+}
+
+function InfoTip({text}: {text: string}) {
+  return (
+    <span className="group relative inline-flex">
+      <span className="flex h-3.5 w-3.5 cursor-default items-center justify-center rounded-full border border-slate-300 text-[9px] font-bold text-slate-400 transition group-hover:border-slate-500 group-hover:text-slate-600">
+        i
+      </span>
+      <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-72 -translate-x-1/2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[11px] font-normal leading-relaxed tracking-normal text-slate-600 opacity-0 shadow-lg transition-opacity group-hover:opacity-100 normal-case">
+        {text}
+      </span>
+    </span>
   );
 }
 

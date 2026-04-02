@@ -203,7 +203,9 @@
       "colClusterId": "ID",
       "colCountryCount": "国数",
       "colSize": "条文数",
+      "subtitle": "国の存在は、クラスターに分類された個別の憲法条文を反映します。広範かつ複合的なテーマを扱う条文の中でこのテーマに言及している憲法は、たとえテーマが扱われていても表示されない場合があります。",
       "colCountryBreakdown": "国別内訳",
+      "colCountryBreakdownTooltip": "このクラスターで最も多くの条文を持つ国を表示します。広範かつ複合的な条文の中でテーマを扱っている国は、そのembeddingが別のクラスターに引き寄せられた場合、表示されないことがあります。",
       "detailTitle": "クラスター {id} · {count} か国",
       "colLabel": "テーマ"
     }
