@@ -1,6 +1,7 @@
 "use client";
 
-import {useMemo, useState} from "react";
+import {useMemo, useRef, useState} from "react";
+import {createPortal} from "react-dom";
 import {useLocale, useTranslations} from "next-intl";
 import {ComposableMap, Geographies, Geography, ZoomableGroup} from "react-simple-maps";
 
@@ -261,15 +262,36 @@ function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
 }
 
 function InfoTip({text}: {text: string}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [coords, setCoords] = useState<{x: number; y: number} | null>(null);
+
+  function handleMouseEnter() {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    setCoords({x: r.left + r.width / 2, y: r.bottom + 8});
+  }
+
   return (
-    <span className="group relative inline-flex">
-      <span className="flex h-3.5 w-3.5 cursor-default items-center justify-center rounded-full border border-slate-300 text-[9px] font-bold text-slate-400 transition group-hover:border-slate-500 group-hover:text-slate-600">
+    <>
+      <span
+        ref={ref}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setCoords(null)}
+        className="inline-flex h-3.5 w-3.5 cursor-default items-center justify-center rounded-full border border-slate-300 text-[9px] font-bold text-slate-400 transition hover:border-slate-500 hover:text-slate-600"
+      >
         i
       </span>
-      <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-72 -translate-x-1/2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[11px] font-normal leading-relaxed tracking-normal text-slate-600 opacity-0 shadow-lg transition-opacity group-hover:opacity-100 normal-case">
-        {text}
-      </span>
-    </span>
+      {coords &&
+        createPortal(
+          <div
+            style={{position: "fixed", left: coords.x, top: coords.y, transform: "translateX(-50%)", zIndex: 9999}}
+            className="pointer-events-none w-72 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[11px] font-normal leading-relaxed text-slate-600 shadow-lg"
+          >
+            {text}
+          </div>,
+          document.body,
+        )}
+    </>
   );
 }
 
