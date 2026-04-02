@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T15:42:59.227707+00:00",
+  "generated_at": "2026-04-02T13:21:33.022913+00:00",
   "pipeline_version": "0.1.0",
   "total_articles": 30828,
   "countries": [
@@ -14,7 +14,7 @@
       "article_count": 163,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.8268730316398916,
+      "semantic_entropy": 0.8268730316398906,
       "has_data": true
     },
     {
@@ -28,7 +28,7 @@
       "article_count": 245,
       "cluster_count": 90,
       "semantic_coverage": 0.17681728880157171,
-      "semantic_entropy": 0.8655094599564579,
+      "semantic_entropy": 0.8655094599564598,
       "has_data": true
     },
     {
@@ -42,7 +42,7 @@
       "article_count": 203,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.8665638847885281,
+      "semantic_entropy": 0.8665638847885294,
       "has_data": true
     },
     {
@@ -56,7 +56,7 @@
       "article_count": 108,
       "cluster_count": 47,
       "semantic_coverage": 0.09233791748526522,
-      "semantic_entropy": 0.8149647077806429,
+      "semantic_entropy": 0.8149647077806433,
       "has_data": true
     },
     {
@@ -70,7 +70,7 @@
       "article_count": 153,
       "cluster_count": 39,
       "semantic_coverage": 0.07662082514734773,
-      "semantic_entropy": 0.49458091653777797,
+      "semantic_entropy": 0.49458091653777747,
       "has_data": true
     },
     {
@@ -84,7 +84,7 @@
       "article_count": 130,
       "cluster_count": 38,
       "semantic_coverage": 0.07465618860510806,
-      "semantic_entropy": 0.8873577924040564,
+      "semantic_entropy": 0.8873577924040567,
       "has_data": true
     },
     {
@@ -98,7 +98,7 @@
       "article_count": 221,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.9039968828425846,
+      "semantic_entropy": 0.9039968828425858,
       "has_data": true
     },
     {
@@ -112,7 +112,7 @@
       "article_count": 22,
       "cluster_count": 9,
       "semantic_coverage": 0.01768172888015717,
-      "semantic_entropy": 0.8997742849325225,
+      "semantic_entropy": 0.8997742849325226,
       "has_data": true
     },
     {
@@ -126,7 +126,7 @@
       "article_count": 164,
       "cluster_count": 24,
       "semantic_coverage": 0.047151277013752456,
-      "semantic_entropy": 0.6919603581465112,
+      "semantic_entropy": 0.6919603581465111,
       "has_data": true
     },
     {
@@ -140,7 +140,7 @@
       "article_count": 225,
       "cluster_count": 28,
       "semantic_coverage": 0.0550098231827112,
-      "semantic_entropy": 0.692007555195216,
+      "semantic_entropy": 0.6920075551952161,
       "has_data": true
     },
     {
@@ -154,7 +154,7 @@
       "article_count": 165,
       "cluster_count": 32,
       "semantic_coverage": 0.06286836935166994,
-      "semantic_entropy": 0.4304986853307065,
+      "semantic_entropy": 0.4304986853307066,
       "has_data": true
     },
     {
@@ -182,7 +182,7 @@
       "article_count": 195,
       "cluster_count": 56,
       "semantic_coverage": 0.1100196463654224,
-      "semantic_entropy": 0.7193679755724425,
+      "semantic_entropy": 0.719367975572443,
       "has_data": true
     },
     {
@@ -196,7 +196,7 @@
       "article_count": 161,
       "cluster_count": 85,
       "semantic_coverage": 0.16699410609037327,
-      "semantic_entropy": 0.9251319535030651,
+      "semantic_entropy": 0.9251319535030642,
       "has_data": true
     },
     {
@@ -210,7 +210,7 @@
       "article_count": 178,
       "cluster_count": 88,
       "semantic_coverage": 0.17288801571709234,
-      "semantic_entropy": 0.9408795254703429,
+      "semantic_entropy": 0.9408795254703444,
       "has_data": true
     },
     {
@@ -224,7 +224,7 @@
       "article_count": 186,
       "cluster_count": 66,
       "semantic_coverage": 0.12966601178781925,
-      "semantic_entropy": 0.805117072281444,
+      "semantic_entropy": 0.8051170722814432,
       "has_data": true
     },
     {
@@ -238,7 +238,7 @@
       "article_count": 175,
       "cluster_count": 78,
       "semantic_coverage": 0.15324165029469547,
-      "semantic_entropy": 0.9005559659974902,
+      "semantic_entropy": 0.9005559659974892,
       "has_data": true
     },
     {
@@ -252,7 +252,7 @@
       "article_count": 126,
       "cluster_count": 54,
       "semantic_coverage": 0.10609037328094302,
-      "semantic_entropy": 0.9447219939450281,
+      "semantic_entropy": 0.9447219939450271,
       "has_data": true
     },
     {
@@ -266,7 +266,7 @@
       "article_count": 139,
       "cluster_count": 56,
       "semantic_coverage": 0.1100196463654224,
-      "semantic_entropy": 0.9170584444873237,
+      "semantic_entropy": 0.9170584444873235,
       "has_data": true
     },
     {
@@ -294,7 +294,7 @@
       "article_count": 147,
       "cluster_count": 42,
       "semantic_coverage": 0.0825147347740668,
-      "semantic_entropy": 0.6035335370412929,
+      "semantic_entropy": 0.6035335370412928,
       "has_data": true
     },
     {
@@ -308,7 +308,7 @@
       "article_count": 18,
       "cluster_count": 7,
       "semantic_coverage": 0.0137524557956778,
-      "semantic_entropy": 0.8165982976888231,
+      "semantic_entropy": 0.8165982976888233,
       "has_data": true
     },
     {
@@ -322,7 +322,7 @@
       "article_count": 412,
       "cluster_count": 74,
       "semantic_coverage": 0.14538310412573674,
-      "semantic_entropy": 0.8853634220583998,
+      "semantic_entropy": 0.8853634220584001,
       "has_data": true
     },
     {
@@ -336,7 +336,7 @@
       "article_count": 264,
       "cluster_count": 64,
       "semantic_coverage": 0.12573673870333987,
-      "semantic_entropy": 0.8622936290651442,
+      "semantic_entropy": 0.8622936290651433,
       "has_data": true
     },
     {
@@ -364,7 +364,7 @@
       "article_count": 93,
       "cluster_count": 13,
       "semantic_coverage": 0.025540275049115914,
-      "semantic_entropy": 0.37941748883421034,
+      "semantic_entropy": 0.3794174888342103,
       "has_data": true
     },
     {
@@ -392,7 +392,7 @@
       "article_count": 128,
       "cluster_count": 66,
       "semantic_coverage": 0.12966601178781925,
-      "semantic_entropy": 0.9108839694324389,
+      "semantic_entropy": 0.9108839694324382,
       "has_data": true
     },
     {
@@ -406,7 +406,7 @@
       "article_count": 160,
       "cluster_count": 85,
       "semantic_coverage": 0.16699410609037327,
-      "semantic_entropy": 0.9522936056709497,
+      "semantic_entropy": 0.9522936056709495,
       "has_data": true
     },
     {
@@ -434,7 +434,7 @@
       "article_count": 222,
       "cluster_count": 33,
       "semantic_coverage": 0.06483300589390963,
-      "semantic_entropy": 0.4817506264760066,
+      "semantic_entropy": 0.48175062647600625,
       "has_data": true
     },
     {
@@ -448,7 +448,7 @@
       "article_count": 218,
       "cluster_count": 55,
       "semantic_coverage": 0.10805500982318271,
-      "semantic_entropy": 0.9073839808097701,
+      "semantic_entropy": 0.9073839808097709,
       "has_data": true
     },
     {
@@ -462,7 +462,7 @@
       "article_count": 144,
       "cluster_count": 16,
       "semantic_coverage": 0.03143418467583497,
-      "semantic_entropy": 0.4529879235619121,
+      "semantic_entropy": 0.45298792356191225,
       "has_data": true
     },
     {
@@ -476,7 +476,7 @@
       "article_count": 185,
       "cluster_count": 91,
       "semantic_coverage": 0.1787819253438114,
-      "semantic_entropy": 0.9481188833745083,
+      "semantic_entropy": 0.9481188833745066,
       "has_data": true
     },
     {
@@ -490,7 +490,7 @@
       "article_count": 70,
       "cluster_count": 42,
       "semantic_coverage": 0.0825147347740668,
-      "semantic_entropy": 0.9684975507192239,
+      "semantic_entropy": 0.9684975507192236,
       "has_data": true
     },
     {
@@ -504,7 +504,7 @@
       "article_count": 230,
       "cluster_count": 104,
       "semantic_coverage": 0.2043222003929273,
-      "semantic_entropy": 0.9019960231354216,
+      "semantic_entropy": 0.9019960231354227,
       "has_data": true
     },
     {
@@ -518,7 +518,7 @@
       "article_count": 247,
       "cluster_count": 105,
       "semantic_coverage": 0.206286836935167,
-      "semantic_entropy": 0.9258780562951984,
+      "semantic_entropy": 0.9258780562951979,
       "has_data": true
     },
     {
@@ -532,7 +532,7 @@
       "article_count": 383,
       "cluster_count": 107,
       "semantic_coverage": 0.21021611001964635,
-      "semantic_entropy": 0.9181482555329302,
+      "semantic_entropy": 0.9181482555329312,
       "has_data": true
     },
     {
@@ -546,7 +546,7 @@
       "article_count": 123,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.8766649533089891,
+      "semantic_entropy": 0.8766649533089897,
       "has_data": true
     },
     {
@@ -560,7 +560,7 @@
       "article_count": 323,
       "cluster_count": 109,
       "semantic_coverage": 0.21414538310412573,
-      "semantic_entropy": 0.9190279928868997,
+      "semantic_entropy": 0.9190279928868988,
       "has_data": true
     },
     {
@@ -574,7 +574,7 @@
       "article_count": 198,
       "cluster_count": 72,
       "semantic_coverage": 0.14145383104125736,
-      "semantic_entropy": 0.9032602421666054,
+      "semantic_entropy": 0.9032602421666062,
       "has_data": true
     },
     {
@@ -588,7 +588,7 @@
       "article_count": 230,
       "cluster_count": 67,
       "semantic_coverage": 0.13163064833005894,
-      "semantic_entropy": 0.8064024671892073,
+      "semantic_entropy": 0.8064024671892085,
       "has_data": true
     },
     {
@@ -602,7 +602,7 @@
       "article_count": 201,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.6976861294424644,
+      "semantic_entropy": 0.6976861294424652,
       "has_data": true
     },
     {
@@ -616,7 +616,7 @@
       "article_count": 116,
       "cluster_count": 39,
       "semantic_coverage": 0.07662082514734773,
-      "semantic_entropy": 0.8365423306482969,
+      "semantic_entropy": 0.8365423306482962,
       "has_data": true
     },
     {
@@ -630,7 +630,7 @@
       "article_count": 195,
       "cluster_count": 36,
       "semantic_coverage": 0.07072691552062868,
-      "semantic_entropy": 0.43377067341029046,
+      "semantic_entropy": 0.43377067341029024,
       "has_data": true
     },
     {
@@ -644,7 +644,7 @@
       "article_count": 98,
       "cluster_count": 59,
       "semantic_coverage": 0.11591355599214145,
-      "semantic_entropy": 0.9687058024914905,
+      "semantic_entropy": 0.9687058024914903,
       "has_data": true
     },
     {
@@ -658,7 +658,7 @@
       "article_count": 126,
       "cluster_count": 63,
       "semantic_coverage": 0.1237721021611002,
-      "semantic_entropy": 0.937935122354136,
+      "semantic_entropy": 0.9379351223541359,
       "has_data": true
     },
     {
@@ -672,7 +672,7 @@
       "article_count": 75,
       "cluster_count": 19,
       "semantic_coverage": 0.03732809430255403,
-      "semantic_entropy": 0.520857143972123,
+      "semantic_entropy": 0.5208571439721232,
       "has_data": true
     },
     {
@@ -686,7 +686,7 @@
       "article_count": 278,
       "cluster_count": 82,
       "semantic_coverage": 0.16110019646365423,
-      "semantic_entropy": 0.8815266449160581,
+      "semantic_entropy": 0.8815266449160573,
       "has_data": true
     },
     {
@@ -700,7 +700,7 @@
       "article_count": 240,
       "cluster_count": 103,
       "semantic_coverage": 0.20235756385068762,
-      "semantic_entropy": 0.9652916518737966,
+      "semantic_entropy": 0.965291651873797,
       "has_data": true
     },
     {
@@ -728,7 +728,7 @@
       "article_count": 255,
       "cluster_count": 112,
       "semantic_coverage": 0.2200392927308448,
-      "semantic_entropy": 0.9593957784571182,
+      "semantic_entropy": 0.9593957784571173,
       "has_data": true
     },
     {
@@ -742,7 +742,7 @@
       "article_count": 60,
       "cluster_count": 24,
       "semantic_coverage": 0.047151277013752456,
-      "semantic_entropy": 0.719390328966376,
+      "semantic_entropy": 0.7193903289663759,
       "has_data": true
     },
     {
@@ -756,7 +756,7 @@
       "article_count": 170,
       "cluster_count": 64,
       "semantic_coverage": 0.12573673870333987,
-      "semantic_entropy": 0.9356342527277367,
+      "semantic_entropy": 0.9356342527277369,
       "has_data": true
     },
     {
@@ -770,7 +770,7 @@
       "article_count": 169,
       "cluster_count": 42,
       "semantic_coverage": 0.0825147347740668,
-      "semantic_entropy": 0.6715103641701241,
+      "semantic_entropy": 0.6715103641701242,
       "has_data": true
     },
     {
@@ -798,7 +798,7 @@
       "article_count": 132,
       "cluster_count": 42,
       "semantic_coverage": 0.0825147347740668,
-      "semantic_entropy": 0.8004400438783688,
+      "semantic_entropy": 0.800440043878368,
       "has_data": true
     },
     {
@@ -812,7 +812,7 @@
       "article_count": 183,
       "cluster_count": 76,
       "semantic_coverage": 0.14931237721021612,
-      "semantic_entropy": 0.961430770334548,
+      "semantic_entropy": 0.9614307703345482,
       "has_data": true
     },
     {
@@ -826,7 +826,7 @@
       "article_count": 126,
       "cluster_count": 66,
       "semantic_coverage": 0.12966601178781925,
-      "semantic_entropy": 0.9728035653959616,
+      "semantic_entropy": 0.9728035653959621,
       "has_data": true
     },
     {
@@ -854,7 +854,7 @@
       "article_count": 137,
       "cluster_count": 69,
       "semantic_coverage": 0.13555992141453832,
-      "semantic_entropy": 0.9498388009170396,
+      "semantic_entropy": 0.9498388009170394,
       "has_data": true
     },
     {
@@ -882,7 +882,7 @@
       "article_count": 79,
       "cluster_count": 25,
       "semantic_coverage": 0.04911591355599214,
-      "semantic_entropy": 0.5719341109445552,
+      "semantic_entropy": 0.5719341109445549,
       "has_data": true
     },
     {
@@ -910,7 +910,7 @@
       "article_count": 163,
       "cluster_count": 87,
       "semantic_coverage": 0.17092337917485265,
-      "semantic_entropy": 0.9599637446915957,
+      "semantic_entropy": 0.9599637446915963,
       "has_data": true
     },
     {
@@ -924,7 +924,7 @@
       "article_count": 350,
       "cluster_count": 94,
       "semantic_coverage": 0.18467583497053044,
-      "semantic_entropy": 0.9155886352401792,
+      "semantic_entropy": 0.915588635240179,
       "has_data": true
     },
     {
@@ -938,7 +938,7 @@
       "article_count": 133,
       "cluster_count": 56,
       "semantic_coverage": 0.1100196463654224,
-      "semantic_entropy": 0.9030381917645607,
+      "semantic_entropy": 0.9030381917645602,
       "has_data": true
     },
     {
@@ -952,7 +952,7 @@
       "article_count": 135,
       "cluster_count": 53,
       "semantic_coverage": 0.10412573673870335,
-      "semantic_entropy": 0.9229781690648329,
+      "semantic_entropy": 0.9229781690648334,
       "has_data": true
     },
     {
@@ -966,7 +966,7 @@
       "article_count": 125,
       "cluster_count": 59,
       "semantic_coverage": 0.11591355599214145,
-      "semantic_entropy": 0.9175564125745501,
+      "semantic_entropy": 0.9175564125745508,
       "has_data": true
     },
     {
@@ -994,7 +994,7 @@
       "article_count": 309,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.872720161134985,
+      "semantic_entropy": 0.8727201611349863,
       "has_data": true
     },
     {
@@ -1022,7 +1022,7 @@
       "article_count": 378,
       "cluster_count": 99,
       "semantic_coverage": 0.1944990176817289,
-      "semantic_entropy": 0.8901617014255507,
+      "semantic_entropy": 0.8901617014255518,
       "has_data": true
     },
     {
@@ -1036,7 +1036,7 @@
       "article_count": 152,
       "cluster_count": 41,
       "semantic_coverage": 0.08055009823182711,
-      "semantic_entropy": 0.5742689048286728,
+      "semantic_entropy": 0.5742689048286733,
       "has_data": true
     },
     {
@@ -1078,7 +1078,7 @@
       "article_count": 74,
       "cluster_count": 21,
       "semantic_coverage": 0.0412573673870334,
-      "semantic_entropy": 0.6271658049115539,
+      "semantic_entropy": 0.6271658049115542,
       "has_data": true
     },
     {
@@ -1092,7 +1092,7 @@
       "article_count": 441,
       "cluster_count": 39,
       "semantic_coverage": 0.07662082514734773,
-      "semantic_entropy": 0.347051917421818,
+      "semantic_entropy": 0.34705191742181796,
       "has_data": true
     },
     {
@@ -1120,7 +1120,7 @@
       "article_count": 178,
       "cluster_count": 49,
       "semantic_coverage": 0.0962671905697446,
-      "semantic_entropy": 0.6987722470247144,
+      "semantic_entropy": 0.6987722470247152,
       "has_data": true
     },
     {
@@ -1134,7 +1134,7 @@
       "article_count": 145,
       "cluster_count": 48,
       "semantic_coverage": 0.09430255402750491,
-      "semantic_entropy": 0.7591791710739371,
+      "semantic_entropy": 0.7591791710739366,
       "has_data": true
     },
     {
@@ -1148,7 +1148,7 @@
       "article_count": 82,
       "cluster_count": 20,
       "semantic_coverage": 0.03929273084479371,
-      "semantic_entropy": 0.5284818180204359,
+      "semantic_entropy": 0.5284818180204356,
       "has_data": true
     },
     {
@@ -1176,7 +1176,7 @@
       "article_count": 136,
       "cluster_count": 74,
       "semantic_coverage": 0.14538310412573674,
-      "semantic_entropy": 0.9728318326977965,
+      "semantic_entropy": 0.9728318326977975,
       "has_data": true
     },
     {
@@ -1190,7 +1190,7 @@
       "article_count": 129,
       "cluster_count": 56,
       "semantic_coverage": 0.1100196463654224,
-      "semantic_entropy": 0.9561077952672673,
+      "semantic_entropy": 0.9561077952672666,
       "has_data": true
     },
     {
@@ -1204,7 +1204,7 @@
       "article_count": 132,
       "cluster_count": 49,
       "semantic_coverage": 0.0962671905697446,
-      "semantic_entropy": 0.9333183152318166,
+      "semantic_entropy": 0.9333183152318165,
       "has_data": true
     },
     {
@@ -1218,7 +1218,7 @@
       "article_count": 104,
       "cluster_count": 36,
       "semantic_coverage": 0.07072691552062868,
-      "semantic_entropy": 0.9779558021063371,
+      "semantic_entropy": 0.9779558021063367,
       "has_data": true
     },
     {
@@ -1232,7 +1232,7 @@
       "article_count": 100,
       "cluster_count": 20,
       "semantic_coverage": 0.03929273084479371,
-      "semantic_entropy": 0.5724140743327507,
+      "semantic_entropy": 0.5724140743327509,
       "has_data": true
     },
     {
@@ -1246,7 +1246,7 @@
       "article_count": 335,
       "cluster_count": 94,
       "semantic_coverage": 0.18467583497053044,
-      "semantic_entropy": 0.899860109568459,
+      "semantic_entropy": 0.89986010956846,
       "has_data": true
     },
     {
@@ -1260,7 +1260,7 @@
       "article_count": 115,
       "cluster_count": 36,
       "semantic_coverage": 0.07072691552062868,
-      "semantic_entropy": 0.6886203629949246,
+      "semantic_entropy": 0.688620362994925,
       "has_data": true
     },
     {
@@ -1274,7 +1274,7 @@
       "article_count": 159,
       "cluster_count": 44,
       "semantic_coverage": 0.08644400785854617,
-      "semantic_entropy": 0.7217107261663813,
+      "semantic_entropy": 0.7217107261663817,
       "has_data": true
     },
     {
@@ -1288,7 +1288,7 @@
       "article_count": 142,
       "cluster_count": 41,
       "semantic_coverage": 0.08055009823182711,
-      "semantic_entropy": 0.811944514029268,
+      "semantic_entropy": 0.8119445140292676,
       "has_data": true
     },
     {
@@ -1302,7 +1302,7 @@
       "article_count": 22,
       "cluster_count": 5,
       "semantic_coverage": 0.009823182711198428,
-      "semantic_entropy": 0.8261650471771164,
+      "semantic_entropy": 0.8261650471771163,
       "has_data": true
     },
     {
@@ -1316,7 +1316,7 @@
       "article_count": 131,
       "cluster_count": 58,
       "semantic_coverage": 0.11394891944990176,
-      "semantic_entropy": 0.9703095238424543,
+      "semantic_entropy": 0.9703095238424536,
       "has_data": true
     },
     {
@@ -1358,7 +1358,7 @@
       "article_count": 95,
       "cluster_count": 40,
       "semantic_coverage": 0.07858546168958742,
-      "semantic_entropy": 0.9250691720578677,
+      "semantic_entropy": 0.9250691720578674,
       "has_data": true
     },
     {
@@ -1372,7 +1372,7 @@
       "article_count": 98,
       "cluster_count": 24,
       "semantic_coverage": 0.047151277013752456,
-      "semantic_entropy": 0.6591963878311576,
+      "semantic_entropy": 0.6591963878311574,
       "has_data": true
     },
     {
@@ -1386,7 +1386,7 @@
       "article_count": 221,
       "cluster_count": 91,
       "semantic_coverage": 0.1787819253438114,
-      "semantic_entropy": 0.9312569861162767,
+      "semantic_entropy": 0.9312569861162774,
       "has_data": true
     },
     {
@@ -1400,7 +1400,7 @@
       "article_count": 125,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.9233548027630104,
+      "semantic_entropy": 0.9233548027630112,
       "has_data": true
     },
     {
@@ -1414,7 +1414,7 @@
       "article_count": 116,
       "cluster_count": 41,
       "semantic_coverage": 0.08055009823182711,
-      "semantic_entropy": 0.9293355726274877,
+      "semantic_entropy": 0.9293355726274874,
       "has_data": true
     },
     {
@@ -1442,7 +1442,7 @@
       "article_count": 24,
       "cluster_count": 4,
       "semantic_coverage": 0.007858546168958742,
-      "semantic_entropy": 0.4966963645051813,
+      "semantic_entropy": 0.49669636450518134,
       "has_data": true
     },
     {
@@ -1470,7 +1470,7 @@
       "article_count": 120,
       "cluster_count": 41,
       "semantic_coverage": 0.08055009823182711,
-      "semantic_entropy": 0.9316243938747862,
+      "semantic_entropy": 0.9316243938747865,
       "has_data": true
     },
     {
@@ -1484,7 +1484,7 @@
       "article_count": 117,
       "cluster_count": 25,
       "semantic_coverage": 0.04911591355599214,
-      "semantic_entropy": 0.4729524483636919,
+      "semantic_entropy": 0.4729524483636921,
       "has_data": true
     },
     {
@@ -1498,7 +1498,7 @@
       "article_count": 180,
       "cluster_count": 82,
       "semantic_coverage": 0.16110019646365423,
-      "semantic_entropy": 0.9548534749021529,
+      "semantic_entropy": 0.9548534749021543,
       "has_data": true
     },
     {
@@ -1512,7 +1512,7 @@
       "article_count": 98,
       "cluster_count": 34,
       "semantic_coverage": 0.06679764243614932,
-      "semantic_entropy": 0.9128822947685208,
+      "semantic_entropy": 0.9128822947685213,
       "has_data": true
     },
     {
@@ -1526,7 +1526,7 @@
       "article_count": 145,
       "cluster_count": 56,
       "semantic_coverage": 0.1100196463654224,
-      "semantic_entropy": 0.8008954724323849,
+      "semantic_entropy": 0.8008954724323857,
       "has_data": true
     },
     {
@@ -1540,7 +1540,7 @@
       "article_count": 169,
       "cluster_count": 73,
       "semantic_coverage": 0.14341846758349705,
-      "semantic_entropy": 0.9263792133719374,
+      "semantic_entropy": 0.9263792133719386,
       "has_data": true
     },
     {
@@ -1554,7 +1554,7 @@
       "article_count": 310,
       "cluster_count": 50,
       "semantic_coverage": 0.09823182711198428,
-      "semantic_entropy": 0.46157466342488146,
+      "semantic_entropy": 0.4615746634248816,
       "has_data": true
     },
     {
@@ -1568,7 +1568,7 @@
       "article_count": 139,
       "cluster_count": 43,
       "semantic_coverage": 0.08447937131630648,
-      "semantic_entropy": 0.9144118219965603,
+      "semantic_entropy": 0.9144118219965609,
       "has_data": true
     },
     {
@@ -1582,7 +1582,7 @@
       "article_count": 124,
       "cluster_count": 31,
       "semantic_coverage": 0.060903732809430254,
-      "semantic_entropy": 0.7058332354365219,
+      "semantic_entropy": 0.7058332354365218,
       "has_data": true
     },
     {
@@ -1596,7 +1596,7 @@
       "article_count": 135,
       "cluster_count": 60,
       "semantic_coverage": 0.11787819253438114,
-      "semantic_entropy": 0.7502479300516736,
+      "semantic_entropy": 0.7502479300516729,
       "has_data": true
     },
     {
@@ -1610,7 +1610,7 @@
       "article_count": 123,
       "cluster_count": 75,
       "semantic_coverage": 0.14734774066797643,
-      "semantic_entropy": 0.961556441826853,
+      "semantic_entropy": 0.9615564418268526,
       "has_data": true
     },
     {
@@ -1624,7 +1624,7 @@
       "article_count": 122,
       "cluster_count": 59,
       "semantic_coverage": 0.11591355599214145,
-      "semantic_entropy": 0.9828952125635825,
+      "semantic_entropy": 0.9828952125635811,
       "has_data": true
     },
     {
@@ -1652,7 +1652,7 @@
       "article_count": 175,
       "cluster_count": 63,
       "semantic_coverage": 0.1237721021611002,
-      "semantic_entropy": 0.7467051451390275,
+      "semantic_entropy": 0.7467051451390282,
       "has_data": true
     },
     {
@@ -1680,7 +1680,7 @@
       "article_count": 307,
       "cluster_count": 97,
       "semantic_coverage": 0.1905697445972495,
-      "semantic_entropy": 0.8356283908151592,
+      "semantic_entropy": 0.8356283908151582,
       "has_data": true
     },
     {
@@ -1694,7 +1694,7 @@
       "article_count": 103,
       "cluster_count": 62,
       "semantic_coverage": 0.12180746561886051,
-      "semantic_entropy": 0.9789689767992517,
+      "semantic_entropy": 0.9789689767992525,
       "has_data": true
     },
     {
@@ -1708,7 +1708,7 @@
       "article_count": 15,
       "cluster_count": 7,
       "semantic_coverage": 0.0137524557956778,
-      "semantic_entropy": 1.0,
+      "semantic_entropy": 0.9999999999999999,
       "has_data": true
     },
     {
@@ -1722,7 +1722,7 @@
       "article_count": 213,
       "cluster_count": 67,
       "semantic_coverage": 0.13163064833005894,
-      "semantic_entropy": 0.9014803043670393,
+      "semantic_entropy": 0.9014803043670387,
       "has_data": true
     },
     {
@@ -1750,7 +1750,7 @@
       "article_count": 156,
       "cluster_count": 51,
       "semantic_coverage": 0.10019646365422397,
-      "semantic_entropy": 0.8677851007120665,
+      "semantic_entropy": 0.8677851007120658,
       "has_data": true
     },
     {
@@ -1764,7 +1764,7 @@
       "article_count": 185,
       "cluster_count": 96,
       "semantic_coverage": 0.18860510805500982,
-      "semantic_entropy": 0.9523790598696107,
+      "semantic_entropy": 0.9523790598696117,
       "has_data": true
     },
     {
@@ -1778,7 +1778,7 @@
       "article_count": 318,
       "cluster_count": 54,
       "semantic_coverage": 0.10609037328094302,
-      "semantic_entropy": 0.7531913537141574,
+      "semantic_entropy": 0.7531913537141572,
       "has_data": true
     },
     {
@@ -1792,7 +1792,7 @@
       "article_count": 200,
       "cluster_count": 63,
       "semantic_coverage": 0.1237721021611002,
-      "semantic_entropy": 0.7660794762080216,
+      "semantic_entropy": 0.7660794762080213,
       "has_data": true
     },
     {
@@ -1806,7 +1806,7 @@
       "article_count": 146,
       "cluster_count": 50,
       "semantic_coverage": 0.09823182711198428,
-      "semantic_entropy": 0.9175824266685817,
+      "semantic_entropy": 0.9175824266685816,
       "has_data": true
     },
     {
@@ -1820,7 +1820,7 @@
       "article_count": 112,
       "cluster_count": 25,
       "semantic_coverage": 0.04911591355599214,
-      "semantic_entropy": 0.5946658210954687,
+      "semantic_entropy": 0.594665821095469,
       "has_data": true
     },
     {
@@ -1834,7 +1834,7 @@
       "article_count": 348,
       "cluster_count": 58,
       "semantic_coverage": 0.11394891944990176,
-      "semantic_entropy": 0.5137686326980153,
+      "semantic_entropy": 0.5137686326980156,
       "has_data": true
     },
     {
@@ -1848,7 +1848,7 @@
       "article_count": 105,
       "cluster_count": 43,
       "semantic_coverage": 0.08447937131630648,
-      "semantic_entropy": 0.9383484613005401,
+      "semantic_entropy": 0.9383484613005403,
       "has_data": true
     },
     {
@@ -1876,7 +1876,7 @@
       "article_count": 82,
       "cluster_count": 36,
       "semantic_coverage": 0.07072691552062868,
-      "semantic_entropy": 0.971670805321198,
+      "semantic_entropy": 0.9716708053211978,
       "has_data": true
     },
     {
@@ -1904,7 +1904,7 @@
       "article_count": 329,
       "cluster_count": 99,
       "semantic_coverage": 0.1944990176817289,
-      "semantic_entropy": 0.9131392232949551,
+      "semantic_entropy": 0.9131392232949564,
       "has_data": true
     },
     {
@@ -1918,7 +1918,7 @@
       "article_count": 211,
       "cluster_count": 73,
       "semantic_coverage": 0.14341846758349705,
-      "semantic_entropy": 0.9167746913330601,
+      "semantic_entropy": 0.916774691333061,
       "has_data": true
     },
     {
@@ -1946,7 +1946,7 @@
       "article_count": 20,
       "cluster_count": 8,
       "semantic_coverage": 0.015717092337917484,
-      "semantic_entropy": 0.8724974870615851,
+      "semantic_entropy": 0.8724974870615854,
       "has_data": true
     },
     {
@@ -1960,7 +1960,7 @@
       "article_count": 364,
       "cluster_count": 58,
       "semantic_coverage": 0.11394891944990176,
-      "semantic_entropy": 0.7437646598308569,
+      "semantic_entropy": 0.7437646598308565,
       "has_data": true
     },
     {
@@ -1974,7 +1974,7 @@
       "article_count": 244,
       "cluster_count": 61,
       "semantic_coverage": 0.11984282907662082,
-      "semantic_entropy": 0.6734547828272329,
+      "semantic_entropy": 0.6734547828272319,
       "has_data": true
     },
     {
@@ -1988,7 +1988,7 @@
       "article_count": 173,
       "cluster_count": 29,
       "semantic_coverage": 0.05697445972495088,
-      "semantic_entropy": 0.6677998752510826,
+      "semantic_entropy": 0.6677998752510832,
       "has_data": true
     },
     {
@@ -2002,7 +2002,7 @@
       "article_count": 297,
       "cluster_count": 111,
       "semantic_coverage": 0.2180746561886051,
-      "semantic_entropy": 0.8976867022293641,
+      "semantic_entropy": 0.8976867022293639,
       "has_data": true
     },
     {
@@ -2016,7 +2016,7 @@
       "article_count": 312,
       "cluster_count": 93,
       "semantic_coverage": 0.18271119842829076,
-      "semantic_entropy": 0.9112568780874114,
+      "semantic_entropy": 0.9112568780874123,
       "has_data": true
     },
     {
@@ -2030,7 +2030,7 @@
       "article_count": 122,
       "cluster_count": 40,
       "semantic_coverage": 0.07858546168958742,
-      "semantic_entropy": 0.7448232897151584,
+      "semantic_entropy": 0.7448232897151581,
       "has_data": true
     },
     {
@@ -2044,7 +2044,7 @@
       "article_count": 151,
       "cluster_count": 69,
       "semantic_coverage": 0.13555992141453832,
-      "semantic_entropy": 0.947728226175476,
+      "semantic_entropy": 0.9477282261754756,
       "has_data": true
     },
     {
@@ -2058,7 +2058,7 @@
       "article_count": 157,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.7577649871969988,
+      "semantic_entropy": 0.7577649871969989,
       "has_data": true
     },
     {
@@ -2086,7 +2086,7 @@
       "article_count": 177,
       "cluster_count": 72,
       "semantic_coverage": 0.14145383104125736,
-      "semantic_entropy": 0.8404726211120591,
+      "semantic_entropy": 0.8404726211120583,
       "has_data": true
     },
     {
@@ -2114,7 +2114,7 @@
       "article_count": 70,
       "cluster_count": 24,
       "semantic_coverage": 0.047151277013752456,
-      "semantic_entropy": 0.6513813445123917,
+      "semantic_entropy": 0.6513813445123918,
       "has_data": true
     },
     {
@@ -2128,7 +2128,7 @@
       "article_count": 110,
       "cluster_count": 72,
       "semantic_coverage": 0.14145383104125736,
-      "semantic_entropy": 0.9742408622255055,
+      "semantic_entropy": 0.9742408622255058,
       "has_data": true
     },
     {
@@ -2170,7 +2170,7 @@
       "article_count": 194,
       "cluster_count": 79,
       "semantic_coverage": 0.15520628683693516,
-      "semantic_entropy": 0.9451509601971164,
+      "semantic_entropy": 0.9451509601971148,
       "has_data": true
     },
     {
@@ -2184,7 +2184,7 @@
       "article_count": 275,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.9123622033458012,
+      "semantic_entropy": 0.9123622033458016,
       "has_data": true
     },
     {
@@ -2198,7 +2198,7 @@
       "article_count": 157,
       "cluster_count": 35,
       "semantic_coverage": 0.068762278978389,
-      "semantic_entropy": 0.5977886582727496,
+      "semantic_entropy": 0.5977886582727497,
       "has_data": true
     },
     {
@@ -2212,7 +2212,7 @@
       "article_count": 207,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.733440489989998,
+      "semantic_entropy": 0.7334404899899986,
       "has_data": true
     },
     {
@@ -2240,7 +2240,7 @@
       "article_count": 161,
       "cluster_count": 84,
       "semantic_coverage": 0.1650294695481336,
-      "semantic_entropy": 0.9270848266623442,
+      "semantic_entropy": 0.9270848266623428,
       "has_data": true
     },
     {
@@ -2254,7 +2254,7 @@
       "article_count": 187,
       "cluster_count": 64,
       "semantic_coverage": 0.12573673870333987,
-      "semantic_entropy": 0.8240509860939096,
+      "semantic_entropy": 0.8240509860939093,
       "has_data": true
     },
     {
@@ -2268,7 +2268,7 @@
       "article_count": 173,
       "cluster_count": 37,
       "semantic_coverage": 0.07269155206286837,
-      "semantic_entropy": 0.7082433360219832,
+      "semantic_entropy": 0.7082433360219834,
       "has_data": true
     },
     {
@@ -2282,7 +2282,7 @@
       "article_count": 177,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.9060156737607831,
+      "semantic_entropy": 0.9060156737607828,
       "has_data": true
     },
     {
@@ -2310,7 +2310,7 @@
       "article_count": 295,
       "cluster_count": 73,
       "semantic_coverage": 0.14341846758349705,
-      "semantic_entropy": 0.7849704526510028,
+      "semantic_entropy": 0.784970452651002,
       "has_data": true
     },
     {
@@ -2324,7 +2324,7 @@
       "article_count": 168,
       "cluster_count": 66,
       "semantic_coverage": 0.12966601178781925,
-      "semantic_entropy": 0.9364382604247992,
+      "semantic_entropy": 0.9364382604247986,
       "has_data": true
     },
     {
@@ -2338,7 +2338,7 @@
       "article_count": 86,
       "cluster_count": 34,
       "semantic_coverage": 0.06679764243614932,
-      "semantic_entropy": 0.9091976817885323,
+      "semantic_entropy": 0.909197681788533,
       "has_data": true
     },
     {
@@ -2352,7 +2352,7 @@
       "article_count": 233,
       "cluster_count": 110,
       "semantic_coverage": 0.21611001964636542,
-      "semantic_entropy": 0.9030197128762683,
+      "semantic_entropy": 0.9030197128762701,
       "has_data": true
     },
     {
@@ -2366,7 +2366,7 @@
       "article_count": 160,
       "cluster_count": 86,
       "semantic_coverage": 0.16895874263261296,
-      "semantic_entropy": 0.9420842423146225,
+      "semantic_entropy": 0.9420842423146235,
       "has_data": true
     },
     {
@@ -2380,7 +2380,7 @@
       "article_count": 280,
       "cluster_count": 67,
       "semantic_coverage": 0.13163064833005894,
-      "semantic_entropy": 0.8594874590836582,
+      "semantic_entropy": 0.859487459083659,
       "has_data": true
     },
     {
@@ -2394,7 +2394,7 @@
       "article_count": 101,
       "cluster_count": 33,
       "semantic_coverage": 0.06483300589390963,
-      "semantic_entropy": 0.5971259120056684,
+      "semantic_entropy": 0.5971259120056679,
       "has_data": true
     },
     {
@@ -2408,7 +2408,7 @@
       "article_count": 143,
       "cluster_count": 34,
       "semantic_coverage": 0.06679764243614932,
-      "semantic_entropy": 0.542146009184286,
+      "semantic_entropy": 0.5421460091842863,
       "has_data": true
     },
     {
@@ -2422,7 +2422,7 @@
       "article_count": 171,
       "cluster_count": 87,
       "semantic_coverage": 0.17092337917485265,
-      "semantic_entropy": 0.8984915712163579,
+      "semantic_entropy": 0.8984915712163577,
       "has_data": true
     },
     {
@@ -2436,7 +2436,7 @@
       "article_count": 113,
       "cluster_count": 31,
       "semantic_coverage": 0.060903732809430254,
-      "semantic_entropy": 0.803342614148936,
+      "semantic_entropy": 0.8033426141489362,
       "has_data": true
     },
     {
@@ -2450,7 +2450,7 @@
       "article_count": 154,
       "cluster_count": 49,
       "semantic_coverage": 0.0962671905697446,
-      "semantic_entropy": 0.906669640450644,
+      "semantic_entropy": 0.9066696404506445,
       "has_data": true
     },
     {
@@ -2464,7 +2464,7 @@
       "article_count": 150,
       "cluster_count": 75,
       "semantic_coverage": 0.14734774066797643,
-      "semantic_entropy": 0.9600465967450299,
+      "semantic_entropy": 0.9600465967450308,
       "has_data": true
     },
     {
@@ -2478,7 +2478,7 @@
       "article_count": 181,
       "cluster_count": 40,
       "semantic_coverage": 0.07858546168958742,
-      "semantic_entropy": 0.6430791640553575,
+      "semantic_entropy": 0.6430791640553571,
       "has_data": true
     },
     {
@@ -2492,7 +2492,7 @@
       "article_count": 231,
       "cluster_count": 57,
       "semantic_coverage": 0.11198428290766209,
-      "semantic_entropy": 0.8505394909889389,
+      "semantic_entropy": 0.8505394909889399,
       "has_data": true
     },
     {
@@ -2506,7 +2506,7 @@
       "article_count": 176,
       "cluster_count": 36,
       "semantic_coverage": 0.07072691552062868,
-      "semantic_entropy": 0.6298849974403159,
+      "semantic_entropy": 0.6298849974403163,
       "has_data": true
     },
     {
@@ -2534,7 +2534,7 @@
       "article_count": 314,
       "cluster_count": 84,
       "semantic_coverage": 0.1650294695481336,
-      "semantic_entropy": 0.8827077931787026,
+      "semantic_entropy": 0.8827077931787006,
       "has_data": true
     },
     {
@@ -2548,7 +2548,7 @@
       "article_count": 169,
       "cluster_count": 39,
       "semantic_coverage": 0.07662082514734773,
-      "semantic_entropy": 0.4293408564612558,
+      "semantic_entropy": 0.42934085646125575,
       "has_data": true
     },
     {
@@ -2562,7 +2562,7 @@
       "article_count": 333,
       "cluster_count": 81,
       "semantic_coverage": 0.15913555992141454,
-      "semantic_entropy": 0.8859679550076962,
+      "semantic_entropy": 0.8859679550076955,
       "has_data": true
     },
     {
@@ -2590,7 +2590,7 @@
       "article_count": 129,
       "cluster_count": 31,
       "semantic_coverage": 0.060903732809430254,
-      "semantic_entropy": 0.6704810504481551,
+      "semantic_entropy": 0.670481050448155,
       "has_data": true
     },
     {
@@ -2604,7 +2604,7 @@
       "article_count": 17,
       "cluster_count": 6,
       "semantic_coverage": 0.011787819253438114,
-      "semantic_entropy": 0.8757609339601583,
+      "semantic_entropy": 0.8757609339601584,
       "has_data": true
     },
     {
@@ -2618,7 +2618,7 @@
       "article_count": 351,
       "cluster_count": 105,
       "semantic_coverage": 0.206286836935167,
-      "semantic_entropy": 0.9167049011430982,
+      "semantic_entropy": 0.9167049011430969,
       "has_data": true
     },
     {
@@ -2632,7 +2632,7 @@
       "article_count": 121,
       "cluster_count": 38,
       "semantic_coverage": 0.07465618860510806,
-      "semantic_entropy": 0.8575353469974119,
+      "semantic_entropy": 0.8575353469974125,
       "has_data": true
     },
     {
@@ -2660,7 +2660,7 @@
       "article_count": 129,
       "cluster_count": 48,
       "semantic_coverage": 0.09430255402750491,
-      "semantic_entropy": 0.8515725109511769,
+      "semantic_entropy": 0.8515725109511775,
       "has_data": true
     },
     {
@@ -2674,7 +2674,7 @@
       "article_count": 446,
       "cluster_count": 114,
       "semantic_coverage": 0.22396856581532418,
-      "semantic_entropy": 0.8839648293882151,
+      "semantic_entropy": 0.8839648293882142,
       "has_data": true
     },
     {
@@ -2688,7 +2688,7 @@
       "article_count": 41,
       "cluster_count": 6,
       "semantic_coverage": 0.011787819253438114,
-      "semantic_entropy": 0.3355056261666537,
+      "semantic_entropy": 0.33550562616665375,
       "has_data": true
     },
     {
@@ -2716,7 +2716,7 @@
       "article_count": 387,
       "cluster_count": 93,
       "semantic_coverage": 0.18271119842829076,
-      "semantic_entropy": 0.8725784164917191,
+      "semantic_entropy": 0.8725784164917204,
       "has_data": true
     }
   ]

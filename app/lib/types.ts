@@ -25,8 +25,11 @@ export type AtlasIndexData = {
 export type ClusterSummary = {
   id: number;
   size: number;
-  label: string | null;
+  labels: Record<string, string> | null;
   top_countries: string[];
+  top_countries_counts: number[];
+  country_count: number;
+  all_countries: string[] | null;
   centroid: [number, number, number];
   sample_texts: string[];
 };

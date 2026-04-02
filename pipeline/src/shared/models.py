@@ -90,8 +90,11 @@ class CountryIndexEntry(BaseModel):
 class ClusterIndexEntry(BaseModel):
     id: int
     size: int
-    label: str | None = None
+    labels: dict[str, str] | None = None
     top_countries: list[str]
+    top_countries_counts: list[int]
+    country_count: int
+    all_countries: list[str] | None = None
     centroid: list[float]               # [x, y, z] mean
     sample_texts: list[str]
 

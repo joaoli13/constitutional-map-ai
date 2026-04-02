@@ -15,6 +15,7 @@ import Canvas3D from "@/components/Canvas3D";
 import ControlPanel from "@/components/ControlPanel";
 import {CountryIndexProvider} from "@/components/CountryBadge";
 import SearchPanel from "@/components/SearchPanel";
+import ClusterReachPanel from "@/components/ClusterReachPanel";
 import StatsPanel from "@/components/StatsPanel";
 import WorldMap from "@/components/WorldMap";
 import {buildCountryPalette} from "@/lib/colors";
@@ -280,6 +281,8 @@ export default function AtlasClient({atlasIndex, clusters, initialSharedView}: A
           sharedView={initialSharedView}
           onShowSharedView={initialSharedView ? () => setSharedViewPopup(initialSharedView) : undefined}
         />
+
+        <ClusterReachPanel clusters={clusters} />
 
         <StatsPanel countries={selectedCountryRecords} />
       </main>

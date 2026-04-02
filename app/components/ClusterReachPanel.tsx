@@ -1,0 +1,284 @@
+"use client";
+
+import {useMemo, useState} from "react";
+import {useLocale, useTranslations} from "next-intl";
+import {ComposableMap, Geographies, Geography, ZoomableGroup} from "react-simple-maps";
+
+import {CountryBadge, useCountryIndex} from "@/components/CountryBadge";
+import {colorForCluster} from "@/lib/colors";
+import {resolveCountryForGeography} from "@/lib/geo";
+import {useAppStore} from "@/stores/appStore";
+import type {ClusterSummary} from "@/lib/types";
+
+const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+type SortKey = "country_count" | "id" | "size";
+type SortDir = "asc" | "desc";
+
+type ClusterReachPanelProps = {
+  clusters: ClusterSummary[];
+};
+
+export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
+  const t = useTranslations("Atlas.ClusterReach");
+  const locale = useLocale();
+  const [sortKey, setSortKey] = useState<SortKey>("country_count");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [activeClusterId, setActiveClusterId] = useState<number | null>(null);
+
+  const clearCountrySelection = useAppStore((s) => s.clearCountrySelection);
+  const addCountries = useAppStore((s) => s.addCountries);
+  const setColorMode = useAppStore((s) => s.setColorMode);
+  const setFocusedClusterId = useAppStore((s) => s.setFocusedClusterId);
+
+  function handleRowClick(cluster: ClusterSummary) {
+    clearCountrySelection();
+    addCountries(cluster.top_countries);
+    setColorMode("cluster");
+    setFocusedClusterId(cluster.id);
+    setActiveClusterId(cluster.id);
+  }
+
+  function handleSort(key: SortKey) {
+    if (key === sortKey) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir("desc");
+    }
+  }
+
+  const top10 = useMemo(
+    () => [...clusters].sort((a, b) => b.country_count - a.country_count).slice(0, 10),
+    [clusters],
+  );
+
+  const sorted = useMemo(
+    () =>
+      [...top10].sort((a, b) => {
+        const cmp = a[sortKey] - b[sortKey];
+        return sortDir === "asc" ? cmp : -cmp;
+      }),
+    [top10, sortKey, sortDir],
+  );
+
+  const activeCluster = useMemo(
+    () => (activeClusterId !== null ? top10.find((c) => c.id === activeClusterId) ?? null : null),
+    [activeClusterId, top10],
+  );
+
+  function arrow(key: SortKey) {
+    if (key !== sortKey) return <span className="ml-1 opacity-25">↕</span>;
+    return <span className="ml-1">{sortDir === "asc" ? "↑" : "↓"}</span>;
+  }
+
+  return (
+    <section className="rounded-[2rem] border border-slate-200 bg-white/92 p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+      <div className="flex items-baseline justify-between gap-4">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
+            {t("eyebrow")}
+          </p>
+          <h2 className="mt-1.5 text-2xl font-semibold text-slate-950">{t("title")}</h2>
+        </div>
+      </div>
+
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200">
+        <div className="overflow-y-auto max-h-[420px]">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="sticky top-0 border-b border-slate-200 bg-slate-50 text-left">
+                <th className="w-10 px-3 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 text-center">
+                  {t("colRank")}
+                </th>
+                <SortTh active={sortKey === "id"} right onClick={() => handleSort("id")} className="w-14">
+                  {t("colClusterId")}{arrow("id")}
+                </SortTh>
+                <SortTh active={sortKey === "country_count"} right onClick={() => handleSort("country_count")} className="w-20">
+                  {t("colCountryCount")}{arrow("country_count")}
+                </SortTh>
+                <SortTh active={sortKey === "size"} right onClick={() => handleSort("size")} className="w-20">
+                  {t("colSize")}{arrow("size")}
+                </SortTh>
+                <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                  {t("colLabel")}
+                </th>
+                <th className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                  {t("colCountryBreakdown")}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {sorted.map((cluster, index) => {
+                const isActive = cluster.id === activeClusterId;
+                return (
+                  <tr
+                    key={cluster.id}
+                    className={`cursor-pointer transition ${
+                      isActive ? "bg-slate-950 text-white" : "bg-white hover:bg-slate-50"
+                    }`}
+                    onClick={() => handleRowClick(cluster)}
+                  >
+                    <td className="w-10 px-3 py-3 tabular-nums text-xs text-center text-slate-400">
+                      {index + 1}
+                    </td>
+                    <td className={`w-14 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
+                      {cluster.id}
+                    </td>
+                    <td className={`w-20 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
+                      {cluster.country_count}
+                    </td>
+                    <td className={`w-20 px-3 py-3 text-right tabular-nums ${isActive ? "text-slate-300" : "text-slate-700"}`}>
+                      {cluster.size}
+                    </td>
+                    <td className={`px-4 py-3 text-sm ${isActive ? "text-slate-300" : "text-slate-500"}`}>
+                      {cluster.labels
+                        ? (cluster.labels[locale] ?? cluster.labels["en"] ?? "—")
+                        : <span className="text-slate-300">—</span>}
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-wrap gap-1.5">
+                        {cluster.top_countries.map((code, i) => (
+                          <span key={code} className="inline-flex items-center gap-1">
+                            <CountryBadge countryCode={code} tone={isActive ? "emerald" : "slate"} />
+                            <span className={`text-xs tabular-nums ${isActive ? "text-slate-400" : "text-slate-400"}`}>
+                              {cluster.top_countries_counts[i]}
+                            </span>
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {activeCluster?.all_countries && (
+        <ClusterDetail cluster={activeCluster} />
+      )}
+    </section>
+  );
+}
+
+function ClusterDetail({cluster}: {cluster: ClusterSummary}) {
+  const t = useTranslations("Atlas.ClusterReach");
+  const countryByCode = useCountryIndex();
+  const highlightColor = colorForCluster(cluster.id);
+  const [zoom, setZoom] = useState(1);
+  const [center, setCenter] = useState<[number, number]>([0, 18]);
+
+  const countriesList = useMemo(() => Object.values(countryByCode), [countryByCode]);
+  const highlightSet = useMemo(
+    () => new Set(cluster.all_countries ?? []),
+    [cluster.all_countries],
+  );
+
+  function zoomBy(factor: number) {
+    setZoom((z) => Math.min(Math.max(z * factor, 1), 8));
+  }
+
+  return (
+    <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          {t("detailTitle", {id: cluster.id, count: cluster.country_count})}
+        </p>
+        <div className="flex gap-1.5">
+          <button
+            type="button"
+            className="rounded-full border border-slate-300 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-500 hover:text-slate-900 disabled:opacity-40"
+            onClick={() => zoomBy(1 / 1.5)}
+            disabled={zoom <= 1}
+          >
+            −
+          </button>
+          <button
+            type="button"
+            className="rounded-full border border-slate-300 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-500 hover:text-slate-900 disabled:opacity-40"
+            onClick={() => zoomBy(1.5)}
+            disabled={zoom >= 8}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div className="overflow-hidden rounded-lg border border-slate-200 bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(226,232,240,0.92))]">
+        <ComposableMap projection="geoEqualEarth" className="w-full" style={{height: "260px"}}>
+          <ZoomableGroup
+            zoom={zoom}
+            center={center}
+            onMoveEnd={({coordinates, zoom: z}) => {
+              setCenter(coordinates as [number, number]);
+              setZoom(z);
+            }}
+          >
+            <Geographies geography={GEO_URL}>
+              {({geographies}) =>
+                geographies.map((geo) => {
+                  const name = typeof geo.properties.name === "string" ? geo.properties.name : "";
+                  const country = resolveCountryForGeography(name, countriesList);
+                  const isHighlighted = Boolean(country?.code && highlightSet.has(country.code));
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onClick={undefined}
+                      style={{
+                        default: {
+                          fill: isHighlighted ? highlightColor : "#e2e8f0",
+                          stroke: "#ffffff",
+                          strokeWidth: 0.5,
+                          outline: "none",
+                          cursor: "grab",
+                        },
+                        hover: {
+                          fill: isHighlighted ? highlightColor : "#e2e8f0",
+                          stroke: "#ffffff",
+                          strokeWidth: 0.5,
+                          outline: "none",
+                        },
+                        pressed: {
+                          fill: isHighlighted ? highlightColor : "#e2e8f0",
+                          outline: "none",
+                          cursor: "grabbing",
+                        },
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
+      </div>
+    </div>
+  );
+}
+
+function SortTh({
+  children,
+  active,
+  right,
+  onClick,
+  className = "",
+}: {
+  children: React.ReactNode;
+  active: boolean;
+  right?: boolean;
+  onClick: () => void;
+  className?: string;
+}) {
+  return (
+    <th
+      className={`cursor-pointer select-none px-3 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] transition hover:text-slate-800 ${
+        right ? "text-right" : "text-left"
+      } ${active ? "text-slate-800" : "text-slate-500"} ${className}`}
+      onClick={onClick}
+    >
+      {children}
+    </th>
+  );
+}

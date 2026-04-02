@@ -93,6 +93,7 @@ const MAX_DOCKED_DETAIL_PANEL_BIAS = 0.32;
 const FOCUS_REVEAL_EYE_RATIO = 0.75;
 const RANGE_EPSILON = 0.0001;
 const SEARCH_CONTEXT_NEUTRAL = "rgb(102 116 136)";
+const CLUSTER_FOCUS_NEUTRAL = "#e2e8f0";
 
 const AXIS_STYLE = {
   showgrid: false,
@@ -140,6 +141,7 @@ export default function Canvas3D({
   const setFocusedCountryCode = useAppStore((s) => s.setFocusedCountryCode);
   const focusedSegmentId = useAppStore((s) => s.focusedSegmentId);
   const setFocusedSegmentId = useAppStore((s) => s.setFocusedSegmentId);
+  const focusedClusterId = useAppStore((s) => s.focusedClusterId);
   const [isPlotReady, setIsPlotReady] = useState(false);
   const [focusRanges, setFocusRanges] = useState<FocusRanges | null>(null);
   const uirevision = "canvas-3d";
@@ -266,6 +268,7 @@ export default function Canvas3D({
       && activeCountryCode
       && !isSegmentFocusActive,
   );
+  const isClusterFocusActive = focusedClusterId !== null && colorMode === "cluster";
 
   useEffect(() => {
     if (!focusedSegmentId) return;
@@ -349,8 +352,10 @@ export default function Canvas3D({
       hasSearchHighlights: searchHighlightIds.size > 0,
       isCountryFocusActive,
       isSegmentFocusActive,
+      isClusterFocusActive,
     });
     const isSearchActive = emphasisMode === "search";
+    const isClusterEmphasis = emphasisMode === "cluster";
 
     const ghostPoints = hasSelection
       ? points.filter((p) => !selectedSet.has(p.country_code))
@@ -366,13 +371,18 @@ export default function Canvas3D({
       : [];
     const searchFocusedPoints = isSearchActive ? searchHighlightedPoints : [];
 
+    const clusterFocusedPoints = isClusterEmphasis
+      ? visiblePoints.filter((p) => p.global_cluster === focusedClusterId)
+      : [];
     const emphasizedPoints = isSegmentFocusActive
       ? segmentFocusedPoints
       : isCountryFocusActive
         ? countryFocusedPoints
-        : isSearchActive
-          ? searchFocusedPoints
-          : visiblePoints;
+        : isClusterEmphasis
+          ? clusterFocusedPoints
+          : isSearchActive
+            ? searchFocusedPoints
+            : visiblePoints;
     const emphasizedIds = new Set(emphasizedPoints.map((point) => point.id));
     const deEmphasizedVisiblePoints = visiblePoints.filter(
       (point) => !emphasizedIds.has(point.id),
@@ -417,6 +427,7 @@ export default function Canvas3D({
           isSearchActive || isSegmentFocusActive ? 2.5 : 0,
         )
       : null;
+
 
     const highlightTrace = selectedPoint
       && (
@@ -469,22 +480,23 @@ export default function Canvas3D({
         } as Partial<Plotly.ScatterData>),
     );
 
+    const isFocusActive = isSearchActive || isCountryFocusActive || isSegmentFocusActive || isClusterEmphasis;
     const nextTraces = [
       makeTrace(
         ghostPoints,
-        isSearchActive || isCountryFocusActive || isSegmentFocusActive ? 0.03 : 0.12,
+        isFocusActive ? 0.03 : 0.12,
         1,
         0,
-        isSearchActive ? SEARCH_CONTEXT_NEUTRAL : undefined,
+        isSearchActive ? SEARCH_CONTEXT_NEUTRAL : isClusterEmphasis ? CLUSTER_FOCUS_NEUTRAL : undefined,
       ),
       ...(deEmphasizedVisiblePoints.length > 0
         ? [
             makeTrace(
               deEmphasizedVisiblePoints,
-              isSearchActive || isCountryFocusActive || isSegmentFocusActive ? 0.1 : 0.88,
+              isFocusActive ? 0.1 : 0.88,
               1,
               0,
-              isSearchActive ? SEARCH_CONTEXT_NEUTRAL : undefined,
+              isSearchActive ? SEARCH_CONTEXT_NEUTRAL : isClusterEmphasis ? CLUSTER_FOCUS_NEUTRAL : undefined,
             ),
           ]
         : []),
@@ -521,6 +533,8 @@ export default function Canvas3D({
     focusedSegmentPoint,
     isCountryFocusActive,
     isSegmentFocusActive,
+    isClusterFocusActive,
+    focusedClusterId,
   ]);
 
   const layout = useMemo(

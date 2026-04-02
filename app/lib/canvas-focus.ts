@@ -15,7 +15,7 @@ export type CanvasFocusSegmentOption = {
   searchText: string;
 };
 
-export type CanvasEmphasisMode = "segment" | "country" | "search" | "default";
+export type CanvasEmphasisMode = "segment" | "country" | "search" | "cluster" | "default";
 
 export function deriveCanvasCountryScope(
   selectedCountries: string[],
@@ -124,10 +124,12 @@ export function deriveCanvasEmphasisMode({
   hasSearchHighlights,
   isCountryFocusActive,
   isSegmentFocusActive,
+  isClusterFocusActive,
 }: {
   hasSearchHighlights: boolean;
   isCountryFocusActive: boolean;
   isSegmentFocusActive: boolean;
+  isClusterFocusActive: boolean;
 }): CanvasEmphasisMode {
   if (isSegmentFocusActive) {
     return "segment";
@@ -135,6 +137,10 @@ export function deriveCanvasEmphasisMode({
 
   if (isCountryFocusActive) {
     return "country";
+  }
+
+  if (isClusterFocusActive) {
+    return "cluster";
   }
 
   if (hasSearchHighlights) {

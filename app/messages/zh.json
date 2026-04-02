@@ -195,6 +195,17 @@
       "article": "条文",
       "cluster": "全局聚类",
       "probability": "聚类概率"
+    },
+    "ClusterReach": {
+      "eyebrow": "集群覆盖范围",
+      "title": "按国家代表性排列的前10个集群",
+      "colRank": "排名",
+      "colClusterId": "ID",
+      "colCountryCount": "国家数",
+      "colSize": "条文数",
+      "colCountryBreakdown": "国家分布",
+      "detailTitle": "集群 {id} · {count} 个国家",
+      "colLabel": "主题"
     }
   },
   "Export": {

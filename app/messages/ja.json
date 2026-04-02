@@ -195,6 +195,17 @@
       "article": "条文",
       "cluster": "グローバルクラスター",
       "probability": "クラスター確率"
+    },
+    "ClusterReach": {
+      "eyebrow": "クラスターの広がり",
+      "title": "国別代表性による上位10クラスター",
+      "colRank": "順位",
+      "colClusterId": "ID",
+      "colCountryCount": "国数",
+      "colSize": "条文数",
+      "colCountryBreakdown": "国別内訳",
+      "detailTitle": "クラスター {id} · {count} か国",
+      "colLabel": "テーマ"
     }
   },
   "Export": {

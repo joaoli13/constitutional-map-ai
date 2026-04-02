@@ -140,6 +140,7 @@ test("explicit 3D focus takes precedence over search highlights", () => {
       hasSearchHighlights: true,
       isCountryFocusActive: false,
       isSegmentFocusActive: true,
+      isClusterFocusActive: false,
     }),
     "segment",
   );
@@ -148,6 +149,7 @@ test("explicit 3D focus takes precedence over search highlights", () => {
       hasSearchHighlights: true,
       isCountryFocusActive: true,
       isSegmentFocusActive: false,
+      isClusterFocusActive: false,
     }),
     "country",
   );
@@ -156,6 +158,7 @@ test("explicit 3D focus takes precedence over search highlights", () => {
       hasSearchHighlights: true,
       isCountryFocusActive: false,
       isSegmentFocusActive: false,
+      isClusterFocusActive: false,
     }),
     "search",
   );

@@ -27,6 +27,7 @@ type AppState = {
   focusedCountryCode: string | null;
   focusedSegmentId: string | null;
   pendingSegmentId: string | null;
+  focusedClusterId: number | null;
   toggleCountrySelection: (countryCode: string) => void;
   addCountries: (countryCodes: string[]) => void;
   removeCountrySelection: (countryCode: string) => void;
@@ -43,6 +44,7 @@ type AppState = {
   setFocusedCountryCode: (code: string | null) => void;
   setFocusedSegmentId: (id: string | null) => void;
   setPendingSegmentId: (id: string | null) => void;
+  setFocusedClusterId: (id: number | null) => void;
 };
 
 export const useAppStore = create<AppState>((set) => ({
@@ -59,6 +61,7 @@ export const useAppStore = create<AppState>((set) => ({
   focusedCountryCode: null,
   focusedSegmentId: null,
   pendingSegmentId: null,
+  focusedClusterId: null,
   toggleCountrySelection: (countryCode) =>
     set((state) => {
       const alreadySelected = state.selectedCountries.includes(countryCode);
@@ -86,7 +89,7 @@ export const useAppStore = create<AppState>((set) => ({
       selectedPoint:
         state.selectedPoint?.country_code === countryCode ? null : state.selectedPoint,
     })),
-  clearCountrySelection: () => set({selectedCountries: [], selectedPoint: null}),
+  clearCountrySelection: () => set({selectedCountries: [], selectedPoint: null, focusedClusterId: null}),
   setCountryData: (countryCode, points) =>
     set((state) => ({
       loadedCountryData: {
@@ -106,4 +109,5 @@ export const useAppStore = create<AppState>((set) => ({
   setFocusedCountryCode: (code) => set({focusedCountryCode: code}),
   setFocusedSegmentId: (id) => set({focusedSegmentId: id}),
   setPendingSegmentId: (id) => set({pendingSegmentId: id}),
+  setFocusedClusterId: (id) => set({focusedClusterId: id}),
 }));

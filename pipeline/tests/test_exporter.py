@@ -5,7 +5,7 @@ import json
 import pandas as pd
 import pytest
 
-from src.m4_5_exporter.json_writer import load_clustered_frame, write_static_jsons
+from src.m4_5_exporter.json_writer import build_clusters_payload, load_clustered_frame, write_static_jsons
 from src.m4_5_exporter.neon_ingest import (
     CREATE_EXTENSION_SQL,
     CREATE_INDEX_SQL,
@@ -229,10 +229,30 @@ def test_json_writer_outputs_expected_files_and_schema(tmp_path) -> None:
     assert next(country for country in index_payload["countries"] if country["code"] == "CCC")["has_data"] is False
     assert len(clusters_payload) == 2
     assert clusters_payload[1]["top_countries"] == ["AAA", "BBB"]
+    assert clusters_payload[0]["country_count"] == 1  # cluster 0 has only AAA
+    assert clusters_payload[1]["country_count"] == 2  # cluster 1 has AAA + BBB
     assert len(alpha_payload) == 2
     assert all(len(point["text_snippet"]) <= 200 for point in alpha_payload)
     assert not (output_dir / "countries-full").exists()
     assert not (artifacts.countries_dir / "STALE.json").exists()
+
+
+def test_build_clusters_payload_country_count() -> None:
+    """country_count reflects the number of distinct country_codes in each cluster."""
+    frame = pd.DataFrame(
+        [
+            {"country_code": "AAA", "global_cluster": 0, "x": 0.0, "y": 0.0, "z": 0.0, "text": "a"},
+            {"country_code": "AAA", "global_cluster": 1, "x": 0.0, "y": 0.0, "z": 0.0, "text": "b"},
+            {"country_code": "BBB", "global_cluster": 1, "x": 0.0, "y": 0.0, "z": 0.0, "text": "c"},
+            {"country_code": "CCC", "global_cluster": 1, "x": 0.0, "y": 0.0, "z": 0.0, "text": "d"},
+            {"country_code": "AAA", "global_cluster": -1, "x": 0.0, "y": 0.0, "z": 0.0, "text": "noise"},
+        ]
+    )
+    payload = build_clusters_payload(frame)
+    by_id = {entry["id"]: entry for entry in payload}
+    assert by_id[0]["country_count"] == 1   # only AAA
+    assert by_id[1]["country_count"] == 3   # AAA, BBB, CCC
+    assert -1 not in by_id                  # noise excluded
 
 
 def test_neon_migration_and_upsert_use_expected_sql(tmp_path) -> None:

@@ -10,13 +10,13 @@ from pathlib import Path
 
 PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS_DIR = PIPELINE_ROOT / "scripts"
-STAGES = ("m1", "m2", "m3", "m4", "m4_5")
+STAGES = ("m1", "m2", "m3", "m4", "m4_5", "m4_6")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the full TCA pipeline.")
     parser.add_argument("--from-stage", choices=STAGES, default="m1", help="First stage to run.")
-    parser.add_argument("--to-stage", choices=STAGES, default="m4_5", help="Last stage to run.")
+    parser.add_argument("--to-stage", choices=STAGES, default="m4_6", help="Last stage to run.")
     parser.add_argument("--limit", type=int, default=None, help="Forward a row/country limit to supported stages.")
     parser.add_argument("--country-code", default=None, help="Forward one ISO alpha-3 filter to supported stages.")
     parser.add_argument("--skip-neon", action="store_true", help="Skip Neon ingest during M4.5.")
@@ -36,6 +36,7 @@ def stage_command(stage: str, args: argparse.Namespace) -> list[str]:
         "m3": SCRIPTS_DIR / "run_m3.py",
         "m4": SCRIPTS_DIR / "run_m4.py",
         "m4_5": SCRIPTS_DIR / "run_m4_5.py",
+        "m4_6": SCRIPTS_DIR / "run_m4_6.py",
     }
     command = [sys.executable, str(script_map[stage]), "--log-level", args.log_level]
 

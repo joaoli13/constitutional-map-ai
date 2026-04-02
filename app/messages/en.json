@@ -192,6 +192,17 @@
       "article": "Article",
       "cluster": "Global cluster",
       "probability": "Cluster probability"
+    },
+    "ClusterReach": {
+      "eyebrow": "Cluster Reach",
+      "title": "Top 10 clusters by country representation",
+      "colRank": "Rank",
+      "colClusterId": "ID",
+      "colCountryCount": "Countries",
+      "colSize": "Articles",
+      "colCountryBreakdown": "Country breakdown",
+      "detailTitle": "Cluster {id} · {count} countries represented",
+      "colLabel": "Topic"
     }
   },
   "Export": {

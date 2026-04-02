@@ -201,27 +201,51 @@ def build_index_payload(
 
 
 def build_clusters_payload(clustered_frame: pd.DataFrame) -> list[dict[str, object]]:
-    """Build the global clusters.json payload."""
+    """Build the global clusters.json payload.
 
-    payload: list[dict[str, object]] = []
+    `all_countries` (full sorted list of alpha-3 codes) is populated only for
+    the top-10 clusters by country_count to keep the JSON size bounded.
+    """
+
     non_noise = clustered_frame[clustered_frame["global_cluster"] >= 0]
+
+    # First pass: build entries and collect all country codes per cluster.
+    raw: list[tuple[ClusterIndexEntry, list[str]]] = []
     for cluster_id, subset in sorted(non_noise.groupby("global_cluster"), key=lambda item: int(item[0])):
         centroid = [
             float(subset["x"].mean()),
             float(subset["y"].mean()),
             float(subset["z"].mean()),
         ]
-        top_countries = subset["country_code"].value_counts().head(5).index.astype(str).tolist()
+        vc = subset["country_code"].value_counts().head(10)
+        top_countries = vc.index.astype(str).tolist()
+        top_countries_counts = [int(n) for n in vc.values.tolist()]
+        country_count = int(subset["country_code"].nunique())
+        all_country_codes = sorted(subset["country_code"].unique().astype(str).tolist())
         sample_texts = subset["text"].head(5).astype(str).tolist()
         entry = ClusterIndexEntry(
             id=int(cluster_id),
             size=int(len(subset)),
-            label=None,
             top_countries=top_countries,
+            top_countries_counts=top_countries_counts,
+            country_count=country_count,
             centroid=centroid,
             sample_texts=sample_texts,
         )
-        payload.append(entry.model_dump())
+        raw.append((entry, all_country_codes))
+
+    # Second pass: identify top-10 by country_count and enrich those entries.
+    top10_ids = {
+        entry.id
+        for entry, _ in sorted(raw, key=lambda item: item[0].country_count, reverse=True)[:10]
+    }
+
+    payload: list[dict[str, object]] = []
+    for entry, all_country_codes in raw:
+        d = entry.model_dump()
+        d["all_countries"] = all_country_codes if entry.id in top10_ids else None
+        payload.append(d)
+
     return payload
 
 
