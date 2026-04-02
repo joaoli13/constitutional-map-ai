@@ -204,8 +204,11 @@
       "colCountryCount": "Países",
       "colSize": "Artículos",
       "subtitle": "La presencia de un país refleja artículos constitucionales individuales clasificados en el clúster. Las constituciones que abordan el tema en artículos amplios y multitemáticos pueden no aparecer, aunque el tema esté cubierto.",
-      "colCountryBreakdown": "Distribución por país",
-      "colCountryBreakdownTooltip": "Muestra los países con más artículos en este clúster. Un país puede estar ausente si su constitución aborda el tema dentro de un artículo más amplio y multitemático cuyo embedding semántico fue atraído hacia otro clúster.",
+      "colCountryBreakdown": "Principales países (nº de artículos)",
+      "colCountryBreakdownTooltip": "Ordenado por número de artículos en el clúster, no por proximidad semántica al centroide. Un país puede estar ausente aunque su constitución aborde el tema — generalmente porque las disposiciones relevantes se encuentran en un artículo amplio y multitemático cuyo embedding fue atraído hacia otro clúster.",
+      "footerIdle": "Haga clic en una fila para seleccionar esos países en el mapa y destacar el clúster en el gráfico 3D.",
+      "footerActive": "{count} países del clúster {id} seleccionados en el mapa",
+      "footerClear": "Borrar selección",
       "detailTitle": "Clúster {id} · {count} países representados",
       "colLabel": "Tema"
     }

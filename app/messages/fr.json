@@ -204,8 +204,11 @@
       "colCountryCount": "Pays",
       "colSize": "Articles",
       "subtitle": "La présence d'un pays reflète les articles constitutionnels individuels classés dans le cluster. Les constitutions traitant d'un thème dans un article large et multithématique peuvent ne pas apparaître, même si le sujet est abordé.",
-      "colCountryBreakdown": "Répartition par pays",
-      "colCountryBreakdownTooltip": "Affiche les pays ayant le plus d'articles dans ce cluster. Un pays peut être absent si sa constitution aborde le thème dans un article plus large et multithématique dont l'embedding sémantique a été attiré vers un autre cluster.",
+      "colCountryBreakdown": "Principaux pays (nbre d'articles)",
+      "colCountryBreakdownTooltip": "Classé par nombre d'articles dans le cluster, et non par proximité sémantique du centroïde. Un pays peut être absent même si sa constitution aborde le thème — généralement parce que les dispositions pertinentes figurent dans un article large et multithématique dont l'embedding a été attiré vers un autre cluster.",
+      "footerIdle": "Cliquez sur une ligne pour sélectionner ces pays sur la carte et mettre en évidence le cluster dans le graphique 3D.",
+      "footerActive": "{count} pays du cluster {id} sélectionnés sur la carte",
+      "footerClear": "Effacer la sélection",
       "detailTitle": "Cluster {id} · {count} pays représentés",
       "colLabel": "Thème"
     }

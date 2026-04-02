@@ -40,6 +40,12 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
     setActiveClusterId(cluster.id);
   }
 
+  function handleClearActive() {
+    clearCountrySelection();
+    setFocusedClusterId(null);
+    setActiveClusterId(null);
+  }
+
   function handleSort(key: SortKey) {
     if (key === sortKey) {
       setSortDir((d) => (d === "asc" ? "desc" : "asc"));
@@ -118,13 +124,20 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
                   return (
                     <tr
                       key={cluster.id}
-                      className={`cursor-pointer transition ${
+                      className={`group cursor-pointer transition ${
                         isActive ? "bg-slate-950 text-white" : "bg-white hover:bg-slate-50"
                       }`}
                       onClick={() => handleRowClick(cluster)}
                     >
-                      <td className="w-10 px-3 py-3 tabular-nums text-xs text-center text-slate-400">
-                        {index + 1}
+                      <td className="w-10 px-3 py-3 text-xs text-center">
+                        {isActive ? (
+                          <span className="text-emerald-400">✓</span>
+                        ) : (
+                          <>
+                            <span className="tabular-nums text-slate-400 group-hover:hidden">{index + 1}</span>
+                            <span className="hidden text-slate-400 group-hover:inline">⊕</span>
+                          </>
+                        )}
                       </td>
                       <td className={`w-14 px-3 py-3 text-right tabular-nums font-semibold ${isActive ? "text-white" : "text-slate-900"}`}>
                         {cluster.id}
@@ -157,6 +170,24 @@ export default function ClusterReachPanel({clusters}: ClusterReachPanelProps) {
                 })}
               </tbody>
             </table>
+          </div>
+          <div className="flex min-h-[32px] items-center justify-between border-t border-slate-100 px-3 py-2">
+            {activeClusterId === null ? (
+              <p className="text-[11px] text-slate-400">{t("footerIdle")}</p>
+            ) : (
+              <>
+                <p className="text-[11px] text-slate-500">
+                  {t("footerActive", {count: activeCluster?.top_countries.length ?? 0, id: activeClusterId})}
+                </p>
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); handleClearActive(); }}
+                  className="ml-3 shrink-0 text-[11px] text-slate-400 transition hover:text-slate-700"
+                >
+                  · {t("footerClear")}
+                </button>
+              </>
+            )}
           </div>
         </div>
 
