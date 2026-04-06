@@ -4,11 +4,12 @@ import {listBlogTutorialSlugs, listBlogTutorials} from "@/lib/blog-tutorial";
 import {routing} from "@/i18n/routing";
 
 const BASE_URL = "https://constitutionalmap.ai";
+const LAST_CONTENT_UPDATE = new Date("2026-03-30");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const localeEntries = routing.locales.map((locale) => ({
     url: `${BASE_URL}/${locale}`,
-    lastModified: new Date(),
+    lastModified: LAST_CONTENT_UPDATE,
     changeFrequency: "monthly" as const,
     priority: locale === "en" ? 1.0 : 0.8,
     alternates: {
@@ -22,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const tutorials = listBlogTutorials(locale);
     const indexEntry = {
       url: `${BASE_URL}/${locale}/blog-tutorial`,
-      lastModified: new Date(),
+      lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "monthly" as const,
       priority: locale === routing.defaultLocale ? 0.7 : 0.6,
       alternates: {

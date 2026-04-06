@@ -79,19 +79,6 @@ export async function generateMetadata({
   };
 }
 
-function rich(text: string) {
-  const parts = text.split(/\*\*(.+?)\*\*/g);
-  return parts.map((part, i) =>
-    i % 2 === 1 ? (
-      <strong key={i} className="font-semibold text-slate-800">
-        {part}
-      </strong>
-    ) : (
-      part
-    ),
-  );
-}
-
 function buildJsonLd(locale: AppLocale, title: string, description: string) {
   const localeUrl = `${BASE_URL}/${locale}`;
   const websiteId = `${localeUrl}#website`;
@@ -187,20 +174,6 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const metaT = await getTranslations({locale, namespace: "Meta"});
   const chromeT = await getTranslations({locale, namespace: "Chrome"});
-  const primerSections = [
-    {
-      title: chromeT("primerSection1Title"),
-      paragraphs: [chromeT("primerP1"), chromeT("primerP2")],
-    },
-    {
-      title: chromeT("primerSection2Title"),
-      paragraphs: [chromeT("primerP3"), chromeT("primerP4"), chromeT("primerP5")],
-    },
-    {
-      title: chromeT("primerSection3Title"),
-      paragraphs: [chromeT("primerP6"), chromeT("primerP7")],
-    },
-  ];
 
   const jsonLd = buildJsonLd(
     locale as AppLocale,
@@ -223,33 +196,6 @@ export default async function LocaleLayout({
           <HeaderControls />
         </header>
         {children}
-        <section className="mx-auto w-full max-w-[1500px] px-6 pb-4 pt-0">
-          <div className="rounded-[2rem] border border-slate-200/80 bg-white/70 px-6 py-6 shadow-[0_12px_40px_rgba(15,23,42,0.05)] backdrop-blur">
-            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500">
-              {chromeT("primerEyebrow")}
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-950">
-              {chromeT("primerTitle")}
-            </h2>
-            <div className="mt-5 grid gap-4 lg:grid-cols-3">
-              {primerSections.map((section) => (
-                <div
-                  key={section.title}
-                  className="rounded-[1.5rem] border border-slate-200/80 bg-white/78 px-5 py-5 shadow-[0_10px_28px_rgba(15,23,42,0.04)]"
-                >
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
-                    {section.title}
-                  </h3>
-                  <div className="mt-3 space-y-5 text-sm leading-[1.85] text-slate-600">
-                    {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{rich(paragraph)}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         <footer className="mx-auto w-full max-w-[1500px] border-t border-slate-200/70 px-6 py-6 text-xs leading-6 text-slate-500">
           <p>
             {chromeT("dataNotice")}{" "}
