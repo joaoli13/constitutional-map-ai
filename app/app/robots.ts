@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/data/", "/_next/"],
+        disallow: ["/api/", "/data/"],
       },
     ],
     sitemap: "https://constitutionalmap.ai/sitemap.xml",

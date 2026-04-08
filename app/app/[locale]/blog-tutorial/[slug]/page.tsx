@@ -62,6 +62,17 @@ export async function generateMetadata({
     metadataBase: new URL(BASE_URL),
     title: `${entry.title} | ${t("title")}`,
     description: entry.summary,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     alternates: {
       canonical: `/${resolvedLocale}/blog-tutorial/${entry.slug}`,
       languages: buildLanguageAlternates(entry.slug),
@@ -73,6 +84,12 @@ export async function generateMetadata({
       siteName: "Constitutional Map AI",
       type: "article",
       publishedTime: `${entry.publishedAt}T00:00:00Z`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${entry.title} | ${t("title")}`,
+      description: entry.summary,
+      images: ["/og-image.png"],
     },
   };
 }

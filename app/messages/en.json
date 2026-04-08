@@ -270,11 +270,11 @@
     "close": "Close"
   },
   "BlogTutorial": {
-    "metaTitle": "Blog tutorial | Constitutional Map AI",
-    "metaDescription": "Short tutorials for learning how to navigate the semantic map, compare countries, and validate findings in the full constitutional text.",
+    "metaTitle": "Constitutional Map AI Tutorials | Semantic Map Guides",
+    "metaDescription": "Learn how to use Constitutional Map AI with short tutorials on semantic map navigation, country comparison, and source validation in full constitutional text.",
     "eyebrow": "Constitutional Map AI",
-    "title": "Blog tutorial",
-    "intro": "Short entries for learning the atlas workflow faster: how to select countries, compare distributions in the 3D canvas, and validate a finding in the full constitutional text.",
+    "title": "Tutorials",
+    "intro": "Short guides for learning the atlas workflow faster: how to select countries, compare distributions in the 3D canvas, and validate a finding in the full constitutional text.",
     "openAtlas": "Open atlas",
     "viewPlaylist": "View official playlist",
     "statsTutorials": "Tutorials",
