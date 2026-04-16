@@ -74,12 +74,19 @@ export default function KeywordSearchSubPanel({onSelectResult}: KeywordSearchSub
     setError(null);
 
     try {
+      const {
+        selectedCountries: latestSelectedCountries,
+        setRestrictSearchToSelectedCountries: syncRestrictSearchToSelectedCountries,
+      } = useAppStore.getState();
+      const hasCountryFilter = latestSelectedCountries.length > 0;
+
       const params = new URLSearchParams({
         q: normalized,
         limit: String(SEARCH_PANEL_LIMIT),
       });
-      if (restrictSearchToSelectedCountries && hasSelectedCountries) {
-        params.set("countries", selectedCountries.join(","));
+      if (hasCountryFilter) {
+        params.set("countries", latestSelectedCountries.join(","));
+        syncRestrictSearchToSelectedCountries(true);
       }
 
       const response = await fetch(`/api/search?${params.toString()}`);

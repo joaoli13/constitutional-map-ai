@@ -23,6 +23,7 @@ export function deserializeSharedView(payload: SharedViewPayload): void {
   const store = useAppStore.getState();
   if (payload.countries?.length) {
     store.addCountries(payload.countries);
+    store.setRestrictSearchToSelectedCountries(true);
   }
   if (payload.query_text) {
     store.setLastSearchQuery(payload.query_text);
