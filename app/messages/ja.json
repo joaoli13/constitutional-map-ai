@@ -174,7 +174,7 @@
       "detailProbability": "確率",
       "detailLoading": "条文を読み込み中...",
       "similarEyebrow": "ベクトル比較",
-      "similarButton": "他国の最も類似した条文 5 件",
+      "similarButton": "他国の最も類似した条文を最大 10 件",
       "similarButtonLoading": "類似条文を検索中...",
       "similarModalTitle": "他国の類似条文",
       "similarModalSubtitle": "選択した条文の埋め込みを使い、異なる国から意味的に最も近い条文を返します。",

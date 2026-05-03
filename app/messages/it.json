@@ -174,7 +174,7 @@
       "detailProbability": "Probabilità",
       "detailLoading": "Caricamento articolo...",
       "similarEyebrow": "Confronto vettoriale",
-      "similarButton": "5 disposizioni più simili in altri paesi",
+      "similarButton": "Fino a 10 disposizioni più simili in altri paesi",
       "similarButtonLoading": "Ricerca in corso...",
       "similarModalTitle": "Disposizioni simili in altri paesi",
       "similarModalSubtitle": "La ricerca usa l'embedding della disposizione selezionata e restituisce i vicini semantici più prossimi in paesi distinti.",

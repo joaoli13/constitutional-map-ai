@@ -171,7 +171,7 @@
       "detailProbability": "Probability",
       "detailLoading": "Loading article...",
       "similarEyebrow": "Vector comparison",
-      "similarButton": "5 most similar provisions in other countries",
+      "similarButton": "Up to 10 most similar provisions in other countries",
       "similarButtonLoading": "Finding matches...",
       "similarModalTitle": "Similar provisions in other countries",
       "similarModalSubtitle": "The search uses the selected provision's embedding and returns the nearest semantic neighbours from distinct countries.",

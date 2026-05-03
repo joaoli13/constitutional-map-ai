@@ -174,7 +174,7 @@
       "detailProbability": "Probabilidade",
       "detailLoading": "Carregando artigo...",
       "similarEyebrow": "Comparação vetorial",
-      "similarButton": "5 dispositivos mais similares em outros países",
+      "similarButton": "Até 10 dispositivos mais similares em outros países",
       "similarButtonLoading": "Buscando similares...",
       "similarModalTitle": "Dispositivos similares em outros países",
       "similarModalSubtitle": "A busca usa o embedding do dispositivo selecionado e retorna os vizinhos semânticos mais próximos em países distintos.",
