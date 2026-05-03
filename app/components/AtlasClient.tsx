@@ -75,6 +75,7 @@ export default function AtlasClient({
   const setColorMode = useAppStore((state) => state.setColorMode);
   const setFocusedCountryCode = useAppStore((state) => state.setFocusedCountryCode);
   const setFocusedClusterId = useAppStore((state) => state.setFocusedClusterId);
+  const setFocusedSegmentId = useAppStore((state) => state.setFocusedSegmentId);
   const pendingSegmentId = useAppStore((state) => state.pendingSegmentId);
   const setPendingSegmentId = useAppStore((state) => state.setPendingSegmentId);
   const {loadingCountries, errorCountry} = useCountryData(selectedCountries);
@@ -149,6 +150,8 @@ export default function AtlasClient({
       const match = countryPoints.find((p) => p.id === pendingSegmentId);
       if (match) {
         setPendingSegmentId(null);
+        setFocusedCountryCode(countryCode);
+        setFocusedSegmentId(match.id);
         const country = atlasIndex.countries.find((c) => c.code === countryCode);
         handleSelectPoint({
           id: match.id,

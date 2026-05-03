@@ -23,7 +23,7 @@ export default async function SharedViewPage({params}: SharePageProps) {
       SELECT
         id, title, observation, author_name,
         countries, query_text, query_semantic,
-        filter_country, filter_cluster, camera, color_mode, locale,
+        filter_country, filter_cluster, focused_segment_id, camera, color_mode, locale,
         created_at
       FROM shared_views
       WHERE id = ${id}::uuid

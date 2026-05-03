@@ -13,7 +13,17 @@ export default function OfficialProjectInfoPage({
   return (
     <main className="min-h-screen bg-[linear-gradient(180deg,_#f8fafc_0%,_#f2f5f4_48%,_#f6f1e9_100%)] text-slate-950">
       <section className="border-b border-slate-200/80 bg-white/76">
-        <div className="mx-auto grid w-full max-w-[1500px] gap-8 px-6 py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,1.08fr)] lg:items-center">
+        <header className="mx-auto flex w-full max-w-[1500px] px-6 pt-6">
+          <Link
+            href={`/${page.locale}`}
+            aria-label="Constitutional Map AI home"
+            className="inline-flex text-sm font-semibold tracking-tight text-slate-700 transition hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-700"
+          >
+            Constitutional Map AI
+          </Link>
+        </header>
+
+        <div className="mx-auto grid w-full max-w-[1500px] gap-8 px-6 pb-10 pt-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,1.08fr)] lg:items-center">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-500">
               {page.eyebrow}

@@ -2,6 +2,7 @@ import "../globals.css";
 
 import {Analytics} from "@vercel/analytics/next";
 import type {Metadata} from "next";
+import Link from "next/link";
 import {NextIntlClientProvider} from "next-intl";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
@@ -197,9 +198,13 @@ export default async function LocaleLayout({
           <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
             <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-5">
               <div>
-                <h1 className="text-[18px] font-bold uppercase tracking-[0.24em] text-slate-950 sm:text-[22px]">
+                <Link
+                  href={`/${locale}`}
+                  aria-label="Constitutional Map AI home"
+                  className="inline-flex text-[18px] font-bold uppercase tracking-[0.24em] text-slate-950 transition hover:text-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-700 sm:text-[22px]"
+                >
                   {chromeT("eyebrow")}
-                </h1>
+                </Link>
                 <p className="mt-1 text-[15px] text-slate-600 sm:text-[17px]">
                   {chromeT("subtitle")}
                 </p>

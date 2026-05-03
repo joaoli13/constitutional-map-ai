@@ -276,6 +276,9 @@ export default function Canvas3D({
       setFocusedSegmentId(null);
       return;
     }
+    if (!points.some((item) => item.country_code === activeCountryCode)) {
+      return;
+    }
     const point = points.find((item) => item.id === focusedSegmentId);
     if (point?.country_code !== activeCountryCode) {
       setFocusedSegmentId(null);
