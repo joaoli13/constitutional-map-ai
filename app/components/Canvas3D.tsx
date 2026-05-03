@@ -7,6 +7,7 @@ import {useLocale, useTranslations} from "next-intl";
 import {CountryBadge, toFlagEmoji, useCountryIndex} from "@/components/CountryBadge";
 import SearchableComboBox from "@/components/SearchableComboBox";
 import ShareButton from "@/components/ShareButton";
+import SimilarSegmentsPopup from "@/components/SimilarSegmentsPopup";
 import {useFullscreen} from "@/hooks/useFullscreen";
 import type {AppLocale} from "@/i18n/routing";
 import {
@@ -19,8 +20,16 @@ import {
 } from "@/lib/canvas-focus";
 import {colorForCluster} from "@/lib/colors";
 import {highlightTerms} from "@/lib/highlight";
+import {toAtlasSelectionPointFromSearchBase} from "@/lib/umap";
 import {useAppStore} from "@/stores/appStore";
-import type {ArticleDetail, AtlasSelectionPoint, ColorMode, SharedViewPayload} from "@/lib/types";
+import type {
+  ArticleDetail,
+  AtlasSelectionPoint,
+  ColorMode,
+  SharedViewPayload,
+  SimilarSegmentResult,
+  SimilarSegmentsResponse,
+} from "@/lib/types";
 
 type Point3D = Pick<AtlasSelectionPoint, "x" | "y" | "z">;
 type AxisRange = [number, number];
@@ -139,6 +148,7 @@ export default function Canvas3D({
   const focusRevealStateRef = useRef<FocusRevealState | null>(null);
   const lastClickedPointRef = useRef<AtlasSelectionPoint | null>(null);
   const lastClickedAtRef = useRef(0);
+  const selectedPointIdRef = useRef<string | null>(null);
   const focusedCountryCode = useAppStore((s) => s.focusedCountryCode);
   const setFocusedCountryCode = useAppStore((s) => s.setFocusedCountryCode);
   const focusedSegmentId = useAppStore((s) => s.focusedSegmentId);
@@ -146,6 +156,10 @@ export default function Canvas3D({
   const focusedClusterId = useAppStore((s) => s.focusedClusterId);
   const [isPlotReady, setIsPlotReady] = useState(false);
   const [focusRanges, setFocusRanges] = useState<FocusRanges | null>(null);
+  const [similarSegmentsResponse, setSimilarSegmentsResponse] =
+    useState<SimilarSegmentsResponse | null>(null);
+  const [similarSegmentsError, setSimilarSegmentsError] = useState<string | null>(null);
+  const [isSimilarSegmentsLoading, setIsSimilarSegmentsLoading] = useState(false);
   const uirevision = "canvas-3d";
 
   // Load Plotly once for imperative camera calls (relayout).
@@ -225,6 +239,24 @@ export default function Canvas3D({
 
     return renderedIds.size;
   }, [points, searchHighlightedPoints, selectedCountries]);
+
+  const similarResultPoints = useMemo(
+    () =>
+      similarSegmentsResponse?.results.map((result) =>
+        toAtlasSelectionPointFromSearchBase(result, {
+          rank: result.rank,
+          semantic_score: result.score,
+        }),
+      ) ?? [],
+    [similarSegmentsResponse],
+  );
+
+  useEffect(() => {
+    selectedPointIdRef.current = selectedPoint?.id ?? null;
+    setSimilarSegmentsResponse(null);
+    setSimilarSegmentsError(null);
+    setIsSimilarSegmentsLoading(false);
+  }, [selectedPoint?.id]);
 
   function resolveColor(point: AtlasSelectionPoint): string {
     if (colorMode === "cluster") return colorForCluster(point.global_cluster);
@@ -353,6 +385,7 @@ export default function Canvas3D({
     const selectedSet = new Set(selectedCountries);
     const hasSelection = selectedCountries.length > 0;
     const searchHighlightIds = new Set(searchHighlightedPoints.map((point) => point.id));
+    const similarHighlightIds = new Set(similarResultPoints.map((point) => point.id));
     const emphasisMode = deriveCanvasEmphasisMode({
       hasSearchHighlights: searchHighlightIds.size > 0,
       isCountryFocusActive,
@@ -433,6 +466,30 @@ export default function Canvas3D({
         )
       : null;
 
+    const similarTrace = similarResultPoints.length > 0
+      ? ({
+          type: "scatter3d",
+          mode: "markers",
+          x: similarResultPoints.map((p) => p.x),
+          y: similarResultPoints.map((p) => p.y),
+          z: similarResultPoints.map((p) => p.z),
+          customdata: similarResultPoints as unknown as Plotly.Datum[],
+          hovertext: similarResultPoints.map((p) => formatHoverContent(p, countryByCode)),
+          hovertemplate: "%{hovertext}<extra></extra>",
+          marker: {
+            size: similarResultPoints.map((p) => (
+              (2.5 + (p.cluster_probability ?? 0.45) * 4) * 2.4
+            )),
+            color: similarResultPoints.map(() => "#f59e0b"),
+            opacity: 0.96,
+            line: {
+              width: 3,
+              color: "#7c2d12",
+            },
+          },
+          showlegend: false,
+        } as Partial<Plotly.ScatterData>)
+      : null;
 
     const highlightTrace = selectedPoint
       && (
@@ -485,7 +542,11 @@ export default function Canvas3D({
         } as Partial<Plotly.ScatterData>),
     );
 
-    const isFocusActive = isSearchActive || isCountryFocusActive || isSegmentFocusActive || isClusterEmphasis;
+    const isFocusActive = isSearchActive
+      || isCountryFocusActive
+      || isSegmentFocusActive
+      || isClusterEmphasis
+      || similarHighlightIds.size > 0;
     const nextTraces = [
       makeTrace(
         ghostPoints,
@@ -506,6 +567,7 @@ export default function Canvas3D({
           ]
         : []),
       ...(emphasisTrace ? [emphasisTrace] : []),
+      ...(similarTrace ? [similarTrace] : []),
       ...(highlightTrace ? [highlightTrace] : []),
       ...centroidLabelTraces,
     ];
@@ -514,6 +576,7 @@ export default function Canvas3D({
       ghostPoints,
       ...(deEmphasizedVisiblePoints.length > 0 ? [deEmphasizedVisiblePoints] : []),
       ...(emphasisTrace ? [emphasizedPoints] : []),
+      ...(similarTrace ? [similarResultPoints] : []),
       ...(highlightTrace ? [[]] : []),
       ...centroidLabelTraces.map(() => []),
     ];
@@ -526,6 +589,7 @@ export default function Canvas3D({
   }, [
     points,
     searchHighlightedPoints,
+    similarResultPoints,
     selectedCountries,
     colorMode,
     countryColors,
@@ -785,6 +849,66 @@ export default function Canvas3D({
     }
   }
 
+  async function handleFindSimilarSegments() {
+    if (!selectedPoint || isSimilarSegmentsLoading) {
+      return;
+    }
+
+    setIsSimilarSegmentsLoading(true);
+    setSimilarSegmentsError(null);
+    setSimilarSegmentsResponse(null);
+    const requestedSourceId = selectedPoint.id;
+
+    try {
+      const params = new URLSearchParams({id: selectedPoint.id});
+      if (selectedCountries.length > 0) {
+        params.set("countries", selectedCountries.join(","));
+      }
+
+      const response = await fetch(`/api/similar-segments?${params.toString()}`);
+      const payload = await response.json() as SimilarSegmentsResponse | {error?: string};
+      if (!response.ok) {
+        throw new Error("error" in payload && payload.error
+          ? payload.error
+          : `Request failed with status ${response.status}`);
+      }
+
+      if (selectedPointIdRef.current === requestedSourceId) {
+        setSimilarSegmentsResponse(payload as SimilarSegmentsResponse);
+      }
+    } catch (error) {
+      if (selectedPointIdRef.current === requestedSourceId) {
+        setSimilarSegmentsError(
+          error instanceof Error ? error.message : t("similarError"),
+        );
+      }
+    } finally {
+      if (selectedPointIdRef.current === requestedSourceId) {
+        setIsSimilarSegmentsLoading(false);
+      }
+    }
+  }
+
+  function handleCloseSimilarSegments() {
+    setSimilarSegmentsResponse(null);
+    setSimilarSegmentsError(null);
+    setIsSimilarSegmentsLoading(false);
+  }
+
+  function handleSelectSimilarSegment(result: SimilarSegmentResult) {
+    const point = toAtlasSelectionPointFromSearchBase(result, {
+      rank: result.rank,
+      semantic_score: result.score,
+    });
+    lastClickedPointRef.current = point;
+    lastClickedAtRef.current = Date.now();
+    setFocusedCountryCode(result.country_code);
+    setFocusedSegmentId(result.id);
+    onSelectPoint(point);
+    focusPoint(point);
+    handleCloseSimilarSegments();
+  }
+
   return (
     <section
       ref={ref}
@@ -860,6 +984,22 @@ export default function Canvas3D({
           >
             {t("focusSelection")}
           </button>
+          {selectedPoint ? (
+            <button
+              className="inline-flex items-center gap-2 rounded-full border border-teal-300 bg-teal-800 px-3 py-2 text-sm font-medium text-white transition hover:bg-teal-900 disabled:cursor-wait disabled:opacity-60"
+              type="button"
+              onClick={() => void handleFindSimilarSegments()}
+              disabled={isSimilarSegmentsLoading}
+            >
+              {isSimilarSegmentsLoading ? (
+                <span
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5 rounded-full border-2 border-white/35 border-t-white animate-spin"
+                />
+              ) : null}
+              {isSimilarSegmentsLoading ? t("similarButtonLoading") : t("similarButton")}
+            </button>
+          ) : null}
           <button
             className="hidden rounded-full border border-slate-300 bg-white/80 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 sm:inline-flex"
             type="button"
@@ -1013,6 +1153,15 @@ export default function Canvas3D({
         </div>
         )}
       </div>
+
+      <SimilarSegmentsPopup
+        response={similarSegmentsResponse}
+        loading={isSimilarSegmentsLoading}
+        error={similarSegmentsError}
+        onClose={handleCloseSimilarSegments}
+        onRetry={() => void handleFindSimilarSegments()}
+        onSelectResult={handleSelectSimilarSegment}
+      />
     </section>
   );
 }

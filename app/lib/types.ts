@@ -82,6 +82,17 @@ export type SemanticSearchResult = SearchResultBase & {
   score: number;
 };
 
+export type SimilarSegmentSource = SearchResultBase & {
+  text: string;
+};
+
+export type SimilarSegmentResult = SearchResultBase & {
+  text: string;
+  rank: number;
+  score: number;
+  distance: number;
+};
+
 export type SearchResponse = {
   query: string;
   total: number;
@@ -92,6 +103,15 @@ export type SemanticSearchResponse = {
   query: string;
   total: number;
   results: SemanticSearchResult[];
+};
+
+export type SimilarSegmentsResponse = {
+  source: SimilarSegmentSource;
+  scope: {
+    mode: "selected_countries" | "full_corpus";
+    countries: string[] | null;
+  };
+  results: SimilarSegmentResult[];
 };
 
 export type CompareResponse = {

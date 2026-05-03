@@ -27,6 +27,7 @@ import WorldMap from "@/components/WorldMap";
 import {buildCountryPalette} from "@/lib/colors";
 import {useCountryData} from "@/hooks/useCountryData";
 import {useAppStore} from "@/stores/appStore";
+import {toAtlasSelectionPointFromSearchBase} from "@/lib/umap";
 import type {
   ArticleDetail,
   AtlasIndexData,
@@ -154,19 +155,19 @@ export default function AtlasClient({
         setFocusedSegmentId(match.id);
         const country = atlasIndex.countries.find((c) => c.code === countryCode);
         handleSelectPoint({
-          id: match.id,
-          article_id: match.article_id,
-          text_snippet: match.text_snippet,
-          country_code: countryCode,
-          country_name: country?.name ?? countryCode,
-          x: match.x - UMAP_CENTER.x,
-          y: match.y - UMAP_CENTER.y,
-          z: match.z - UMAP_CENTER.z,
-          global_cluster: match.global_cluster,
+          ...toAtlasSelectionPointFromSearchBase({
+            id: match.id,
+            article_id: match.article_id,
+            text_snippet: match.text_snippet,
+            country_code: countryCode,
+            country_name: country?.name ?? countryCode,
+            x: match.x,
+            y: match.y,
+            z: match.z,
+            global_cluster: match.global_cluster,
+          }),
           country_cluster: match.country_cluster,
           cluster_probability: match.cluster_probability,
-          rank: null,
-          semantic_score: null,
         });
         break;
       }
@@ -367,10 +368,6 @@ export default function AtlasClient({
   );
 }
 
-// Global UMAP space centroid (x: -1.07→15.43, y: -4.74→11.43, z: 0.88→17.86)
-// Subtracted so the point cloud is centered at the Three.js origin.
-const UMAP_CENTER = {x: 7.18, y: 3.35, z: 9.37};
-
 function buildLoadedPoints(
   loadedCountryData: Record<string, CountryPoint[]>,
   countryByCode: Record<string, {name: string} | undefined>,
@@ -384,21 +381,20 @@ function buildLoadedPoints(
     }
 
     for (const point of countryPoints) {
-      points.push({
+      points.push(toAtlasSelectionPointFromSearchBase({
         id: point.id,
         article_id: point.article_id,
         text_snippet: point.text_snippet,
         country_code: countryCode,
         country_name: country.name,
-        x: point.x - UMAP_CENTER.x,
-        y: point.y - UMAP_CENTER.y,
-        z: point.z - UMAP_CENTER.z,
+        x: point.x,
+        y: point.y,
+        z: point.z,
         global_cluster: point.global_cluster,
+      }, {
         country_cluster: point.country_cluster,
         cluster_probability: point.cluster_probability,
-        rank: null,
-        semantic_score: null,
-      });
+      }));
     }
   }
 
@@ -406,39 +402,11 @@ function buildLoadedPoints(
 }
 
 function toSelectionPointFromSearchResult(result: SearchResult): AtlasSelectionPoint {
-  return {
-    id: result.id,
-    article_id: result.article_id,
-    text_snippet: result.text_snippet,
-    country_code: result.country_code,
-    country_name: result.country_name,
-    x: result.x - UMAP_CENTER.x,
-    y: result.y - UMAP_CENTER.y,
-    z: result.z - UMAP_CENTER.z,
-    global_cluster: result.global_cluster,
-    country_cluster: null,
-    cluster_probability: null,
-    rank: result.rank,
-    semantic_score: null,
-  };
+  return toAtlasSelectionPointFromSearchBase(result, {rank: result.rank});
 }
 
 function toSelectionPointFromSemanticSearchResult(
   result: SemanticSearchResult,
 ): AtlasSelectionPoint {
-  return {
-    id: result.id,
-    article_id: result.article_id,
-    text_snippet: result.text_snippet,
-    country_code: result.country_code,
-    country_name: result.country_name,
-    x: result.x - UMAP_CENTER.x,
-    y: result.y - UMAP_CENTER.y,
-    z: result.z - UMAP_CENTER.z,
-    global_cluster: result.global_cluster,
-    country_cluster: null,
-    cluster_probability: null,
-    rank: null,
-    semantic_score: result.score,
-  };
+  return toAtlasSelectionPointFromSearchBase(result, {semantic_score: result.score});
 }
