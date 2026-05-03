@@ -5,6 +5,7 @@ import {useEffect, useMemo, useRef, useState} from "react";
 type SearchableComboBoxOption = {
   id: string;
   label: string;
+  secondaryLabel?: string | null;
   searchText: string;
 };
 
@@ -138,7 +139,12 @@ export default function SearchableComboBox({
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => handleSelect(option.id)}
                 >
-                  {option.label}
+                  <span className="block font-medium">{option.label}</span>
+                  {option.secondaryLabel ? (
+                    <span className="mt-0.5 block text-xs text-slate-500">
+                      {option.secondaryLabel}
+                    </span>
+                  ) : null}
                 </button>
               ))}
             </div>

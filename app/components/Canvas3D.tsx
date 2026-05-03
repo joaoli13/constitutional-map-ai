@@ -2,12 +2,13 @@
 
 import dynamic from "next/dynamic";
 import {useEffect, useMemo, useRef, useState} from "react";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 import {CountryBadge, toFlagEmoji, useCountryIndex} from "@/components/CountryBadge";
 import SearchableComboBox from "@/components/SearchableComboBox";
 import ShareButton from "@/components/ShareButton";
 import {useFullscreen} from "@/hooks/useFullscreen";
+import type {AppLocale} from "@/i18n/routing";
 import {
   buildCanvasCountryOptions,
   buildCanvasSegmentOptions,
@@ -121,6 +122,7 @@ export default function Canvas3D({
   sharedView,
   onShowSharedView,
 }: Canvas3DProps) {
+  const locale = useLocale() as AppLocale;
   const t = useTranslations("Atlas.Canvas");
   const countryByCode = useCountryIndex();
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
@@ -230,8 +232,8 @@ export default function Canvas3D({
   }
 
   const countryOptions = useMemo(
-    () => buildCanvasCountryOptions(selectedCountries, countryByCode),
-    [countryByCode, selectedCountries],
+    () => buildCanvasCountryOptions(selectedCountries, countryByCode, locale),
+    [countryByCode, locale, selectedCountries],
   );
   const activeCountryCode = useMemo(
     () => deriveCanvasCountryScope(selectedCountries, focusedCountryCode),
@@ -888,6 +890,11 @@ export default function Canvas3D({
                 <p className="mt-1 text-sm font-medium text-slate-800">
                   {countryOptions[0]?.label ?? t("countryFocusEmpty")}
                 </p>
+                {countryOptions[0]?.secondaryLabel ? (
+                  <p className="mt-0.5 text-xs text-slate-500">
+                    {countryOptions[0].secondaryLabel}
+                  </p>
+                ) : null}
               </div>
             )}
 

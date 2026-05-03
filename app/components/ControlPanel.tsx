@@ -1,8 +1,10 @@
 "use client";
 
 import {useState} from "react";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
+import type {AppLocale} from "@/i18n/routing";
+import {countrySearchIncludes, getCountryDisplayName} from "@/lib/country-names";
 import {COUNTRY_PRESETS} from "@/lib/presets";
 import type {CountryIndexRecord} from "@/lib/types";
 
@@ -29,6 +31,7 @@ export default function ControlPanel({
   onAddCountries,
   onClearCountries,
 }: ControlPanelProps) {
+  const locale = useLocale() as AppLocale;
   const t = useTranslations("Atlas.ControlPanel");
   const presetT = useTranslations("Atlas.Presets");
   const [filterValue, setFilterValue] = useState("");
@@ -46,23 +49,25 @@ export default function ControlPanel({
   ] as const;
 
   const filteredCountries = availableCountries
-    .filter((country) =>
-      `${country.name} ${country.code} ${country.region}`
-        .toLowerCase()
-        .includes(filterValue.trim().toLowerCase()),
+    .map((country) => ({
+      country,
+      display: getCountryDisplayName(country, locale),
+    }))
+    .filter(({country, display}) =>
+      countrySearchIncludes(`${display.searchText} ${country.region}`, filterValue),
     )
     .sort((left, right) => {
       if (orderBy === "region") {
-        return `${left.region}${left.name}`.localeCompare(
-          `${right.region}${right.name}`,
+        return `${left.country.region}${left.display.sortName}`.localeCompare(
+          `${right.country.region}${right.display.sortName}`,
         );
       }
 
       if (orderBy === "articles") {
-        return right.article_count - left.article_count;
+        return right.country.article_count - left.country.article_count;
       }
 
-      return left.name.localeCompare(right.name);
+      return left.display.sortName.localeCompare(right.display.sortName);
     });
 
   return (
@@ -158,6 +163,9 @@ export default function ControlPanel({
               const country = availableCountries.find(
                 (value) => value.code === countryCode,
               );
+              const display = country
+                ? getCountryDisplayName(country, locale)
+                : null;
               const color = countryColors[countryCode] ?? "#64748b";
               return (
                 <button
@@ -171,7 +179,7 @@ export default function ControlPanel({
                     className="size-2 rounded-full flex-shrink-0"
                     style={{backgroundColor: color}}
                   />
-                  {country?.name ?? countryCode}
+                  {display?.localizedName ?? countryCode}
                   <span className="ml-0.5 text-slate-500">×</span>
                 </button>
               );
@@ -181,7 +189,7 @@ export default function ControlPanel({
         </div>
 
         <div className="max-h-[320px] space-y-1.5 overflow-y-auto pr-0.5 overscroll-contain sm:max-h-[380px] xl:min-h-0 xl:flex-1 xl:max-h-none">
-          {filteredCountries.map((country) => {
+          {filteredCountries.map(({country, display}) => {
             const isSelected = selectedCountries.includes(country.code);
             const isLoading = loadingCountries.includes(country.code);
             const color = countryColors[country.code];
@@ -206,7 +214,14 @@ export default function ControlPanel({
                     <span className="size-2 flex-shrink-0 rounded-full border border-slate-300" />
                   )}
                   <div>
-                    <p className="text-sm font-semibold leading-tight">{country.name}</p>
+                    <p className="text-sm font-semibold leading-tight">
+                      {display.localizedName}
+                    </p>
+                    {display.secondaryLabel ? (
+                      <p className={`text-xs ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
+                        {display.secondaryLabel}
+                      </p>
+                    ) : null}
                     <p className={`text-xs ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
                       {country.code} · {country.region}
                     </p>

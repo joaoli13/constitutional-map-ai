@@ -6,7 +6,10 @@ import {
   useContext,
   useMemo,
 } from "react";
+import {useLocale} from "next-intl";
 
+import type {AppLocale} from "@/i18n/routing";
+import {getCountryDisplayName} from "@/lib/country-names";
 import type {CountryIndexRecord} from "@/lib/types";
 
 const CountryIndexContext = createContext<Record<string, CountryIndexRecord>>({});
@@ -47,8 +50,10 @@ export function CountryBadge({
   size = "xs",
   className = "",
 }: CountryBadgeProps) {
+  const locale = useLocale() as AppLocale;
   const countryByCode = useContext(CountryIndexContext);
   const country = countryByCode[countryCode];
+  const display = country ? getCountryDisplayName(country, locale) : null;
   const flagEmoji = toFlagEmoji(country?.iso_alpha2);
   const toneClass =
     tone === "emerald" ? "bg-emerald-900 text-white" : "bg-slate-950 text-white";
@@ -63,7 +68,7 @@ export function CountryBadge({
         sizeClass,
         className,
       ].join(" ")}
-      title={countryName ?? country?.name ?? countryCode}
+      title={display?.localizedName ?? countryName ?? country?.name ?? countryCode}
     >
       {flagEmoji ? <span aria-hidden="true">{flagEmoji}</span> : null}
       <span>{countryCode}</span>

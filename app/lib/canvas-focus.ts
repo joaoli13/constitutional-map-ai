@@ -1,10 +1,17 @@
 import type {AtlasSelectionPoint, CountryIndexRecord} from "./types";
+import type {AppLocale} from "../i18n/routing.ts";
+import {
+  countrySearchIncludes,
+  getCountryDisplayName,
+  type CountryNameRecord,
+} from "./country-names.ts";
 
 export type CanvasFocusCountryOption = {
   id: string;
   code: string;
   name: string;
   label: string;
+  secondaryLabel: string | null;
   searchText: string;
 };
 
@@ -48,19 +55,30 @@ export function deriveCanvasFocusSeed(
 
 export function buildCanvasCountryOptions(
   selectedCountries: string[],
-  countryByCode: Record<string, CountryIndexRecord | {name: string} | undefined>,
+  countryByCode: Record<string, CountryIndexRecord | CountryNameRecord | undefined>,
+  locale: AppLocale = "en",
 ): CanvasFocusCountryOption[] {
   return selectedCountries
     .map((countryCode) => {
       const country = countryByCode[countryCode];
-      const countryName = country?.name ?? countryCode;
+      const countryDisplay = getCountryDisplayName(
+        country
+          ? {
+              code: countryCode,
+              iso_alpha2: "iso_alpha2" in country ? country.iso_alpha2 : null,
+              name: country.name,
+            }
+          : {code: countryCode, name: countryCode},
+        locale,
+      );
 
       return {
         id: countryCode,
         code: countryCode,
-        name: countryName,
-        label: `${countryCode} - ${countryName}`,
-        searchText: `${countryCode} ${countryName}`.toLowerCase(),
+        name: countryDisplay.localizedName,
+        label: countryDisplay.label,
+        secondaryLabel: countryDisplay.secondaryLabel,
+        searchText: countryDisplay.searchText,
       };
     })
     .sort((left, right) => left.name.localeCompare(right.name));
@@ -75,7 +93,7 @@ export function filterCanvasCountryOptions(
     return options;
   }
 
-  return options.filter((option) => option.searchText.includes(normalized));
+  return options.filter((option) => countrySearchIncludes(option.searchText, normalized));
 }
 
 export function buildCanvasSegmentOptions(
