@@ -7,6 +7,7 @@ import {useLocale, useTranslations} from "next-intl";
 import {usePathname, useRouter} from "@/i18n/navigation";
 import {routing, type AppLocale} from "@/i18n/routing";
 import {getDiscoveryLanguageOptions} from "@/lib/discovery-language-options";
+import {getOfficialProjectLanguageOptions} from "@/lib/official-project-info";
 
 function persistLocalePreference(nextLocale: AppLocale) {
   localStorage.setItem("tca-locale", nextLocale);
@@ -21,7 +22,9 @@ export default function LanguageSelector() {
   const rawPathname = useRawPathname();
   const [isPending, startTransition] = useTransition();
   const discoveryOptions = getDiscoveryLanguageOptions(rawPathname);
-  const options = discoveryOptions ?? routing.locales.map((value) => ({
+  const officialProjectOptions = getOfficialProjectLanguageOptions(rawPathname);
+  const localizedRouteOptions = discoveryOptions ?? officialProjectOptions;
+  const options = localizedRouteOptions ?? routing.locales.map((value) => ({
     locale: value,
     pathname,
   }));
@@ -32,14 +35,14 @@ export default function LanguageSelector() {
       return;
     }
 
-    const discoveryTarget = discoveryOptions?.find(
+    const localizedTarget = localizedRouteOptions?.find(
       (option) => option.locale === nextLocale,
     );
 
     persistLocalePreference(nextLocale);
 
     startTransition(() => {
-      router.replace(discoveryTarget?.pathname ?? pathname, {locale: nextLocale});
+      router.replace(localizedTarget?.pathname ?? pathname, {locale: nextLocale});
     });
   }
 

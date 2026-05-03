@@ -1,6 +1,6 @@
 # Constitutional Map
 
-A global semantic map of constitutional law — 188 countries, more than 30 000 constitutional segments, embedded with Google Gemini and projected into a navigable 3D space.
+Constitutional Map AI is an interactive semantic atlas of comparative constitutional law, featuring 189 constitutional systems, more than 30,000 legal segments, textual search, semantic search, and 3D visualization. The code is open source, and the constitutional texts are derived from the Constitute Project, in accordance with the applicable license.
 
 **Live app → [constitutionalmap.ai](https://constitutionalmap.ai)**
 

@@ -6,6 +6,12 @@ import {
   getDiscoveryAlternates,
   listDiscoveryPages,
 } from "../lib/editorial-discovery.ts";
+import {
+  buildOfficialProjectInfoUrl,
+  getOfficialProjectInfoAlternates,
+  listOfficialProjectInfoPages,
+  OFFICIAL_PROJECT_INFO_LAST_UPDATED,
+} from "../lib/official-project-info.ts";
 import {routing} from "../i18n/routing.ts";
 
 const BASE_URL = "https://constitutionalmap.ai";
@@ -77,5 +83,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...localeEntries, ...blogEntries, ...discoveryEntries];
+  const officialProjectInfoEntries = listOfficialProjectInfoPages().map((entry) => {
+    const alternates = getOfficialProjectInfoAlternates(entry);
+
+    return {
+      url: buildOfficialProjectInfoUrl(entry),
+      lastModified: new Date(`${OFFICIAL_PROJECT_INFO_LAST_UPDATED}T00:00:00Z`),
+      changeFrequency: "monthly" as const,
+      priority: entry.locale === routing.defaultLocale ? 0.78 : 0.72,
+      alternates: {
+        languages: alternates.absoluteLanguages,
+      },
+    };
+  });
+
+  return [
+    ...localeEntries,
+    ...blogEntries,
+    ...discoveryEntries,
+    ...officialProjectInfoEntries,
+  ];
 }

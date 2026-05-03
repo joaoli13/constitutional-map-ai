@@ -1,4 +1,6 @@
-import { Analytics } from "@vercel/analytics/next";
+import "../globals.css";
+
+import {Analytics} from "@vercel/analytics/next";
 import type {Metadata} from "next";
 import {NextIntlClientProvider} from "next-intl";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
@@ -41,6 +43,13 @@ export async function generateMetadata({
     metadataBase: new URL(BASE_URL),
     title: t("title"),
     description: t("description"),
+    icons: {
+      icon: [
+        {url: "/favicon.ico", sizes: "any"},
+        {url: "/favicon-512.png", type: "image/png", sizes: "512x512"},
+      ],
+      shortcut: "/favicon.ico",
+    },
     alternates: {
       canonical: `/${resolvedLocale}`,
       languages: {
@@ -182,110 +191,114 @@ export default async function LocaleLayout({
   );
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
-        <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-5">
-          <div>
-            <h1 className="text-[18px] font-bold uppercase tracking-[0.24em] text-slate-950 sm:text-[22px]">
-              {chromeT("eyebrow")}
-            </h1>
-            <p className="mt-1 text-[15px] text-slate-600 sm:text-[17px]">
-              {chromeT("subtitle")}
-            </p>
+    <html lang={locale} suppressHydrationWarning>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          <div className="min-h-screen bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,_#ede8df,_transparent),linear-gradient(to_bottom,_#f5f0e8,_#edf0ef)] text-slate-950 antialiased">
+            <header className="mx-auto flex w-full max-w-[1500px] items-center justify-between gap-6 border-b border-slate-200/80 px-6 py-5">
+              <div>
+                <h1 className="text-[18px] font-bold uppercase tracking-[0.24em] text-slate-950 sm:text-[22px]">
+                  {chromeT("eyebrow")}
+                </h1>
+                <p className="mt-1 text-[15px] text-slate-600 sm:text-[17px]">
+                  {chromeT("subtitle")}
+                </p>
+              </div>
+              <HeaderControls />
+            </header>
+            {children}
+            <footer className="mx-auto w-full max-w-[1500px] border-t border-slate-200/70 px-6 py-6 text-xs leading-6 text-slate-500">
+              <p>
+                {chromeT("dataNotice")}{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="https://www.constituteproject.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {chromeT("projectLinkLabel")}
+                </a>
+                .
+              </p>
+              <p className="mt-1">
+                <span className="text-slate-700">
+                  ({chromeT("sourceLabel")} {chromeT("citationText")})
+                </span>
+              </p>
+              <p className="mt-3 border-t border-slate-200/70 pt-3">
+                {chromeT("sourceCodeText")}{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="https://github.com/joaoli13/constitutional-map-ai"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  github.com/joaoli13/constitutional-map-ai
+                </a>
+              </p>
+              <p className="mt-2">
+                {chromeT("agentGuideText")}{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="/agents.md"
+                >
+                  {chromeT("agentGuideLinkLabel")}
+                </a>
+                .
+              </p>
+              <p className="mt-2">
+                {chromeT("madeBy")}{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="https://x.com/joaoli13"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  João Lima
+                </a>
+                {" "}+{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="https://claude.ai/code"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Claude Code
+                </a>
+                {" "}+{" "}
+                <a
+                  className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
+                  href="https://openai.com/index/openai-codex/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  OpenAI Codex
+                </a>
+                . {chromeT("licenseNote")}
+              </p>
+              <p className="mt-2 text-slate-600">
+                {chromeT("aiDisclaimer")}
+              </p>
+              <p className="mt-2">
+                {chromeT("supportText")}{" "}
+                <a
+                  className="font-medium text-amber-700 underline decoration-amber-300 underline-offset-4 transition hover:text-amber-900"
+                  href="https://buymeacoffee.com/Joaoli13"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  buymeacoffee.com/Joaoli13
+                </a>
+              </p>
+            </footer>
           </div>
-          <HeaderControls />
-        </header>
-        {children}
-        <footer className="mx-auto w-full max-w-[1500px] border-t border-slate-200/70 px-6 py-6 text-xs leading-6 text-slate-500">
-          <p>
-            {chromeT("dataNotice")}{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://www.constituteproject.org/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {chromeT("projectLinkLabel")}
-            </a>
-            .
-          </p>
-          <p className="mt-1">
-            <span className="text-slate-700">
-              ({chromeT("sourceLabel")} {chromeT("citationText")})
-            </span>
-          </p>
-          <p className="mt-3 border-t border-slate-200/70 pt-3">
-            {chromeT("sourceCodeText")}{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://github.com/joaoli13/constitutional-map-ai"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github.com/joaoli13/constitutional-map-ai
-            </a>
-          </p>
-          <p className="mt-2">
-            {chromeT("agentGuideText")}{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="/agents.md"
-            >
-              {chromeT("agentGuideLinkLabel")}
-            </a>
-            .
-          </p>
-          <p className="mt-2">
-            {chromeT("madeBy")}{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://x.com/joaoli13"
-              target="_blank"
-              rel="noreferrer"
-            >
-              João Lima
-            </a>
-            {" "}+{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://claude.ai/code"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Claude Code
-            </a>
-            {" "}+{" "}
-            <a
-              className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900"
-              href="https://openai.com/index/openai-codex/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              OpenAI Codex
-            </a>
-            . {chromeT("licenseNote")}
-          </p>
-          <p className="mt-2 text-slate-600">
-            {chromeT("aiDisclaimer")}
-          </p>
-          <p className="mt-2">
-            {chromeT("supportText")}{" "}
-            <a
-              className="font-medium text-amber-700 underline decoration-amber-300 underline-offset-4 transition hover:text-amber-900"
-              href="https://buymeacoffee.com/Joaoli13"
-              target="_blank"
-              rel="noreferrer"
-            >
-              buymeacoffee.com/Joaoli13
-            </a>
-          </p>
-        </footer>
-      </div>
-      <Analytics />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
-      />
-    </NextIntlClientProvider>
+          <Analytics />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+          />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

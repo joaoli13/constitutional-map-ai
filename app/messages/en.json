@@ -17,6 +17,7 @@
   "Chrome": {
     "eyebrow": "Constitutional Map",
     "subtitle": "A global semantic map of constitutional law",
+    "officialInfoLinkLabel": "Press / About",
     "primerEyebrow": "Reading Guide",
     "primerTitle": "How to read the visualization",
     "primerSection1Title": "What You Are Seeing",
