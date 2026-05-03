@@ -27,6 +27,9 @@ export default function SemanticSearchSubPanel({
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const semanticSearchResults = useAppStore((state) => state.semanticSearchResults);
+  const lastSemanticSearchQuery = useAppStore(
+    (state) => state.lastSemanticSearchQuery,
+  );
   const restrictSearchToSelectedCountries = useAppStore(
     (state) => state.restrictSearchToSelectedCountries,
   );
@@ -54,6 +57,7 @@ export default function SemanticSearchSubPanel({
     || semanticSearchResults.length > 0
     || resultCount !== null;
   const prevHasCountries = useRef(hasSelectedCountries);
+  const autoRunQueryRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (!hasSelectedCountries) {
@@ -69,10 +73,29 @@ export default function SemanticSearchSubPanel({
   const initialQueryRef = useRef(useAppStore.getState().lastSemanticSearchQuery);
   useEffect(() => {
     if (initialQueryRef.current && semanticSearchResults.length === 0) {
+      autoRunQueryRef.current = initialQueryRef.current;
       void runSearch(initialQueryRef.current);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const normalized = lastSemanticSearchQuery.trim();
+    if (!normalized) {
+      return;
+    }
+
+    setQuery((current) => (current === normalized ? current : normalized));
+    if (
+      normalized !== autoRunQueryRef.current
+      && semanticSearchResults.length === 0
+      && !isSearching
+    ) {
+      autoRunQueryRef.current = normalized;
+      void runSearch(normalized);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastSemanticSearchQuery]);
 
   async function runSearch(text: string) {
     const normalized = text.trim();
@@ -82,6 +105,7 @@ export default function SemanticSearchSubPanel({
       return;
     }
 
+    autoRunQueryRef.current = normalized;
     setIsSearching(true);
     setError(null);
 

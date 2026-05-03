@@ -17,6 +17,12 @@ import {CountryIndexProvider} from "@/components/CountryBadge";
 import SearchPanel from "@/components/SearchPanel";
 import ClusterReachPanel from "@/components/ClusterReachPanel";
 import StatsPanel from "@/components/StatsPanel";
+import {
+  applyAtlasDeepLinkSeed,
+  hasAtlasDeepLinkSeed,
+  parseAtlasDeepLinkParams,
+  type AtlasDeepLinkSeed,
+} from "@/lib/atlas-deep-link";
 import WorldMap from "@/components/WorldMap";
 import {buildCountryPalette} from "@/lib/colors";
 import {useCountryData} from "@/hooks/useCountryData";
@@ -36,9 +42,15 @@ type AtlasClientProps = {
   atlasIndex: AtlasIndexData;
   clusters: ClusterSummary[];
   initialSharedView?: SharedViewPayload;
+  initialQuerySeed?: AtlasDeepLinkSeed;
 };
 
-export default function AtlasClient({atlasIndex, clusters, initialSharedView}: AtlasClientProps) {
+export default function AtlasClient({
+  atlasIndex,
+  clusters,
+  initialSharedView,
+  initialQuerySeed,
+}: AtlasClientProps) {
   const t = useTranslations("Atlas");
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const loadedCountryData = useAppStore((state) => state.loadedCountryData);
@@ -53,7 +65,16 @@ export default function AtlasClient({atlasIndex, clusters, initialSharedView}: A
   const addCountries = useAppStore((state) => state.addCountries);
   const clearCountrySelection = useAppStore((state) => state.clearCountrySelection);
   const setSelectedPoint = useAppStore((state) => state.setSelectedPoint);
+  const setLastSearchQuery = useAppStore((state) => state.setLastSearchQuery);
+  const setLastSemanticSearchQuery = useAppStore(
+    (state) => state.setLastSemanticSearchQuery,
+  );
+  const setRestrictSearchToSelectedCountries = useAppStore(
+    (state) => state.setRestrictSearchToSelectedCountries,
+  );
   const setColorMode = useAppStore((state) => state.setColorMode);
+  const setFocusedCountryCode = useAppStore((state) => state.setFocusedCountryCode);
+  const setFocusedClusterId = useAppStore((state) => state.setFocusedClusterId);
   const pendingSegmentId = useAppStore((state) => state.pendingSegmentId);
   const setPendingSegmentId = useAppStore((state) => state.setPendingSegmentId);
   const {loadingCountries, errorCountry} = useCountryData(selectedCountries);
@@ -70,6 +91,48 @@ export default function AtlasClient({atlasIndex, clusters, initialSharedView}: A
     sharedViewAppliedRef.current = true;
     deserializeSharedView(initialSharedView);
   }
+
+  const querySeedAppliedRef = useRef(false);
+
+  useEffect(() => {
+    if (querySeedAppliedRef.current) {
+      return;
+    }
+
+    const seed = initialQuerySeed ?? parseAtlasDeepLinkParams(
+      new URLSearchParams(window.location.search),
+      atlasIndex.countries
+        .filter((country) => country.has_data)
+        .map((country) => country.code),
+    );
+
+    if (!hasAtlasDeepLinkSeed(seed)) {
+      return;
+    }
+
+    querySeedAppliedRef.current = true;
+    applyAtlasDeepLinkSeed(seed, {
+      addCountries,
+      setColorMode,
+      setFocusedClusterId,
+      setFocusedCountryCode,
+      setLastSearchQuery,
+      setLastSemanticSearchQuery,
+      setPendingSegmentId,
+      setRestrictSearchToSelectedCountries,
+    });
+  }, [
+    addCountries,
+    atlasIndex.countries,
+    initialQuerySeed,
+    setColorMode,
+    setFocusedClusterId,
+    setFocusedCountryCode,
+    setLastSearchQuery,
+    setLastSemanticSearchQuery,
+    setPendingSegmentId,
+    setRestrictSearchToSelectedCountries,
+  ]);
 
   // Show the popup after mount so the atlas has time to restore state first.
   useEffect(() => {

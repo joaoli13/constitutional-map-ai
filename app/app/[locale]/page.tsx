@@ -4,6 +4,7 @@ import {setRequestLocale} from "next-intl/server";
 
 import AtlasClient from "@/components/AtlasClient";
 import AtlasPrimer from "@/components/AtlasPrimer";
+import EditorialDiscoveryLinks from "@/components/EditorialDiscoveryLinks";
 import type {AppLocale} from "@/i18n/routing";
 import type {AtlasIndexData, ClusterSummary} from "@/lib/types";
 
@@ -13,6 +14,7 @@ type LocalePageProps = Readonly<{
 
 export default async function LocaleHome({params}: LocalePageProps) {
   const {locale} = await params;
+  const resolvedLocale = locale as AppLocale;
   setRequestLocale(locale);
   const [atlasIndex, clusters] = await Promise.all([
     loadJson<AtlasIndexData>(path.join(process.cwd(), "public", "data", "index.json")),
@@ -24,7 +26,8 @@ export default async function LocaleHome({params}: LocalePageProps) {
   return (
     <>
       <AtlasClient atlasIndex={atlasIndex} clusters={clusters} />
-      <AtlasPrimer locale={locale as AppLocale} />
+      <AtlasPrimer locale={resolvedLocale} />
+      <EditorialDiscoveryLinks locale={resolvedLocale} />
     </>
   );
 }

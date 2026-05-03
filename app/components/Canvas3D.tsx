@@ -553,7 +553,7 @@ export default function Canvas3D({
         },
         showlegend: false,
       }) as Partial<Plotly.Layout>,
-    [focusRanges, uirevision],
+    [focusRanges, initialCamera, uirevision],
   );
 
   const config = useMemo(

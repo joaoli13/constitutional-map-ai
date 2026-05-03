@@ -21,6 +21,7 @@ export default function KeywordSearchSubPanel({onSelectResult}: KeywordSearchSub
   const {ref, isFullscreen, toggleFullscreen} = useFullscreen<HTMLElement>();
   const selectedCountries = useAppStore((state) => state.selectedCountries);
   const searchResults = useAppStore((state) => state.searchResults);
+  const lastSearchQuery = useAppStore((state) => state.lastSearchQuery);
   const restrictSearchToSelectedCountries = useAppStore(
     (state) => state.restrictSearchToSelectedCountries,
   );
@@ -42,6 +43,7 @@ export default function KeywordSearchSubPanel({onSelectResult}: KeywordSearchSub
   const hasSelectedCountries = selectedCountries.length > 0;
   const hasActiveSearch = query.trim().length > 0 || searchResults.length > 0 || resultCount !== null;
   const prevHasCountries = useRef(hasSelectedCountries);
+  const autoRunQueryRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (!hasSelectedCountries) {
@@ -57,10 +59,29 @@ export default function KeywordSearchSubPanel({onSelectResult}: KeywordSearchSub
   const initialQueryRef = useRef(useAppStore.getState().lastSearchQuery);
   useEffect(() => {
     if (initialQueryRef.current && searchResults.length === 0) {
+      autoRunQueryRef.current = initialQueryRef.current;
       void runSearch(initialQueryRef.current);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const normalized = lastSearchQuery.trim();
+    if (!normalized) {
+      return;
+    }
+
+    setQuery((current) => (current === normalized ? current : normalized));
+    if (
+      normalized !== autoRunQueryRef.current
+      && searchResults.length === 0
+      && !isSearching
+    ) {
+      autoRunQueryRef.current = normalized;
+      void runSearch(normalized);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastSearchQuery]);
 
   async function runSearch(text: string) {
     const normalized = text.trim();
@@ -70,6 +91,7 @@ export default function KeywordSearchSubPanel({onSelectResult}: KeywordSearchSub
       return;
     }
 
+    autoRunQueryRef.current = normalized;
     setIsSearching(true);
     setError(null);
 

@@ -1,7 +1,12 @@
 import type {MetadataRoute} from "next";
 
-import {listBlogTutorialSlugs, listBlogTutorials} from "@/lib/blog-tutorial";
-import {routing} from "@/i18n/routing";
+import {listBlogTutorialSlugs, listBlogTutorials} from "../lib/blog-tutorial.ts";
+import {
+  buildDiscoveryUrl,
+  getDiscoveryAlternates,
+  listDiscoveryPages,
+} from "../lib/editorial-discovery.ts";
+import {routing} from "../i18n/routing.ts";
 
 const BASE_URL = "https://constitutionalmap.ai";
 const LAST_CONTENT_UPDATE = new Date("2026-03-30");
@@ -58,5 +63,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [indexEntry, ...articleEntries];
   });
 
-  return [...localeEntries, ...blogEntries];
+  const discoveryEntries = listDiscoveryPages().map((entry) => {
+    const alternates = getDiscoveryAlternates(entry);
+
+    return {
+      url: buildDiscoveryUrl(entry),
+      lastModified: new Date(`${entry.updatedAt}T00:00:00Z`),
+      changeFrequency: "monthly" as const,
+      priority: entry.category === "pillar" ? 0.82 : 0.72,
+      alternates: {
+        languages: alternates.absoluteLanguages,
+      },
+    };
+  });
+
+  return [...localeEntries, ...blogEntries, ...discoveryEntries];
 }
