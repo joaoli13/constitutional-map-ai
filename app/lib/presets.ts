@@ -23,6 +23,7 @@ export const COUNTRY_PRESETS = {
     "EUU",
   ],
   brics: ["BRA", "RUS", "IND", "CHN", "ZAF"],
+  mercosul: ["ARG", "BOL", "BRA", "PRY", "URY"],
   eu: [
     "AUT",
     "BEL",

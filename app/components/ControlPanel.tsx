@@ -42,6 +42,7 @@ export default function ControlPanel({
     {id: "g7", codes: COUNTRY_PRESETS.g7},
     {id: "g20", codes: COUNTRY_PRESETS.g20},
     {id: "brics", codes: COUNTRY_PRESETS.brics},
+    {id: "mercosul", codes: COUNTRY_PRESETS.mercosul},
     {id: "eu", codes: COUNTRY_PRESETS.eu},
     {id: "asean", codes: COUNTRY_PRESETS.asean},
     {id: "au", codes: COUNTRY_PRESETS.au},

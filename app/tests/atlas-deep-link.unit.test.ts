@@ -8,7 +8,23 @@ import {
   parseAtlasDeepLinkParams,
 } from "../lib/atlas-deep-link.ts";
 
-const VALID_COUNTRIES = ["BRA", "PRT", "DEU", "ITA", "AGO", "MOZ", "CPV", "GNB", "STP", "TLS"];
+const VALID_COUNTRIES = [
+  "BRA",
+  "PRT",
+  "DEU",
+  "ITA",
+  "AGO",
+  "MOZ",
+  "CPV",
+  "GNB",
+  "STP",
+  "TLS",
+  "ARG",
+  "BOL",
+  "PRY",
+  "URY",
+  "VEN",
+];
 
 test("atlas deep-link parser validates and deduplicates countries", () => {
   const seed = parseAtlasDeepLinkParams(
@@ -33,6 +49,18 @@ test("atlas deep-link parser expands neutral presets", () => {
   assert.equal(seed.preset, "cplp");
   assert.equal(seed.theme, "lusophone-constitutions");
   assert.equal(seed.semanticQuery, "saúde educação ambiente dignidade");
+});
+
+test("atlas deep-link parser expands Mercosul without suspended Venezuela", () => {
+  const seed = parseAtlasDeepLinkParams(
+    new URLSearchParams("preset=mercosul"),
+    VALID_COUNTRIES,
+    "pt",
+  );
+
+  assert.deepEqual(seed.countries, ["ARG", "BOL", "BRA", "PRY", "URY"]);
+  assert.equal(seed.countries.includes("VEN"), false);
+  assert.equal(seed.preset, "mercosul");
 });
 
 test("atlas deep-link parser ignores malformed focus and unsupported color", () => {
